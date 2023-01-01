@@ -12,6 +12,32 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
+    public function TodaysSale()
+    {
+        $this->db->select('SUM(tbl_bill.price) as total');
+        $this->db->from('tbl_bill');
+        $this->db->where('isDeleted', false);
+        $this->db->where('DATE(added_date)', date('Y-m-d'));
+        $this->db->order_by('id', 'desc');
+        $Query = $this->db->get();
+        return $Query->row();
+    }
+
+
+
+    public function AllSale()
+    {
+        $this->db->select('tbl_bill.*,tbl_product.name as product_name');
+        $this->db->from('tbl_bill');
+        $this->db->join('tbl_product', 'tbl_product.id=tbl_bill.product_id');
+        $this->db->where('tbl_bill.isDeleted', false);
+        $this->db->order_by('tbl_bill.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+
+
     public function AllProductByClass()
     {
         $this->db->select('tbl_product.*,tbl_class.name as class_name');
@@ -112,4 +138,13 @@ class Product_model extends MY_Model
         $this->db->where(['name'=>$name,'isDeleted'=>0]);
         return $num_results = $this->db->count_all_results();
     }
+
+    public function AddOrderItemMapping($data)
+    {
+        if(!empty($data)){
+            return $this->db->insert_batch('tbl_bill', $data);
+        }
+      
+    }
+
 }

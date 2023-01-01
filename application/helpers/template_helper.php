@@ -7,7 +7,7 @@ if (!function_exists('render')) {
         $ci = &get_instance();
         $ci->load->model('Setting_model');
         $title['logo'] = $ci->Setting_model->Setting();
-        $ci->load->view('src/header', $title);
+        $ci->load->view('src/header', $data);
         $ci->load->view('src/nav', $title);
         $ci->load->view('src/sidebar',$data);
         $ci->load->view('src/notification', $title);
@@ -25,4 +25,16 @@ if (!function_exists('render')) {
         $ci->load->view('website/src/footer', $data);
     }
   
+
+    function getProductName($id) {
+      
+        $ci = &get_instance();
+        $ci->db->select('name');
+        $ci->db->from('tbl_product');
+        $ci->db->where('id',$id);
+        $Query=$ci->db->get();
+        return $Query->row();
+    }
+
+
 }

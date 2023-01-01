@@ -35,6 +35,7 @@
    <!-- App js -->
    <script src="<?= base_url('assets/js/bootstrap-datepicker.min.js')?>"></script>
    <script src="<?= base_url('assets/js/app.js')?>"></script>
+   <script src="<?= base_url('assets/js/select2.min.js')?>"></script>
    <script src="<?= base_url('assets/js/custom/validation.js')?>"></script>
    </body>
 
@@ -42,6 +43,7 @@
 
    <script>
       $(document).ready(function () {
+        // $('#item_desc0').select2();
        onScan.attachTo(document, {
     suffixKeyCodes: [], // enter-key expected at the end of a scan
     reactToPaste: false, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
@@ -78,5 +80,78 @@
     },
   });
 });
+
+
+
+
+$(document).on('click', '.add_more_button', function(e) {
+		e.preventDefault();
+	// function addOtherCharges() {
+        //  event.preventDefault();
+        var id = $('#count_item').val();
+        var newField = parseInt(id) + 1;
+        $('#count_item').val(newField);
+        var option=$('#item_desc0').html()
+        var fieldToAdd = '<div class="row items_row" id="oc_field-' + newField + '"><div class="mb-3 col-lg-6"><label for="item_desc'+newField+'">Product Name *</label><select class="form-control select2" name="item_desc[]" id="item_desc'+newField+'" required>'+option+'</select></div><div class="mb-3 col-lg-2"><label for="qty">Qty. *</label><input class="form-control" onchange="setPrice(this,'+newField+')" type="number" min="0" Placeholder="Qty." name="qty[]" id="qty'+newField+'" required></div>';
+			fieldToAdd +='<div class="mb-3 col-lg-2"><label for="price' + newField + '">Price *</label><input class="form-control" type="number" Placeholder="Price" min="0" name="price[]" readonly id="price' + newField + '" required></div>';
+			fieldToAdd +=' <div class="input-field col s1 pdr_0 white_space" style="margin-top: 28px;"><button class="btn btn-danger remove_item" id="remove-oc-1">Remove</button></div>';
+			fieldToAdd +='</div>';
+            $(this).closest('.items_row').after(fieldToAdd);
+            // $('#item_desc'+newField).va
+            // $('#item_desc'+newField).select2().val(null).trigger("change");
+
+              // $('#item_desc'+newField).select2("destroy");
+              // setTimeout(() => {
+              //   $('#item_desc'+newField).select2();
+              // }, 100);
+             
+          
+           
+
+    })
+
+    $(document).on('click', '.remove_item', function(e) {
+		e.preventDefault();
+		var length = $('.items_row').length;
+		if (length > 1) {
+			$(this).closest('.items_row').remove();
+            // CalculateOtherCharges();
+		}
+		return false;
+	});
+
+
+  function setPrice($this,id) {
+        var price=$('#item_desc'+id).find(':selected').data('price')
+        var qty = $($this).val()
+        if (qty!= '') {
+            var w = price*qty
+            $('#price'+id).val(w.toFixed(2))
+        }else{
+          $('#price'+id).val('')
+        }
+    }
+
+    function generateBill() {
+  jQuery.ajax({
+    type: 'POST',
+    data : $('#add_bill').serialize(),
+    url: '<?= base_url('backend/Dashboard/generateBill') ?>',
+    dataType: 'json',
+    beforeSend: function () {
+    },
+    success: function (data) {
+        if(data.response==true){
+            printJS('<?= base_url()?>' + data.file_name, 'pdf');
+        }else{
+            toastr.error('Something went wrong.')
+        }
+       
+    },
+    error: function (e) {
+    },
+  });
+}
+
 
    </script>

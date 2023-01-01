@@ -15,6 +15,7 @@
    <link href="<?= base_url('assets/css/print.min.css') ?>" rel="stylesheet" type="text/css">
    <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet" type="text/css">
    <link href="<?= base_url('assets/css/app.min.css') ?>" rel="stylesheet" type="text/css">
+   <link href="<?= base_url('assets/css/select2.min.css') ?>" rel="stylesheet" type="text/css">
    <!-- DataTables -->
    <link href="<?= base_url('assets/plugins/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet" type="text/css">
    <link href="<?= base_url('assets/plugins/datatables/buttons.bootstrap4.min.css')?>" rel="stylesheet" type="text/css">
@@ -28,8 +29,11 @@
    <script src="<?= base_url('js/onscan.js-master/onscan.js?ver=' . filemtime(FCPATH . 'js/onscan.js-master/onscan.js')) ?>" defer></script>
 
 </head>
-
-<div class="modal fade" id="myModal" role="dialog">
+<?php
+            echo form_open_multipart('backend/Board/insert', ['autocomplete' => false, 'id' => 'add_bill'
+                ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_auther')])
+            ?>
+<div class="modal fade" id="myModal"  data-backdrop="static"  role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -43,33 +47,45 @@
                         </div>
         </div>
         <div class="modal-body">
-         <div class="row">
-         <div class="mb-3 col-lg-8">
-                            <label for="product">Product Name *</label>
-                            <input class="form-control" type="text" Placeholder="Product Name" name="product[]" id="product" required>
-                        </div>
+         <div class="row items_row">
+          <div class="mb-3 col-lg-6">
+            <label for="item_desc0">Product Name *</label>
+            <select class="form-control select2 select_item" name="item_desc[]" id="item_desc0" required>
+            <?php
+            $option='<option value="">Select Product</option>';
+            foreach ($Products as $key => $value) { 
+              $option.='<option value="'.$value->id.'" data-price="'.$value->price_sale.'">'.$value->name.'</option>';
+            }
+            echo $option;
+            ?>
+          </select></div>
                         <!-- end col -->
                         <div class="mb-3 col-lg-2">
                             <label for="qty">Qty. *</label>
-                            <input class="form-control" type="number" Placeholder="Qty." name="qty[]" id="qty" required>
+                            <input class="form-control" type="number" Placeholder="Qty." onchange="setPrice(this,'0')" name="qty[]" id="qty" required>
                         </div>
                         <!-- end col -->
                         <div class="mb-3 col-lg-2">
-                            <label for="uom0">Price</label>
-                            <input class="form-control" type="number" Placeholder="Price" name="price[]" id="price" required>
+                            <label for="price0">Price</label>
+                            <input class="form-control" type="number" Placeholder="Price" name="price[]" id="price0" readonly required>
 
+                        </div>
+                        <div class="input-field col s1 pdr_0 white_space">
+                           <!-- <button class="btn btn-danger remove_item" id="remove-oc-1">Remove</button> -->
+                           <button class="btn btn-primary add_more_button" id='add_oc' style="margin: 19px !important;">Add+</button>
+                           <input type="hidden" value="1" id='count_item'>
                         </div>
          </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Print</button>
+        <button type="button" class="btn btn-primary" onclick="generateBill()">Print</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+          </form>
 <script>
    const BASE_URL = '<?= base_url()?>';
 </script>
