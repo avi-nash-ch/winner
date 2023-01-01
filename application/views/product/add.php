@@ -19,40 +19,60 @@
                     <label for="name">Age </label>
                        <select class="form-control" name="age">
                         <option value="">Select Age</option>
-                        <option value="1">3-5</option>
-                        <option value="2">5-10</option>
-                        <option value="2">10-18</option>
-                        <option value="2">20-50</option>
+                        <?php for ($i=1; $i <81 ; $i++) { ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php } ?>
                        </select>
                     </div>
                     <div class="col-md-2">
                     <label for="name">Language </label>
                        <select class="form-control" name="language">
                         <option value="">Select Language</option>
-                        <option value="1">Hindi</option>
-                        <option value="2">English</option>
-                        <option value="2">Marathi</option>
+                        <?php foreach ($Languages as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
                        </select>
                     </div>
                     <div class="col-md-2">
                     <label for="name">Publisher </label>
                        <select class="form-control" name="publisher">
                         <option value="">Select Publisher</option>
-                        <option value="1">Sk Publisher</option>
-                        <option value="2">PK Publisher</option>
+                        <?php foreach ($Publishers as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
                        </select>
                     </div>
                     <div class="col-md-2">
                     <label for="name">Board </label>
                        <select class="form-control" name="board">
                         <option value="">Select Board</option>
-                        <option value="1">MH-Board</option>
-                        <option value="2">CBSE Board</option>
+                        <?php foreach ($Boards as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="class">Class </label>
+                       <select class="form-control" name="class">
+                        <option value="">Select Class</option>
+                        <?php foreach ($Classes as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
                        </select>
                     </div>
                    
+                   
                 </div>
                 <div class="form-group row">
+                <div class="col-md-2">
+                    <label for="author">Author </label>
+                       <select class="form-control" name="author">
+                        <option value="">Select Author</option>
+                        <?php foreach ($Authors as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
                 <div class="col-md-2">
                     <label for="name">Product Name *</label>
                         <input class="form-control" type="text" Placeholder="Name"  name="name" required
@@ -100,7 +120,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-2"> 
                     <label for="is_old">Is Old Book ?</label>
-                        <input  type="checkbox" name="is_old" id="is_old">
+                        <input  type="checkbox" name="isOld" id="is_old">
                     </div>
                 </div>
                 <div class="form-group mb-0">

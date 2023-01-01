@@ -29,40 +29,40 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <span>Masters</span>
                     </a>
                     <ul class="sub-menu mm-collapse">
-                    <li
+                    <!-- <li
                             class="<?= (array_filter([strpos($final_url, "backend/type")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="#" class="waves-effect">
                                 <span>Type</span></a>
                         </li>
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/age")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
+                            <a href="" class="waves-effect">
                                 <span>Age</span></a>
-                        </li>
+                        </li> -->
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/class")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
+                            <a href="<?= base_url('backend/Classes') ?>" class="waves-effect">
                                 <span>Class</span></a>
                         </li>
                         <li
-                            class="<?= (array_filter([strpos($final_url, "backend/auther")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
-                                <span>Auther</span></a>
+                            class="<?= (array_filter([strpos($final_url, "backend/author")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Author') ?>" class="waves-effect">
+                                <span>Author</span></a>
                         </li>
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/language")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
+                            <a href="<?= base_url('backend/Language') ?>" class="waves-effect">
                                 <span>Language</span></a>
                         </li>
 
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/publisher")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
+                            <a href="<?= base_url('backend/Publisher') ?>" class="waves-effect">
                                 <span>Publisher</span></a>
                         </li>
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/board")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
+                            <a href="<?= base_url('backend/Board') ?>" class="waves-effect">
                                 <span>Board</span></a>
                         </li>
                     </ul>

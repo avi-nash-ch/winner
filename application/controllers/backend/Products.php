@@ -4,7 +4,7 @@ class Products extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model']);
+        $this->load->model(['Product_model','Class_model','Auther_model','Publisher_model','Language_model','Board_model']);
     }
 
     public function index()
@@ -38,7 +38,12 @@ class Products extends MY_Controller
     public function add()
     {
         $data = [
-            'title' => 'Add Product'
+            'title' => 'Add Product',
+            'Classes' => $this->Class_model->All(),
+            'Authors' => $this->Auther_model->All(),
+            'Languages' => $this->Language_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'Boards' => $this->Board_model->All(),
         ];
 
         template('product/add', $data);
@@ -48,6 +53,11 @@ class Products extends MY_Controller
     {
         $data = [
             'title' => 'Edit Product',
+            'Classes' => $this->Class_model->All(),
+            'Authors' => $this->Auther_model->All(),
+            'Languages' => $this->Language_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'Boards' => $this->Board_model->All(),
             'Product' => $this->Product_model->ViewTableMaster($id)
         ];
 
@@ -110,7 +120,13 @@ class Products extends MY_Controller
         $data = [
             'name' => $this->input->post('name'),
             'type' => $this->input->post('type'),
-            'qty' => $this->input->post('qty'),
+            'age' => $this->input->post('age'),
+            'class' => $this->input->post('class'),
+            'author' => $this->input->post('author'),
+            'publisher' => $this->input->post('publisher'),
+            'language' => $this->input->post('language'),
+            'board' => $this->input->post('board'),
+            'isOld' => !empty($this->input->post('isOld'))?1:0,
             'purchase_price' => $this->input->post('purchase_price'),
             'price_sale' => $this->input->post('sale_price'),
             'qr_code' => $this->input->post('qr_code'),
@@ -169,6 +185,13 @@ class Products extends MY_Controller
             'price_sale' => $this->input->post('sale_price'),
             'qr_code' => $this->input->post('qr_code'),
             'url' => $this->input->post('url'),
+            'age' => $this->input->post('age'),
+            'class' => $this->input->post('class'),
+            'author' => $this->input->post('author'),
+            'publisher' => $this->input->post('publisher'),
+            'language' => $this->input->post('language'),
+            'board' => $this->input->post('board'),
+            'isOld' => !empty($this->input->post('isOld'))?1:0,
             'updated_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {

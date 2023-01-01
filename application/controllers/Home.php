@@ -8,18 +8,43 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model('Banner_model');
+        $this->load->model(['Product_model','Class_model']);
     }
 
     public function index()
     {
         $data = [
             'title' => 'Home',
-            'banner' => $this->Banner_model->view(),
+            'Classes' => $this->Class_model->All(),
+            'AllProduct' => $this->Product_model->AllProduct(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/index', $data);
+        website('frontend/index', $data);
     }
+
+    public function Class($class='')
+    {
+        $data = [
+            'title' => 'Class',
+            'class'=>$class,
+            'Classes' => $this->Class_model->All(),
+            'AllProduct' => $this->Product_model->AllProductByClass(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/classes/class-12-books', $data);
+    }
+
+    public function AddToCart()
+    {
+        $data = [
+            'title' => 'add-to-cart',
+            
+            // 'AllProduct' => $this->Product_model->AllProduct(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/checkout/cart/index', $data);
+    }
+
 
     public function download()
     {

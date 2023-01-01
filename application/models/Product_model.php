@@ -4,7 +4,7 @@ class Product_model extends MY_Model
 
     public function AllProduct()
     {
-        $this->db->select('tbl_product.*,(select sale_price from tbl_product_price where tbl_product_price.product_id=tbl_product.id and tbl_product_price.isDeleted=0 order by tbl_product_price.id desc limit 1 ) as sale_price');
+        $this->db->select('tbl_product.*');
         $this->db->from('tbl_product');
         $this->db->where('isDeleted', false);
         $this->db->order_by('id', 'desc');
@@ -12,6 +12,16 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
+    public function AllProductByClass()
+    {
+        $this->db->select('tbl_product.*,tbl_class.name as class_name');
+        $this->db->from('tbl_product');
+        $this->db->join('tbl_class', 'tbl_class.id=tbl_product.class');
+        $this->db->where('tbl_product.isDeleted', false);
+        $this->db->order_by('tbl_product.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
 
 
 

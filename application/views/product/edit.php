@@ -7,7 +7,6 @@
                 ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_product'),
                 'id'=> $Product->id])
                 ?>
-             
              <div class="form-group row">
              <div class="col-md-2">
              <label for="name">Product Type *</label>
@@ -17,6 +16,65 @@
                         <option value="2" <?= ($Product->type==2)?'selected':''?>>Pen</option>
                        </select>
                     </div>
+                    <div class="col-md-2">
+                    <label for="name">Age </label>
+                       <select class="form-control" name="age">
+                        <option value="">Select Age</option>
+                        <?php for ($i=1; $i <81 ; $i++) { ?>
+                        <option value="<?= $i ?>" <?= ($Product->age==$i)?'selected':''?>><?= $i ?></option>
+                    <?php } ?>
+                       </select>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="name">Language </label>
+                       <select class="form-control" name="language">
+                        <option value="">Select Language</option>
+                        <?php foreach ($Languages as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->language==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="name">Publisher </label>
+                       <select class="form-control" name="publisher">
+                        <option value="">Select Publisher</option>
+                        <?php foreach ($Publishers as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->publisher==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="name">Board </label>
+                       <select class="form-control" name="board">
+                        <option value="">Select Board</option>
+                        <?php foreach ($Boards as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->board==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="class">Class </label>
+                       <select class="form-control" name="class">
+                        <option value="">Select Class</option>
+                        <?php foreach ($Classes as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->class==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                   
+                   
+                </div>
+             <div class="form-group row">
+             <div class="col-md-2">
+                    <label for="author">Author </label>
+                       <select class="form-control" name="author">
+                        <option value="">Select Author</option>
+                        <?php foreach ($Authors as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->author==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+            
                     <div class="col-md-2">
                     <label for="name">Product Name *</label>
                         <input class="form-control" type="text"  name="name" value="<?= $Product->name ?>" required
@@ -57,8 +115,13 @@
                 <div class="form-group row">
                    
                     <div class="col-md-2">
-                    <label for="image">Image *</label>
-                        <input class="form-control" type="file" name="product_image" id="image" required>
+                    <label for="image">Image</label>
+                        <input class="form-control" type="file" name="product_image" id="image">
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2"> 
+                    <label for="is_old">Is Old Book ?</label>
+                        <input  type="checkbox" name="isOld" <?= !empty($Product->isOld)?'checked':'' ?> id="is_old">
                     </div>
                 </div>
 
