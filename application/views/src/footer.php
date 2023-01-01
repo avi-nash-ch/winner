@@ -39,3 +39,44 @@
    </body>
 
    </html>
+
+   <script>
+      $(document).ready(function () {
+       onScan.attachTo(document, {
+    suffixKeyCodes: [], // enter-key expected at the end of a scan
+    reactToPaste: false, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
+    onScan: function (sCode, iQty) {
+      $('#space_number').val('');
+      $("textarea[name='notes']").val('');
+      if (!sCode.startsWith('ANSI')) {
+        jQuery.ajax({
+          type: 'POST',
+          data: {
+            barcode: sCode,
+            type: btoa(3),
+            scanfrom: btoa(1),
+          },
+          url: BASE_URL + 'guard/GuardPortal/scan_barcode',
+          success: function (data) {
+            var j_data = JSON.parse(data);
+            // console.log(j_data);
+            $('#save_process').val('');
+           
+          },
+        });
+      }
+    },
+    onKeyDetect: function (iKeyCode) {
+      // output all potentially relevant key events - great for debugging!
+      // console.log("Pressed: " + iKeyCode);
+    },
+    keyCodeMapper: function (oEvent) {
+      //if (oEvent.which == 13) {
+      //return "/";
+      //}
+      return onScan.decodeKeyEvent(oEvent);
+    },
+  });
+});
+
+   </script>

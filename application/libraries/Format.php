@@ -105,7 +105,6 @@ class Format {
 
         // Set the member variable to the data passed
         $this->_data = $data;
-        
     }
 
     /**

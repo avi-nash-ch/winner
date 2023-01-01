@@ -14,7 +14,9 @@
     "php": ">=5.3.7",
     "vlucas/phpdotenv": "^4.1",
     "razorpay/razorpay": "2.*",
-    "paytm/paytmchecksum": "*"
+    "paytm/paytmchecksum": "*",
+    "chillerlan/php-qrcode": "^4.3",
+    "mpdf/mpdf": "^8.1"
   },
   "suggest": {
     "paragonie/random_compat": "Provides better randomness in PHP 5.x"

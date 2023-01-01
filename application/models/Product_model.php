@@ -46,6 +46,14 @@ class Product_model extends MY_Model
             ->get('tbl_product');
         return $Query->row();
     }
+
+    public function GetProductByQrCode($qr_code)
+    {
+        $Query = $this->db->where('isDeleted', False)
+            ->where('qr_code', $qr_code)
+            ->get('tbl_product');
+        return $Query->row();
+    }
     
     public function AddTableMaster($data)
     {

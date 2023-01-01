@@ -12,6 +12,7 @@
                             <th>Product Name</th>
                             <th>Qty</th>
                             <th>Available Qty</th>
+                            <th>QR Code Text</th>
                             <th>QR Code</th>
                             <th>Sale Price</th>
                             <th>Image</th>
@@ -24,6 +25,11 @@
                         $i = 0;
                         foreach ($AllProducts as $key => $AllProduct) {
                             $i++;
+                            ob_start();
+        QRcode::png($AllProduct->qr_code, NULL,'L',4, 2);
+         $imageString1 = base64_encode(ob_get_contents());
+        ob_end_clean();
+        $base64_qrcode = 'data:image/png;base64,' . $imageString1;
                         ?>
                         <tr>
                             <td><?= $i ?></td>
@@ -31,6 +37,7 @@
                             <td><?= $AllProduct->qty ?></td>
                             <td><?= $AllProduct->qty ?></td>
                             <td><?= $AllProduct->qr_code ?></td>
+                            <td><img src="<?= $base64_qrcode ?>" class="img"  onclick="printQrCode('<?= $AllProduct->qr_code ?>')" alt="qr" style="width:81px; height:81px;cursor:pointer"></td>
                             <td><?= $AllProduct->price_sale ?></td>
                             <td><img src="<?= base_url('uploads/images/'.$AllProduct->image); ?>" height="80px" width="80px"></td>
                             <td><?= date("d-m-Y h:i A", strtotime($AllProduct->added_date)) ?></td>
@@ -57,3 +64,28 @@
     </div>
     <!-- end col -->
 </div>
+
+<script>
+    function printQrCode(qr_code) {
+  jQuery.ajax({
+    type: 'POST',
+    data: {
+        qr_code,
+    },
+    url: '<?= base_url('backend/Products/PrintQrCode') ?>',
+    dataType: 'json',
+    beforeSend: function () {
+    },
+    success: function (data) {
+        if(data.response==true){
+            printJS('<?= base_url()?>' + data.file_name, 'pdf');
+        }else{
+            toastr.error('Something went wrong.')
+        }
+       
+    },
+    error: function (e) {
+    },
+  });
+}
+</script>

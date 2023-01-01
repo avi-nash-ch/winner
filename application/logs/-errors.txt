@@ -1,0 +1,2806 @@
+2023-01-01 08:40:33: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:29: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:31: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:31: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:31: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:31: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:31: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:32: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:32: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:32: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:32: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:32: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:42:33: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:43:03: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 08:43:04: 
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/frame_1.dat): Failed to open stream: Permission denied</p>
+<p>Filename: qrcode/qrspec.php</p>
+<p>Line Number: 568</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_0/mask_21_0.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_1/mask_21_1.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_2/mask_21_2.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_3/mask_21_3.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_4/mask_21_4.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_5/mask_21_5.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_6/mask_21_6.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  mkdir(): Permission denied</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 154</p>
+
+
+</div>
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Warning</p>
+<p>Message:  file_put_contents(/var/www/html/mng_product/application/cache/mask_7/mask_21_7.dat): Failed to open stream: No such file or directory</p>
+<p>Filename: qrcode/qrmask.php</p>
+<p>Line Number: 155</p>
+
+
+</div>2023-01-01 09:26:18: empty string!!!2023-01-01 09:26:25: empty string!!!

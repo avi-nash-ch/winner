@@ -19,9 +19,16 @@ class Products extends MY_Controller
 
     public function test()
 	{
-		// You can put anything here to generate of barcode
-		$string = 'code39';
-		$this->set_barcode($string);
+        
+        $level1 = 'L';
+        $size1 = 4;
+        ob_start();
+        QRcode::png('testasasas', NULL,'L',4, 2);
+         $imageString1 = base64_encode(ob_get_contents());
+        ob_end_clean();
+        $base64_qrcode = 'data:image/png;base64,' . $imageString1;
+       echo '<img src="'.$base64_qrcode.'" class="img" alt="qr" style="width:81px; height:81px;">';
+       exit;
 	}
 	
 	private function set_barcode($code)
@@ -243,5 +250,34 @@ class Products extends MY_Controller
         redirect('backend/Products/addprice/'.$this->input->post('product_id'));
     }
 
+
+    public function PrintQrCode()
+    {
+        $result = [];
+        $qr_code = $this->input->post('qr_code');
+        if (!empty($qr_code)) {
+            $data['product']=$this->Product_model->GetProductByQrCode($qr_code);
+            ob_start();
+            QRcode::png($qr_code, NULL,'L',4, 2);
+             $imageString1 = base64_encode(ob_get_contents());
+            ob_end_clean();
+            $base64_qrcode = 'data:image/png;base64,' . $imageString1;
+            $data['qr_code']=$base64_qrcode;
+            $html = $this->load->view('qr_code', $data, true);
+            $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [30, 150], 'orientation' => 'L', 'margin_top' => 1, 'margin_bottom' => 0.3, 'margin_left' => 0.5, 'margin_right' => 0.5]);
+            //generate the PDF from the given html
+            $mpdf->SetJS('this.print();');
+            $mpdf->WriteHTML($html);
+
+            $file = 'pass' . time() . '.pdf';
+            $file_name = 'assets/pass_pdf/' . $file;
+            //download it.
+            $mpdf->Output($file_name, 'F');
+            $result = ['file_name' => $file_name, 'response' => true, 'msg' => 'success'];
+        } else {
+            $result = ['response' => false, 'msg' => 'Invalid Param'];
+        }
+        echo json_encode($result);
+    }
 
 }

@@ -92,7 +92,10 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                     <div class="col-sm-6">
                         <div class="float-right d-md-block">
                             <?php
+if($this->uri->segment(2)=='dashboard'){
+         echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Generate Bill</button>';
 
+}
                      if (isset($SideBarbutton) && isset($SideBarbutton[1])) {
                          ?>
 
