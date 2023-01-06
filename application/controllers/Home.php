@@ -33,44 +33,66 @@ class Home extends CI_Controller
         ];
         website('frontend/classes/class-12-books', $data);
     }
-
+    public function productDeatils()
+    {
+        $data = [
+            'title' => 'product-details',
+            // 'AllProduct' => $this->Product_model->AllProduct(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/classes/produtdetail', $data);
+    }
     public function AddToCart()
     {
         $data = [
             'title' => 'add-to-cart',
-            
             // 'AllProduct' => $this->Product_model->AllProduct(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/checkout/cart/index', $data);
     }
+    // public function termsAndConditon()
+    // {
+    //     $data = [
+    //         'title' => 'terms-conditions',
+    //         // 'AllProduct' => $this->Product_model->AllProduct(),
+    //         'Setting' => $this->Setting_model->Setting(),
+    //     ];
+    //     website('frontend/footerpages/terms-conditions', $data);
+    // }
 
 
-    public function download()
+    public function site_map()
     {
         $data = [
-            'title' => 'Downlaod',
-            'banner' => $this->Banner_model->view(),
+            'title' => 'Site Map',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/download', $data);
+        website('frontend/footerpages/sitemap', $data);
     }
     
-    public function faq()
+    public function feedback()
     {
         $data = [
-            'title' => 'FAQ',
+            'title' => 'About Us',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/faq', $data);
+        website('frontend/footerpages/feedback', $data);
     }
 
     public function about_us()
     {
         $data = [
             'title' => 'About Us',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/about-us', $data);
+        website('frontend/footerpages/about-mybookshop', $data);
     }
 
     public function refund_policy()
@@ -86,19 +108,23 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Privacy Policy',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         
-        website('website/privacy', $data);
+        website('frontend/footerpages/our-policies', $data);
     }
 
     public function terms_conditions()
     {
         $data = [
             'title' => 'Terms & Conditions',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/t-and-c', $data);
+        website('frontend/footerpages/terms-conditions', $data);
     }
 
     public function security()
@@ -113,18 +139,21 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Contact us',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/Contact', $data);
+        website('frontend/footerpages/contact', $data);
     }
 
-    public function download2()
+    public function help_support()
     {
         $data = [
-            'title' => 'Download',
-            'banner' => $this->Banner_model->view(),
+            'title' => 'Help Support',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/download-2', $data);
+        website('frontend/footerpages/help-support', $data);
     }
 }
