@@ -238,7 +238,7 @@ Calendar._TT["TIME"] = 'Time:';
                                                    
                                                
 						<li class="homepagelists item last">
-				<a href="eupheus-learning-zoom-for-lkg-class.html" title="<?= $value->name ?>" class="product-image">
+				<a href="<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($value->id))?>" title="<?= $value->name ?>" class="product-image">
 					<div class="homepagelists-img">
                     <img width="100px" src="<?= base_url('uploads/images/'.$value->image)  ?>" alt="<?= $value->name ?>" />
                     </div>
@@ -303,14 +303,14 @@ Calendar._TT["TIME"] = 'Time:';
                                                    
                                                
                                                    <li class="homepagelists item last">
-                                           <a href="eupheus-learning-zoom-for-lkg-class.html" title="<?= $value->name ?>" class="product-image">
+                                           <a href="<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($value->id))?>" title="<?= $value->name ?>" class="product-image">
                                                <div class="homepagelists-img">
                                                <img width="100px" src="<?= base_url('uploads/images/'.$value->image)  ?>" alt="<?= $value->name ?>" />
                                                </div>
                                                
                                            </a>
                                            <div class="product-info">
-                                               <h2 class="product-name"><a href="eupheus-learning-zoom-for-lkg-class.html" title="<?= $value->name ?>"><?= $value->name ?></a></h2>
+                                               <h2 class="product-name"><a href="<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($value->id))?>" title="<?= $value->name ?>"><?= $value->name ?></a></h2>
                                                                        
                                <div class="price-box">
                                                                        

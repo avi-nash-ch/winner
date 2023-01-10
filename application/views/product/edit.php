@@ -1,3 +1,24 @@
+<style>
+            .holder {
+                height: 120px;
+                width: 120px;
+                border: 2px solid black;
+            }
+            img {
+                max-width: 120px;
+                max-height: 120px;
+                min-width: 120px;
+                min-height: 120px;
+            }
+            input[type="file"] {
+                margin-top: 5px;
+            }
+            .heading {
+                font-family: Montserrat;
+                font-size: 45px;
+                color: green;
+            }
+        </style>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -12,8 +33,9 @@
              <label for="name">Product Type *</label>
                        <select class="form-control" name="type">
                         <option value="">Select Type</option>
-                        <option value="1" <?= ($Product->type==1)?'selected':''?>>Book</option>
-                        <option value="2" <?= ($Product->type==2)?'selected':''?>>Pen</option>
+                        <?php foreach ($ProductTypes as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->type==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
                        </select>
                     </div>
                     <div class="col-md-2">
@@ -66,6 +88,15 @@
                 </div>
              <div class="form-group row">
              <div class="col-md-2">
+                    <label for="subject">Subject </label>
+                       <select class="form-control" name="subject">
+                        <option value="">Select Subject</option>
+                        <?php foreach ($Subjects as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->subject==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+             <div class="col-md-2">
                     <label for="author">Author </label>
                        <select class="form-control" name="author">
                         <option value="">Select Author</option>
@@ -113,12 +144,59 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="product_code">ISBN/Product Code</label>
+                        <input class="form-control" type="text" Placeholder="ISBN/Product Code" value="<?= $Product->product_code ?>"  name="product_code" required
+                            id="product_code">
+                    </div>
+                    <div class="col-md-3">
+                    <label for="edition">Edition</label>
+                        <input class="form-control" type="text" Placeholder="Edition" value="<?= $Product->edition ?>" name="edition"
+                            id="edition">
+                    </div>
+                    <div class="col-md-3">
+                    <label for="url">HSN Code</label>
+                        <input class="form-control" type="text" Placeholder="HSN Code" value="<?= $Product->hsn_code ?>" name="hsn_code"
+                            id="hsn_code">
+                    </div>
+                    <div class="col-md-3">
+                    <label for="discount">Discount in %</label>
+                        <input class="form-control" type="text" Placeholder="discount" value="<?= $Product->offer ?>" name="discount"
+                            id="discount">
+                    </div>
+                </div>
+
+                <div class="form-group row">
                    
-                    <div class="col-md-2">
-                    <label for="image">Image</label>
+                <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview" src="#" style="display:none"  />
+            </div>
+                    <label for="image">Image1 *</label>
                         <input class="form-control" type="file" name="product_image" id="image">
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview2" src="#" style="display:none"  />
+            </div>
+                    <label for="image2">Image2</label>
+                        <input class="form-control" type="file" name="product_image2" id="image2">
+                    </div>
+                    <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview3" src="#" style="display:none"  />
+            </div>
+                    <label for="imag3">Image3</label>
+                        <input class="form-control" type="file" name="product_image3" id="image3">
+                    </div>
+                    <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview4" src="#" style="display:none"  />
+            </div>
+                    <label for="image4">Image4</label>
+                        <input class="form-control" type="file" name="product_image4" id="image4">
+                    </div>
+                    <div class="col-md-2"></div>
                     <div class="col-md-2"> 
                     <label for="is_old">Is Old Book ?</label>
                         <input  type="checkbox" name="isOld" <?= !empty($Product->isOld)?'checked':'' ?> id="is_old">
@@ -141,7 +219,71 @@
         </div><!-- end col -->
     </div>
     <script>
-    function updateValue(x) {
-        $('#point_value').val(x * 80);
-    }
-    </script>
+
+            $(document).ready(() => {
+                <?php if($Product->image){ ?>
+                    $("#imgPreview").attr("src",'<?= base_url('uploads/images/').$Product->image ?>');
+                    $("#imgPreview").show()
+                    <?php } ?>
+                    <?php if($Product->image2){ ?>
+                    $("#imgPreview2").attr("src",'<?= base_url('uploads/images/').$Product->image2 ?>');
+                    $("#imgPreview2").show()
+                    <?php } ?>
+                    <?php if($Product->image3){ ?>
+                    $("#imgPreview3").attr("src",'<?= base_url('uploads/images/').$Product->image3 ?>');
+                    $("#imgPreview3").show()
+                    <?php } ?>
+                    <?php if($Product->image4){ ?>
+                    $("#imgPreview4").attr("src",'<?= base_url('uploads/images/').$Product->image4 ?>');
+                    $("#imgPreview4").show()
+                    <?php } ?>
+                $("#image").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview")
+                              .attr("src", event.target.result);
+                              $('#imgPreview').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+                $("#image2").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview2")
+                              .attr("src", event.target.result);
+                              $('#imgPreview2').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+                $("#image3").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview3")
+                              .attr("src", event.target.result);
+                              $('#imgPreview3').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+                $("#image4").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview4")
+                              .attr("src", event.target.result);
+                              $('#imgPreview4').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+        </script>

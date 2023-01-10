@@ -36,10 +36,10 @@
 <div class="block-title disable-link"><strong><span>Company</span></strong></div>
 <ul style="float: left; font-size: 15px;">
 <li><a href="<?=base_url('Home/about_us')?>">About Us</a></li>
-<li><a href="our-policies/index.html#delivery-policy" class="disable-link">Delivery Policy</a></li>
-<li><a href="our-policies/index.html#cancellation-policy" class="disable-link">Cancellation Policy</a></li>
-<li><a class="disable-link" href="our-policies/index.html#return-policy">Return &amp; Exchange Policy</a></li>
-<li><a class="disable-link" href="our-policies/index.html#refund-policy">Refund Policy</a></li>
+<li><a href="<?=base_url('Home/privacy_policy')?>#delivery-policy">Delivery Policy</a></li>
+<li><a href="<?=base_url('Home/privacy_policy')?>#cancellation-policy" >Cancellation Policy</a></li>
+<li><a  href="<?=base_url('Home/privacy_policy')?>#return-policy">Return &amp; Exchange Policy</a></li>
+<li><a  href="<?=base_url('Home/privacy_policy')?>#refund-policy">Refund Policy</a></li>
 <li><a href="<?=base_url('Home/privacy_policy')?>">Privacy Policy</a></li>
 <li><a href="<?=base_url('Home/privacy_policy')?>">Our Policy</a></li>
 <li><a  href="<?=base_url('Home/terms_conditions')?>">Terms of Use</a></li>
@@ -50,11 +50,11 @@
 <div class="block-title"><strong><span>Contact Us</span></strong></div>
 <ul style="float: left; font-size: 15px;">
 <li><a  href="<?=base_url('Home/contact_us')?>" title="Contact us"><span>Contact Us</span></a></li>
-<li><span><a class="disable-link" href="wholesale-bulkorder.html" title="Contact us">Contact Us for Bulk Enquiries</a></span></li>
+<li><span><a  href="<?=base_url('Home/bulk_enquiry')?>">Contact Us for Bulk Enquiries</a></span></li>
 <li><a href="<?=base_url('Home/help_support')?>" title="Help &amp; Support"><span>Help &amp; Support</span></a></li>
-<li><a class="disable-link" href="ordertracking/index/index.html"><span>Track your order</span></a></li>
+<li><a  href="<?=base_url('Home/track_order')?>"><span>Track your order</span></a></li>
 <li><a href="<?=base_url('Home/feedback')?>" title="Customer Feedback" target="_self"><span>Customer Feedback</span></a></li>
-<li><a class="disable-link" href="international-orders.html" title="International Orders" target="_blank"><span>International Orders</span></a></li>
+
 </ul>
 </div>
 <div class="links">

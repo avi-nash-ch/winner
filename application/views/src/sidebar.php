@@ -65,6 +65,16 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <a href="<?= base_url('backend/Board') ?>" class="waves-effect">
                                 <span>Board</span></a>
                         </li>
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/subjects")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Subjects') ?>" class="waves-effect">
+                                <span>Subject</span></a>
+                        </li>
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/producttypes")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/ProductTypes') ?>" class="waves-effect">
+                                <span>Product Type</span></a>
+                        </li>
                     </ul>
                 </li>
 

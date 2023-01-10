@@ -4,7 +4,7 @@ class Products extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model','Class_model','Auther_model','Publisher_model','Language_model','Board_model']);
+        $this->load->model(['Product_model','Class_model','Auther_model','Publisher_model','Language_model','Board_model','Subject_model','ProductTypes_model']);
     }
 
     public function index()
@@ -51,6 +51,8 @@ class Products extends MY_Controller
             'Languages' => $this->Language_model->All(),
             'Publishers' => $this->Publisher_model->All(),
             'Boards' => $this->Board_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'ProductTypes' => $this->ProductTypes_model->All(),
         ];
 
         template('product/add', $data);
@@ -65,6 +67,8 @@ class Products extends MY_Controller
             'Languages' => $this->Language_model->All(),
             'Publishers' => $this->Publisher_model->All(),
             'Boards' => $this->Board_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'ProductTypes' => $this->ProductTypes_model->All(),
             'Product' => $this->Product_model->ViewTableMaster($id)
         ];
 
@@ -103,6 +107,9 @@ class Products extends MY_Controller
     public function insert()
     {
         $product_image='';
+        $product_image2='';
+        $product_imag3='';
+        $product_image4='';
         if (! empty($_FILES['product_image']['name'])) {
             $_FILES['images']['name'] = $_FILES['product_image']['name'];
             $_FILES['images']['type'] = $_FILES['product_image']['type'];
@@ -124,8 +131,76 @@ class Products extends MY_Controller
                 exit;
             }
         }
+        if (! empty($_FILES['product_image2']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image2']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image2']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image2']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image2']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image2']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image2')) {
+                $data1 = $this->upload->data();
+                $product_image2 = $data1['file_name'];
+                if (empty($product_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        if (! empty($_FILES['product_image3']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image3']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image3']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image3']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image3']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image3']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image3')) {
+                $data1 = $this->upload->data();
+                $product_image3 = $data1['file_name'];
+                if (empty($product_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        if (! empty($_FILES['product_image4']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image4']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image4']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image4']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image4']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image4']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image')) {
+                $data1 = $this->upload->data();
+                $product_image4 = $data1['file_name'];
+                if (empty($product_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
         $data = [
             'name' => $this->input->post('name'),
+            'subject' => $this->input->post('subject'),
+            'product_code' => $this->input->post('product_code'),
+            'edition' => $this->input->post('edition'),
+            'hsn_code' => $this->input->post('hsn_code'),
+            'offer' => $this->input->post('discount'),
             'type' => $this->input->post('type'),
             'age' => $this->input->post('age'),
             'class' => $this->input->post('class'),
@@ -140,6 +215,9 @@ class Products extends MY_Controller
             'description' => $this->input->post('desc'),
             'url' => $this->input->post('url'),
             'image' => $product_image,
+            'image2' => $product_image2,
+            'image3' => $product_image3,
+            'image4' => $product_image4,
             'added_date' => date('Y-m-d H:i:s')
         ];
         // $check=$this->UserCategory_model->CheckDuplicate($this->input->post('name'));
@@ -185,6 +263,11 @@ class Products extends MY_Controller
     {
         $data = [
             'name' => $this->input->post('name'),
+            'subject' => $this->input->post('subject'),
+            'product_code' => $this->input->post('product_code'),
+            'edition' => $this->input->post('edition'),
+            'hsn_code' => $this->input->post('hsn_code'),
+            'offer' => $this->input->post('discount'),
             'description' => $this->input->post('desc'),
             'type' => $this->input->post('type'),
             'qty' => $this->input->post('qty'),
@@ -222,6 +305,72 @@ class Products extends MY_Controller
                 exit;
             }
             $data['image']= $product_image;
+        }
+        if (! empty($_FILES['product_image2']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image2']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image2']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image2']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image2']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image2']['size'];
+            $config['upload_path'] = 'uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image2')) {
+                $data1 = $this->upload->data();
+                $product_image2 = $data1['file_name'];
+                if (empty($product_image2)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+            $data['image2']= $product_image2;
+        }
+        if (! empty($_FILES['product_image3']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image3']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image3']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image3']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image3']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image3']['size'];
+            $config['upload_path'] = 'uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image3')) {
+                $data1 = $this->upload->data();
+                $product_image3 = $data1['file_name'];
+                if (empty($product_image3)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+            $data['image3']= $product_image3;
+        }
+        if (! empty($_FILES['product_image4']['name'])) {
+            $_FILES['images']['name'] = $_FILES['product_image4']['name'];
+            $_FILES['images']['type'] = $_FILES['product_image4']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['product_image4']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['product_image4']['error'];
+            $_FILES['images']['size'] = $_FILES['product_image4']['size'];
+            $config['upload_path'] = 'uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('product_image4')) {
+                $data1 = $this->upload->data();
+                $product_image4 = $data1['file_name'];
+                if (empty($product_image4)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+            $data['image4']= $product_image4;
         }
         $Category = $this->Product_model->UpdateTableMaster($data, $this->input->post('id'));
         if ($Category) {

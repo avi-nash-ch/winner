@@ -61,7 +61,7 @@
 <p><em>Disclaimer: Ruchibooks does not provide courier service but hires third party courier company services to deliver the orders placed on its ecommerce portal, Hence&nbsp;</em><em>Ruchibooks.com is not responsible for behaviour and work ethics of Shipping company or there executives/representatives.&nbsp;</em><em>Ruchibooks.com is not responsible for any error, wrong doings or bad services of courier company and there executives/representatives.&nbsp;</em><em>Ruchibooks.com to provide good services to its customer still provide refund/exchange in some cases where the courier company may be at fault, if notified within the time period mentioned in its policies. Proper procedure for taking action in such selected cases is mentioned in our policies.</em></p>
 <p></p>
 <h2><a id="refund-policy"></a>&nbsp;Any Query Related to Our Policy</h2>
-<p>For any query regarding Delivery, Cancellation, Return, Exchange &amp; Refund Policy. Please feel free to <a href="contact-mybookshop.html" title="Contact Us - mybookshop.co.in" target="_self">Contact Us</a></p>
+<p>For any query regarding Delivery, Cancellation, Return, Exchange &amp; Refund Policy. Please feel free to <a href="<?= base_url('Home/contact_us')?>" title="Contact Us - ruchibooks.com" target="_self">Contact Us</a></p>
 <p>Ph:&nbsp;&nbsp;<span>-&nbsp;020-XXXXXXXX</span><span>&nbsp;/&nbsp;+91 9028060396</span><br />email -&nbsp;Shop@ruchibooks.com</p>
 <p></p></div>                 </div>
             </div>

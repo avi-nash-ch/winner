@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Product_model','Class_model']);
+        $this->load->model(['Product_model','Class_model','Website_model']);
     }
 
     public function index()
@@ -24,21 +24,30 @@ class Home extends CI_Controller
 
     public function Class($class='')
     {
+
+        $AllClass= $this->Class_model->All();
         $data = [
             'title' => 'Class',
             'class'=>$class,
             'Classes' => $this->Class_model->All(),
             'AllProduct' => $this->Product_model->AllProductByClass(),
             'Setting' => $this->Setting_model->Setting(),
+            'AllClass'=>$AllClass
         ];
         website('frontend/classes/class-12-books', $data);
     }
-    public function productDeatils()
+    public function productDeatils($id)
     {
+        $id=$this->url_encrypt->decode($id);
+        $product=$this->Website_model->ProductById($id);
+        $related=$this->Website_model->GateRelatedProduct($product->type,$id);
         $data = [
             'title' => 'product-details',
-            // 'AllProduct' => $this->Product_model->AllProduct(),
+            // 'class'=>$class,
+            'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
+            'data' => $product,
+            'related'=>$related
         ];
         website('frontend/classes/produtdetail', $data);
     }
@@ -82,6 +91,28 @@ class Home extends CI_Controller
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/feedback', $data);
+    }
+
+    public function bulk_enquiry()
+    {
+        $data = [
+            'title' => 'Bulk Enquiry',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/footerpages/bulk_enquiry', $data);
+    }
+
+    public function track_order()
+    {
+        $data = [
+            'title' => 'Track Order',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/footerpages/track_order', $data);
     }
 
     public function about_us()
