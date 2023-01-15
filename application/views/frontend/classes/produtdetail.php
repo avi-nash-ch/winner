@@ -33,7 +33,7 @@
             <span itemprop="weight" itemscope itemtype="http://schema.org/QuantitativeValue">
                 <meta itemprop="value" content="0.9000"/>
                 <meta itemprop="unitCode" content="GRM">
-            </span><meta itemprop="image" content="https://mybookshop.co.in/myshop/media/product/fb9/eupheus-learning-zoom-for-lkg-class-complete-kit-984.jpeg"/><div class="product-name " itemprop="name">
+            </span><meta itemprop="image" content="<?= base_url('uploads/images/'.$data->image) ?>"/><div class="product-name " itemprop="name">
                     <h1><?= $data->name ?></h1>
                 </div>
                 <div class="product-image product-image-zoom">
@@ -41,27 +41,71 @@
         <img id="image-main"
              class="gallery-image visible"
              src="<?= base_url('uploads/images/'.$data->image) ?>"
-             alt="Eupheus Learning Zoom for LKG"
-             title="Eupheus Learning Zoom for LKG" />
+             alt="<?= $data->name?>"
+             title="<?= $data->name?>" />
 
                                 <img id="image-0"
                  class="gallery-image"
-                 src="<?= base_url('uploads/images/'.$data->image) ?>"
-                 alt="Eupheus Learning Zoom for LKG"
-                 title="Eupheus Learning Zoom for LKG"
-                 data-zoom-image="<?= base_url('uploads/images/'.$data->image) ?>" />
+                 src="<?= base_url('uploads/images/'.$data->image2) ?>"
+                 alt="<?= $data->name?>"
+                 title="<?= $data->name?>"
+                 data-zoom-image="<?= base_url('uploads/images/'.$data->image2) ?>" />
                                             <img id="image-1"
                  class="gallery-image"
+                 src="<?= base_url('uploads/images/'.$data->image3) ?>"
+                 alt="<?= $data->name?>"
+                 title="<?= $data->name?>"
+                 data-zoom-image="<?= base_url('uploads/images/'.$data->image3) ?>" />
+                 <img id="image-2"
+                 class="gallery-image"
+                 src="<?= base_url('uploads/images/'.$data->image4) ?>"
+                 alt="<?= $data->name?>"
+                 title="<?= $data->name?>"
+                 data-zoom-image="<?= base_url('uploads/images/'.$data->image4) ?>" />
+                 <img id="image-3"
+                 class="gallery-image"
                  src="<?= base_url('uploads/images/'.$data->image) ?>"
-                 alt="Eupheus Learning Zoom for LKG"
-                 title="Eupheus Learning Zoom for LKG"
+                 alt="<?= $data->name?>"
+                 title="<?= $data->name?>"
                  data-zoom-image="<?= base_url('uploads/images/'.$data->image) ?>" />
                         </div>
 </div>
-
-
+<?php if($data->image2 || $data->image3 || $data->image4) ?>
+<div class="more-views">
+    <h2>More Views</h2>
+    <ul class="product-image-thumbs">
+    <?php if($data->image2) { ?>
+                    <li>
+            <a class="thumb-link" href="#" title="<?= $data->name?>" data-image-index="0">
+                <img src="<?= base_url('uploads/images/'.$data->image2) ?>" width="75" height="75" alt="<?= $data->name?>">
+            </a>
+        </li>
+        <?php } ?>
+        <?php if($data->image3) { ?>
+                            <li>
+            <a class="thumb-link" href="#" title="<?= $data->name?>" data-image-index="1">
+                <img src="<?= base_url('uploads/images/'.$data->image3) ?>" width="75" height="75" alt="<?= $data->name?>">
+            </a>
+        </li>
+        <?php } if($data->image4) { ?>
+                    <li>
+            <a class="thumb-link" href="#" title="<?= $data->name?>" data-image-index="2">
+                <img src="<?= base_url('uploads/images/'.$data->image4) ?>" width="75" height="75" alt="<?= $data->name?>">
+            </a>
+        </li>
+        <?php } ?>
+        <?php  if($data->image) { ?>
+                    <li>
+            <a class="thumb-link" href="#" title="<?= $data->name?>" data-image-index="3">
+                <img src="<?= base_url('uploads/images/'.$data->image) ?>" width="75" height="75" alt="<?= $data->name?>">
+            </a>
+        </li>
+        <?php } ?>
+                </ul>
+</div>
+<?php  ?>
             </div>
-
+           
             <div class="product-shop">
                 <div class="product-name">
                     <span class="h1"><?= $data->name ?></span>
@@ -76,20 +120,20 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-5940">
-                    ₹<?=$data->price_sale ?>                </span>
+                    ₹<?= number_format($data->price_sale+($data->price_sale/100)*$data->offer,2) ?>               </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><link itemprop="itemCondition" href="http://schema.org/NewCondition" /><link itemprop="availableDeliveryMethod" href="http://purl.org/goodrelations/v1#DeliveryModeFreight" /><link itemprop="availability" href="http://schema.org/OutOfStock" /><meta itemprop="priceCurrency" content="INR" /><meta itemprop="price" content="1329.00" /><span class="price"  id="product-price-5940">
-                      ₹<?=  round($data->price_sale-($data->offer/$data->price_sale)*100) ?></span></span>
+                      ₹<?= number_format($data->price_sale,2) ?> </span></span>
                 </p>
                     		
 		
 		                <p class="yousave">
             <span class="price-label label">You Save: </span>
             <span class="price">
-                <strong class="save-amount"><span class="price">₹<?=  round(($data->offer/$data->price_sale)*100) ?></span></strong> (<?= $data->offer ?>%)
+                <strong class="save-amount"><span class="price">₹<?= number_format(($data->price_sale/100)*$data->offer,2) ?></span></strong> (<?= $data->offer ?>%)
             </span>
         </p>
     		
@@ -180,20 +224,20 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-5939-related">
-                    ₹<?= $value->price_sale ?>            </span>
+                    ₹<?= number_format($value->price_sale+($value->price_sale/100)*$value->offer,2) ?>            </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span class="price" id="product-price-5939-related">
-                    ₹<?=  round($value->price_sale-($value->offer/$data->price_sale)*100) ?>               </span>
+                    ₹<?= number_format($value->price_sale,2) ?> </span>
                 </p>
                     		
 		
 		                <p class="yousave">
             <span class="price-label label">You Save: </span>
             <span class="price">
-                <strong class="save-amount"><span class="price">₹<?=  round(($value->offer/$value->price_sale)*100) ?></span></strong> (<?= $value->offer ?>%)
+                <strong class="save-amount"><span class="price">₹<?= number_format(($value->price_sale/100)*$value->offer,2) ?></span></strong> (<?= $value->offer ?>%)
             </span>
         </p>
     		

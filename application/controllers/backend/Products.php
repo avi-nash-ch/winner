@@ -117,7 +117,7 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image']['error'];
             $_FILES['images']['size'] = $_FILES['product_image']['size'];
             $config['upload_path'] = './uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image')) {
                 $data1 = $this->upload->data();
@@ -138,12 +138,12 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image2']['error'];
             $_FILES['images']['size'] = $_FILES['product_image2']['size'];
             $config['upload_path'] = './uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image2')) {
                 $data1 = $this->upload->data();
                 $product_image2 = $data1['file_name'];
-                if (empty($product_image)) {
+                if (empty($product_image2)) {
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
                 }
@@ -159,12 +159,12 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image3']['error'];
             $_FILES['images']['size'] = $_FILES['product_image3']['size'];
             $config['upload_path'] = './uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image3')) {
                 $data1 = $this->upload->data();
                 $product_image3 = $data1['file_name'];
-                if (empty($product_image)) {
+                if (empty($product_image3)) {
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
                 }
@@ -180,12 +180,12 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image4']['error'];
             $_FILES['images']['size'] = $_FILES['product_image4']['size'];
             $config['upload_path'] = './uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image')) {
                 $data1 = $this->upload->data();
                 $product_image4 = $data1['file_name'];
-                if (empty($product_image)) {
+                if (empty($product_image4)) {
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
                 }
@@ -202,6 +202,7 @@ class Products extends MY_Controller
             'hsn_code' => $this->input->post('hsn_code'),
             'offer' => $this->input->post('discount'),
             'type' => $this->input->post('type'),
+            'qty' => $this->input->post('qty'),
             'age' => $this->input->post('age'),
             'class' => $this->input->post('class'),
             'author' => $this->input->post('author'),
@@ -261,6 +262,10 @@ class Products extends MY_Controller
 
     public function update()
     {
+        $product_image='';
+        $product_image2='';
+        $product_imag3='';
+        $product_image4='';
         $data = [
             'name' => $this->input->post('name'),
             'subject' => $this->input->post('subject'),
@@ -291,7 +296,7 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image']['error'];
             $_FILES['images']['size'] = $_FILES['product_image']['size'];
             $config['upload_path'] = 'uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image')) {
                 $data1 = $this->upload->data();
@@ -313,7 +318,7 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image2']['error'];
             $_FILES['images']['size'] = $_FILES['product_image2']['size'];
             $config['upload_path'] = 'uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image2')) {
                 $data1 = $this->upload->data();
@@ -335,16 +340,18 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image3']['error'];
             $_FILES['images']['size'] = $_FILES['product_image3']['size'];
             $config['upload_path'] = 'uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image3')) {
                 $data1 = $this->upload->data();
                 $product_image3 = $data1['file_name'];
                 if (empty($product_image3)) {
+                    echo "pr";
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
                 }
             } else {
+                echo "pr";
                 echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                 exit;
             }
@@ -357,7 +364,7 @@ class Products extends MY_Controller
             $_FILES['images']['error'] = $_FILES['product_image4']['error'];
             $_FILES['images']['size'] = $_FILES['product_image4']['size'];
             $config['upload_path'] = 'uploads/images/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('product_image4')) {
                 $data1 = $this->upload->data();

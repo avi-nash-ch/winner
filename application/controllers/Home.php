@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Product_model','Class_model','Website_model']);
+        $this->load->model(['Product_model','Class_model','Website_model','Subject_model','Publisher_model']);
     }
 
     public function index()
@@ -16,6 +16,8 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Home',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'AllProduct' => $this->Product_model->AllProduct(),
             'Setting' => $this->Setting_model->Setting(),
         ];
@@ -30,6 +32,8 @@ class Home extends CI_Controller
             'title' => 'Class',
             'class'=>$class,
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'AllProduct' => $this->Product_model->AllProductByClass(),
             'Setting' => $this->Setting_model->Setting(),
             'AllClass'=>$AllClass
@@ -45,6 +49,8 @@ class Home extends CI_Controller
             'title' => 'product-details',
             // 'class'=>$class,
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
             'data' => $product,
             'related'=>$related
@@ -77,6 +83,8 @@ class Home extends CI_Controller
             'title' => 'Site Map',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/sitemap', $data);
@@ -88,6 +96,8 @@ class Home extends CI_Controller
             'title' => 'About Us',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/feedback', $data);
@@ -99,6 +109,8 @@ class Home extends CI_Controller
             'title' => 'Bulk Enquiry',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/bulk_enquiry', $data);
@@ -110,6 +122,8 @@ class Home extends CI_Controller
             'title' => 'Track Order',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/track_order', $data);
@@ -120,6 +134,8 @@ class Home extends CI_Controller
         $data = [
             'title' => 'About Us',
             'class'=>'',
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
@@ -141,6 +157,8 @@ class Home extends CI_Controller
             'title' => 'Privacy Policy',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         
@@ -153,6 +171,8 @@ class Home extends CI_Controller
             'title' => 'Terms & Conditions',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/terms-conditions', $data);
@@ -172,6 +192,8 @@ class Home extends CI_Controller
             'title' => 'Contact us',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/contact', $data);
@@ -183,6 +205,8 @@ class Home extends CI_Controller
             'title' => 'Help Support',
             'class'=>'',
             'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/help-support', $data);

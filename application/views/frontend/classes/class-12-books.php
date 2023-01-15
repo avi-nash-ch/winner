@@ -462,20 +462,20 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-2243">
-                    ₹10.00                </span>
+                    ₹<?= number_format($value->price_sale+($value->price_sale/100)*$value->offer,2) ?>              </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span class="price" id="product-price-2243">
-                    ₹<?= $value->price_sale ?>                </span>
+                    ₹<?= number_format($value->price_sale,2) ?>                </span>
                 </p>
                     		
 		
 		                <p class="yousave">
             <span class="price-label label">You Save: </span>
             <span class="price">
-                <strong class="save-amount"><span class="price">₹50.00</span></strong> (17%)
+                <strong class="save-amount"><span class="price">₹<?= number_format(($value->price_sale/100)*$value->offer,2) ?></span></strong> (<?= $value->offer ?>%)
             </span>
         </p>
     		
@@ -487,18 +487,16 @@
                     
 
                     
-<div class="actions">
-    <div class="actions">
+<div class="">
     <button type="button" title="Add to Cart" class="button btn-cart">
     <span> 
     <a href="<?= base_url('Home/AddToCart')?>" class="level1  ">
     <span style="color:white">Add
     to Cart</span></a></span></button>
-    <ul class="add-to-links">
-    </ul>
-  </div>
-    <ul class="add-to-links">
-    </ul>
+   
+    <!-- <ul class="add-to-links">
+        SOLD OUT
+    </ul> -->
 </div>
 
 
