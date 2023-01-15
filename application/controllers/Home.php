@@ -65,15 +65,7 @@ class Home extends CI_Controller
         ];
         website('frontend/checkout/cart/index', $data);
     }
-    // public function termsAndConditon()
-    // {
-    //     $data = [
-    //         'title' => 'terms-conditions',
-    //         // 'AllProduct' => $this->Product_model->AllProduct(),
-    //         'Setting' => $this->Setting_model->Setting(),
-    //     ];
-    //     website('frontend/footerpages/terms-conditions', $data);
-    // }
+   
 
 
     public function site_map()
