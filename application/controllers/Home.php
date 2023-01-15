@@ -47,7 +47,6 @@ class Home extends CI_Controller
         $related=$this->Website_model->GateRelatedProduct($product->type,$id);
         $data = [
             'title' => 'product-details',
-            // 'class'=>$class,
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
