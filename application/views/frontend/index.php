@@ -252,13 +252,13 @@ Calendar._TT["TIME"] = 'Time:';
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-5940-widget-new-grid">
-                    ₹<?= number_format($value->price_sale+($value->price_sale/100)*$value->offer,2) ?></span>
+                    ₹<?= number_format($value->price_sale,2) ?></span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span class="price" id="product-price-5940-widget-new-grid">
-                    ₹<?= number_format($value->price_sale,2) ?>                  </span>
+                    ₹<?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?>                  </span>
                 </p>
                     		
 		
@@ -311,7 +311,7 @@ Calendar._TT["TIME"] = 'Time:';
 	
 					
                         <ul class="products-grid products-grid--max-5-col rwd">
-                        <?php foreach ($AllProduct as $key => $value) { ?>
+                        <?php foreach ($AllMostViewedProduct as $key => $value) { ?>
                                                    
                                                
                                                    <li class="homepagelists item last">
@@ -329,20 +329,20 @@ Calendar._TT["TIME"] = 'Time:';
                                                <p class="old-price">
                                            <span class="price-label">Regular Price:</span>
                                            <span class="price" id="old-price-5940-widget-new-grid">
-                                               ₹10.00</span>
+                                               ₹<?= number_format($value->price_sale,2) ?></span>
                                        </p>
                            
                                                        <p class="special-price">
                                                <span class="price-label">Special Price</span>
                                            <span class="price" id="product-price-5940-widget-new-grid">
-                                               ₹<?= $value->price_sale ?>                  </span>
+                                               ₹<?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?>                 </span>
                                            </p>
                                                        
                                    
                                                    <p class="yousave">
                                        <span class="price-label label">You Save: </span>
                                        <span class="price">
-                                           <strong class="save-amount"><span class="price">₹50.00</span></strong> (7%)
+                                           <strong class="save-amount"><span class="price">₹<?= number_format(($value->price_sale/100)*$value->offer,2) ?></span></strong> (<?= $value->offer ?>%)
                                        </span>
                                    </p>
                                        

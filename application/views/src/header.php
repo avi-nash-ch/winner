@@ -53,6 +53,7 @@
             <select class="form-control select2 select_item" name="item_desc[]" id="item_desc0" required>
             <?php
             $option='<option value="">Select Product</option>';
+            $Products=getAllProduct();
             foreach ($Products as $key => $value) { 
               $option.='<option value="'.$value->id.'" data-price="'.$value->price_sale.'">'.$value->name.'</option>';
             }
@@ -62,24 +63,24 @@
                         <!-- end col -->
                         <div class="mb-3 col-lg-2">
                             <label for="qty">Qty. *</label>
-                            <input class="form-control" type="number" Placeholder="Qty." onchange="setPrice(this,'0')" name="qty[]" id="qty" required>
+                            <input class="form-control" type="number" Placeholder="Qty." value="0" onchange="setPrice(this,'0')" name="qty[]" id="qty0" required>
                         </div>
                         <!-- end col -->
                         <div class="mb-3 col-lg-2">
                             <label for="price0">Price</label>
-                            <input class="form-control" type="number" Placeholder="Price" name="price[]" id="price0" readonly required>
+                            <input class="form-control" type="number" Placeholder="Price" value="0" name="price[]" id="price0" readonly required>
 
                         </div>
                         <div class="input-field col s1 pdr_0 white_space">
                            <!-- <button class="btn btn-danger remove_item" id="remove-oc-1">Remove</button> -->
                            <button class="btn btn-primary add_more_button" id='add_oc' style="margin: 19px !important;">Add+</button>
-                           <input type="hidden" value="1" id='count_item'>
+                           <input type="hidden" value="0" id='count_item'>
                         </div>
          </div>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="generateBill()">Print</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <a href="<?= base_url('backend/Dashboard')?>" class="btn btn-danger" >Close</a>
         </div>
       </div>
     </div>

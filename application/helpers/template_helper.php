@@ -36,5 +36,15 @@ if (!function_exists('render')) {
         return $Query->row();
     }
 
+    function getAllProduct() {
+      
+        $ci = &get_instance();
+        $ci->db->select('id,name,price_sale');
+        $ci->db->from('tbl_product');
+        $ci->db->where('isDeleted',false);
+        $Query=$ci->db->get();
+        return $Query->result();
+    }
+
 
 }

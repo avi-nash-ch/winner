@@ -15,9 +15,10 @@
 </div>
                 <div class="col-main">
   
-<div itemscope itemtype="http://schema.org/Product"><script type="text/javascript">
+<div itemscope itemtype="http://schema.org/Product">
+    <!-- <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice([]);
-</script>
+</script> -->
 <div id="messages_product_view"></div>
 <div class="product-view">
     <div class="product-essential">
@@ -120,13 +121,13 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-5940">
-                    ₹<?= number_format($data->price_sale+($data->price_sale/100)*$data->offer,2) ?>               </span>
+                    ₹<?= number_format($data->price_sale,2) ?>               </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><link itemprop="itemCondition" href="http://schema.org/NewCondition" /><link itemprop="availableDeliveryMethod" href="http://purl.org/goodrelations/v1#DeliveryModeFreight" /><link itemprop="availability" href="http://schema.org/OutOfStock" /><meta itemprop="priceCurrency" content="INR" /><meta itemprop="price" content="1329.00" /><span class="price"  id="product-price-5940">
-                      ₹<?= number_format($data->price_sale,2) ?> </span></span>
+                      ₹<?= number_format($data->price_sale-($data->price_sale/100)*$data->offer,2) ?> </span></span>
                 </p>
                     		
 		
@@ -224,20 +225,20 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-5939-related">
-                    ₹<?= number_format($value->price_sale+($value->price_sale/100)*$value->offer,2) ?>            </span>
+                    ₹<?= number_format($value->price_sale,2) ?>            </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span class="price" id="product-price-5939-related">
-                    ₹<?= number_format($value->price_sale,2) ?> </span>
+                    ₹<?= number_format($value->price_sale-(($data->price_sale/100)*$data->offer),2) ?> </span>
                 </p>
                     		
 		
 		                <p class="yousave">
             <span class="price-label label">You Save: </span>
             <span class="price">
-                <strong class="save-amount"><span class="price">₹<?= number_format(($value->price_sale/100)*$value->offer,2) ?></span></strong> (<?= $value->offer ?>%)
+                <strong class="save-amount"><span class="price">₹<?= number_format(($data->price_sale/100)*$data->offer,2) ?></span></strong> (<?= $value->offer ?>%)
             </span>
         </p>
     		

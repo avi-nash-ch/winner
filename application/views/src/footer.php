@@ -48,25 +48,57 @@
     suffixKeyCodes: [], // enter-key expected at the end of a scan
     reactToPaste: false, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
     onScan: function (sCode, iQty) {
-      $('#space_number').val('');
-      $("textarea[name='notes']").val('');
-      if (!sCode.startsWith('ANSI')) {
+      
         jQuery.ajax({
           type: 'POST',
           data: {
             barcode: sCode,
-            type: btoa(3),
-            scanfrom: btoa(1),
           },
-          url: BASE_URL + 'guard/GuardPortal/scan_barcode',
+          url: BASE_URL + 'backend/Products/getItem',
           success: function (data) {
             var j_data = JSON.parse(data);
-            // console.log(j_data);
+            if(j_data.result){
+              var append=true;
+              
+//               $(".select_item").each(function() {
+                
+// if($(this).val()==j_data.data.id){
+
+// //   var id=$(this).attr('id').replace('item_desc','')
+// //   $('#price'+id).val(parseInt($('#price'+id).val())+parseInt(j_data.data.price_sale))
+// //   $('#qty'+id).val( parseInt($('#qty'+id).val())+1)
+// //   append=false;
+// //   console.log('pradeep')
+// // return false;
+// }
+// });
+var id = $('#count_item').val();
+             if(append){
+              if(id>0){
+              $(".add_more_button").trigger("click");
+              var id = $('#count_item').val()
+              $('#item_desc'+id).val(j_data.data.id)
+              $('#price'+id).val(j_data.data.price_sale)
+              $('#qty'+id).val(1)
+              }else{
+              $('#item_desc0').val(j_data.data.id)
+              $('#price0').val(j_data.data.price_sale)
+              $('#qty0').val(1)
+              $('#count_item').val(1)
+              // var id = $('#count_item').val(1);
+              // $(".add_more_button").trigger("click");
+              }
+            }
+              if(!$('#myModal').is(':visible')){
+              $('#myModal').modal('show')
+              }
+            // }
+            }
+           
             $('#save_process').val('');
            
           },
         });
-      }
     },
     onKeyDetect: function (iKeyCode) {
       // output all potentially relevant key events - great for debugging!

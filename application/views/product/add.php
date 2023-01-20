@@ -147,7 +147,7 @@
                 <div class="form-group row">
                 <div class="col-md-3">
                     <label for="product_code">ISBN/Product Code</label>
-                        <input class="form-control" type="text" Placeholder="ISBN/Product Code"  name="product_code" required
+                        <input class="form-control" type="text" Placeholder="ISBN/Product Code"  name="product_code"
                             id="product_code">
                     </div>
                     <div class="col-md-3">

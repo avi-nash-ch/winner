@@ -19,6 +19,7 @@ class Home extends CI_Controller
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
             'AllProduct' => $this->Product_model->AllProduct(),
+            'AllMostViewedProduct' => $this->Product_model->AllMostViewedProduct(),
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/index', $data);
@@ -34,12 +35,47 @@ class Home extends CI_Controller
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
-            'AllProduct' => $this->Product_model->AllProductByClass(),
+            'AllProduct' => $this->Product_model->AllProductByClass($class),
             'Setting' => $this->Setting_model->Setting(),
             'AllClass'=>$AllClass
         ];
         website('frontend/classes/class-12-books', $data);
     }
+
+    public function Publisher($class='')
+    {
+
+        $AllClass= $this->Class_model->All();
+        $data = [
+            'title' => 'Class',
+            'class'=>$class,
+            'Classes' => $this->Publisher_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'AllProduct' => $this->Product_model->AllProductByPublisher($class),
+            'Setting' => $this->Setting_model->Setting(),
+            'AllClass'=>$AllClass
+        ];
+        website('frontend/classes/class-12-books', $data);
+    }
+
+    public function Subject($class='')
+    {
+
+        $AllClass= $this->Class_model->All();
+        $data = [
+            'title' => 'Class',
+            'class'=>$class,
+            'Classes' => $this->Subject_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'AllProduct' => $this->Product_model->AllProductBySubject($class),
+            'Setting' => $this->Setting_model->Setting(),
+            'AllClass'=>$AllClass
+        ];
+        website('frontend/classes/class-12-books', $data);
+    }
+
     public function productDeatils($id)
     {
         $id=$this->url_encrypt->decode($id);
@@ -201,5 +237,30 @@ class Home extends CI_Controller
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('frontend/footerpages/help-support', $data);
+    }
+
+    public function account()
+    {
+        $data = [
+            'title' => 'My Account',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/footerpages/account', $data);
+    }
+    public function cart()
+    {
+        $data = [
+            'title' => 'My cart',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
+        website('frontend/footerpages/account', $data);
     }
 }

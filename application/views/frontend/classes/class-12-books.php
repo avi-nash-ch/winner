@@ -5,7 +5,7 @@
                 <div class="breadcrumbs">
     <ul>
                     <li typeof="v:Breadcrumb" class="home">
-                            <a rel="v:url" property="v:title" href="../index.html" title="Go to Home Page">Home</a>
+                            <a rel="v:url" property="v:title" href="<?= base_url('Home')?>" title="Go to Home Page">Home</a>
                                         <span>/ </span>
                         </li>
                     <li typeof="v:Breadcrumb" class="category8">
@@ -462,13 +462,13 @@
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
                 <span class="price" id="old-price-2243">
-                    ₹<?= number_format($value->price_sale+($value->price_sale/100)*$value->offer,2) ?>              </span>
+                    ₹<?= number_format($value->price_sale,2) ?>              </span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
                 <span class="price" id="product-price-2243">
-                    ₹<?= number_format($value->price_sale,2) ?>                </span>
+                    ₹<?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?>                </span>
                 </p>
                     		
 		

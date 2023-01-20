@@ -17,30 +17,20 @@ class Products extends MY_Controller
         template('product/index', $data);
     }
 
-    public function test()
-	{
-        
-        $level1 = 'L';
-        $size1 = 4;
-        ob_start();
-        QRcode::png('testasasas', NULL,'L',4, 2);
-         $imageString1 = base64_encode(ob_get_contents());
-        ob_end_clean();
-        $base64_qrcode = 'data:image/png;base64,' . $imageString1;
-       echo '<img src="'.$base64_qrcode.'" class="img" alt="qr" style="width:81px; height:81px;">';
-       exit;
-	}
-	
-	private function set_barcode($code)
-	{
-		// Load library
-		$this->load->library('Zend');
-		// Load in folder Zend
-		$this->zend->load('Zend/Barcode');
-		// Generate barcode
-		Zend_Barcode::render('code128', 'image', array('text'=>$code), array());
-	}
-	
+public function getItem()
+{
+    $result=[];
+    $barcode=$this->input->post('barcode');
+    $Products = $this->Product_model->GetProductByQrCode($barcode);
+    if(!empty($Products)){
+$result['result']=true;
+$result['data']=$Products;
+    }else{
+        $result['result']=false;
+        $result['data']=$Products;
+    }
+    echo json_encode($result);
+}
 
     public function add()
     {
@@ -92,6 +82,14 @@ class Products extends MY_Controller
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
         redirect('backend/Products');
+    }
+
+    public function most_viewed()
+    {
+        $id=$this->input->post('id');
+        $status=$this->input->post('status');
+        $this->Product_model->most_viewed_status($id,$status);
+echo json_encode(['result'=>true]);
     }
 
     public function pricedelete($product_id,$id)

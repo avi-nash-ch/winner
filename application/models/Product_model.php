@@ -12,6 +12,17 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
+    public function AllMostViewedProduct()
+    {
+        $this->db->select('tbl_product.*');
+        $this->db->from('tbl_product');
+        $this->db->where('isDeleted', false);
+        $this->db->where('most_viewd',1);
+        $this->db->order_by('id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function TodaysSale()
     {
         $this->db->select('SUM(tbl_bill.price) as total');
@@ -38,12 +49,36 @@ class Product_model extends MY_Model
 
 
 
-    public function AllProductByClass()
+    public function AllProductByClass($class)
     {
         $this->db->select('tbl_product.*,tbl_class.name as class_name');
         $this->db->from('tbl_product');
         $this->db->join('tbl_class', 'tbl_class.id=tbl_product.class');
         $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('tbl_product.class', $class);
+        $this->db->order_by('tbl_product.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+    public function AllProductByPublisher($publisher)
+    {
+        $this->db->select('tbl_product.*,tbl_publisher.name as class_name');
+        $this->db->from('tbl_product');
+        $this->db->join('tbl_publisher', 'tbl_publisher.id=tbl_product.publisher');
+        $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('tbl_product.publisher', $publisher);
+        $this->db->order_by('tbl_product.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+    public function AllProductBySubject($subject)
+    {
+        $this->db->select('tbl_product.*,tbl_subject.name as class_name');
+        $this->db->from('tbl_product');
+        $this->db->join('tbl_subject', 'tbl_subject.id=tbl_product.subject');
+        $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('tbl_product.subject', $subject);
         $this->db->order_by('tbl_product.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
@@ -101,8 +136,16 @@ class Product_model extends MY_Model
         ];
         $this->db->where('id', $id);
         $this->db->update('tbl_product', $data);
-        $this->db->where('product_id', $id);
-        $this->db->update('tbl_product_price', $data);
+        return $this->db->last_query();
+    }
+
+    public function most_viewed_status($id,$status)
+    {
+        $data = [
+            'most_viewd' => $status,
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_product', $data);
         return $this->db->last_query();
     }
 

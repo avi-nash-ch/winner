@@ -124,14 +124,14 @@ cursor: default;
             
     <nav id="nav">
         <ol class="nav-primary">
-            <li  class="level0 nav-1 first parent"><a href="subjects.html" class="level0 has-children">Subjects</a><ul class="level0"> <?php foreach ($Subjects as $key => $value) { ?>
-                    <li  class="level1"><a href="<?= base_url('Home/class/'.$value->id)?>" class="level1"><?= $value->name ?></a>
+            <li  class="level0 nav-1 first parent"><a href="#" class="level0 has-children">Subjects</a><ul class="level0"> <?php foreach ($Subjects as $key => $value) { ?>
+                    <li  class="level1"><a href="<?= base_url('Home/Subject/'.$value->id)?>" class="level1"><?= $value->name ?></a>
                 </li>
-                <?php } ?></ul></li><li  class="level0 nav-2 parent "><a href="publishers-books.html" class="level0 has-children">Publishers</a><ul class="level0"><?php foreach ($Publishers as $key => $value) { ?>
-                    <li  class="level1"><a href="<?= base_url('Home/class/'.$value->id)?>" class="level1"><?= $value->name ?></a>
+                <?php } ?></ul></li><li  class="level0 nav-2 parent "><a href="#" class="level0 has-children">Publishers</a><ul class="level0"><?php foreach ($Publishers as $key => $value) { ?>
+                    <li  class="level1"><a href="<?= base_url('Home/Publisher/'.$value->id)?>" class="level1"><?= $value->name ?></a>
                 </li>
                 <?php } ?></ul></li>
-            <li  class="level0 nav-3 parent"><a href="classes.html" class="level0 has-children">Classes</a><ul class="level0">
+            <li  class="level0 nav-3 parent"><a href="#" class="level0 has-children">Classes</a><ul class="level0">
                 <?php foreach ($Classes as $key => $value) { ?>
                     <li  class="level1"><a href="<?= base_url('Home/class/'.$value->id)?>" class="level1"><?= $value->name ?></a>
                 </li>
@@ -169,13 +169,13 @@ cursor: default;
         <div id="header-account" class="skip-content">
             <div class="links">
         <ul>
-                                    <li class="first" ><a href="customer/account/index.html" title="My Account" >My Account</a></li>
-                                                <li ><a href="ordertracking/index/index.html" title="Track Order" >Track Order</a></li>
+                                    <li class="first" ><a href="<?= base_url('Home/account') ?>" title="My Account" >My Account</a></li>
+                                                <li ><a href="<?= base_url('Home/track_order') ?> " title="Track Order" >Track Order</a></li>
                                                                                                 <li ><a href="checkout/cart/index.html" title="My Cart" class="top-link-cart">My Cart</a></li>
                                                 <li ><a href="checkout/index.html" title="Checkout" class="top-link-checkout">Checkout</a></li>
                                                 <li ><a href="customer/account/create/index.html" title="Register" >Register</a></li>
                                                 <li ><a href="customer/account/login/index.html" title="Log In" >Log In</a></li>
-                                                <li class=" last" ><a href="blogs/index.html" title="Blog" >Blog</a></li>
+                                                <!-- <li class=" last" ><a href="blogs/index.html" title="Blog" >Blog</a></li> -->
                         </ul>
 </div>
         </div>

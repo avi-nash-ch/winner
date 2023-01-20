@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <?php
-            echo form_open_multipart('backend/Auther/insert', ['autocomplete' => false, 'id' => 'add_auther'
+            echo form_open_multipart('backend/Author/insert', ['autocomplete' => false, 'id' => 'add_auther'
                 ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_auther')])
             ?>
                 <div class="form-group row">
