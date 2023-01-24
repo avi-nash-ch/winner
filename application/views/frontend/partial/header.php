@@ -171,10 +171,10 @@ cursor: default;
         <ul>
                                     <li class="first" ><a href="<?= base_url('Home/account') ?>" title="My Account" >My Account</a></li>
                                                 <li ><a href="<?= base_url('Home/track_order') ?> " title="Track Order" >Track Order</a></li>
-                                                                                                <li ><a href="checkout/cart/index.html" title="My Cart" class="top-link-cart">My Cart</a></li>
-                                                <li ><a href="checkout/index.html" title="Checkout" class="top-link-checkout">Checkout</a></li>
-                                                <li ><a href="customer/account/create/index.html" title="Register" >Register</a></li>
-                                                <li ><a href="customer/account/login/index.html" title="Log In" >Log In</a></li>
+                                                                                                <li ><a href="<?= base_url('Home/cart') ?>" title="My Cart" class="top-link-cart">My Cart</a></li>
+                                                <!-- <li ><a href="checkout/index.html" title="Checkout" class="top-link-checkout">Checkout</a></li> -->
+                                                <li ><a href="<?= base_url('Home/Registration') ?>" title="Register" >Register</a></li>
+                                                <li ><a href="<?= base_url('Home/account') ?>" title="Log In" >Log In</a></li>
                                                 <!-- <li class=" last" ><a href="blogs/index.html" title="Blog" >Blog</a></li> -->
                         </ul>
 </div>

@@ -4,10 +4,10 @@ class Users_model extends MY_Model
 {
     public function AllUserList()
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
-        $this->db->where('tbl_users.isDeleted', false);
-        $this->db->order_by('tbl_users.id', 'asc');
+        $this->db->select('user.*');
+        $this->db->from('user');
+        $this->db->where('user.isDeleted', false);
+        $this->db->order_by('user.id', 'asc');
         // $this->db->limit(10);
         $Query = $this->db->get();
         return $Query->result();
@@ -36,7 +36,7 @@ class Users_model extends MY_Model
         $this->db->set('wallet', 'wallet+' . $amount, false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         $data = [
             'user_id' => $user_id,
@@ -56,21 +56,21 @@ class Users_model extends MY_Model
 
     public function FreeUserList()
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
-        $this->db->where('tbl_users.isDeleted', false);
-        $this->db->where('tbl_users.table_id', false);
-        $this->db->order_by('tbl_users.id', 'desc');
+        $this->db->select('user.*');
+        $this->db->from('user');
+        $this->db->where('user.isDeleted', false);
+        $this->db->where('user.table_id', false);
+        $this->db->order_by('user.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
     }
 
     public function AllRedeemList()
     {
-        $this->db->select('tbl_redeem.*,tbl_users.name');
+        $this->db->select('tbl_redeem.*,user.name');
         $this->db->from('tbl_redeem');
-        $this->db->join('tbl_users', 'tbl_users.id=tbl_redeem.user_id');
-        $this->db->where('tbl_users.isDeleted', false);
+        $this->db->join('user', 'user.id=tbl_redeem.user_id');
+        $this->db->where('user.isDeleted', false);
         $this->db->order_by('tbl_redeem.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
@@ -99,10 +99,10 @@ class Users_model extends MY_Model
 
     public function TodayUserList()
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
-        $this->db->where('tbl_users.isDeleted', false);
-        $this->db->where('date(tbl_users.created_date)', date("Y-m-d"));
+        $this->db->select('user.*');
+        $this->db->from('user');
+        $this->db->where('user.isDeleted', false);
+        $this->db->where('date(user.created_date)', date("Y-m-d"));
         $Query = $this->db->get();
         return $Query->result();
     }
@@ -153,7 +153,7 @@ class Users_model extends MY_Model
         $this->db->where('token', $token);
         $this->db->where('status', 0);
         $this->db->where('isDeleted', 0);
-        $Query = $this->db->get('tbl_users');
+        $Query = $this->db->get('user');
         return $Query->row();
     }
 
@@ -161,7 +161,7 @@ class Users_model extends MY_Model
     {
         $this->db->where('isDeleted', false);
         $this->db->where('mobile', $MobileNo);
-        $Query = $this->db->get('tbl_users');
+        $Query = $this->db->get('user');
         return $Query->row();
     }
 
@@ -171,7 +171,7 @@ class Users_model extends MY_Model
             'fcm' => $fcm
         ];
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
@@ -181,7 +181,7 @@ class Users_model extends MY_Model
             'isDeleted' => 1
         ];
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
@@ -191,7 +191,7 @@ class Users_model extends MY_Model
             'app_version' => $app_version
         ];
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
@@ -201,20 +201,20 @@ class Users_model extends MY_Model
             'token' => $token
         ];
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
     public function UpdateUserWallet($data, $UserId)
     {
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
     public function AddBot($data)
     {
-        $this->db->insert('tbl_users', $data);
+        $this->db->insert('user', $data);
         return $this->db->insert_id();
     }
 
@@ -223,7 +223,7 @@ class Users_model extends MY_Model
         $this->db->select('*');
         $this->db->where('id', $user);
         $this->db->order_by('id', 'desc');
-        $Query = $this->db->get('tbl_users');
+        $Query = $this->db->get('user');
         return $Query->row()->adhar_card;
     }
 
@@ -241,14 +241,14 @@ class Users_model extends MY_Model
             $data['profile_pic'] = $profile_pic;
         }
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
     public function Update($UserId, $data)
     {
         $this->db->where('id', $UserId);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
         return $this->db->affected_rows();
     }
 
@@ -258,7 +258,7 @@ class Users_model extends MY_Model
             'status' => $status
         ];
         $this->db->where('id', $id);
-        $this->db->update('tbl_users', $data);
+        $this->db->update('user', $data);
 
         return $this->db->affected_rows();
     }
@@ -282,7 +282,7 @@ class Users_model extends MY_Model
             'wallet' => $bonus_amount,
             'added_date' => date('Y-m-d H:i:s')
         ];
-        $this->db->insert('tbl_users', $data);
+        $this->db->insert('user', $data);
         $UserId =  $this->db->insert_id();
 
         return $UserId;
@@ -303,7 +303,7 @@ class Users_model extends MY_Model
             'token' => $token,
             'added_date' => date('Y-m-d H:i:s')
         ];
-        $this->db->insert('tbl_users', $data);
+        $this->db->insert('user', $data);
         $UserId =  $this->db->insert_id();
 
         return $UserId;
@@ -317,12 +317,12 @@ class Users_model extends MY_Model
         $this->db->set('wallet', 'wallet-' . $data['amount'], false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $data['user_id']);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         $this->db->set('winning_wallet', 'winning_wallet-' . $amount, false);
         $this->db->where('id', $user_id);
         $this->db->where('winning_wallet>', 0);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         return $ReedemId;
     }
@@ -332,12 +332,12 @@ class Users_model extends MY_Model
         $this->db->set('referred_by', $referer_id);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         $this->db->set('wallet', 'wallet+' . $amount, false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $referer_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         return true;
     }
@@ -348,7 +348,7 @@ class Users_model extends MY_Model
         $this->db->set('winning_wallet', 'winning_wallet+' . $amount, false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         return true;
     }
@@ -359,7 +359,7 @@ class Users_model extends MY_Model
         $this->db->set('spin_remaining', 'spin_remaining-1', false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         return true;
     }
@@ -370,7 +370,7 @@ class Users_model extends MY_Model
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->set('user_category_id', $user_category_id);
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         return true;
     }
@@ -399,12 +399,12 @@ class Users_model extends MY_Model
         $this->db->set('wallet', 'wallet-' . $amount, false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         $this->db->set('winning_wallet', 'winning_wallet-' . $amount, false);
         $this->db->where('id', $user_id);
         $this->db->where('winning_wallet>', 0);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
 
         $this->db->set('admin_coin', 'admin_coin+' . $amount, false);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
@@ -446,24 +446,24 @@ class Users_model extends MY_Model
         $this->db->set('referral_code', $referralId . $user_id);
         $this->db->set('updated_date', date('Y-m-d H:i:s'));
         $this->db->where('id', $user_id);
-        $this->db->update('tbl_users');
+        $this->db->update('user');
     }
 
     public function LoginUser($MobileNo, $Password)
     {
         $this->db->where('mobile', $MobileNo);
         $this->db->where('password', $Password);
-        $user = $this->db->get('tbl_users');
+        $user = $this->db->get('user');
 
         return $user->result();
     }
 
     public function UserProfile($id)
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
+        $this->db->select('user.*');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
-        $this->db->where('tbl_users.id', $id);
+        $this->db->where('user.id', $id);
 
         $Query = $this->db->get();
         // echo $this->db->last_query();
@@ -485,7 +485,7 @@ class Users_model extends MY_Model
 
     public function GetFreeBot()
     {
-        $this->db->from('tbl_users');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
         $this->db->where('status', false);
         $this->db->where('table_id', 0);
@@ -500,7 +500,7 @@ class Users_model extends MY_Model
 
     public function GetFreeRummyBot()
     {
-        $this->db->from('tbl_users');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
         $this->db->where('status', false);
         $this->db->where('rummy_table_id', 0);
@@ -531,10 +531,10 @@ class Users_model extends MY_Model
 
     public function UserWallet($user_id)
     {
-        $this->db->select('tbl_users.wallet');
-        $this->db->from('tbl_users');
+        $this->db->select('user.wallet');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
-        $this->db->where('tbl_users.id', $user_id);
+        $this->db->where('user.id', $user_id);
 
         $Query = $this->db->get();
         // echo $this->db->last_query();
@@ -544,10 +544,10 @@ class Users_model extends MY_Model
 
     public function UserProfileByMobile($MobileNo)
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
+        $this->db->select('user.*');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
-        $this->db->where('tbl_users.mobile', $MobileNo);
+        $this->db->where('user.mobile', $MobileNo);
 
         $Query = $this->db->get();
         // echo $this->db->last_query();
@@ -557,10 +557,10 @@ class Users_model extends MY_Model
 
     public function UserProfileByEmail($Email)
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
+        $this->db->select('user.*');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
-        $this->db->where('tbl_users.email', $Email);
+        $this->db->where('user.email', $Email);
 
         $Query = $this->db->get();
         // echo $this->db->last_query();
@@ -570,10 +570,10 @@ class Users_model extends MY_Model
 
     public function IsValidReferral($referral_code)
     {
-        $this->db->select('tbl_users.*');
-        $this->db->from('tbl_users');
+        $this->db->select('user.*');
+        $this->db->from('user');
         $this->db->where('isDeleted', false);
-        $this->db->where('tbl_users.referral_code', $referral_code);
+        $this->db->where('user.referral_code', $referral_code);
 
         $Query = $this->db->get();
         // echo $this->db->last_query();
@@ -612,38 +612,38 @@ class Users_model extends MY_Model
     {
         $Query = $this->db->where('isDeleted', false)
             ->where('referred_by', $user_id)
-            ->get('tbl_users');
+            ->get('user');
         return $Query->result();
     }
 
     public function Purchase_History()
     {
-        $Query = $this->db->select('tbl_purchase.*,tbl_users.name')
+        $Query = $this->db->select('tbl_purchase.*,user.name')
             ->from('tbl_purchase')
-            ->join('tbl_users', 'tbl_users.id=tbl_purchase.user_id')
+            ->join('user', 'user.id=tbl_purchase.user_id')
             ->where('tbl_purchase.payment', true)
             ->where('tbl_purchase.isDeleted', false)
-            ->where('tbl_users.isDeleted', false)
+            ->where('user.isDeleted', false)
             ->get();
         return $Query->result();
     }
 
     public function View_Purchase_Reffer()
     {
-        $Query = $this->db->select('tbl_purcharse_ref.*,tbl_users.name')
+        $Query = $this->db->select('tbl_purcharse_ref.*,user.name')
             ->from('tbl_purcharse_ref')
-            ->join('tbl_users', 'tbl_users.id=tbl_purcharse_ref.user_id')
-            ->where('tbl_users.isDeleted', false)
+            ->join('user', 'user.id=tbl_purcharse_ref.user_id')
+            ->where('user.isDeleted', false)
             ->get();
         return $Query->result();
     }
 
     public function View_Welcome_Reffer($user_id)
     {
-        $Query = $this->db->select('tbl_welcome_ref.*,tbl_users.name')
+        $Query = $this->db->select('tbl_welcome_ref.*,user.name')
             ->from('tbl_welcome_ref')
-            ->join('tbl_users', 'tbl_users.id=tbl_welcome_ref.bonus_user_id')
-            ->where('tbl_users.isDeleted', false)
+            ->join('user', 'user.id=tbl_welcome_ref.bonus_user_id')
+            ->where('user.isDeleted', false)
             ->where('tbl_welcome_ref.user_id', $user_id)
             ->get();
         return $Query->result();
@@ -651,11 +651,11 @@ class Users_model extends MY_Model
 
     public function ActiveUser()
     {
-        $Query = $this->db->select('tbl_users.*')
-            ->from('tbl_users')
-            ->where('tbl_users.isDeleted', false)
-            ->where('DATE(tbl_users.updated_date)>', 'DATE_SUB(CURRENT_TIMESTAMP, INTERVAL +2 DAY)', false)
-            ->order_by('tbl_users.id', 'desc')
+        $Query = $this->db->select('user.*')
+            ->from('user')
+            ->where('user.isDeleted', false)
+            ->where('DATE(user.updated_date)>', 'DATE_SUB(CURRENT_TIMESTAMP, INTERVAL +2 DAY)', false)
+            ->order_by('user.id', 'desc')
             ->get();
         return $Query->result();
     }
@@ -772,9 +772,9 @@ class Users_model extends MY_Model
 
     public function getHistory($user_id)
     {
-        $this->db->select('tbl_ludo.*,tbl_users.name');
+        $this->db->select('tbl_ludo.*,user.name');
         $this->db->from('tbl_ludo');
-        $this->db->join('tbl_users', 'tbl_users.id=tbl_ludo.winner_id');
+        $this->db->join('user', 'user.id=tbl_ludo.winner_id');
         $this->db->where('tbl_ludo.winner_id', $user_id);
         $Query = $this->db->get();
         return $Query->result();
@@ -782,15 +782,15 @@ class Users_model extends MY_Model
 
     public function UpdateOfflineUsers()
     {
-        $this->db->query('UPDATE `tbl_users` SET `ander_bahar_room_id`=0,`dragon_tiger_room_id`=0,`jackpot_room_id`=0,`seven_up_room_id`=0,`color_prediction_room_id`=0,`car_roulette_room_id`=0,`animal_roulette_room_id`=0 WHERE TIME_TO_SEC(TIMEDIFF(NOW(), updated_date))>30');
+        $this->db->query('UPDATE `user` SET `ander_bahar_room_id`=0,`dragon_tiger_room_id`=0,`jackpot_room_id`=0,`seven_up_room_id`=0,`color_prediction_room_id`=0,`car_roulette_room_id`=0,`animal_roulette_room_id`=0 WHERE TIME_TO_SEC(TIMEDIFF(NOW(), updated_date))>30');
         return $this->db->affected_rows();
     }
 
     public function getOnlineUsers($room_id, $game_column)
     {
         $this->db->where($game_column.'>', 0);
-        $this->db->where('tbl_users.isDeleted', false);
-        $Query = $this->db->get('tbl_users');
+        $this->db->where('user.isDeleted', false);
+        $Query = $this->db->get('user');
         return $Query->num_rows();
     }
 }

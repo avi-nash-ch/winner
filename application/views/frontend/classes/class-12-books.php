@@ -320,7 +320,7 @@
             <div class="sort-by">
                 <label>Sort By</label>
                 <select onchange="setLocation(this.value)" title="Sort By">
-                                            <option value="https://mybookshop.co.in/myshop/classes/class-12-books?dir=asc&order=position" selected="selected">
+                                            <option value="" selected="selected">
                             Position                        </option>
                                             <option value="class-12-books79f7.html?dir=asc&amp;order=name">
                             Name                        </option>
@@ -529,7 +529,7 @@
             <div class="sort-by">
                 <label>Sort By</label>
                 <select onchange="setLocation(this.value)" title="Sort By">
-                                            <option value="https://mybookshop.co.in/myshop/classes/class-12-books?dir=asc&order=position" selected="selected">
+                                            <option value="" selected="selected">
                             Position                        </option>
                                             <option value="class-12-books79f7.html?dir=asc&amp;order=name">
                             Name                        </option>
@@ -589,7 +589,7 @@
             <div class="limiter">
                 <label>Show</label>
                 <select onchange="setLocation(this.value)" title="Results per page">
-                                    <option value="https://mybookshop.co.in/myshop/classes/class-12-books?limit=12" selected="selected">
+                                    <option value="" selected="selected">
                         12                    </option>
                                     <option value="class-12-books45c7.html?limit=24">
                         24                    </option>
@@ -672,7 +672,7 @@
 <div id="location-selector-overlay"></div>
 <div id="location-selector">
 <script type="text/javascript">countryRegions = {"config":{"show_all_regions":true,"regions_required":["IN"]},"IN":{"485":{"code":"ANDRA","name":"Andra Pradesh"},"487":{"code":"ASSAM","name":"Assam"},"488":{"code":"BIHAR","name":"Bihar"},"489":{"code":"CHAND","name":"Chandigarh"},"490":{"code":"CHHAT","name":"Chhattisgarh"},"493":{"code":"DELHI","name":"Delhi"},"494":{"code":"GOA","name":"Goa"},"495":{"code":"GUJAR","name":"Gujarat"},"496":{"code":"HARYA","name":"Haryana"},"497":{"code":"HP","name":"Himachal Pradesh"},"498":{"code":"JK","name":"Jammu and Kashmir"},"499":{"code":"JHARK","name":"Jharkhand"},"500":{"code":"KARNA","name":"Karnataka"},"501":{"code":"KERAL","name":"Kerala"},"503":{"code":"MP","name":"Madya Pradesh"},"504":{"code":"MAHAR","name":"Maharashtra"},"509":{"code":"ORISS","name":"Orissa"},"511":{"code":"PUNJA","name":"Punjab"},"512":{"code":"RAJAS","name":"Rajasthan"},"514":{"code":"TAMIL","name":"Tamil Nadu"},"516":{"code":"UP","name":"Uttar Pradesh"},"518":{"code":"WB","name":"West Bengal"},"519":{"code":"AN","name":"Andaman & Nicobar"},"520":{"code":"AR","name":"Arunachal Pradesh"},"521":{"code":"DD","name":"Daman & Diu"},"524":{"code":"ML","name":"Meghalaya"},"525":{"code":"MZ","name":"Mizoram"},"526":{"code":"NL","name":"Nagaland"},"523":{"code":"PU","name":"Pondicherry"},"522":{"code":"TS","name":"Telangana"},"527":{"code":"TR","name":"Tripura"},"517":{"code":"UTTAR","name":"Uttarakhand"}}}</script>
-<div class="group-select"><form id="shippingzone-form" method="post" action="https://mybookshop.co.in/myshop/deliveryzone/index/index/uenc/aHR0cHM6Ly9teWJvb2tzaG9wLmNvLmluL215c2hvcC9jbGFzc2VzL2NsYXNzLTEyLWJvb2tz/">
+<div class="group-select"><form id="shippingzone-form" method="post" action="#">
     <h3 class="a-center">Please select your shipping location to start shopping</h3>
     <div class="col2-alt-set">
     	<div class="col-1 a-center">

@@ -249,7 +249,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/account', $data);
+        website('frontend/my_account', $data);
     }
     public function cart()
     {
@@ -261,6 +261,54 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
+        website('frontend/my_cart', $data);
+    }
+
+    public function Registration()
+    {
+        $data = [
+            'title' => 'Registartion',
+            'class'=>'',
+            'Classes' => $this->Class_model->All(),
+            'Subjects' => $this->Subject_model->All(),
+            'Publishers' => $this->Publisher_model->All(),
+            'Setting' => $this->Setting_model->Setting(),
+        ];
         website('frontend/footerpages/account', $data);
     }
+
+    public function UserRegistration()
+    {
+        $data = [
+            'first_name' => $this->input->post('firstname'),
+            'last_name' => $this->input->post('lastname'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'created' => date('Y-m-d H:i:s')
+        ];
+        $check=$this->Website_model->CheckDuplicate($this->input->post('email'));
+        if(empty($check)){
+        $category = $this->Website_model->AddTableMaster($data);
+        if ($category) {
+            echo "<script>alert('Registration Successfully')
+            window.location.href='".base_url('Home/account')."'
+            </script>";
+            
+            // redirect('Home/account');
+            // $this->session->set_flashdata('msg', array('message' => 'Registration Successfully', 'class' => 'success', 'position' => 'top-right'));
+        } else {
+            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+        }
+    }else{
+        echo "<script>alert('Email Already Exists');
+        window.location.href='".base_url('Home/Registration')."'
+        </script>";
+        // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+    }
+        
+    }
+
+   
+
+
 }

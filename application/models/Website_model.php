@@ -94,7 +94,7 @@ class Website_model extends MY_Model
     
     public function AddTableMaster($data)
     {
-        $this->db->insert('tbl_product', $data);
+        $this->db->insert('user', $data);
         return $this->db->insert_id();
     }
 
@@ -145,8 +145,8 @@ class Website_model extends MY_Model
     public function CheckDuplicate($name)
     {
         $this->db->select('id');
-        $this->db->from('tbl_product');
-        $this->db->where(['name'=>$name,'isDeleted'=>0]);
+        $this->db->from('user');
+        $this->db->where(['email'=>$name,'isDeleted'=>0]);
         return $num_results = $this->db->count_all_results();
     }
 

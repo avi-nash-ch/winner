@@ -418,7 +418,7 @@ echo json_encode(['result'=>true]);
             $base64_qrcode = 'data:image/png;base64,' . $imageString1;
             $data['qr_code']=$base64_qrcode;
             $html = $this->load->view('qr_code', $data, true);
-            $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [30, 150], 'orientation' => 'L', 'margin_top' => 1, 'margin_bottom' => 0.3, 'margin_left' => 0.5, 'margin_right' => 0.5]);
+            $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 150], 'orientation' => 'L', 'margin_top' => 1, 'margin_bottom' => 0.3, 'margin_left' => 0.5, 'margin_right' => 0.5]);
             //generate the PDF from the given html
             $mpdf->SetJS('this.print();');
             $mpdf->WriteHTML($html);

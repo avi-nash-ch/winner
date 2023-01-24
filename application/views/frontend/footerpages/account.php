@@ -69,7 +69,7 @@ Calendar._TT["TIME"] = 'Time:';
     <div class="page-title">
         <h1>Create an Account</h1>
     </div>
-                    <form action="#" method="post" id="form-validate">
+                    <form action="<?= base_url('Home/UserRegistration')?>" method="post" id="form-validate">
         <div class="fieldset">
             <input type="hidden" name="success_url" value="" />
             <input type="hidden" name="error_url" value="" />

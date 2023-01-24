@@ -148,11 +148,23 @@
                 <div class="extra-info">
                                                     <p class="availability out-of-stock">
             <span class="label">Availability:</span>
-            <!-- <span class="value">Sold Out</span> -->
+            <div class="">
+<?php if(!empty($data->qty)){ ?>
+    <button type="button" title="Add to Cart" class="button btn-cart">
+    <span> 
+    <a href="<?= base_url('Home/AddToCart')?>" class="level1">
+    <span style="color:white">Add
+    to Cart</span></a></span></button>
+   <?php }else{ ?>
+    <!-- <ul class="add-to-links" > -->
+        <span style="color:red">SOLD OUT</span>
+    <!-- </ul> -->
+	<?php } ?>
+</div>
         </p>
+        <br>
         
-        
-               <p><a class="button-linka" href="wholesale-bulkorder.html" title="Bulk Order Query" target="_self">Click here for BULK ORDERS</a></p>
+               <p><a class="button-linka" href="<?= base_url('Home/bulk_enquiry') ?>" title="Bulk Order Query" target="_self">Click here for BULK ORDERS</a></p>
                     </div>
 
                 

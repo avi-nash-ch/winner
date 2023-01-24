@@ -275,15 +275,17 @@ Calendar._TT["TIME"] = 'Time:';
 
 			                  
 <div class="">
+<?php if(!empty($value->qty)){ ?>
     <button type="button" title="Add to Cart" class="button btn-cart">
     <span> 
-    <a href="<?= base_url('Home/AddToCart')?>" class="level1  ">
+    <a href="<?= base_url('Home/AddToCart')?>" class="level1">
     <span style="color:white">Add
     to Cart</span></a></span></button>
-   
-    <!-- <ul class="add-to-links">
+   <?php }else{ ?>
+    <ul class="add-to-links" style="color:red">
         SOLD OUT
-    </ul> -->
+    </ul>
+	<?php } ?>
 </div>
 																					</div>
 			</li>
@@ -351,15 +353,17 @@ Calendar._TT["TIME"] = 'Time:';
                                    </div>
                                              
 <div class="">
+	<?php if(!empty($value->qty)){ ?>
     <button type="button" title="Add to Cart" class="button btn-cart">
     <span> 
     <a href="<?= base_url('Home/AddToCart')?>" class="level1  ">
     <span style="color:white">Add
     to Cart</span></a></span></button>
-   
-    <!-- <ul class="add-to-links">
+   <?php }else{ ?>
+    <ul class="add-to-links">
         SOLD OUT
-    </ul> -->
+    </ul>
+	<?php } ?>
 </div>
 
                                                                                                                            </div>

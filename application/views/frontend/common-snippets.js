@@ -311,7 +311,7 @@ header.innerHTML = `<div class="page-header-container">
 
 <div id="header-search" class="skip-content">
 
-    <form id="search_mini_form" action="https://mybookshop.co.in/myshop/catalogsearch/result/" method="get">
+    <form id="search_mini_form" action="#" method="get">
         <div class="input-box">
             <label for="search">Search:</label>
             <input id="search" type="search" name="q" value="" class="input-text required-entry mysearch"
@@ -382,7 +382,7 @@ footer.innerHTML = ` <div class="footer-container">
         <div class="links">
             <div class="block-title"><strong><span>Company</span></strong></div>
             <ul style="float: left; font-size: 15px;">
-                <li><a href="about-mybookshop.html">About Us</a></li>
+                <li><a href="#">About Us</a></li>
                 <li><a href="our-policies/index.html#delivery-policy">Delivery Policy</a></li>
                 <li><a href="our-policies/index.html#cancellation-policy">Cancellation Policy</a>
                 </li>
@@ -398,7 +398,7 @@ footer.innerHTML = ` <div class="footer-container">
         <div class="links">
             <div class="block-title"><strong><span>Contact Us</span></strong></div>
             <ul style="float: left; font-size: 15px;">
-                <li><a href="contact-mybookshop.html" title="Contact us"><span>Contact Us</span></a>
+                <li><a href="#" title="Contact us"><span>Contact Us</span></a>
                 </li>
                 <li><span><a href="wholesale-bulkorder.html" title="Contact us">Contact Us for Bulk
                             Enquiries</a></span></li>
