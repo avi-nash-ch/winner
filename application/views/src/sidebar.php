@@ -13,72 +13,30 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
             <li><a href="<?= base_url('backend/dashboard') ?>" class="waves-effect"><i class="ti-home"></i>
                         <span>Dashboard</span></a></li>
                 <li class="menu-title">Content</li>      
-                <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <li  class="<?= (array_filter([strpos($final_url, "backend/workers")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Workers') ?>" class="waves-effect">
+                <a href="<?= base_url('backend/Workers') ?>">
                         <i class="ion ion-md-contact"></i>
-                        <span>Maange Products</span>
+                        <span>Manage Workers</span>
                     </a>  
-                    <ul class="sub-menu mm-collapse">
-                    <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
-                        <span>Products</span></a></li>
-                        
-                    </ul>  
+</li> 
                     <li class="">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ion ion-md-contact"></i>
                         <span>Masters</span>
                     </a>
                     <ul class="sub-menu mm-collapse">
-                    <!-- <li
-                            class="<?= (array_filter([strpos($final_url, "backend/type")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="#" class="waves-effect">
-                                <span>Type</span></a>
-                        </li>
+                    
                         <li
-                            class="<?= (array_filter([strpos($final_url, "backend/age")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="" class="waves-effect">
-                                <span>Age</span></a>
-                        </li> -->
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/class")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Classes') ?>" class="waves-effect">
-                                <span>Class</span></a>
+                            class="<?= (array_filter([strpos($final_url, "backend/category")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Category') ?>" class="waves-effect">
+                                <span>Category</span></a>
                         </li>
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/author")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Author') ?>" class="waves-effect">
-                                <span>Author</span></a>
-                        </li>
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/language")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Language') ?>" class="waves-effect">
-                                <span>Language</span></a>
-                        </li>
-
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/publisher")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Publisher') ?>" class="waves-effect">
-                                <span>Publisher</span></a>
-                        </li>
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/board")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Board') ?>" class="waves-effect">
-                                <span>Board</span></a>
-                        </li>
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/subjects")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Subjects') ?>" class="waves-effect">
-                                <span>Subject</span></a>
-                        </li>
-                        <li
-                            class="<?= (array_filter([strpos($final_url, "backend/producttypes")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/ProductTypes') ?>" class="waves-effect">
-                                <span>Product Type</span></a>
-                        </li>
+                       
                     </ul>
                 </li>
 
-                <li
+                <!-- <li
                             class="<?= (array_filter([strpos($final_url, "backend/reports")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="<?= base_url('backend/Reports') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
@@ -89,7 +47,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <a href="<?= base_url('backend/Users') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
                                 <span>Users</span></a>
-                        </li>
+                        </li> -->
             </ul>
         </div>
         <!-- Sidebar -->
@@ -115,10 +73,10 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                     <div class="col-sm-6">
                         <div class="float-right d-md-block">
                             <?php
-if($this->uri->segment(2)=='dashboard'){
-         echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Generate Bill</button>';
+// if($this->uri->segment(2)=='dashboard'){
+//          echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Generate Bill</button>';
 
-}
+// }
                      if (isset($SideBarbutton) && isset($SideBarbutton[1])) {
                          ?>
 

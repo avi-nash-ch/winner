@@ -5,7 +5,7 @@ class Dashboard extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model', 'Users_model']);
+        $this->load->model(['Worker_model', 'Users_model']);
     }
 
     public function index()
@@ -17,8 +17,8 @@ class Dashboard extends MY_Controller
     {
         $data = [
             'title' => 'Dashboard',
-            'Products' => $this->Product_model->AllProduct(),
-            'TodaysSale' => $this->Product_model->TodaysSale()
+            'Products' => $this->Worker_model->AllWorkers(),
+            // 'TodaysSale' => $this->Product_model->TodaysSale()
         ];
         // $data['ActiveUser'];
         // exit;

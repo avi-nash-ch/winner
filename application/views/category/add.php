@@ -3,14 +3,14 @@
         <div class="card">
             <div class="card-body">
                 <?php
-            echo form_open_multipart('backend/Classes/insert', ['autocomplete' => false, 'id' => 'add_class'
-                ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_class')])
+            echo form_open_multipart('backend/Category/insert', ['autocomplete' => false, 'id' => 'add_category'
+                ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_category')])
             ?>
                 <div class="form-group row">
               
                 <div class="col-md-4">
-                    <label for="class">Class</label>
-                        <input class="form-control" type="text" Placeholder="Class" name="class"
+                    <label for="class">Name</label>
+                        <input class="form-control" type="text" Placeholder="Name" name="name"
                             id="class">
                     </div> 
                 </div>
@@ -21,7 +21,7 @@
                         echo form_submit('submit', 'Submit', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
                        
                         ?>
-                         <a href="<?= base_url('backend/Classes')?>" class="btn btn-secondary waves-effect">Cancel</a>
+                         <a href="<?= base_url('backend/Category')?>" class="btn btn-secondary waves-effect">Cancel</a>
                     </div>
                 </div>
                 <?php

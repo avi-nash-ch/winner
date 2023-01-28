@@ -106,7 +106,7 @@
                     </div>
                     <div class="m-t-40 text-center">
                         <!-- <p>Don't have an account ? <a href="pages-register.html" class="font-500 text-primary">Signup now</a></p> -->
-                        <p>© <?= date("Y") ?> Webtech Crafted with <i class="mdi mdi-heart"
+                        <p>© <?= date("Y") ?> NextGen Crafted with <i class="mdi mdi-heart"
                                 style="color: #ffc107!important;"></i></p>
                     </div>
                 </div><!-- end wrapper-page -->
