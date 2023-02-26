@@ -104,6 +104,12 @@ class Website_model extends MY_Model
         return $this->db->insert_id();
     }
 
+    public function AddContact($data)
+    {
+        $this->db->insert('tbl_contact_worker', $data);
+        return $this->db->insert_id();
+    }
+
     public function Delete($id)
     {
         $data = [
@@ -164,6 +170,17 @@ class Website_model extends MY_Model
         $this->db->from('tbl_product');
         $this->db->where('class',$id);
         return $this->db->count_all_results();
+    }
+
+    public function login($username,$password)
+    {
+        $Query = $this->db->select('id,role,email,first_name,last_name')
+                 ->where('isDeleted',false)
+                 ->where('email',$username)
+                 ->where('password',$password)
+                 ->get('user');      
+                 
+        return $Query->row();
     }
 
 }

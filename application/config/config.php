@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://139.59.64.176/pratap_multi_services';
+$config['base_url'] = 'https://ruchibooks.com/pratap_multi_services';
 
 
 /*

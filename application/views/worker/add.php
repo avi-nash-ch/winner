@@ -69,7 +69,13 @@
                     </div>
                    
                 </div>
-                
+                <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="shop_name">Shop Name</label>
+                        <input class="form-control" type="text" Placeholder="Shop Name"  name="shop_name"
+                            id="shop_name">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-md-2">
                     <div class="holder">

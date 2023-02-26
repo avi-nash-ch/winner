@@ -8,38 +8,38 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Product_model','Class_model','Website_model','Subject_model','Publisher_model']);
+        $this->load->model(['Worker_model','Website_model']);
     }
 
     public function index()
     {
         $data = [
             'title' => 'Home',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'AllProduct' => $this->Product_model->AllProduct(),
-            'AllMostViewedProduct' => $this->Product_model->AllMostViewedProduct(),
-            'Setting' => $this->Setting_model->Setting(),
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'AllProduct' => $this->Product_model->AllProduct(),
+            // 'AllMostViewedProduct' => $this->Product_model->AllMostViewedProduct(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/index', $data);
+        website('website/index', $data);
     }
 
-    public function Class($class='')
+    public function FindWorkers($class='')
     {
 
-        $AllClass= $this->Class_model->All();
+        $AllWorkers =$this->Worker_model->AllWorkers();
         $data = [
-            'title' => 'Class',
-            'class'=>$class,
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'AllProduct' => $this->Product_model->AllProductByClass($class),
-            'Setting' => $this->Setting_model->Setting(),
-            'AllClass'=>$AllClass
+            'title' => 'Find Workers',
+            'AllWorkers'=>$AllWorkers,
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'AllProduct' => $this->Product_model->AllProductByClass($class),
+            // 'Setting' => $this->Setting_model->Setting(),
+            // 'AllClass'=>$AllClass
         ];
-        website('frontend/classes/class-12-books', $data);
+        website('website/findworker', $data);
     }
 
     public function Publisher($class='')
@@ -56,7 +56,7 @@ class Home extends CI_Controller
             'Setting' => $this->Setting_model->Setting(),
             'AllClass'=>$AllClass
         ];
-        website('frontend/classes/class-12-books', $data);
+        website('website/classes/class-12-books', $data);
     }
 
     public function Subject($class='')
@@ -73,7 +73,7 @@ class Home extends CI_Controller
             'Setting' => $this->Setting_model->Setting(),
             'AllClass'=>$AllClass
         ];
-        website('frontend/classes/class-12-books', $data);
+        website('website/classes/class-12-books', $data);
     }
 
     public function productDeatils($id)
@@ -90,7 +90,7 @@ class Home extends CI_Controller
             'data' => $product,
             'related'=>$related
         ];
-        website('frontend/classes/produtdetail', $data);
+        website('website/classes/produtdetail', $data);
     }
     public function AddToCart()
     {
@@ -99,7 +99,7 @@ class Home extends CI_Controller
             // 'AllProduct' => $this->Product_model->AllProduct(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/checkout/cart/index', $data);
+        website('website/checkout/cart/index', $data);
     }
    
 
@@ -114,7 +114,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/sitemap', $data);
+        website('website/footerpages/sitemap', $data);
     }
     
     public function feedback()
@@ -127,7 +127,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/feedback', $data);
+        website('website/footerpages/feedback', $data);
     }
 
     public function bulk_enquiry()
@@ -140,7 +140,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/bulk_enquiry', $data);
+        website('website/footerpages/bulk_enquiry', $data);
     }
 
     public function track_order()
@@ -153,7 +153,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/track_order', $data);
+        website('website/footerpages/track_order', $data);
     }
 
     public function about_us()
@@ -166,7 +166,7 @@ class Home extends CI_Controller
             'Classes' => $this->Class_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/about-mybookshop', $data);
+        website('website/footerpages/about-mybookshop', $data);
     }
 
     public function refund_policy()
@@ -189,7 +189,7 @@ class Home extends CI_Controller
             'Setting' => $this->Setting_model->Setting(),
         ];
         
-        website('frontend/footerpages/our-policies', $data);
+        website('website/footerpages/our-policies', $data);
     }
 
     public function terms_conditions()
@@ -202,7 +202,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/terms-conditions', $data);
+        website('website/footerpages/terms-conditions', $data);
     }
 
     public function security()
@@ -223,7 +223,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/contact', $data);
+        website('website/footerpages/contact', $data);
     }
 
     public function help_support()
@@ -236,20 +236,17 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/help-support', $data);
+        website('website/footerpages/help-support', $data);
     }
 
-    public function account()
+    public function Login()
     {
         $data = [
-            'title' => 'My Account',
-            'class'=>'',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
+            'title' => 'Login',
+           
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/my_account', $data);
+        website('website/login', $data);
     }
     public function cart()
     {
@@ -261,7 +258,7 @@ class Home extends CI_Controller
             'Publishers' => $this->Publisher_model->All(),
             'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/my_cart', $data);
+        website('website/my_cart', $data);
     }
 
     public function Registration()
@@ -269,20 +266,17 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Registartion',
             'class'=>'',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
         ];
-        website('frontend/footerpages/account', $data);
+        website('website/register', $data);
     }
 
     public function UserRegistration()
     {
         $data = [
-            'first_name' => $this->input->post('firstname'),
-            'last_name' => $this->input->post('lastname'),
+            'first_name' => $this->input->post('fname'),
+            'last_name' => $this->input->post('lname'),
             'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone_no'),
             'password' => $this->input->post('password'),
             'created' => date('Y-m-d H:i:s')
         ];
@@ -290,8 +284,17 @@ class Home extends CI_Controller
         if(empty($check)){
         $category = $this->Website_model->AddTableMaster($data);
         if ($category) {
+            $data=$this->Website_model->login($this->input->post('email'),$this->input->post('password'));
+        if(!empty($data)){
+            $user_data = array(
+                'admin_id' => $data->id,
+                'email' => $data->email,
+                'name' => $data->first_name,
+            );
+        }
+            $this->session->set_userdata($user_data);
             echo "<script>alert('Registration Successfully')
-            window.location.href='".base_url('Home/account')."'
+            window.location.href='".base_url('Home')."'
             </script>";
             
             // redirect('Home/account');
@@ -309,6 +312,50 @@ class Home extends CI_Controller
     }
 
    
+    public function CheckLogin()
+    {
+        $data=$this->Website_model->login($this->input->post('email'),$this->input->post('password'));
+        if(!empty($data)){
+            $user_data = array(
+                'admin_id' => $data->id,
+                'email' => $data->email,
+                'name' => $data->first_name,
+            );
+            $this->session->set_userdata($user_data);
+            echo "<script>alert('Login Successfully')
+            window.location.href='".base_url('Home')."'
+            </script>";
+    }else{
+        echo "<script>alert('Invalid Credential');
+        window.location.href='".base_url('Home/Login')."'
+        </script>";
+        // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+    }
+        
+    }
 
+
+    public function LogOut()
+    {
+       
+        $this->session->sess_destroy();
+        redirect('Home');
+        
+    }
+
+
+    public function Contact()
+    {
+        $id=$this->url_encrypt->decode($this->input->get('id'));
+        $data = [
+            'user_id' => $this->session->admin_id,
+            'worker_id' => $id,
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+         $this->Website_model->AddContact($data);
+        
+    }
+
+   
 
 }

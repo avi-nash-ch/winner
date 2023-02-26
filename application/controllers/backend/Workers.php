@@ -18,6 +18,16 @@ class Workers extends MY_Controller
     }
 
 
+    public function Contact()
+    {
+        $data = [
+            'title' => 'Manage Products',
+            'AllWorkers' => $this->Worker_model->Contact()
+        ];
+        $data['SideBarbutton'] = ['backend/Workers/add', 'Add Worker'];
+        template('worker/contact', $data);
+    }
+
     public function add()
     {
         $data = [
@@ -147,6 +157,7 @@ class Workers extends MY_Controller
             'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
+            'shop_name' => $this->input->post('shop_name'),
             'service_provider' => $this->input->post('service_provider'),
             'image' => $product_image,
             'image2' => $product_image2,
@@ -181,6 +192,7 @@ class Workers extends MY_Controller
             'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
+            'shop_name' => $this->input->post('shop_name'),
             'service_provider' => $this->input->post('service_provider'),
             'updated_date' => date('Y-m-d H:i:s')
         ];

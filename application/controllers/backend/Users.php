@@ -14,7 +14,7 @@ class Users extends MY_Controller
             'title' => 'Manage Users',
             'AllUsers' => $this->Users_model->AllUserList()
         ];
-        template('frontend/users', $data);
+        template('user/list', $data);
     }
 
    

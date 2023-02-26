@@ -1,185 +1,201 @@
-<footer class="footer">
-    <div class="footer_main">
-        <div class="top" style="background: url(<?= LOGO.$Setting->logo ?>) no-repeat 16px; background-size: 48px;">
-            <?= PROJECT_NAME ?> - The Most Popular Indian Cards Games, play <?= PROJECT_NAME ?> online win real rupees
-            with Millions of Players
-            around the world in real-time!
-        </div>
-        <div class="footer_item">
-            <a href="<?= base_url() ?>">Home</a>
-            <a href="<?= base_url('download') ?>">Download</a>
-            <a href="<?= base_url('faq') ?>">FAQ</a>
-            <a href="<?= base_url('about-us') ?>">About Us</a>
-            <a href="<?= base_url('privacy-policy') ?>">Privacy Policy</a>
-            <a href="<?= base_url('terms-conditions') ?>">Terms & Conditions</a>
-            <a href="<?= base_url('refund-policy') ?>">Refund Policy</a>
-            <a href="<?= base_url('security') ?>">Security</a>
-            <a href="<?= base_url('contact-us') ?>">Contact us</a>
-        </div>
-        <div class="copy"> © <?= date('Y') ?> <?= PROJECT_NAME ?> All rights reserved</div>
-    </div>
 
-    <div class="share-right">
-        <ul>
-            <li>
-                <a class="social_share" data-type="fb">
-                    <i class="fa share-fb"></i>
-                </a>
-            </li>
-            <li>
-                <a class="social_share" data-type="twitter">
-                    <i class="share-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a class="social_share" data-type="vk">
-                    <i class="share-vk"></i>
-                </a>
-            </li>
-            <li>
-                <a class="social_share" data-type="reddit">
-                    <i class="share-reddit"></i>
-                </a>
-            </li>
-            <li>
-                <a class="share-more">
-                    <i class="share_more_btn"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <button class="share-button">
-        <i class="fa-share"></i>
-    </button>
-    <div class="small-share">
-        <a class="social_share" data-type="fb">
-            <i class="share-fb"></i>
-            <span class="text">Facebook</span>
-        </a>
-        <a class="social_share" data-type="twitter">
-            <i class="share-twitter"></i>
-            <span class="text">Twitter</span>
-        </a>
-        <a class="social_share" data-type="vk">
-            <i class="share-vk"></i>
-            <span class="text">Vkontakte</span>
-        </a>
-        <a class="social_share" data-type="reddit">
-            <i class="share-reddit"></i>
-            <span class="text">Reddit</span>
-        </a>
-        <a class="share-more">
-            <i class="share_more_btn"></i>
-            <span class="text">More</span>
-        </a>
-    </div>
-    <div class="other-share">
-        <div class="other-share-main">
-            <div class="title"><?= PROJECT_NAME ?></div>
-            <div class="subtitle">Download and play <?= PROJECT_NAME ?> to win real money rupees in cash. Classic Indian
-                Cards Games
-                for all player.</div>
-            <div class="list">
-                <a class="social_share" data-type="fb">
-                    <i class="share-fb"></i>
-                    <span class="text">Facebook</span>
-                </a>
-                <a class="social_share" data-type="twitter">
-                    <i class="share-twitter"></i>
-                    <span class="text">Twitter</span>
-                </a>
-                <a class="social_share" data-type="vk">
-                    <i class="share-vk"></i>
-                    <span class="text">Vkontakte</span>
-                </a>
-                <a class="social_share" data-type="reddit">
-                    <i class="share-reddit"></i>
-                    <span class="text">Reddit</span>
-                </a>
-                <a class="social_share" data-type="googleplus">
-                    <i class="share-g"></i>
-                    <span class="text">Google</span>
-                </a>
-                <a class="social_share" data-type="pinterest">
-                    <i class="share-pinterest"></i>
-                    <span class="text">Pinterest</span>
-                </a>
-                <a class="social_share" data-type="whatsapp">
-                    <i class="share-whatsapp"></i>
-                    <span class="text">WhatsApp</span>
-                </a>
-                <a class="social_share" data-type="email">
-                    <i class="share-e"></i>
-                    <span class="text">Email</span>
-                </a>
+  <!-- footer start-->
+  <footer class=footer>
+
+    <div class=footer-top>
+        <div class=container>
+            <div class=inner-content>
+                <div class=row>
+                    <div class="col-lg-3 col-md-4 col-12">
+                        <div class=footer-logo>
+                            <a href=index.html>
+                                <img src="<?= base_url()?>web_assets/images/logo/logo2.jpg" alt="#" style="height:77px; border-radius:10px;margin-top: -15px; " >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <div class=footer-newsletter>
+                            <h4 class=title>
+                                Subscribe to our Newsletter
+                                <span>Get all the latest information, Sales and Offers.</span>
+                            </h4>
+                            <div class=newsletter-form-head>
+                                <form action="#" method=get target=_blank class=newsletter-form>
+                                    <input name=EMAIL placeholder="Email address here..." type=email style="width: 238px;">
+                                    <div class=button>
+                                        <button class=btn>Subscribe<span class=dir-part></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+    <div class=footer-middle>
+        <div class=container>
+            <div class=bottom-inner>
+                <div class=row>
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <div class="single-footer f-contact">
+                            <h3>Get In Touch With Us</h3>
+                            <p class=phone>Phone: +91 (96043 66262)</p>
+                            <ul>
+                                <li><span>Monday-Friday: </span> 9.00 am - 8.00 pm</li>
+                                <li><span>Saturday: </span> 10.00 am - 6.00 pm</li>
+                            </ul>
+                            <p class=mail>
+                                <a
+                                    href="sales@pratapmultiservices.com"><span
+                                        class="__cf_email__"
+                                        data-cfemail="6b181e1b1b04191f2b1803041b0c19020f1845080406"></span>sales@pratapmultiservices.com</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <div class="single-footer our-app">
+                            <h3>Our Mobile App</h3>
+                            <ul class=app-btn>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="lni lni-apple"></i>
+                                        <span class=small-title>Download on the</span>
+                                        <span class=big-title>App Store</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="lni lni-play-store"></i>
+                                        <span class=small-title>Download on the</span>
+                                        <span class=big-title>Google Play</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <div class="single-footer f-link">
+                            <h3>Information</h3>
+                            <ul>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="javascript:void(0)">Downloads</a></li>
+                                <li><a href="javascript:void(0)">Sitemap</a></li>
+                                <li><a href="faq.html">FAQs Page</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <div class="single-footer f-link">
+                            <h3>Shop Departments</h3>
+                            <ul>
+                                <li><a href="javascript:void(0)">Computers & Accessories</a></li>
+                                <li><a href="javascript:void(0)">Smartphones & Tablets</a></li>
+                                <li><a href="javascript:void(0)">TV, Video & Audio</a></li>
+                                <li><a href="javascript:void(0)">Cameras, Photo & Video</a></li>
+                                <li><a href="javascript:void(0)">Headphones</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class=footer-bottom>
+        <div class=container>
+            <div class=inner-content>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 md-4 col-12">
+                        <div class=payment-gateway>
+                            <span>We Accept:</span>
+                            <img src="<?= base_url()?>web_assets/images/footer/credit-cards-footer.png" alt="#">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 md-4  col-12">
+                        <div class=copyright>
+                            <p>Designed and Developed by<a href="index.html" rel=nofollow
+                                    target=_blank> NextGen IoT Services.</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 md-4  col-12">
+                        <ul class=socila>
+                            <li>
+                                <span>Follow Us On:</span>
+                            </li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </footer>
-<script type="text/javascript" src="<?= base_url('assets/website/js/lazyload.min.js') ?>">
-</script>
-<script src="<?= base_url('assets/website/js/jsshare.js') ?>" type="text/javascript"></script>
-<script type="text/javascript">
-// lazyload img
-(function() {
-    var lazy = new LazyLoad({
-        threshold: 200,
-        elements_selector: ".lazy",
-    });
-})();
 
-//show Menu
-$('.menu_icon').click(function() {
-    $(".header .navigation ul").animate({
-        left: '0px'
-    }, 200);
-    $(".header").append("<div class='menu_bg close_menu'></div>");
-    $("body").css("overflow", "hidden");
-});
 
-//close Menu
-$(document).on("click", ".close_menu", function() {
-    $(".header .navigation ul").animate({
-        left: '-300px'
-    }, 200);
-    $("body").css("overflow", "auto");
-    $(".menu_bg").remove();
-});
+<a href="#" class=scroll-top>
+    <i class="lni lni-chevron-up"></i>
+</a>
 
-$(window).resize(function() {
-    window.location.reload();
-});
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="<?= base_url()?>web_assets/js/bootstrap.min.js.pagespeed.jm.R6pdwTt0pj.js"></script>
+<script src="<?= base_url()?>web_assets/js/tiny-slider.js%2bglightbox.min.js%2bmain.js.pagespeed.jc.MCgBCVbLAV.js"></script>
+<script>eval(mod_pagespeed_Zp_OOsHKoc);</script>
+<script>eval(mod_pagespeed_5TvwT_lz9K);</script>
+<script>eval(mod_pagespeed_uoja0BW_wo);</script>
+<script
+    type="text/javascript">tns({ container: '.hero-slider', slideBy: 'page', autoplay: true, autoplayButtonOutput: false, mouseDrag: true, gutter: 0, items: 1, nav: false, controls: true, controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'], }); tns({ container: '.brands-logo-carousel', autoplay: true, autoplayButtonOutput: false, mouseDrag: true, gutter: 15, nav: false, controls: false, responsive: { 0: { items: 1, }, 540: { items: 3, }, 768: { items: 5, }, 992: { items: 6, } } });</script>
+<script>
+    const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
 
-$(".share-button").click(function() {
-    $(".small-share").show();
-    $(this).hide();
-});
+    const timer = () => {
+        const now = new Date().getTime();
+        let diff = finaleDate - now;
+        if (diff < 0) {
+            document.querySelector('.alert').style.display = 'block';
+            document.querySelector('.container').style.display = 'none';
+        }
 
-$(".share-more").click(function() {
-    $(".other-share").show();
-    $(".share-button").hide();
-});
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        let minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
+        let seconds = Math.floor(diff % (1000 * 60) / 1000);
 
-$(".small-share").click(function() {
-    $(this).hide();
-    if ($(".other-share").is(":hidden")) {
-        $(".share-button").show();
+        days <= 99 ? days = `0${days}` : days;
+        days <= 9 ? days = `00${days}` : days;
+        hours <= 9 ? hours = `0${hours}` : hours;
+        minutes <= 9 ? minutes = `0${minutes}` : minutes;
+        seconds <= 9 ? seconds = `0${seconds}` : seconds;
+
+        document.querySelector('#days').textContent = days;
+        document.querySelector('#hours').textContent = hours;
+        document.querySelector('#minutes').textContent = minutes;
+        document.querySelector('#seconds').textContent = seconds;
+
     }
-});
-
-$(".other-share").click(function() {
-    $(this).hide();
-    if ($(".share-right").is(":hidden")) {
-        $(".share-button").show();
-    }
-});
-var shareItems = document.querySelectorAll('.social_share');
-for (var i = 0; i < shareItems.length; i += 1) {
-    shareItems[i].addEventListener('click', function share(e) {
-        return JSShare.go(this);
-    });
-}
+    timer();
+    setInterval(timer, 1000);
 </script>
+
+  <!-- footer end -->
+
+
 </body>
 
 </html>

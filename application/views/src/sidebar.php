@@ -42,12 +42,19 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <i class="ion ion-md-contact"></i>
                                 <span>Reports</span></a>
                         </li>
+                        -->
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/users")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="<?= base_url('backend/Users') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
                                 <span>Users</span></a>
-                        </li> -->
+                        </li> 
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/workers/contact")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Workers/Contact') ?>" class="waves-effect">
+                            <i class="ion ion-md-contact"></i>
+                                <span>Contact to Workers</span></a>
+                        </li> 
             </ul>
         </div>
         <!-- Sidebar -->
