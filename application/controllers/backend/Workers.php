@@ -21,7 +21,7 @@ class Workers extends MY_Controller
     public function Contact()
     {
         $data = [
-            'title' => 'Manage Products',
+            'title' => 'Manage Contact Workers',
             'AllWorkers' => $this->Worker_model->Contact()
         ];
         $data['SideBarbutton'] = ['backend/Workers/add', 'Add Worker'];

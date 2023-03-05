@@ -316,8 +316,8 @@
                                         <div class="mt-3 mb-3">
                                           <label>Address:</label>
                                           <div class="form-floating">
-                                            <textarea class="form-control" readonly value="<?= $value->address ?>" placeholder="Leave a comment here"
-                                              id="floatingTextarea2" style="height: 100px"></textarea>
+                                            <textarea class="form-control" readonly 
+                                              id="floatingTextarea2" style="height: 100px"><?= $value->address ?></textarea>
 
                                           </div>
                                         </div>
