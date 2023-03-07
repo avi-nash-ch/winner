@@ -24,14 +24,13 @@
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $row->name ?></td>
-                            <td><img src="<?= base_url('uploads/images/'.$row->icon); ?>" height="80px" width="80px"></td>
                             <td><?= date("d-m-Y h:i A", strtotime($row->added_date)) ?></td>
                             <td>
-                                <a href="<?= base_url('backend/Category/edit/' . $row->id) ?>"
+                                <a href="<?= base_url('backend/Location/edit/' . $row->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
                                         class="fa fa-edit"></span></a>
                                
-                                | <a href="<?= base_url('backend/Category/delete/' . $row->id) ?>"
+                                | <a href="<?= base_url('backend/Location/delete/' . $row->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>
                             </td>

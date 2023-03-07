@@ -2,12 +2,21 @@
 class Worker_model extends MY_Model
 {
 
-    public function AllWorkers()
+    public function AllWorkers($cat=null,$search=null)
     {
-        $this->db->select('tbl_worker.*,tbl_category.name as category');
+        $this->db->select('tbl_worker.*,tbl_category.name as category,tbl_location.name as location');
         $this->db->from('tbl_worker');
         $this->db->join('tbl_category','tbl_category.id=tbl_worker.category');
+        $this->db->join('tbl_location','tbl_location.id=tbl_worker.location','left');
         $this->db->where('tbl_worker.isDeleted', false);
+        if(!empty($cat)){
+            $this->db->where_in('tbl_category.id',implode(",",$cat));
+        }
+        if(!empty($search)){          
+            $this->db->like('tbl_worker.name',$search);
+            $this->db->or_like('tbl_worker.location',$search);
+            $this->db->or_like('tbl_worker.service_provider',$search);
+        }
         $this->db->order_by('tbl_worker.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();

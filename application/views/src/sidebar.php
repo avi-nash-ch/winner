@@ -32,6 +32,12 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <a href="<?= base_url('backend/Category') ?>" class="waves-effect">
                                 <span>Category</span></a>
                         </li>
+
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/location")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Location') ?>" class="waves-effect">
+                                <span>Location</span></a>
+                        </li>
                        
                     </ul>
                 </li>

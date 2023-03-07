@@ -64,8 +64,12 @@
                    
                     <div class="col-md-4">
                     <label for="location">Location</label>
-                        <input class="form-control" type="text" Placeholder="Location" name="location"
-                            id="location">
+                    <select class="form-control" name="location" required>
+                        <option value="">Select Location</option>
+                        <?php foreach ($Location as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
                     </div>
                    
                 </div>

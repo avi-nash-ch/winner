@@ -1,3 +1,24 @@
+<style>
+            .holder {
+                height: 120px;
+                width: 120px;
+                border: 2px solid black;
+            }
+            img {
+                max-width: 120px;
+                max-height: 120px;
+                min-width: 120px;
+                min-height: 120px;
+            }
+            input[type="file"] {
+                margin-top: 5px;
+            }
+            .heading {
+                font-family: Montserrat;
+                font-size: 45px;
+                color: green;
+            }
+        </style>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -15,6 +36,15 @@
                     </div> 
                 </div>
                
+                <div class="col-md-2">
+                <label for="image">Icon *</label>
+                    <div class="holder">
+                <img id="imgPreview" src="#" style="display:none"  />
+            </div>
+                   
+                        <input class="form-control" type="file" name="image" id="image" required>
+                    </div>
+                    <br>
                 <div class="form-group mb-0">
                     <div>
                         <?php
@@ -31,7 +61,19 @@
         </div><!-- end col -->
     </div>
     <script>
-    // function updateValue(x) {
-    //     $('#boot_value').val(x * 80);
-    // }
-    </script>
+            $(document).ready(() => {
+                $("#image").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview")
+                              .attr("src", event.target.result);
+                              $('#imgPreview').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+               
+        </script>

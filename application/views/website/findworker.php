@@ -31,14 +31,14 @@
 
             <div class="single-widget search">
               <h3>Search Worker</h3>
-              <form action="#">
-                <input type=text placeholder="Search Here...">
+              <form action="<?= base_url('Home/filter')?>" method="get">
+                <input type=text name="b" placeholder="Search Here..." value="<?= $this->input->get('b')?>">
                 <button type=submit><i class="lni lni-search-alt"></i></button>
               </form>
             </div>
 
 
-            <div class=single-widget>
+            <!-- <div class=single-widget>
               <h3>All Categories</h3>
               <ul class=list>
                 <li>
@@ -115,7 +115,7 @@
                 </li>
 
               </ul>
-            </div>
+            </div> -->
 
 
             <!-- <div class="single-widget range">
@@ -130,61 +130,19 @@
 
 
             <div class="single-widget condition">
-              <h3>Filter by Type</h3>
+              <h3>All Categories</h3>
+              <form action="<?= base_url('Home/filter')?>" method="get" name="form_category">
+              <?php foreach ($AllCategory as $key => $value) { ?>
+                
               <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault1>
+                <input class=form-check-input name="a[]" <?= !empty($this->input->get('a'))?in_array($value->id,$this->input->get('a'))?'checked':'':''?> type=checkbox onclick="form_category.submit()" value="<?= $value->id?>" id=flexCheckDefault1>
                 <label class=form-check-label for=flexCheckDefault1>
-                  Painter
+                  <?= $value->name ?>
                 </label>
               </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault2>
-                <label class=form-check-label for=flexCheckDefault2>
-                  Electritions
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault3>
-                <label class=form-check-label for=flexCheckDefault3>
-                  Television
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Farmer
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Finance
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Journalism
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Welder
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Bakery Shop
-                </label>
-              </div>
-              <div class=form-check>
-                <input class=form-check-input type=checkbox value="" id=flexCheckDefault4>
-                <label class=form-check-label for=flexCheckDefault4>
-                  Medical Store
-                </label>
-              </div>
+            <?php } ?>
+              </form>
+              
             </div>
 
 
@@ -305,7 +263,8 @@
 
                                         <div class="mt-3 mb-3">
                                           <label><b>Whatsapp / Contact No:</b></label>
-                                          <input type="number" class="form-control" readonly value="<?= $value->whatsapp_no ?>" style="width:60%;"><span><a href="#"><img
+                                          <input type="number" class="form-control" readonly value="<?= $value->whatsapp_no ?>" style="width:60%;"><span><a href="https://api.whatsapp.com/send?phone=<?= $value->whatsapp_no ?>">
+<img
                                             src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="30px"
                                             style="margin-left:20px; position: relative;  left: 217px;  bottom: 35px;"></a> </span>
                                            

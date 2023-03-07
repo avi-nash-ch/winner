@@ -8,19 +8,13 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model','Website_model']);
+        $this->load->model(['Worker_model','Website_model','Category_model']);
     }
 
     public function index()
     {
         $data = [
             'title' => 'Home',
-            // 'Classes' => $this->Class_model->All(),
-            // 'Subjects' => $this->Subject_model->All(),
-            // 'Publishers' => $this->Publisher_model->All(),
-            // 'AllProduct' => $this->Product_model->AllProduct(),
-            // 'AllMostViewedProduct' => $this->Product_model->AllMostViewedProduct(),
-            // 'Setting' => $this->Setting_model->Setting(),
         ];
         website('website/index', $data);
     }
@@ -32,12 +26,22 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Find Workers',
             'AllWorkers'=>$AllWorkers,
-            // 'Classes' => $this->Class_model->All(),
-            // 'Subjects' => $this->Subject_model->All(),
-            // 'Publishers' => $this->Publisher_model->All(),
-            // 'AllProduct' => $this->Product_model->AllProductByClass($class),
-            // 'Setting' => $this->Setting_model->Setting(),
-            // 'AllClass'=>$AllClass
+            'AllCategory' => $this->Category_model->All(),
+        ];
+        website('website/findworker', $data);
+    }
+
+    public function filter()
+    {
+
+        $cat=$this->input->get('a');
+        $search=$this->input->get('b');
+        
+        $AllWorkers =$this->Worker_model->AllWorkers($cat,$search);
+        $data = [
+            'title' => 'Find Workers',
+            'AllWorkers'=>$AllWorkers,
+            'AllCategory' => $this->Category_model->All(),
         ];
         website('website/findworker', $data);
     }

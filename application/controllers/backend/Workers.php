@@ -4,13 +4,13 @@ class Workers extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Worker_model','Category_model']);
+        $this->load->model(['Worker_model','Category_model','Location_model']);
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Manage Products',
+            'title' => 'Manage Workers',
             'AllWorkers' => $this->Worker_model->AllWorkers()
         ];
         $data['SideBarbutton'] = ['backend/Workers/add', 'Add Worker'];
@@ -33,6 +33,7 @@ class Workers extends MY_Controller
         $data = [
             'title' => 'Add Worker',
             'Category' => $this->Category_model->All(),
+            'Location' => $this->Location_model->All(),
         ];
 
         template('worker/add', $data);
@@ -43,6 +44,7 @@ class Workers extends MY_Controller
         $data = [
             'title' => 'Edit Workers',
             'Category' => $this->Category_model->All(),
+            'Location' => $this->Location_model->All(),
             'Product' => $this->Worker_model->ViewTableMaster($id)
         ];
 
