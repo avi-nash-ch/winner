@@ -8,11 +8,11 @@
   <title>pratap multiservices</title>
   <meta name=description content="" />
   <meta name=viewport content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" type="image/x-icon" href="<?= base_url()?>web_assets/images/favicon.svg" />
 
   <link rel=stylesheet
-    href="assets/css/A.bootstrap.min.css%2bLineIcons.3.0.css%2btiny-slider.css%2bglightbox.min.css%2cMcc.OzR7N5fb_Y.css.pagespeed.cf.svKjl5Nf5n.css" />
-  <link rel=stylesheet href="assets/css/A.main.css.pagespeed.cf.wZnWV-GMUP.css" />
+    href="<?= base_url()?>web_assets/css/A.bootstrap.min.css%2bLineIcons.3.0.css%2btiny-slider.css%2bglightbox.min.css%2cMcc.OzR7N5fb_Y.css.pagespeed.cf.svKjl5Nf5n.css" />
+  <link rel=stylesheet href="<?= base_url()?>web_assets/css/A.main.css.pagespeed.cf.wZnWV-GMUP.css" />
   <!-- bootstrap cdn -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -245,26 +245,26 @@
                   </div>
                   <div class="modal-body">
                     <div>
-                      <form>
+                      <form action="<?= base_url('Home/store_transport')?>" enctype="multipart/form-data" method ="post">
                         <div class="mt-3 mb-3">
                           <label> <b>Driver Name/ Owner Name:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="driver_name" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>Mobile No/ WhatApp No:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="mobile_no" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>Vehicle No:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="veh_no" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>vehicle type:</b> </label>
-                          <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected> select vehicle type</option>
+                          <select class="form-control form-select form-select-sm" name="veh_type" required aria-label=".form-select-sm example">
+                            <option value=""> select vehicle type</option>
                             <option value="1">Two-wheelar</option>
                             <option value="2">Three-wheelar</option>
                             <option value="3">Four-wheelar</option>
@@ -273,59 +273,65 @@
 
                         <div class="mt-3 mb-3">
                           <label><b>Vehicle Name:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="veh_name" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>From City:</b> </label>
-                          <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected> select city</option>
-                            <option value="pune">pune</option>
-                            <option value="Beed">Beed</option>
-                            <option value="3">Nashik</option>
+                          <select class="form-control form-select form-select-sm" required name="from_city" aria-label=".form-select-sm example">
+                          <option value=""> select city</option>
+                          <?php foreach ($Allcity as $key => $value) { ?>
+                            
+                            <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                            <?php } ?>
                           </select>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>To city:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="to_city" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>From Where By Root To:</b> </label>
-                          <input type="text" class="form-control">
+                          <input type="text" name="by_root" class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>Date:</b> </label>
-                          <input type="date" class="form-control">
+                          <input type="date" name="date"  class="form-control" required>
                         </div>
 
                         <div class="mt-3 mb-3">
                           <label><b>Time:</b> </label>
-                          <input type="time" class="form-control">
+                          <input type="time" name="time" class="form-control" required>
                         </div>
 
 
                         <div class="mt-3 mb-3">
                           <label>Comment:</label>
                           <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea2"
                               style="height: 100px"></textarea>
 
                           </div>
                         </div>
 
+                        <div class="mt-3 mb-3">
+                          <label><b>Vehicle Photo:</b> </label>
+                          <input type="file" name="veh_img" class="form-control" required>
+                        </div>
 
 
-                      </form>
                     </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                   </div>
                 </div>
+                
+                </form>
               </div>
             </div>
 
@@ -493,12 +499,159 @@
             <div class=tab-content id=nav-tabContent>
               <div class="tab-pane fade show active" id=nav-grid role=tabpanel aria-labelledby=nav-grid-tab>
                 <div class=row>
+
+                <?php foreach ($AllTransport as $key => $value) {
+                  
+                  if($value->veh_type==1){
+                    $type='Two-wheelar';
+                   }else if($value->veh_type==2){
+                    $type='Three-wheelar';
+                   }else{
+                    $type='Four-wheelar';
+                   }
+                  ?>
                   <div class="col-lg-4 col-md-6 col-12">
 
                     <div class=single-product>
                       <div class=product-image>
-                        <img src="assets/images/transport/tata_407.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url('uploads/images/'.$value->image)?>" class="common-img " alt="#">
 
+                      </div>
+                      <div class=product-info>
+
+                        <div class=price>
+                          <div class="mb-5">
+                            <p><b>from where by root to: </b></p>
+                            <p><?= $value->city ?> To <?= $value->to_city ?></p>
+                            <hr>
+                            <p><b> vehicle No:</b> <?= $value->veh_no?> </p>
+                            <p><b>vehicle type:</b> <?= $type ?></p>
+
+
+                          </div>
+                          <hr>
+                          <div>
+
+                            <!-- Button trigger modal -->
+
+                            <button type="button" class="btn btn-primary Contact-us" data-bs-toggle="modal"
+                              data-bs-target="#exampleModal">Contact-us</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                              aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Transport Services:</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                      aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div>
+                                      <form>
+                                        <div class="mt-3 mb-3">
+                                          <label> <b>Driver Name/ Owner Name:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->name?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>Mobile No/ WhatApp No:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->name?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>Vehicle No:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->name?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>vehicle type:</b> </label>
+                                          <select class="form-control form-select form-select-sm"
+                                            aria-label=".form-select-sm example" disabled>
+                                            <option selected> select vehicle type</option>
+                                            <option value="1" <?= (1==$value->veh_type)?'selected':'' ?>>Two-wheelar</option>
+                                            <option value="2" <?= (2==$value->veh_type)?'selected':'' ?>>Three-wheelar</option>
+                                            <option value="3" <?= (3==$value->veh_type)?'selected':'' ?>>Four-wheelar</option>
+                                          </select>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>Vehicle Name:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->name?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>From City:</b> </label>
+                                          <select class="form-control form-select form-select-sm" disabled
+                                            aria-label=".form-select-sm example">
+                                            <?php foreach ($Allcity as $key => $city) { ?>
+                            
+                            <option value="<?= $city->id ?>" <?= ($city->id==$value->from_city)?'selected':'' ?>><?= $city->name ?></option>
+                            <?php } ?>
+                                          </select>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>To city:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->to_city?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>From Where By Root To:</b> </label>
+                                          <input type="text" class="form-control" value="<?= $value->by_root?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>Date:</b> </label>
+                                          <input type="date" class="form-control" value="<?= $value->date?>" disabled>
+                                        </div>
+
+                                        <div class="mt-3 mb-3">
+                                          <label><b>Time:</b> </label>
+                                          <input type="time" class="form-control" value="<?= $value->time?>" disabled>
+                                        </div>
+
+
+                                        <div class="mt-3 mb-3">
+                                          <label>Comment:</label>
+                                          <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                              id="floatingTextarea2" style="height: 100px" disabled><?= $value->comment?></textarea>
+
+                                          </div>
+                                        </div>
+
+
+
+                                      </form>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary"
+                                      data-bs-dismiss="modal">Close</button> -->
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <a href="#"><img
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                style="margin-left:20px ;"></a> -->
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <?php } ?>
+                  <div class="col-lg-4 col-md-6 col-12">
+
+                    <div class=single-product>
+                      <div class=product-image>
+                        <img src="<?= base_url()?>web_assets/images/transport/pickup_8ft.jpg" class="common-img " alt="#">
                       </div>
                       <div class=product-info>
 
@@ -619,7 +772,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -632,141 +785,7 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <img src="assets/images/transport/pickup_8ft.jpg" class="common-img " alt="#">
-                      </div>
-                      <div class=product-info>
-
-                        <div class=price>
-                          <div class="mb-5">
-                            <p><b>from where by root to: </b></p>
-                            <p>Pune To Mumbai</p>
-                            <hr>
-                            <p><b> vehicle No:</b> MH-23 <b> B</b> 5555</p>
-                            <p><b>vehicle type:</b> Four-wheelar</p>
-
-
-                          </div>
-                          <hr>
-                          <div>
-
-                            <!-- Button trigger modal -->
-
-                            <button type="button" class="btn btn-primary Contact-us" data-bs-toggle="modal"
-                              data-bs-target="#exampleModal">Contact-us</button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                              aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-scrollable">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Transport Services:</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                      aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div>
-                                      <form>
-                                        <div class="mt-3 mb-3">
-                                          <label> <b>Driver Name/ Owner Name:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>Mobile No/ WhatApp No:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>Vehicle No:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>vehicle type:</b> </label>
-                                          <select class="form-control form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                            <option selected> select vehicle type</option>
-                                            <option value="1">Two-wheelar</option>
-                                            <option value="2">Three-wheelar</option>
-                                            <option value="3">Four-wheelar</option>
-                                          </select>
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>Vehicle Name:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>From City:</b> </label>
-                                          <select class="form-control form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="pune">pune</option>
-                                            <option value="Beed">Beed</option>
-                                            <option value="3"></option>
-                                          </select>
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>To city:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>From Where By Root To:</b> </label>
-                                          <input type="text" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>Date:</b> </label>
-                                          <input type="date" class="form-control">
-                                        </div>
-
-                                        <div class="mt-3 mb-3">
-                                          <label><b>Time:</b> </label>
-                                          <input type="time" class="form-control">
-                                        </div>
-
-
-                                        <div class="mt-3 mb-3">
-                                          <label>Comment:</label>
-                                          <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here"
-                                              id="floatingTextarea2" style="height: 100px"></textarea>
-
-                                          </div>
-                                        </div>
-
-
-
-                                      </form>
-                                    </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <!-- <button type="button" class="btn btn-secondary"
-                                      data-bs-dismiss="modal">Close</button> -->
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
-                                style="margin-left:20px ;"></a> -->
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class=single-product>
-                      <div class=product-image>
-                        <img src="assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
                       </div>
                       <div class=product-info>
 
@@ -887,7 +906,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -901,7 +920,7 @@
                     <div class=single-product>
                       <div class=product-image>
 
-                        <img src="assets/images/transport/3_wheeler.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/3_wheeler.jpg" class="common-img " alt="#">
                         <!-- <span class=new-tag>New</span> -->
 
                       </div>
@@ -1024,7 +1043,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -1037,11 +1056,11 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <!-- <img data-pagespeed-lazy-src="assets/images/products/xproduct-5.jpg.pagespeed.ic.tQ8W_M9oN1.jpg"
+                        <!-- <img data-pagespeed-lazy-src="<?= base_url()?>web_assets/images/products/xproduct-5.jpg.pagespeed.ic.tQ8W_M9oN1.jpg"
                           alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
                           onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
                           onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"> -->
-                        <img src="assets/images/transport/2_wheeler.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/2_wheeler.jpg" class="common-img " alt="#">
                       </div>
                       <div class=product-info>
 
@@ -1162,7 +1181,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -1175,12 +1194,12 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <!-- <img data-pagespeed-lazy-src="assets/images/products/xproduct-6.jpg.pagespeed.ic.GGb3AeLttK.jpg"
+                        <!-- <img data-pagespeed-lazy-src="<?= base_url()?>web_assets/images/products/xproduct-6.jpg.pagespeed.ic.GGb3AeLttK.jpg"
                           alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
                           onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
                           onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"> -->
 
-                        <img src="assets/images/transport/3_wheeler_helper.jpg" class="common-img2 " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/3_wheeler_helper.jpg" class="common-img2 " alt="#">
                         <!-- <div class=button>
                           <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
                         </div> -->
@@ -1304,7 +1323,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -1317,12 +1336,12 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <!-- <img data-pagespeed-lazy-src="assets/images/products/xproduct-7.jpg.pagespeed.ic.rRlKB_-37i.jpg"
+                        <!-- <img data-pagespeed-lazy-src="<?= base_url()?>web_assets/images/products/xproduct-7.jpg.pagespeed.ic.rRlKB_-37i.jpg"
                           alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
                           onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
                           onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"> -->
 
-                        <img src="assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
                         <!-- <span class=sale-tag>-50%</span> -->
                         <!-- <div class=button>
                           <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
@@ -1447,7 +1466,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -1460,12 +1479,12 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <!-- <img data-pagespeed-lazy-src="assets/images/products/xproduct-8.jpg.pagespeed.ic.DLVHLzRhsg.jpg"
+                        <!-- <img data-pagespeed-lazy-src="<?= base_url()?>web_assets/images/products/xproduct-8.jpg.pagespeed.ic.DLVHLzRhsg.jpg"
                           alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
                           onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
                           onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"> -->
 
-                        <img src="assets/images/transport/truck.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/truck.jpg" class="common-img " alt="#">
                         <!-- <div class=button>
                           <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
                         </div> -->
@@ -1589,7 +1608,7 @@
                             </div>
 
                             <!-- <a href="#"><img
-                                src="assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
+                                src="<?= base_url()?>web_assets/images/findworker/whatsappicon.jpg" alt="" width="20px"
                                 style="margin-left:20px ;"></a> -->
                           </div>
 
@@ -1602,7 +1621,7 @@
 
                     <div class=single-product>
                       <div class=product-image>
-                        <img src="assets/images/transport/3_wheeler.jpg" class="common-img " alt="#">
+                        <img src="<?= base_url()?>web_assets/images/transport/3_wheeler.jpg" class="common-img " alt="#">
                         <!-- <span class=sale-tag>-25%</span> -->
                         <!-- <div class=button>
                           <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
@@ -1762,7 +1781,7 @@
                       <div class="row align-items-center">
                         <div class="col-lg-4 col-md-4 col-12">
                           <div class=product-image>
-                            <img src="assets/images/transport/tata_407.jpg" class="common-img " alt="#">
+                            <img src="<?= base_url()?>web_assets/images/transport/tata_407.jpg" class="common-img " alt="#">
                             <!-- <div class=button>
                               <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
                                 Cart</a>
@@ -1901,7 +1920,7 @@
                     <div class="row align-items-center">
                       <div class="col-lg-4 col-md-4 col-12">
                         <div class=product-image>
-                          <img src="assets/images/transport/pickup_8ft.jpg" class="common-img " alt="#">
+                          <img src="<?= base_url()?>web_assets/images/transport/pickup_8ft.jpg" class="common-img " alt="#">
                           <!-- <span class=sale-tag>-25%</span> -->
                           <!-- <div class=button>
                               <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
@@ -2042,7 +2061,7 @@
                     <div class="row align-items-center">
                       <div class="col-lg-4 col-md-4 col-12">
                         <div class=product-image>
-                          <img src="assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
+                          <img src="<?= base_url()?>web_assets/images/transport/ace_helper.jpg" class="common-img " alt="#">
                           <!-- <div class=button>
                               <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
                                 Cart</a>
@@ -2185,7 +2204,7 @@
                         <div class="col-lg-4 col-md-4 col-12">
                           <div class=product-image>
 
-                            <img src="assets/images/transport/3_wheeler_helper.jpg" class="common-img " alt="#">
+                            <img src="<?= base_url()?>web_assets/images/transport/3_wheeler_helper.jpg" class="common-img " alt="#">
                             <!-- <div class=button>
                               <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
                                 Cart</a>
@@ -2327,7 +2346,7 @@
                         <div class="row align-items-center">
                           <div class="col-lg-4 col-md-4 col-12">
                             <div class=product-image>
-                              <img src="assets/images/transport/2_wheeler.jpg" class="common-img " alt="#">
+                              <img src="<?= base_url()?>web_assets/images/transport/2_wheeler.jpg" class="common-img " alt="#">
                               <!-- <span class=sale-tag>-50%</span> -->
                               <!-- <div class=button>
                               <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to

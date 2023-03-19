@@ -9,40 +9,53 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product Name</th>
-                            <th>Qty</th>
-                            <th>Available Qty</th>
-                            <th>QR Code Text</th>
-                            <th>QR Code</th>
-                            <th>Sale Price</th>
-                            <th>Image</th>
+                            <th>Driver Name/ Owner Name</th>
+                            <th>Mobile No/ WhatApp No</th>
+                            <th>Vehicle No</th>
+                            <th>vehicle type</th>
+                            <th>Vehicle Name</th>
+                            <th>From City</th>
+                            <th>To city</th>
+                            <th>From Where By Root To</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Comment</th>
+                            <th>Vehicle Photo</th>
                             <th>Added Date</th>
-                            <th>Most Viewed</th>
+                            <th>Approved</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 0;
-                        foreach ($AllProducts as $key => $AllProduct) {
+                        foreach ($All as $key => $AllProduct) {
                             $i++;
-                            ob_start();
-        QRcode::png($AllProduct->qr_code, NULL,'L',4, 2);
-         $imageString1 = base64_encode(ob_get_contents());
-        ob_end_clean();
-        $base64_qrcode = 'data:image/png;base64,' . $imageString1;
+                           if($AllProduct->veh_type==1){
+                            $type='Two-wheelar';
+                           }else if($AllProduct->veh_type==2){
+                            $type='Three-wheelar';
+                           }else{
+                            $type='Four-wheelar';
+                           }
+
                         ?>
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $AllProduct->name ?></td>
-                            <td><?= $AllProduct->qty ?></td>
-                            <td><?= $AllProduct->qty ?></td>
-                            <td><?= $AllProduct->qr_code ?></td>
-                            <td><img src="<?= $base64_qrcode ?>" class="img"  onclick="printQrCode('<?= $AllProduct->qr_code ?>')" alt="qr" style="width:81px; height:81px;cursor:pointer"></td>
-                            <td><?= $AllProduct->price_sale ?></td>
+                            <td><?= $AllProduct->whatsapp_no ?></td>
+                            <td><?= $AllProduct->veh_no ?></td>
+                            <td><?= $type ?></td>
+                            <td><?= $AllProduct->veh_name ?></td>
+                            <td><?= $AllProduct->city ?></td>
+                            <td><?= $AllProduct->to_city ?></td>
+                            <td><?= $AllProduct->by_root ?></td>
+                            <td><?= $AllProduct->date ?></td>
+                            <td><?= $AllProduct->time ?></td>
+                            <td><?= $AllProduct->comment ?></td>
                             <td><img src="<?= base_url('uploads/images/'.$AllProduct->image); ?>" height="80px" width="80px"></td>
                             <td><?= date("d-m-Y h:i A", strtotime($AllProduct->added_date)) ?></td>
-                            <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $AllProduct->id ?>')" <?= !empty($AllProduct->most_viewd)?'checked':'' ?>></td>
+                            <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $AllProduct->id ?>')" <?= !empty($AllProduct->approved)?'checked':'' ?>></td>
                             <td>
                                 <a href="<?= base_url('backend/Products/edit/' . $AllProduct->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
@@ -102,7 +115,7 @@ function most_viewed($this,id) {
         id
 
     },
-    url: '<?= base_url('backend/Products/most_viewed') ?>',
+    url: '<?= base_url('backend/Transport/Approved') ?>',
     dataType: 'json',
     beforeSend: function () {
     },

@@ -110,6 +110,12 @@ class Website_model extends MY_Model
         return $this->db->insert_id();
     }
 
+    public function store_transport($data)
+    {
+        $this->db->insert('tbl_transport', $data);
+        return $this->db->insert_id();
+    }
+
     public function Delete($id)
     {
         $data = [

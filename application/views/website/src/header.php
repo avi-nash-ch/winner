@@ -136,7 +136,7 @@
                                 <!-- <i class="lni lni-user"></i> -->
                               <ul>
                                 <li>
-                                    <a href="transportservice.html" style="color: aliceblue;">Transports</a>
+                                    <a href="<?= base_url('Home/Transport')?>" style="color: aliceblue;">Transports</a>
                                 </li>
                               </ul>
                             </div>
@@ -342,7 +342,7 @@
                                             data-bs-target="#submenu-1-3" aria-controls=navbarSupportedContent
                                             aria-expanded=false aria-label="Toggle navigation">more services</a>
                                         <ul class="sub-menu collapse" id=submenu-1-3>
-                                            <li class=nav-item><a href="transportservice.html">Transport services</a></li>
+                                            <li class=nav-item><a href="<?= base_url('Home/Transport')?>">Transport services</a></li>
                                             <li class=nav-item><a href=product-grids.html>Shop Grid</a></li>
                                             <li class=nav-item><a href=product-list.html>Shop List</a></li>
                                             <li class=nav-item><a href=product-details.html>shop Single</a></li>

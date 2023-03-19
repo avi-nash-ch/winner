@@ -20,6 +20,13 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <span>Manage Workers</span>
                     </a>  
 </li> 
+<li  class="<?= (array_filter([strpos($final_url, "backend/Transport")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Transport') ?>" class="waves-effect">
+                <a href="<?= base_url('backend/Transport') ?>">
+                        <i class="ion ion-md-contact"></i>
+                        <span>Manage Transports</span>
+                    </a>  
+</li> 
                     <li class="">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ion ion-md-contact"></i>

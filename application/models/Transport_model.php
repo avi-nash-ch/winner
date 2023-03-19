@@ -1,17 +1,8 @@
 <?php
-class Product_model extends MY_Model
+class Transport_model extends MY_Model
 {
 
-    public function AllProduct()
-    {
-        $this->db->select('tbl_product.*');
-        $this->db->from('tbl_product');
-        $this->db->where('isDeleted', false);
-        $this->db->order_by('id', 'desc');
-        $Query = $this->db->get();
-        return $Query->result();
-    }
-
+   
     public function AllMostViewedProduct()
     {
         $this->db->select('tbl_product.*');
@@ -36,13 +27,16 @@ class Product_model extends MY_Model
 
 
 
-    public function AllSale()
+    public function All($approved=null)
     {
-        $this->db->select('tbl_bill.*,tbl_product.name as product_name');
-        $this->db->from('tbl_bill');
-        $this->db->join('tbl_product', 'tbl_product.id=tbl_bill.product_id');
-        $this->db->where('tbl_bill.isDeleted', false);
-        $this->db->order_by('tbl_bill.id', 'desc');
+        $this->db->select('tbl_transport.*,tbl_location.name as city');
+        $this->db->from('tbl_transport');
+        $this->db->join('tbl_location', 'tbl_location.id=tbl_transport.from_city');
+        if($approved){
+            $this->db->where('tbl_transport.approved', 1);
+        }
+        $this->db->where('tbl_transport.isDeleted', false);
+        $this->db->order_by('tbl_transport.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
     }
@@ -139,13 +133,13 @@ class Product_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function most_viewed_status($id,$status)
+    public function Approved($id,$status)
     {
         $data = [
-            'most_viewd' => $status,
+            'approved' => $status,
         ];
         $this->db->where('id', $id);
-        $this->db->update('tbl_product', $data);
+        $this->db->update('tbl_transport', $data);
         return $this->db->last_query();
     }
 

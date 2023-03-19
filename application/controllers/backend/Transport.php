@@ -1,20 +1,20 @@
 <?php
-class Products extends MY_Controller
+class Transport extends MY_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model','Class_model','Auther_model','Publisher_model','Language_model','Board_model','Subject_model','ProductTypes_model']);
+        $this->load->model(['Transport_model']);
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Manage Products',
-            'AllProducts' => $this->Product_model->AllProduct()
+            'title' => 'Manage Transports',
+            'All' => $this->Transport_model->All()
         ];
-        $data['SideBarbutton'] = ['backend/Products/add', 'Add Product'];
-        template('product/index', $data);
+        $data['SideBarbutton'] = '';
+        template('transport/index', $data);
     }
 
 public function getItem()
@@ -84,11 +84,11 @@ $result['data']=$Products;
         redirect('backend/Products');
     }
 
-    public function most_viewed()
+    public function Approved()
     {
         $id=$this->input->post('id');
         $status=$this->input->post('status');
-        $this->Product_model->most_viewed_status($id,$status);
+        $this->Transport_model->Approved($id,$status);
 echo json_encode(['result'=>true]);
     }
 

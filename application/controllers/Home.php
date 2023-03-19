@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model','Website_model','Category_model']);
+        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model']);
     }
 
     public function index()
@@ -46,21 +46,17 @@ class Home extends CI_Controller
         website('website/findworker', $data);
     }
 
-    public function Publisher($class='')
+    public function Transport()
     {
 
-        $AllClass= $this->Class_model->All();
+        $AllTransport =$this->Transport_model->All(1);
+        $Allcity =$this->Location_model->All();
         $data = [
-            'title' => 'Class',
-            'class'=>$class,
-            'Classes' => $this->Publisher_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'AllProduct' => $this->Product_model->AllProductByPublisher($class),
-            'Setting' => $this->Setting_model->Setting(),
-            'AllClass'=>$AllClass
+            'title' => 'Transport Service',
+            'AllTransport'=>$AllTransport,
+            'Allcity' => $Allcity,
         ];
-        website('website/classes/class-12-books', $data);
+        website('website/transportservice', $data);
     }
 
     public function Subject($class='')
@@ -361,5 +357,60 @@ class Home extends CI_Controller
     }
 
    
+
+    public function store_transport()
+    {
+        $veh_img='';
+        $data = [
+            'name' => $this->input->post('driver_name'),
+            'whatsapp_no' => $this->input->post('mobile_no'),
+            'veh_no' => $this->input->post('veh_no'),
+            'veh_type' => $this->input->post('veh_type'),
+            'veh_name' => $this->input->post('veh_name'),
+            'from_city' => $this->input->post('from_city'),
+            'to_city' => $this->input->post('to_city'),
+            'by_root' => $this->input->post('by_root'),
+            'date' => date('Y-m-d',strtotime($this->input->post('date'))) ,
+            'time' => $this->input->post('time'),
+            'comment' => $this->input->post('comment'),
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+        if (! empty($_FILES['veh_img']['name'])) {
+            $_FILES['images']['name'] = $_FILES['veh_img']['name'];
+            $_FILES['images']['type'] = $_FILES['veh_img']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['veh_img']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['veh_img']['error'];
+            $_FILES['images']['size'] = $_FILES['veh_img']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('veh_img')) {
+                $data1 = $this->upload->data();
+                $veh_img = $data1['file_name'];
+                if (empty($veh_img)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        $data['image']=$veh_img;
+        $category = $this->Website_model->store_transport($data);
+        if ($category) {
+            echo "<script>alert('Transport Service Added Successfully,Will display On Portal After Verification')
+            window.location.href='".base_url('Home')."'
+            </script>";
+            
+            // redirect('Home/account');
+            // $this->session->set_flashdata('msg', array('message' => 'Registration Successfully', 'class' => 'success', 'position' => 'top-right'));
+        } else {
+            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+        }
+    
+        
+    }
+
 
 }
