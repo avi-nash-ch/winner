@@ -101,25 +101,7 @@ define('URL_ENCRYPT_KEY', 'Housie432423');
 define('URL_ENCRYPT_IV', 'DHSKJHD^*$#^IDK*');
 define('CIPHER', 'AES-128-ECB');
 
-// RAZOR PAY
-// define('API_KEY','rzp_live_EpsOYgHl8D1rbt');         //test
-// define('API_SECRET','dP51DUiV9KIU1tzSQFFot43z');
-
-define('API_KEY', 'rzp_live_TzyvQmD1j6o3jP');     //live
-define('API_SECRET', 'Qz3zWugj0fTckHFBjd8IjnVO');
-
-define('CLIENT_TEST_URL', 'https://test.cashfree.com'); //test
-define('CLIENT_LIVE_URL', 'https://api.cashfree.com'); //live
-
-define('PAYTM_TEST_URL', 'https://securegw-stage.paytm.in'); //test
-define('PAYTM_LIVE_URL', 'https://securegw.paytm.in'); //live
-
-define('SMS_API_KEY', 'a7b3595b-9204-11e7-94da-0200cd936042');
-
 define('APP_URL', '/');
 define('BANNER_URL', 'uploads/banner/');
 define('LOGO', 'uploads/logo/');
 define('IMAGE_URL', 'uploads/images/');
-
-// FCM Notification
-define('SERVER_KEY', 'AAAA2bfIo_E:APA91bGFMoeE0wGoYy6q95ImATZ8KofZjx0yXi6ARfBkFzyHJ23Vi6tbV-gJ0kSbL_dzshsR_oVSomIsYP60RJAxzu3QeprGe9H62vEIpzBmI9IH5-6b5W-AFE2DjxiRjN8-2EoU7o03');

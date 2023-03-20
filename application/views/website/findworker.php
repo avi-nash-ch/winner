@@ -1,6 +1,11 @@
 
   <!-- main content start -->
 
+  <style>
+    .product-image img{
+      height: 200px;
+    }
+  </style>
   <div class=breadcrumbs>
     <div class=container>
       <div class="row align-items-center">

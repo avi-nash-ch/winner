@@ -46,6 +46,35 @@ class Home extends CI_Controller
         website('website/findworker', $data);
     }
 
+    public function t()
+    {
+
+        $cat=$this->input->get('a');
+        $search=$this->input->get('b');
+        $AllTransport =$this->Transport_model->TransportByFilter($cat,$search);
+        $Allcity =$this->Location_model->All();
+        $data = [
+            'title' => 'Transport',
+            'AllTransport'=>$AllTransport,
+            'Allcity' => $Allcity,
+        ];
+        website('website/transportservice', $data);
+    }
+
+    public function s()
+    {
+
+        $search=$this->input->get('s');
+        $AllTransport =$this->Transport_model->search($search);
+        $Allcity =$this->Location_model->All();
+        $data = [
+            'title' => 'Transport',
+            'AllTransport'=>$AllTransport,
+            'Allcity' => $Allcity,
+        ];
+        website('website/transportservice', $data);
+    }
+
     public function Transport()
     {
 

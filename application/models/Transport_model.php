@@ -41,6 +41,40 @@ class Transport_model extends MY_Model
         return $Query->result();
     }
 
+    public function search($search=null)
+    {
+        $this->db->select('tbl_transport.*,tbl_location.name as city');
+        $this->db->from('tbl_transport');
+        $this->db->join('tbl_location','tbl_location.id=tbl_transport.from_city');
+        $this->db->where('tbl_transport.isDeleted', false);
+
+        if(!empty($search)){          
+            $this->db->like('tbl_transport.name',$search);
+            $this->db->or_like('tbl_location.name',$search);
+            $this->db->or_like('tbl_transport.veh_no',$search);
+        }
+        $this->db->order_by('tbl_transport.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+    public function TransportByFilter($a=[],$b=[])
+    {
+        $this->db->select('tbl_transport.*,tbl_location.name as city');
+        $this->db->from('tbl_transport');
+        $this->db->join('tbl_location', 'tbl_location.id=tbl_transport.from_city');
+        if($a){
+            $this->db->where_in('tbl_transport.from_city',$a);
+        }
+        if($b){
+            $this->db->where_in('tbl_transport.veh_type',$b);
+        }
+        $this->db->where('tbl_transport.isDeleted', false);
+        $this->db->where('tbl_transport.approved', 1);
+        $this->db->order_by('tbl_transport.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
 
 
     public function AllProductByClass($class)
