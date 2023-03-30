@@ -434,4 +434,15 @@ echo json_encode(['result'=>true]);
         echo json_encode($result);
     }
 
+    public function Contact()
+    {
+        $data = [
+            'title' => 'Manage Contact Transport',
+            'AllWorkers' => $this->Transport_model->Contact()
+        ];
+        $data['SideBarbutton'] ='' ;
+        template('transport/contact', $data);
+    }
+
+
 }

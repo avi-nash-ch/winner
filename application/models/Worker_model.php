@@ -2,7 +2,7 @@
 class Worker_model extends MY_Model
 {
 
-    public function AllWorkers($cat=null,$search=null)
+    public function AllWorkers($cat=null,$search=null,$location=null)
     {
         $this->db->select('tbl_worker.*,tbl_category.name as category,tbl_location.name as location');
         $this->db->from('tbl_worker');
@@ -10,7 +10,10 @@ class Worker_model extends MY_Model
         $this->db->join('tbl_location','tbl_location.id=tbl_worker.location','left');
         $this->db->where('tbl_worker.isDeleted', false);
         if(!empty($cat)){
-            $this->db->where_in('tbl_category.id',implode(",",$cat));
+            $this->db->where_in('tbl_category.id',$cat);
+        }
+        if(!empty($location)){
+            $this->db->where_in('tbl_worker.location',$location);
         }
         if(!empty($search)){          
             $this->db->like('tbl_worker.name',$search);

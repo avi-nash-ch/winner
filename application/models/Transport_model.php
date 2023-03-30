@@ -218,4 +218,16 @@ class Transport_model extends MY_Model
       
     }
 
+    public function Contact()
+    {
+        $this->db->select('user.first_name as user_name,user.phone as user_phone,tbl_transport.name as worker_name,tbl_transport.whatsapp_no as worker_phone,tbl_transport.veh_no,tbl_transport.veh_name,tbl_contact_transport.added_date');
+        $this->db->from('tbl_contact_transport');
+        $this->db->join('user','user.id=tbl_contact_transport.user_id');
+        $this->db->join('tbl_transport','tbl_transport.id=tbl_contact_transport.transport_id');
+        $this->db->where('tbl_contact_transport.isDeleted', false);
+        $this->db->order_by('tbl_contact_transport.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
 }

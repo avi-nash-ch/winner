@@ -27,9 +27,9 @@
             <div class=card-body>
               <div class=title>
                 <h3>Login Now</h3>
-                <p>You can login using your social media account or email address.</p>
+                <!-- <p>You can login using your social media account or email address.</p> -->
               </div>
-              <div class=social-login>
+              <!-- <div class=social-login>
                 <div class=row>
                   <div class="col-lg-4 col-md-4 col-12"><a class="btn facebook-btn" href="javascript:void(0)"><i
                         class="lni lni-facebook-filled"></i> Facebook
@@ -41,10 +41,10 @@
                         class="lni lni-google"></i> Google login</a>
                   </div>
                 </div>
-              </div>
-              <div class=alt-option>
+              </div> -->
+              <!-- <div class=alt-option>
                 <span>Or</span>
-              </div>
+              </div> -->
               <div class="form-group input-group">
                 <label for=reg-fn>Email</label>
                 <input class=form-control type=email id=reg-email name="email" required>

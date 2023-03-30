@@ -68,6 +68,12 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <i class="ion ion-md-contact"></i>
                                 <span>Contact to Workers</span></a>
                         </li> 
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/transport/contact")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Transport/Contact') ?>" class="waves-effect">
+                            <i class="ion ion-md-contact"></i>
+                                <span>Contact to Transport</span></a>
+                        </li> 
             </ul>
         </div>
         <!-- Sidebar -->

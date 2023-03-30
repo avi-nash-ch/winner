@@ -426,7 +426,7 @@
                       <option>A - Z Order</option>
                       <option>Z - A Order</option>
                     </select>
-                    <h3 class=total-show-product>Showing: <span>1 - 12 items</span></h3>
+                    <!-- <h3 class=total-show-product>Showing: <span>1 - 12 items</span></h3> -->
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-4 col-12">
@@ -480,11 +480,15 @@
                           <div>
 
                             <!-- Button trigger modal -->
+                            <?php if($this->session->admin_id){ ?>
+                            <button type="button" class="btn btn-primary Contact-us" onclick="contact_worker('<?= $this->url_encrypt->encode($value->id)?>')" data-bs-toggle="modal"
+                              data-bs-target="#exampleModal<?= $key?>">Contact-us</button>
+<?php }else{ ?>
+  <a href="<?= base_url('Home/Login')?>"  class="btn btn-primary">Contact-us</a>
+  <?php } ?>
+                    
 
-                            <button type="button" class="btn btn-primary Contact-us" data-bs-toggle="modal"
-                              data-bs-target="#exampleModal">Contact-us</button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="exampleModal<?= $key?>" tabindex="-1" aria-labelledby="exampleModalLabel<?= $key?>"
                               aria-hidden="true">
                               <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -596,21 +600,7 @@
                   <?php } ?>
                  
                 </div>
-                <div class=row>
-                  <div class=col-12>
-
-                    <div class="pagination left">
-                      <ul class=pagination-list>
-                        <li class=active><a href="">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="javascript:void(0)">4</a></li>
-                        <li><a href="javascript:void(0)"><i class="lni lni-chevron-right"></i></a></li>
-                      </ul>
-                    </div>
-
-                  </div>
-                </div>
+               
               </div>
 
 
@@ -1369,3 +1359,18 @@
 </body>
 
 </html>
+
+
+<script>
+  function contact_worker(worker_id) {
+    $.ajax({
+  url: "<?= base_url('Home/TransportContact')?>",
+  type: "GET",
+  data: {id : worker_id},
+  // cache: false,
+  success: function(html){
+  }
+});
+    
+  }
+</script>

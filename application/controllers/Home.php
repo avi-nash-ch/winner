@@ -23,10 +23,12 @@ class Home extends CI_Controller
     {
 
         $AllWorkers =$this->Worker_model->AllWorkers();
+        $Allcity =$this->Location_model->All();
         $data = [
             'title' => 'Find Workers',
             'AllWorkers'=>$AllWorkers,
             'AllCategory' => $this->Category_model->All(),
+            'Allcity' => $Allcity,
         ];
         website('website/findworker', $data);
     }
@@ -36,12 +38,15 @@ class Home extends CI_Controller
 
         $cat=$this->input->get('a');
         $search=$this->input->get('b');
+        $location=$this->input->get('location');
         
-        $AllWorkers =$this->Worker_model->AllWorkers($cat,$search);
+        $AllWorkers =$this->Worker_model->AllWorkers($cat,$search,$location);
+        $Allcity =$this->Location_model->All();
         $data = [
             'title' => 'Find Workers',
             'AllWorkers'=>$AllWorkers,
             'AllCategory' => $this->Category_model->All(),
+            'Allcity' => $Allcity,
         ];
         website('website/findworker', $data);
     }
@@ -385,6 +390,18 @@ class Home extends CI_Controller
         
     }
 
+    public function TransportContact()
+    {
+        $id=$this->url_encrypt->decode($this->input->get('id'));
+        $data = [
+            'user_id' => $this->session->admin_id,
+            'transport_id' => $id,
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+         $this->Website_model->AddTransportContact($data);
+        
+    }
+
    
 
     public function store_transport()
@@ -439,7 +456,34 @@ class Home extends CI_Controller
         }
     
         
-    }
+    }   
+
+public function SendOtp()
+{
+    
+    // Account details
+    $apiKey = urlencode('NmI0ODU0NDg1MTQ4NzkzNDYzNDg2YzczMzUzOTM0NjE=');
+    // Message details
+    $numbers = '8948118427';
+    $sender = urlencode('TXTLCL');
+    $message = rawurlencode('21323');
+     
+    // $numbers = implode(‘,’, $numbers);
+     
+    // Prepare data for POST request
+    $data = array('apikey' => $apiKey, 'numbers' => $numbers, 'sender' => $sender, 'message' => $message);
+    
+    // Send the POST request with cURL
+    $ch = curl_init('https://api.textlocal.in/send');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    // Process your response here
+    echo $response;
+
+}
 
 
 }
