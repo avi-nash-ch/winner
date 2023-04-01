@@ -459,30 +459,53 @@ class Home extends CI_Controller
     }   
 
 public function SendOtp()
-{
-    
-    // Account details
-    $apiKey = urlencode('NmI0ODU0NDg1MTQ4NzkzNDYzNDg2YzczMzUzOTM0NjE=');
-    // Message details
-    $numbers = '8948118427';
-    $sender = urlencode('TXTLCL');
-    $message = rawurlencode('21323');
-     
-    // $numbers = implode(‘,’, $numbers);
-     
-    // Prepare data for POST request
-    $data = array('apikey' => $apiKey, 'numbers' => $numbers, 'sender' => $sender, 'message' => $message);
-    
-    // Send the POST request with cURL
-    $ch = curl_init('https://api.textlocal.in/send');
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    // Process your response here
-    echo $response;
+{ 
+    // echo "true";
+    // return;
+    $numbers = $this->input->post('mobile');
+    if(!empty($numbers)){
+        $otp=random_int(100000, 999999);
+        $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
+        // Send the POST request with cURL
+        $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91'.$numbers.'/'.$otp.'/OTP1');
+        curl_setopt($ch, CURLOPT_POST, true);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+       $r=json_decode($response);
+    //    echo $response;
+       if($r->Status=='Success'){
+        echo "true";
+       }else{
+        echo "false";
+       }
+    }else{
+echo "false";
+    }
+  
 
+}
+
+
+public function VerifyOtp()
+{
+    $check_otp=$this->Website_model->verifyotp($this->input->post('mobile'),620256);
+    if(!empty($check_otp)){
+        $data=$this->Website_model->getUserData($this->input->post('mobile'));
+        $user_data = array(
+            'admin_id' => $data->id,
+            'email' => $data->email,
+            'name' => $data->first_name,
+        );
+        $this->session->set_userdata($user_data);
+        $this->Website_model->otpUpdate($check_otp->id);
+        echo "true";
+}else{
+    echo "false";
+    // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+}
+    
 }
 
 

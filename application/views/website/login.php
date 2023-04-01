@@ -45,23 +45,19 @@
               <!-- <div class=alt-option>
                 <span>Or</span>
               </div> -->
-              <div class="form-group input-group">
-                <label for=reg-fn>Email</label>
-                <input class=form-control type=email id=reg-email name="email" required>
+              <div class="form-group input-group hide">
+                <label for=reg-fn>Mobile No.</label>
+                <input class=form-control type="text" id=reg-email name="email" required>
               </div>
-              <div class="form-group input-group">
-                <label for=reg-fn>Password</label>
-                <input class=form-control type=password id=reg-pass name="password" required>
+              <div class="button hide" >
+                <button class=btn type=button onclick="send_otp()">Send Otp</button>
               </div>
-              <div class="d-flex flex-wrap justify-content-between bottom-content">
-                <div class=form-check>
-                  <input type=checkbox class="form-check-input width-auto" id=exampleCheck1>
-                  <label class=form-check-label>Remember me</label>
-                </div>
-                <a class=lost-pass href=account-password-recovery.html>Forgot password?</a>
+              <div class="form-group input-group show" style="display:none">
+                <label for=reg-fn>Enter Otp</label>
+                <input class=form-control type=text id=reg-pass name="password" required>
               </div>
-              <div class=button>
-                <button class=btn type=submit>Login</button>
+              <div class="button show" style="display:none">
+                <button class=btn type="button" onclick="verify_otp()">Verify Otp</button>
               </div>
               <p class=outer-link>Don't have an account? <a href=register.html>Register here </a>
               </p>
@@ -71,3 +67,67 @@
       </div>
     </div>
   </div>
+  <script src="<?= base_url('assets/js/jquery.min.js')?>"></script>
+  <script>
+
+function send_otp() {
+  var mobile=$('#reg-email').val()
+  if(mobile!=''){
+    jQuery.ajax({
+    type: 'POST',
+    data: {
+      mobile
+    },
+    url: '<?= base_url('Home/SendOtp') ?>',
+    dataType: 'json',
+    beforeSend: function () {
+    },
+    success: function (data) {
+       if(data==true){
+        alert('Otp send Successfully')
+        $('.show').show();
+        $('.hide').hide();
+       }else{
+        alert('Something went wrong')
+       }
+    },
+    error: function (e) {
+    },
+  });
+  }else{
+    alert('Please Enter Mobile No.')
+  }
+  
+}
+
+
+function verify_otp() {
+  var otp=$('#reg-pass').val()
+  var mobile=$('#reg-email').val()
+  if(otp!=''){
+    jQuery.ajax({
+    type: 'POST',
+    data: {
+      otp,mobile
+    },
+    url: '<?= base_url('Home/VerifyOtp') ?>',
+    // dataType: 'json',
+    beforeSend: function () {
+    },
+    success: function (data) {
+       if(data==true){
+        alert('Otp vrified Successfully');
+        window.location.href = "<?= base_url('Home') ?>";
+       }else{
+        alert('Otp not matched')
+       }
+    },
+    error: function (e) {
+    },
+  });
+  }else{
+    alert('Please Enter Mobile No.')
+  }
+  
+}
+  </script>

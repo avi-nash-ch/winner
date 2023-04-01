@@ -195,4 +195,39 @@ class Website_model extends MY_Model
         return $Query->row();
     }
 
+    public function getUserData($mobile)
+    {
+        $Query = $this->db->select('id,role,email,first_name,last_name')
+                 ->where('isDeleted',false)
+                 ->where('phone',$mobile)
+                 ->get('user');      
+        return $Query->row();
+    }
+
+    public function verifyotp($mobile,$otp)
+    {
+        $Query = $this->db->select('id')
+                 ->where('isVerified',false)
+                 ->where('mobile',$mobile)
+                 ->where('otp',$otp)
+                 ->get('tbl_otp');      
+        return $Query->row();
+    }
+
+    public function InsertOtp($data)
+    {
+        $this->db->insert('tbl_otp', $data);
+        return $this->db->insert_id();
+    }
+
+    public function otpUpdate($id)
+    {
+        $data = [
+            'isVerified' => TRUE,
+            'updated_date' => date('Y-m-d H:i:s')
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_otp', $data);
+        return $this->db->last_query();
+    }
 }
