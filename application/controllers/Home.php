@@ -306,43 +306,27 @@ class Home extends CI_Controller
 
     public function UserRegistration()
     {
+        $result=[];
         $data = [
             'first_name' => $this->input->post('fname'),
             'last_name' => $this->input->post('lname'),
             'email' => $this->input->post('email'),
             'phone' => $this->input->post('phone_no'),
-            'password' => $this->input->post('password'),
+            'password' => '',
             'created' => date('Y-m-d H:i:s')
         ];
-        $check=$this->Website_model->CheckDuplicate($this->input->post('email'));
+        $check=$this->Website_model->CheckDuplicate($this->input->post('phone_no'));
         if(empty($check)){
         $category = $this->Website_model->AddTableMaster($data);
         if ($category) {
-            $data=$this->Website_model->login($this->input->post('email'),$this->input->post('password'));
-        if(!empty($data)){
-            $user_data = array(
-                'admin_id' => $data->id,
-                'email' => $data->email,
-                'name' => $data->first_name,
-            );
-        }
-            $this->session->set_userdata($user_data);
-            echo "<script>alert('Registration Successfully')
-            window.location.href='".base_url('Home')."'
-            </script>";
-            
-            // redirect('Home/account');
-            // $this->session->set_flashdata('msg', array('message' => 'Registration Successfully', 'class' => 'success', 'position' => 'top-right'));
+           $result['result']=true;
         } else {
-            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+            $result['result']=2;
         }
     }else{
-        echo "<script>alert('Email Already Exists');
-        window.location.href='".base_url('Home/Registration')."'
-        </script>";
-        // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+        $result['result']=4;
     }
-        
+        echo json_encode($result);
     }
 
    
@@ -460,29 +444,34 @@ class Home extends CI_Controller
 
 public function SendOtp()
 { 
-    // echo "true";
-    // return;
+    $result=[];
     $numbers = $this->input->post('mobile');
-    if(!empty($numbers)){
-        $otp=random_int(100000, 999999);
-        $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
-        // Send the POST request with cURL
-        $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91'.$numbers.'/'.$otp.'/OTP1');
-        curl_setopt($ch, CURLOPT_POST, true);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-       $r=json_decode($response);
-    //    echo $response;
-       if($r->Status=='Success'){
-        echo "true";
-       }else{
-        echo "false";
-       }
+    $data=$this->Website_model->getUserData($this->input->post('mobile'));
+    if(!empty($data)){
+        if(!empty($numbers)){
+            $otp=random_int(100000, 999999);
+            $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
+            // Send the POST request with cURL
+            $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91'.$numbers.'/'.$otp.'/OTP1');
+            curl_setopt($ch, CURLOPT_POST, true);
+            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+           $r=json_decode($response);
+        //    echo $response;
+           if($r->Status=='Success'){
+            $result['result']=true;
+           }else{
+            $result['result']=2;
+           }
+        }else{
+            $result['result']=3;
+        }
     }else{
-echo "false";
+        $result['result']=4;
     }
+   echo json_encode($result);
   
 
 }
@@ -490,21 +479,27 @@ echo "false";
 
 public function VerifyOtp()
 {
-    $check_otp=$this->Website_model->verifyotp($this->input->post('mobile'),620256);
-    if(!empty($check_otp)){
-        $data=$this->Website_model->getUserData($this->input->post('mobile'));
-        $user_data = array(
-            'admin_id' => $data->id,
-            'email' => $data->email,
-            'name' => $data->first_name,
-        );
-        $this->session->set_userdata($user_data);
-        $this->Website_model->otpUpdate($check_otp->id);
-        echo "true";
+    $result=[];
+    $data=$this->Website_model->getUserData($this->input->post('mobile'));
+    if(!empty($data)){
+        $check_otp=$this->Website_model->verifyotp($this->input->post('mobile'),$this->input->post('otp'));
+        if(!empty($check_otp)){
+            $user_data = array(
+                'admin_id' => $data->id,
+                'email' => $data->email,
+                'name' => $data->first_name,
+            );
+            $this->session->set_userdata($user_data);
+            $this->Website_model->otpUpdate($check_otp->id);
+            $result['result']=true;
+        }else{
+            $result['result']=2;
+        } 
 }else{
-    echo "false";
+    $result['result']=3;
     // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
 }
+echo json_encode($result);
     
 }
 

@@ -59,7 +59,7 @@
               <div class="button show" style="display:none">
                 <button class=btn type="button" onclick="verify_otp()">Verify Otp</button>
               </div>
-              <p class=outer-link>Don't have an account? <a href=register.html>Register here </a>
+              <p class=outer-link>Don't have an account? <a href=<?= base_url('Home/Registration') ?>>Register here </a>
               </p>
             </div>
           </form>
@@ -83,10 +83,13 @@ function send_otp() {
     beforeSend: function () {
     },
     success: function (data) {
-       if(data==true){
+       if(data.result==true){
         alert('Otp send Successfully')
         $('.show').show();
         $('.hide').hide();
+       }else if(data.result==4){
+        alert('Mobile Does not exist,Please first complete registration with this number');
+        window.location.href = "<?= base_url('Home/Registration') ?>";
        }else{
         alert('Something went wrong')
        }
@@ -111,14 +114,14 @@ function verify_otp() {
       otp,mobile
     },
     url: '<?= base_url('Home/VerifyOtp') ?>',
-    // dataType: 'json',
+    dataType: 'json',
     beforeSend: function () {
     },
     success: function (data) {
-       if(data==true){
+       if(data.result==true){
         alert('Otp vrified Successfully');
         window.location.href = "<?= base_url('Home') ?>";
-       }else{
+       }else if(data.result==2){
         alert('Otp not matched')
        }
     },

@@ -69,8 +69,8 @@
               <div class="row align-items-center">
                 <div class="col-lg-7 col-md-8 col-12">
                   <div class=product-sorting>
-                    <label for=sorting>Location:</label>
-                    <select class=form-control id=sorting name="location[]" onclick="form_category.submit()">
+                    <label >Location:</label>
+                    <select class=form-control id=sorting name="location[]" onchange="form_category.submit()">
                       <option value="">Select Location</option>
                       <?php foreach ($Allcity as $key => $city) { ?>
                         <option value="<?= $city->id ?>" <?= !empty($this->input->get('location'))?in_array($city->id,$this->input->get('location'))?'selected':'':''?>><?= $city->name ?></option>

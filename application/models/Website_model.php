@@ -164,7 +164,7 @@ class Website_model extends MY_Model
     {
         $this->db->select('id');
         $this->db->from('user');
-        $this->db->where(['email'=>$name,'isDeleted'=>0]);
+        $this->db->where(['phone'=>$name,'isDeleted'=>0]);
         return $num_results = $this->db->count_all_results();
     }
 

@@ -12,7 +12,7 @@ class Worker_model extends MY_Model
         if(!empty($cat)){
             $this->db->where_in('tbl_category.id',$cat);
         }
-        if(!empty($location)){
+        if(!empty($location[0])){
             $this->db->where_in('tbl_worker.location',$location);
         }
         if(!empty($search)){          
