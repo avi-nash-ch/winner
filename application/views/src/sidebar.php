@@ -27,6 +27,25 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <span>Manage Transports</span>
                     </a>  
 </li> 
+<li class="">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ion ion-md-contact"></i>
+                        <span>Manage Products</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse">
+                    
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/productcategory")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/ProductCategory') ?>" class="waves-effect">
+                                <span>Category</span></a>
+                        </li> 
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
+                                <span>Products</span></a>
+                        </li>
+                    </ul>
+                </li>
                     <li class="">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ion ion-md-contact"></i>

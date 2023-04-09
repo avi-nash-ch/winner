@@ -91,23 +91,23 @@
                 </div>
             </div>
             <div class=row>
+                <?php foreach ($Category as $key => $value) { ?>
                 <div class="col-lg-4 col-md-6 col-12">
-
                     <div class=single-category>
-                        <h3 class=heading>TV & Audios</h3>
+                        <h3 class=heading><?= $value->name ?></h3>
                         <ul>
-                            <li><a href=product-grids.html>Smart Television</a></li>
-                            <li><a href=product-grids.html>QLED TV</a></li>
-                            <li><a href=product-grids.html>Audios</a></li>
-                            <li><a href=product-grids.html>Headphones</a></li>
+                        <?php foreach ($SubCategory as $key => $sub_cat) { ?>
+                            <li><a href=product-grids.html><?= $sub_cat->name ?></a></li>
+                            <?php } ?>
                             <li><a href=product-grids.html>View All</a></li>
                         </ul>
                         <div class=images>
-                            <img src="<?= base_url()?>web_assets/images/featured-categories/fetured-item-1.png" alt="#">
+                            <img src="<?= base_url('uploads/images/'.$value->icon)?>" alt="#">
                         </div>
                     </div>
 
                 </div>
+            <?php } ?>
                 <div class="col-lg-4 col-md-6 col-12">
 
                     <div class=single-category>
@@ -210,19 +210,23 @@
                 </div>
             </div>
             <div class=row>
+            <?php foreach ($AllProducts as $key => $value) { ?>
                 <div class="col-lg-3 col-md-6 col-12">
 
                     <div class=single-product>
                         <div class=product-image>
-                            <img src="<?= base_url()?>web_assets/images/products/xproduct-1.jpg.pagespeed.ic.9r8oOB3k7u.jpg" alt="#">
+                            <img src="<?= base_url('uploads/images/'.$value->image)?>" alt="#">
+                            <?php if(!empty($value->offer)){ ?>
+                            <span class=sale-tag>-<?= $value->offer ?>%</span>
+                            <?php } ?>
                             <div class=button>
                                 <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
                             </div>
                         </div>
                         <div class=product-info>
-                            <span class=category>Watches</span>
+                            <span class=category>Cloth</span>
                             <h4 class=title>
-                                <a href=product-grids.html>Xiaomi Mi Band 5</a>
+                                <a href=product-grids.html><?= $value->name ?></a>
                             </h4>
                             <ul class=review>
                                 <li><i class="lni lni-star-filled"></i></li>
@@ -233,12 +237,13 @@
                                 <li><span>4.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$199.00</span>
+                                <span>$<?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?></span>
                             </div>
                         </div>
                     </div>
 
                 </div>
+<?php } ?>
                 <div class="col-lg-3 col-md-6 col-12">
 
                     <div class=single-product>

@@ -8,13 +8,16 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model']);
+        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model','Product_model','ProductCategory_model']);
     }
 
     public function index()
     {
         $data = [
             'title' => 'Home',
+            'Category' => $this->ProductCategory_model->All(),
+            'AllProducts' => $this->Product_model->AllProduct(),
+            'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/index', $data);
     }
