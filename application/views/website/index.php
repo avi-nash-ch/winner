@@ -97,7 +97,7 @@
                         <h3 class=heading><?= $value->name ?></h3>
                         <ul>
                         <?php foreach ($SubCategory as $key => $sub_cat) { ?>
-                            <li><a href=product-grids.html><?= $sub_cat->name ?></a></li>
+                            <li><a href="<?= base_url('Home/Products/').$this->url_encrypt->encode($sub_cat->id)?>"><?= $sub_cat->name ?></a></li>
                             <?php } ?>
                             <li><a href=product-grids.html>View All</a></li>
                         </ul>
@@ -211,22 +211,22 @@
             </div>
             <div class=row>
             <?php foreach ($AllProducts as $key => $value) { ?>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-md-6 col-12" >
 
-                    <div class=single-product>
+                    <div class=single-product >
                         <div class=product-image>
-                            <img src="<?= base_url('uploads/images/'.$value->image)?>" alt="#">
+                            <img style="height: 243px;" src="<?= base_url('uploads/images/'.$value->image)?>" alt="#">
                             <?php if(!empty($value->offer)){ ?>
                             <span class=sale-tag>-<?= $value->offer ?>%</span>
                             <?php } ?>
                             <div class=button>
-                                <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
+                                <a href="<?= base_url('Home/productDeatils/').$this->url_encrypt->encode($value->id)?>" class=btn><i class="lni lni-cart"></i> Add to Cart</a>
                             </div>
                         </div>
                         <div class=product-info>
                             <span class=category>Cloth</span>
                             <h4 class=title>
-                                <a href=product-grids.html><?= $value->name ?></a>
+                                <a href=<?= base_url('Home/productDeatils/').$this->url_encrypt->encode($value->id)?>><?= $value->name ?></a>
                             </h4>
                             <ul class=review>
                                 <li><i class="lni lni-star-filled"></i></li>

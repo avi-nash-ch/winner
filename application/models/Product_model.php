@@ -28,21 +28,15 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
-    public function FilterAllProduct($q)
+    public function FilterAllProduct($sub_cat='')
     {
         $this->db->select('tbl_product.*');
         $this->db->from('tbl_product');
-        $this->db->join('tbl_publisher', 'tbl_publisher.id=tbl_product.publisher');
-        $this->db->join('tbl_auther', 'tbl_auther.id=tbl_product.author');
         $this->db->where('tbl_product.isDeleted', false);
-        $this->db->group_start();
-        $this->db->like('tbl_product.name', $q);
-        $this->db->or_like('tbl_publisher.name',$q);
-        $this->db->or_like('tbl_auther.name',$q);
-        $this->db->or_like('tbl_product.hsn_code',$q);
-        $this->db->group_end();
+        if(!empty($sub_cat)){
+            $this->db->where('tbl_product.sub_cat',$sub_cat);
+        }
         $this->db->order_by('tbl_product.id', 'desc');
-        
         $Query = $this->db->get();
         return $Query->result();
     }

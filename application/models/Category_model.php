@@ -12,7 +12,28 @@ class Category_model extends MY_Model
         return $Query->result();
     }
 
+    public function ProductCategory()
+    {
+        $this->db->select('tbl_product_category.*');
+        $this->db->from('tbl_product_category');
+        $this->db->where('isDeleted', false);
+        $this->db->order_by('id', 'asc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
 
+
+    public function subCategory($cat_id)
+    {
+        $this->db->select('tbl_sub_category.*');
+        $this->db->from('tbl_sub_category');
+        $this->db->where('category_id', $cat_id);
+        $this->db->where('isDeleted', false);
+        $this->db->where('isDisplay', 1);
+        $this->db->order_by('id', 'asc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
     public function ViewTableMaster($id)
     {
         $Query = $this->db->where('isDeleted', False)

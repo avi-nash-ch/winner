@@ -25,7 +25,6 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 
-
     <style>
         .form-select.is-valid:not([multiple]):not([size]),
         .form-select.is-valid:not([multiple])[size="1"],

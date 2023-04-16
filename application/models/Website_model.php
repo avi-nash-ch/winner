@@ -4,15 +4,8 @@ class Website_model extends MY_Model
 
     public function ProductById($id)
     {
-        $this->db->select('tbl_product.*,tbl_subject.name as subject_name,tbl_publisher.name as publisher_name,tbl_auther.name as author_name,tbl_class.name as class_name,tbl_product_type.name as product_type,tbl_board.name as board_name,tbl_language.name as language_name');
+        $this->db->select('tbl_product.*');
         $this->db->from('tbl_product');
-        $this->db->join('tbl_subject', 'tbl_product.subject=tbl_subject.id','LEFT');
-        $this->db->join('tbl_publisher', 'tbl_publisher.id=tbl_product.publisher','LEFT');
-        $this->db->join('tbl_auther', 'tbl_auther.id=tbl_product.author','LEFT');
-        $this->db->join('tbl_class', 'tbl_class.id=tbl_product.class','LEFT');
-        $this->db->join('tbl_product_type', 'tbl_product_type.id=tbl_product.type');
-        $this->db->join('tbl_board', 'tbl_board.id=tbl_product.board','LEFT');
-        $this->db->join('tbl_language', 'tbl_language.id=tbl_product.language','LEFT');
         $this->db->where('tbl_product.isDeleted', false);
         if($id){
             $this->db->where('tbl_product.id',$id);

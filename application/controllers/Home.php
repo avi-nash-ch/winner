@@ -96,38 +96,28 @@ class Home extends CI_Controller
         website('website/transportservice', $data);
     }
 
-    public function Subject($class='')
+    public function products($sub_cat_id='')
     {
-
-        $AllClass= $this->Class_model->All();
+        $sub_cat=$this->url_encrypt->decode($sub_cat_id);
         $data = [
-            'title' => 'Class',
-            'class'=>$class,
-            'Classes' => $this->Subject_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'AllProduct' => $this->Product_model->AllProductBySubject($class),
-            'Setting' => $this->Setting_model->Setting(),
-            'AllClass'=>$AllClass
+            'title' => 'Home',
+            'Category' => $this->ProductCategory_model->All(),
+            'AllProducts' => $this->Product_model->FilterAllProduct($sub_cat),
+            // 'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
-        website('website/classes/class-12-books', $data);
+        website('website/product-grids', $data);
     }
 
     public function productDeatils($id)
     {
         $id=$this->url_encrypt->decode($id);
         $product=$this->Website_model->ProductById($id);
-        $related=$this->Website_model->GateRelatedProduct($product->type,$id);
+        // $related=$this->Website_model->GateRelatedProduct($product->type,$id);
         $data = [
             'title' => 'product-details',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
             'data' => $product,
-            'related'=>$related
         ];
-        website('website/classes/produtdetail', $data);
+        website('website/product-details', $data);
     }
     public function AddToCart()
     {
