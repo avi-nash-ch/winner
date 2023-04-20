@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html class=no-js lang=zxx>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-<head>
-  <meta charset=utf-8 />
-  <meta http-equiv=x-ua-compatible content="ie=edge" />
-  <title>pratap multiservices</title>
-  <meta name=description content="" />
-  <meta name=viewport content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
-
-  <link rel=stylesheet
-    href="assets/css/A.bootstrap.min.css%2bLineIcons.3.0.css%2btiny-slider.css%2bglightbox.min.css%2cMcc.OzR7N5fb_Y.css.pagespeed.cf.svKjl5Nf5n.css" />
-  <link rel=stylesheet href="assets/css/A.main.css.pagespeed.cf.wZnWV-GMUP.css" />
-
-   <!-- jquery cdn -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-</head>
-
-<body>
-
-   <!-- Dynmic create and header  -->
-   <div id="header"></div>
-   <!--Dynmic create and header end -->
 
 <!-- main content -->
   <div class=breadcrumbs>
@@ -49,7 +24,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 col-12">
           <div class=content-left>
-            <img src="assets/images/about/xabout-img.jpg.pagespeed.ic.bJyW_F0aUA.jpg" alt="#">
+            <img src="<?= base_url()?>assets/images/about/xabout-img.jpg.pagespeed.ic.bJyW_F0aUA.jpg" alt="#">
             <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&amp;fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
               class="glightbox video"><i class="lni lni-play"></i></a>
           </div>
@@ -57,16 +32,19 @@
         <div class="col-lg-6 col-md-12 col-12">
 
           <div class=content-right>
-            <h2>ShopGrids - Your Trusted & Reliable Partner.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus
-              pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut
-              accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum
-              fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis.
+            <h2>PratapMultiServices - Your Trusted & Reliable Partner.</h2>
+            <p>This app is designed considering so that important needs of peoples should get completed quickly.
+              PratpMultiServices is an online community or application where people can find Workers, 
+              connect with each other to buy or sell different types categories and items.
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt
-              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi aliquip ex ea commodo consequat.</p>
-          </div>
+              <ul style="list-style-type: square">
+              <li><p>Find Workers - People can search all type workers using this application.</p></li>
+              <li><p>Transport Services - People can see and contact to transport releated services.</p></li>
+              <li>Buy & Sell Old Items - Pepole can put old or new items for sell & willing people can contact with person who willing to sell them.</li>
+              <li></p>Sell New Items - People connect with each other to buy or sell different types categories and items. Will provide items with home delivery.</p></li>
+              <li><p>Important Services - Peoples can find all important goverment, medical & other different types of services information.</p></li>
+            </ul>
+            </div>
         </div>
       </div>
     </div>
@@ -79,8 +57,7 @@
         <div class=col-12>
           <div class=section-title>
             <h2 class="wow fadeInUp" data-wow-delay=.4s>Our Core Team</h2>
-            <p class="wow fadeInUp" data-wow-delay=.6s>There are many variations of passages of Lorem
-              Ipsum available, but the majority have suffered alteration in some form.</p>
+            <p class="wow fadeInUp" data-wow-delay=.6s>We are proud to be India’s leading platform to sell, buy, rent or find something. Our goal is to help our community of buyers and sellers address their needs in the simplest and fastest way</p>
           </div>
         </div>
       </div>
@@ -89,11 +66,11 @@
 
           <div class=single-team>
             <div class=image>
-              <img src="assets/images/team/x01.jpg.pagespeed.ic.fDNrd-uBeq.jpg" alt="#">
+              <img src="<?= base_url()?>assets/images/team/x03.jpg.pagespeed.ic.B9zQr57749.jpg" alt="#">
             </div>
             <div class=content>
               <div class=info>
-                <h3>Grace Wright</h3>
+                <h3>Sham Chalak</h3>
                 <h5>Founder, CEO</h5>
                 <ul class=social>
                   <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
@@ -112,11 +89,11 @@
 
           <div class=single-team>
             <div class=image>
-              <img src="assets/images/team/x02.jpg.pagespeed.ic.XmjuA-eLLg.jpg" alt="#">
+              <img src="<?= base_url()?>assets/images/team/x02.jpg.pagespeed.ic.XmjuA-eLLg.jpg" alt="#">
             </div>
             <div class=content>
               <div class=info>
-                <h3>Taylor Jackson</h3>
+                <h3>Rushikesh Bhingare</h3>
                 <h5>Financial Director</h5>
                 <ul class=social>
                   <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
@@ -135,11 +112,11 @@
 
           <div class=single-team>
             <div class=image>
-              <img src="assets/images/team/x03.jpg.pagespeed.ic.B9zQr57749.jpg" alt="#">
+              <img src="<?= base_url()?>assets/images/team/x03.jpg.pagespeed.ic.B9zQr57749.jpg" alt="#">
             </div>
             <div class=content>
               <div class=info>
-                <h3>Quinton Cross</h3>
+                <h3>Sudhir Sherkar</h3>
                 <h5>Marketing Director</h5>
                 <ul class=social>
                   <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
@@ -158,11 +135,11 @@
 
           <div class=single-team>
             <div class=image>
-              <img src="assets/images/team/x04.jpg.pagespeed.ic._WD6xJBQIk.jpg" alt="#">
+              <img src="<?= base_url()?>assets/images/team/x01.jpg.pagespeed.ic.fDNrd-uBeq.jpg" alt="#">
             </div>
             <div class=content>
               <div class=info>
-                <h3>Liana Mullen</h3>
+                <h3>Ovee Pingle</h3>
                 <h5>Lead Designer</h5>
                 <ul class=social>
                   <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
@@ -180,22 +157,3 @@
       </div>
     </div>
   </section>
-
-<!-- main content end-->
-
-
-
-  
-
-  <!-- dynamic footer and header create -->
-  <div id="footer"></div>
-  <script>
-      $(document).ready(function () {
-          $('#header').load("common-header.html");
-          $('#footer').load("common-footer.html");
-      });
-  </script>
-  <!-- dynamic footer and header end-->
-</body>
-
-</html>

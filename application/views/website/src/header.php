@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html class=no-js lang=zxx>
-
-<!-- Mirrored from demo.graygrids.com/themes/shopgrids/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Jan 2023 04:07:24 GMT -->
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
@@ -117,7 +114,7 @@
                         <div class=top-middle>
                             <ul class=useful-links>
                                 <li><a href=<?= base_url('Home')?>>Home</a></li>
-                                <li><a href=about-us.html>About Us</a></li>
+                                <li><a href=<?= base_url('About-us')?>>About Us</a></li>
                                 <li><a href=contact.html>Contact Us</a></li>
                                 <li><a href=<?= base_url('Home/FindWorkers')?>>Find worker</a></li>
                                 <li><a href=Buy-items.html>Buy Items</a></li>

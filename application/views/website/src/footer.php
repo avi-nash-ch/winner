@@ -85,11 +85,11 @@
                         <div class="single-footer f-link">
                             <h3>Information</h3>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="javascript:void(0)">Downloads</a></li>
+                                <li><a href="<?= base_url('Home/about_us')?>">About Us</a></li>
+                                <li><a href="<?= base_url('Home/contact_us')?>">Contact Us</a></li>
+                                <li><a href="<?= base_url('Home/refund_policy')?>">Refund-Policy</a></li>
                                 <li><a href="javascript:void(0)">Sitemap</a></li>
-                                <li><a href="faq.html">FAQs Page</a></li>
+                                <li><a href="<?= base_url('Home/privacy_policy')?>">Privacy Policy</a></li>
                             </ul>
                         </div>
 
@@ -99,11 +99,11 @@
                         <div class="single-footer f-link">
                             <h3>Shop Departments</h3>
                             <ul>
-                                <li><a href="javascript:void(0)">Computers & Accessories</a></li>
-                                <li><a href="javascript:void(0)">Smartphones & Tablets</a></li>
-                                <li><a href="javascript:void(0)">TV, Video & Audio</a></li>
-                                <li><a href="javascript:void(0)">Cameras, Photo & Video</a></li>
-                                <li><a href="javascript:void(0)">Headphones</a></li>
+                                <!-- <li><a href="our-policy.html">Our Policy</a></li> -->
+                                <li><a href="<?= base_url('Home/terms_conditions')?>">Terms & Conditions</a></li>
+                                <li><a href="<?= base_url('Home/return_policy')?>">Return Policy</a></li>
+                                <li><a href="Delivery-policy.html">Delivery Policy</a></li>
+                                <li><a href="cancellation.html">Cancellation Policy</a></li>
                             </ul>
                         </div>
 

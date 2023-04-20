@@ -1,41 +1,3 @@
-<!DOCTYPE html>
-<html class=no-js lang=zxx>
-
-<!-- Mirrored from demo.graygrids.com/themes/shopgrids/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Jan 2023 04:07:40 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
-<head>
-  <meta charset=utf-8 />
-  <meta http-equiv=x-ua-compatible content="ie=edge" />
-  <title>pratap multiservices</title>
-  <meta name=description content="" />
-  <meta name=viewport content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
-
-  <link rel=stylesheet
-    href="assets/css/A.bootstrap.min.css%2bLineIcons.3.0.css%2btiny-slider.css%2bglightbox.min.css%2cMcc.OzR7N5fb_Y.css.pagespeed.cf.svKjl5Nf5n.css" />
-  <link rel=stylesheet href="assets/css/A.main.css.pagespeed.cf.wZnWV-GMUP.css" />
-
-    <!-- jquery cdn -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-</head>
-
-<body>
-  
-     <!-- Dynmic create and header  -->
-     <div id="header"></div>
-     <!--Dynmic create and header end -->
-
-  <!-- <div class=preloader>
-    <div class=preloader-inner>
-      <div class=preloader-icon>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div> -->
-
 
   
   <div class=breadcrumbs>
@@ -64,8 +26,9 @@
           <div class=col-12>
             <div class=section-title>
               <h2>Contact Us</h2>
-              <p>There are many variations of passages of Lorem
-                Ipsum available, but the majority have suffered alteration in some form.</p>
+              <p>Should you require further assistance please use the below form.
+                 Just you need fill and submit the same.
+              </p>
             </div>
           </div>
         </div>
@@ -160,18 +123,3 @@
     </div>
   </section>
 
-
- 
-  <!-- dynamic footer and header create -->
-  <div id="footer"></div>
-  <script>
-      $(document).ready(function () {
-          $('#header').load("common-header.html");
-          $('#footer').load("common-footer.html");
-      });
-  </script>
-  <!-- dynamic footer and header end-->
-
-</body>
-
-</html>

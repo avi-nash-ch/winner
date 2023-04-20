@@ -187,49 +187,90 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'About Us',
-            'class'=>'',
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Classes' => $this->Class_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
+            // 'class'=>'',
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Classes' => $this->Class_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/footerpages/about-mybookshop', $data);
+        website('website/about-us', $data);
     }
 
     public function refund_policy()
     {
         $data = [
             'title' => 'Refund Policy',
-            'Setting' => $this->Setting_model->Setting(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/refund-policy', $data);
+        website('website/Refund-policy', $data);
     }
 
     public function privacy_policy()
     {
         $data = [
             'title' => 'Privacy Policy',
-            'class'=>'',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
         
-        website('website/footerpages/our-policies', $data);
+        website('website/Privacy-Policy', $data);
+    }
+
+    public function return_policy()
+    {
+        $data = [
+            'title' => 'Privacy Policy',
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
+        ];
+        
+        website('website/return-policy', $data);
+    }
+
+    public function delivery_policy()
+    {
+        $data = [
+            'title' => 'Delivery Policy',
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
+        ];
+        
+        website('website/delivery-policy', $data);
+    }
+    public function cancellation_policy()
+    {
+        $data = [
+            'title' => 'Cancellation Policy',
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
+        ];
+        
+        website('website/can-policy', $data);
     }
 
     public function terms_conditions()
     {
         $data = [
             'title' => 'Terms & Conditions',
-            'class'=>'',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/footerpages/terms-conditions', $data);
+        website('website/terms&condition', $data);
     }
 
     public function security()
@@ -244,13 +285,13 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Contact us',
-            'class'=>'',
-            'Classes' => $this->Class_model->All(),
-            'Subjects' => $this->Subject_model->All(),
-            'Publishers' => $this->Publisher_model->All(),
-            'Setting' => $this->Setting_model->Setting(),
+            // 'class'=>'',
+            // 'Classes' => $this->Class_model->All(),
+            // 'Subjects' => $this->Subject_model->All(),
+            // 'Publishers' => $this->Publisher_model->All(),
+            // 'Setting' => $this->Setting_model->Setting(),
         ];
-        website('website/footerpages/contact', $data);
+        website('website/contact', $data);
     }
 
     public function help_support()

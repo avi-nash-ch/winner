@@ -11,12 +11,11 @@
                             <div class=single-slider
                                 style="background-image:url(<?= base_url()?>web_assets/images/hero/xslider-bg1.jpg.pagespeed.ic.QB-k7UuPjB.jpg)">
                                 <div class=content>
-                                    <h2><span>No restocking fee ($35 savings)</span>
+                                    <h2><span>No restocking fee (3500 savings)</span>
                                         M75 Sport Watch
                                     </h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                                        labore dolore magna aliqua.</p>
-                                    <h3><span>Now Only</span> $320.99</h3>
+                                    <p>The Best Sports Watches: Time for Some New Gear? Today's sports watches have so many advanced features that it can be a bit overwhelming just selecting the right one</p>
+                                    <h3><span>Now Only</span>INR 3500.99</h3>
                                     <div class=button>
                                         <a href=product-grids.html class=btn>Shop Now</a>
                                     </div>
@@ -30,9 +29,10 @@
                                     <h2><span>Big Sale Offer</span>
                                         Get the Best Deal on CCTV Camera
                                     </h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                                        labore dolore magna aliqua.</p>
-                                    <h3><span>Combo Only:</span> $590.00</h3>
+                                    <p>Looking for the best security camera for home but overwhelmed by looking at multiple choices?
+                                    Be it your home or office, a good quality camera is sure to help you in so many ways.
+                                    </p>
+                                    <h3><span>Combo Only:</span>INR 15000.00</h3>
                                     <div class=button>
                                         <a href=product-grids.html class=btn>Shop Now</a>
                                     </div>
@@ -54,7 +54,7 @@
                                         <span>New line required</span>
                                         iPhone 12 Pro Max
                                     </h2>
-                                    <h3>$259.99</h3>
+                                    <h3>INR 40000</h3>
                                 </div>
                             </div>
 
@@ -268,8 +268,8 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$275.00</span>
-                                <span class=discount-price>$300.00</span>
+                                <span>INR 275.00</span>
+                                <span class=discount-price>INR 300.00</span>
                             </div>
                         </div>
                     </div>
@@ -298,7 +298,7 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$399.00</span>
+                                <span>INR 399.00</span>
                             </div>
                         </div>
                     </div>
@@ -328,7 +328,7 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$400.00</span>
+                                <span>INR 400.00</span>
                             </div>
                         </div>
                     </div>
@@ -357,7 +357,7 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$350.00</span>
+                                <span>INR 350.00</span>
                             </div>
                         </div>
                     </div>
@@ -386,7 +386,7 @@
                                 <li><span>4.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$70.00</span>
+                                <span>INR 70.00</span>
                             </div>
                         </div>
                     </div>
@@ -416,8 +416,8 @@
                                 <li><span>4.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$100.00</span>
-                                <span class=discount-price>$200.00</span>
+                                <span>INR 100.00</span>
+                                <span class=discount-price>INR 200.00</span>
                             </div>
                         </div>
                     </div>
@@ -446,7 +446,7 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$899.00</span>
+                                <span>INR 899.00</span>
                             </div>
                         </div>
                     </div>
@@ -477,8 +477,8 @@
                         style="background-image:url(<?= base_url()?>web_assets/images/banner/xbanner-2-bg.jpg.pagespeed.ic.VbAquGFVe0.jpg)">
                         <div class=content>
                             <h2>Smart Headphone</h2>
-                            <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
-                                incididunt ut labore.</p>
+                            <p>Smart earbuds, also known as "hearables,<br>" 
+                                are wireless in-ear smart devices</p>
                             <div class=button>
                                 <a href=product-grids.html class=btn>Shop Now</a>
                             </div>
@@ -529,7 +529,7 @@
                                         <li><span>5.0 Review(s)</span></li>
                                     </ul>
                                     <div class=price>
-                                        <span>$399.00</span>
+                                        <span>INR 399.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -560,7 +560,7 @@
                                         <li><span>5.0 Review(s)</span></li>
                                     </ul>
                                     <div class=price>
-                                        <span>$899.00</span>
+                                        <span>INR 899.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -591,7 +591,7 @@
                                         <li><span>4.0 Review(s)</span></li>
                                     </ul>
                                     <div class=price>
-                                        <span>$70.00</span>
+                                        <span>INR 70.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -606,7 +606,7 @@
                             <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
                                 incididunt ut labore.</p>
                             <div class=price>
-                                <span>$590.00</span>
+                                <span>INR 590.00</span>
                             </div>
                             <div class=button>
                                 <a href=product-grids.html class=btn>Shop Now</a>
@@ -632,11 +632,12 @@
                                 <li><span>5.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$200.00</span>
-                                <span class=discount-price>$400.00</span>
+                                <span>INR 200.00</span>
+                                <span class=discount-price>INR 400.00</span>
                             </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry incididunt ut
-                                eiusmod tempor labores.</p>
+                            <p>A good pair of Bluetooth headphones may serve as a jack-of-all-trades audio product
+                               Freedom of choice
+                            </p>
                         </div>
                         <div class=box-head>
                             <div class=box>
@@ -682,7 +683,7 @@
                             <h3>
                                 <a href=product-grids.html>GoPro Hero4 Silver</a>
                             </h3>
-                            <span>$287.99</span>
+                            <span>INR 287.99</span>
                         </div>
                     </div>
 
@@ -697,7 +698,7 @@
                             <h3>
                                 <a href=product-grids.html>Puro Sound Labs BT2200</a>
                             </h3>
-                            <span>$95.00</span>
+                            <span>INR 95.00</span>
                         </div>
                     </div>
 
@@ -712,7 +713,7 @@
                             <h3>
                                 <a href=product-grids.html>HP OfficeJet Pro 8710</a>
                             </h3>
-                            <span>$120.00</span>
+                            <span>INR 120.00</span>
                         </div>
                     </div>
 
@@ -730,7 +731,7 @@
                             <h3>
                                 <a href=product-grids.html>iPhone X 256 GB Space Gray</a>
                             </h3>
-                            <span>$1150.00</span>
+                            <span>INR 1150.00</span>
                         </div>
                     </div>
 
@@ -745,7 +746,7 @@
                             <h3>
                                 <a href=product-grids.html>Canon EOS M50 Mirrorless Camera</a>
                             </h3>
-                            <span>$950.00</span>
+                            <span>INR 950.00</span>
                         </div>
                     </div>
 
@@ -760,7 +761,7 @@
                             <h3>
                                 <a href=product-grids.html>Microsoft Xbox One S</a>
                             </h3>
-                            <span>$298.00</span>
+                            <span>INR 298.00</span>
                         </div>
                     </div>
 
@@ -778,7 +779,7 @@
                             <h3>
                                 <a href=product-grids.html>Samsung Gear 360 VR Camera</a>
                             </h3>
-                            <span>$68.00</span>
+                            <span>INR 68.00</span>
                         </div>
                     </div>
 
@@ -793,7 +794,7 @@
                             <h3>
                                 <a href=product-grids.html>Samsung Galaxy S9+ 64 GB</a>
                             </h3>
-                            <span>$840.00</span>
+                            <span>INR 840.00</span>
                         </div>
                     </div>
 
@@ -808,7 +809,7 @@
                             <h3>
                                 <a href=product-grids.html>Zeus Bluetooth Headphones</a>
                             </h3>
-                            <span>$28.00</span>
+                            <span>INR 28.00</span>
                         </div>
                     </div>
 
@@ -863,8 +864,8 @@
                 <div class=col-12>
                     <div class=section-title>
                         <h2>Our Latest News</h2>
-                        <p>There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <p>We are proud to be India’s leading platform to sell, buy, rent or find something. 
+                            Our goal is to help our community of buyers and sellers address their needs in the simplest and fastest way</p>
                     </div>
                 </div>
             </div>
@@ -882,8 +883,7 @@
                             <h4>
                                 <a href=blog-single-sidebar.html>What information is needed for shipping?</a>
                             </h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <p>We just need to your basic details like Address | Contact. Further more  if we have already added after registration then no action required.</p>
                             <div class=button>
                                 <a href="javascript:void(0)" class=btn>Read More</a>
                             </div>
@@ -904,8 +904,7 @@
                             <h4>
                                 <a href=blog-single-sidebar.html>Interesting fact about gaming consoles</a>
                             </h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <p>Playing game is job of smart minded people, as there thinking is different from many others..</p>
                             <div class=button>
                                 <a href="javascript:void(0)" class=btn>Read More</a>
                             </div>
@@ -927,8 +926,7 @@
                                 <a href=blog-single-sidebar.html>Electronics, instrumentation & control engineering
                                 </a>
                             </h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <p>We have bet Electritions Service Providers onboarded already on our site. You can find related and contact them eassly.</p>
                             <div class=button>
                                 <a href="javascript:void(0)" class=btn>Read More</a>
                             </div>
@@ -951,7 +949,7 @@
                     </div>
                     <div class=media-body>
                         <h5>Free Shipping</h5>
-                        <span>On order over $99</span>
+                        <span>On order over INR 99</span>
                     </div>
                 </li>
 
