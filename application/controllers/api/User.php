@@ -35,25 +35,29 @@ class User extends REST_Controller
         ]);
     }
 
-    public function send_otp_post()
+    public function Registration_post()
     {
         $mobile = $this->data['mobile'];
-        $user = $this->Users_model->UserProfileByMobile($mobile);
+        $first_name = $this->data['first_name'];
+        $last_name = $this->data['last_name'];
+        $email = $this->data['email'];
+        $user = $this->Users_model->UserCheck($mobile);
         if ($user) {
             $data['message'] = 'Mobile Already Exist, Please Login';
             $data['code'] = HTTP_NOT_FOUND;
             $this->response($data, HTTP_OK);
             exit();
         } else {
-            $otp = rand(1000, 9999);
-
-            // $otp = 9988;
-            $otp_id = $this->Users_model->InsertOTP($mobile, $otp);
-            $msg = "Yout OTP code is : ".$otp;
-            // Send_SMS($mobile,$msg);
-            Send_OTP($mobile, $otp);
+            $postData=[
+                'first_name'=>$first_name,
+                'phone'=>$mobile,
+                'last_name'=>$last_name,
+                'email'=>$email,
+                'created'=>date('Y-m-d H:i:s')
+            ];
+            $last_id = $this->Users_model->Registration($postData);
             $data['message'] = 'Success';
-            $data['otp_id'] = $otp_id;
+            $data['inserted_id'] = $last_id;
             $data['code'] = HTTP_OK;
             $this->response($data, HTTP_OK);
             exit();
@@ -62,7 +66,7 @@ class User extends REST_Controller
 
     public function login_post()
     {
-        $user = $this->Users_model->LoginUser($this->data['mobile'], $this->data['password']);
+        $user = $this->Users_model->LoginUser($this->data['mobile']);
         if ($user) {
             $data['message'] = 'Success';
             $data['user_data'] = $user;

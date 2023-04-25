@@ -22,6 +22,17 @@ class Home extends CI_Controller
         website('website/index', $data);
     }
 
+    public function buyItems()
+    {
+        $data = [
+            'title' => 'Home',
+            'Category' => $this->ProductCategory_model->All(),
+            'AllProducts' => $this->Product_model->FilterAllProduct(),
+            // 'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
+        ];
+        website('website/buyall', $data);
+    }
+
     public function FindWorkers($class='')
     {
 
@@ -112,10 +123,11 @@ class Home extends CI_Controller
     {
         $id=$this->url_encrypt->decode($id);
         $product=$this->Website_model->ProductById($id);
-        // $related=$this->Website_model->GateRelatedProduct($product->type,$id);
+        $features=$this->Website_model->getProductFeatures($id);
         $data = [
             'title' => 'product-details',
             'data' => $product,
+            'features'=>$features
         ];
         website('website/product-details', $data);
     }

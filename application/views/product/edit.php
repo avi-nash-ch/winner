@@ -49,24 +49,25 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">Color *</label>
-                       <select class="form-control" name="color" required>
+                    <?php $color=explode(",",$Product->color);$age=explode(",",$Product->age);$size=explode(",",$Product->size);  ?>
+                       <select class="form-control select2" name="color[]" data-placeholder="Select Color" multiple required>
                         <option value="">Select Color</option>
-                        <option value="1" <?= ($Product->color==1)?'selected':''?>>White</option>
-                        <option value="2" <?= ($Product->color==2)?'selected':''?>>Red</option>
-                        <option value="3" <?= ($Product->color==3)?'selected':''?>>Blue</option>
-                        <option value="4" <?= ($Product->color==4)?'selected':''?>>Green</option>
-                        <option value="5" <?= ($Product->color==5)?'selected':''?>>Yellow</option>
-                        <option value="6" <?= ($Product->color==6)?'selected':''?>>Pink</option>
-                        <option value="7" <?= ($Product->color==7)?'selected':''?>>Black</option>
-                        <option value="8" <?= ($Product->color==8)?'selected':''?>>Brown</option>
+                        <option value="1" <?= in_array(1,$color)?'selected':''?>>White</option>
+                        <option value="2" <?= in_array(2,$color)?'selected':''?>>Red</option>
+                        <option value="3" <?= in_array(3,$color)?'selected':''?>>Blue</option>
+                        <option value="4" <?= in_array(4,$color)?'selected':''?>>Green</option>
+                        <option value="5" <?= in_array(5,$color)?'selected':''?>>Yellow</option>
+                        <option value="6" <?= in_array(6,$color)?'selected':''?>>Pink</option>
+                        <option value="7" <?= in_array(7,$color)?'selected':''?>>Black</option>
+                        <option value="8" <?= in_array(8,$color)?'selected':''?>>Brown</option>
                        </select>
                     </div>
                     <div class="col-md-2">
                     <label for="name">Age </label>
-                       <select class="form-control" name="age">
+                       <select class="form-control select2" data-placeholder="Select Age" name="age[]" multiple>
                         <option value="">Select Age</option>
                         <?php for ($i=1; $i <81 ; $i++) { ?>
-                        <option value="<?= $i ?>" <?= ($Product->age==$i)?'selected':''?>><?= $i ?></option>
+                        <option value="<?= $i ?>" <?= in_array($i,$age)?'selected':''?>><?= $i ?></option>
                     <?php } ?>
                        </select>
                     </div>
@@ -82,12 +83,12 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">Size *</label>
-                       <select class="form-control" name="size" required>
+                       <select class="form-control select2" data-placeholder="Select Size" name="size[]" multiple required>
                         <option value="">Select Size </option>
-                        <option value="1" <?= ($Product->size==1)?'selected':''?>>L</option>
-                        <option value="2" <?= ($Product->size==2)?'selected':''?>>XL</option>
-                        <option value="3" <?= ($Product->size==3)?'selected':''?>>M</option>
-                        <option value="4" <?= ($Product->size==4)?'selected':''?>>S</option>
+                        <option value="1" <?= in_array(1,$size)?'selected':''?>>L</option>
+                        <option value="2" <?= in_array(2,$size)?'selected':''?>>XL</option>
+                        <option value="3" <?= in_array(3,$size)?'selected':''?>>M</option>
+                        <option value="4" <?= in_array(4,$size)?'selected':''?>>S</option>
                        </select>
                     </div>   
                 </div>
@@ -119,6 +120,15 @@
                     <div class="col-md-6">
                     <label for="desc">Description</label>
                         <textarea class="form-control" type="text"  name="desc" id="desc"><?= $Product->description ?></textarea>
+                    </div>
+                    <div class="col-md-3">
+             <label for="name">Brand *</label>
+                       <select class="form-control select2" name="brand">
+                        <option value="">Select Brand</option>
+                        <?php foreach ($AllBrands as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->brand==$value->id)?'selected':''?>><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
                     </div>
                    
                 </div>
@@ -186,6 +196,7 @@
     <script>
 
             $(document).ready(() => {
+                $('.select2').select2();
                 <?php if($Product->image){ ?>
                     $("#imgPreview").attr("src",'<?= base_url('uploads/images/').$Product->image ?>');
                     $("#imgPreview").show()

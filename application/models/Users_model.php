@@ -432,12 +432,11 @@ class Users_model extends MY_Model
         $this->db->update('user');
     }
 
-    public function LoginUser($MobileNo, $Password)
+    public function LoginUser($MobileNo)
     {
         $this->db->where('phone', $MobileNo);
-        $this->db->where('password', $Password);
+        // $this->db->where('password', $Password);
         $user = $this->db->get('user');
-
         return $user->result();
     }
 
@@ -454,9 +453,19 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
-    public function AddPurchaseReferLog($data)
+    public function UserCheck($mobile)
     {
-        $this->db->insert('tbl_purcharse_ref', $data);
+        $this->db->select('user.id');
+        $this->db->from('user');
+        $this->db->where('isDeleted', false);
+        $this->db->where('user.phone', $mobile);
+        $Query = $this->db->get();
+        return $Query->row();
+    }
+
+    public function Registration($data)
+    {
+        $this->db->insert('user', $data);
         return $this->db->insert_id();
     }
 

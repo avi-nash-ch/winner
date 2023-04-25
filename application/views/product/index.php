@@ -37,7 +37,10 @@
                             <td>
                                 <a href="<?= base_url('backend/Products/edit/' . $AllProduct->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                        class="fa fa-edit"></span></a>
+                                        class="fa fa-edit"></span></a>|
+                                        <a href="<?= base_url('backend/Products/features/' . $AllProduct->id) ?>"
+                                    class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add Features"><span
+                                        class="fa fa-plus"></span></a>
                                 | <a href="<?= base_url('backend/Products/delete/' . $AllProduct->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>

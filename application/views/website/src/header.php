@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-
+       
     <style>
         .form-select.is-valid:not([multiple]):not([size]),
         .form-select.is-valid:not([multiple])[size="1"],
@@ -117,7 +117,7 @@
                                 <li><a href=<?= base_url('About-us')?>>About Us</a></li>
                                 <li><a href=contact.html>Contact Us</a></li>
                                 <li><a href=<?= base_url('Home/FindWorkers')?>>Find worker</a></li>
-                                <li><a href=Buy-items.html>Buy Items</a></li>
+                                <li><a href=<?= base_url('Home/buyItems')?>>Buy Items</a></li>
 
                                 <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#myModal">
@@ -317,20 +317,19 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id=navbarSupportedContent>
                                 <ul id=nav class="navbar-nav ms-auto">
                                     <li class=nav-item>
-                                        <a href=index.html class=active aria-label="Toggle navigation">Home</a>
+                                        <a href=<?= base_url('Home')?> class=active aria-label="Toggle navigation">Home</a>
                                     </li>
                                     <li class=nav-item>
                                         <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle=collapse
                                             data-bs-target="#submenu-1-2" aria-controls=navbarSupportedContent
                                             aria-expanded=false aria-label="Toggle navigation">Info</a>
                                         <ul class="sub-menu collapse" id=submenu-1-2>
-                                            <li class=nav-item><a href=about-us.html>About Us</a></li>
-                                            <li class=nav-item><a href=contact.html>Contact Us</a></li>
+                                            <li class=nav-item><a href=<?= base_url('Home/about_us')?>>About Us</a></li>
+                                            <li class=nav-item><a href=<?= base_url('Home/contact_us')?>>Contact Us</a></li>
                                             <li class=nav-item><a href=faq.html>Faq</a></li>
-                                            <li class=nav-item><a href=login.html>Login</a></li>
-                                            <li class=nav-item><a href=register.html>Register</a></li>
-                                            <!-- <li class=nav-item><a href=mail-success.html>Mail Success</a></li> -->
-                                            <li class=nav-item><a href=404.html>404 Error</a></li>
+                                            <li class=nav-item><a href=<?= base_url('Home/Login')?>>Login</a></li>
+                                            <li class=nav-item><a href=<?= base_url('Home/Registration')?>>Register</a></li>
+                                           
                                         </ul>
                                     </li>
                                     <li class=nav-item>
@@ -347,22 +346,13 @@
                                         </ul>
                                     </li>
                                     <li class=nav-item>
-                                        <!-- <a href="findworker2.html" href="javascript:void(0)" data-bs-toggle=collapse
-                                            data-bs-target="#submenu-1-4" aria-controls=navbarSupportedContent
-                                            aria-expanded=false aria-label="Toggle navigation"><a
-                                                href="findworker2.html">Find worker</a></a> -->
-                                        <!-- <ul class="sub-menu collapse" id=submenu-1-4>
-                                            <li class=nav-item><a href=blog-grid-sidebar.html>Blog Grid Sidebar</a>
-                                            </li>
-                                            <li class=nav-item><a href=blog-single.html>Blog Single</a></li>
-                                            <li class=nav-item><a href=blog-single-sidebar.html>Blog Single
-                                                    Sibebar</a></li>
-                                        </ul> -->
+                                      
 
                                         <a href="<?= base_url('Home/FindWorkers')?>">Find worker</a>
                                     </li>
                                     <li class=nav-item>
-                                        <a href=Buy-items.html>Buy Items</a>
+                                    <a href=<?= base_url('Home/buyItems')?>>Buy Items</a>
+                        
                                     </li>
 
 

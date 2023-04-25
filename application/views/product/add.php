@@ -31,7 +31,7 @@
                 <div class="form-group row">
                 <div class="col-md-2">
                     <label for="name">Category *</label>
-                       <select class="form-control" name="cat" required>
+                       <select class="form-control select2" name="cat" required>
                         <option value="">Select Category</option>
                         <?php foreach ($Category as $key => $value) { ?>
                         <option value="<?= $value->id ?>"><?= $value->name ?></option>
@@ -41,7 +41,7 @@
 
                     <div class="col-md-2">
                     <label for="name">Sub Category *</label>
-                       <select class="form-control" name="sub_cat" required>
+                       <select class="form-control select2" name="sub_cat" required>
                         <option value="">Select Category</option>
                         <?php foreach ($SubCategory as $key => $value) { ?>
                         <option value="<?= $value->id ?>"><?= $value->name ?></option>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">Color *</label>
-                       <select class="form-control" name="color" required>
+                       <select class="form-control select2" name="color[]" data-placeholder="Select Color" multiple required>
                         <option value="">Select Color</option>
                         <option value="1">White</option>
                         <option value="2">Red</option>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">Age </label>
-                       <select class="form-control" name="age">
+                       <select class="form-control select2" data-placeholder="Select Age" name="age[]" multiple>
                         <option value="">Select Age</option>
                         <?php for ($i=1; $i <81 ; $i++) { ?>
                         <option value="<?= $i ?>"><?= $i ?></option>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">For *</label>
-                       <select class="form-control" name="for" required>
+                       <select class="form-control select2" name="for" required>
                         <option value="">Select For </option>
                         <option value="1">Men</option>
                         <option value="2">Boys</option>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-md-2">
                     <label for="name">Size *</label>
-                       <select class="form-control" name="size" required>
+                       <select class="form-control select2" data-placeholder="Select Size" name="size[]" multiple required>
                         <option value="">Select Size </option>
                         <option value="1">L</option>
                         <option value="2">XL</option>
@@ -114,17 +114,23 @@
                         <input class="form-control" type="text" Placeholder="Price"  name="sale_price" required
                             id="prcie">
                     </div>
+                   
             </div>
                 <div class="form-group row">
-                <!-- <div class="col-md-2">
-                    <label for="qr_code">Qr Code *</label>
-                        <input class="form-control" type="text" Placeholder="Qr Code"  name="qr_code" required
-                            id="qr_code">
-                    </div> -->
+               
                     <div class="col-md-8">
                     <label for="desc">Description</label>
                         <textarea class="form-control" type="text" Placeholder="Description" name="desc"
                             id="desc"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                    <label for="name">Brand *</label>
+                       <select class="form-control select2" name="brand" required>
+                        <option value="">Select Brand</option>
+                        <?php foreach ($AllBrands as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                   <?php } ?>
+                       </select>
                     </div>
                 </div>
                 
@@ -190,6 +196,7 @@
     </div>
     <script>
             $(document).ready(() => {
+                $('.select2').select2();
                 $("#image").change(function () {
                     const file = this.files[0];
                     if (file) {

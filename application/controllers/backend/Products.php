@@ -4,7 +4,7 @@ class Products extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model','ProductCategory_model']);
+        $this->load->model(['Product_model','ProductCategory_model','Brand_model']);
     }
 
     public function index()
@@ -21,6 +21,17 @@ class Products extends MY_Controller
     {
         
         $this->load->view('test');
+    }
+    public function features($id,$feature_id='')
+    {
+        $data = [
+            'title' => 'Manage Features',
+            'product_id'=>$id,
+            'sub_cat_id'=>$feature_id,
+            'All' => $this->Product_model->AllFeatures($id)
+        ];
+        $data['SideBarbutton'] = '';
+        template('product/features', $data);
     }
 
 public function getItem()
@@ -44,6 +55,7 @@ $result['data']=$Products;
             'title' => 'Add Product',
             'Category' => $this->ProductCategory_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
+            'AllBrands' => $this->Brand_model->All(),
         ];
         template('product/add', $data);
     }
@@ -54,7 +66,8 @@ $result['data']=$Products;
             'title' => 'Edit Product',
             'Category' => $this->ProductCategory_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
-            'Product' => $this->Product_model->ViewTableMaster($id)
+            'Product' => $this->Product_model->ViewTableMaster($id),
+            'AllBrands' => $this->Brand_model->All(),
         ];
 
         template('product/edit', $data);
@@ -87,14 +100,14 @@ $result['data']=$Products;
 echo json_encode(['result'=>true]);
     }
 
-    public function pricedelete($product_id,$id)
+    public function featureDelete($product_id,$id)
     {
-        if ($this->Product_model->DeletePrice($id)) {
-            $this->session->set_flashdata('msg', array('message' => 'Price Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
+        if ($this->Product_model->DeleteFeature($id)) {
+            $this->session->set_flashdata('msg', array('message' => 'Feature Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/Products/addprice/'.$product_id);
+        redirect('backend/Products/features/'.$product_id);
     }
 
     public function insert()
@@ -191,16 +204,17 @@ echo json_encode(['result'=>true]);
             'name' => $this->input->post('name'),
             'sub_cat' => $this->input->post('sub_cat'),
             'product_code' => $this->input->post('product_code'),
-            'color' => $this->input->post('color'),
+            'color' => implode(",",$this->input->post('color')),
             'offer' => $this->input->post('discount'),
             'cat' => $this->input->post('cat'),
             'qty' => $this->input->post('qty'),
-            'age' => $this->input->post('age'),
+            'age' => implode(",",$this->input->post('age')),
             'purchase_price' => $this->input->post('purchase_price'),
             'price_sale' => $this->input->post('sale_price'),
             'for' => $this->input->post('for'),
+            'brand' => $this->input->post('brand'),
             'description' => $this->input->post('desc'),
-            'size' => $this->input->post('size'),
+            'size' => implode(",",$this->input->post('size')) ,
             'image' => $product_image,
             'image2' => $product_image2,
             'image3' => $product_image3,
@@ -221,28 +235,23 @@ echo json_encode(['result'=>true]);
         redirect('backend/Products');
     }
 
-    public function InsertPrice()
+    public function insert_feature()
     {
         
         $data = [
             'product_id' => $this->input->post('product_id'),
-            'purchase_price' => $this->input->post('purchase_price'),
-            'sale_price' => $this->input->post('sale_price'),
-            'qty' => $this->input->post('qty'),
+            'feature' => $this->input->post('name'),
             'added_date' => date('Y-m-d H:i:s')
         ];
-        // $check=$this->UserCategory_model->CheckDuplicate($this->input->post('name'));
-        // if(empty($check)){
-        $price = $this->Product_model->AddProductPrice($data);
+       
+        $price = $this->Product_model->AddProductFeatures($data);
         if ($price) {
-            $this->session->set_flashdata('msg', array('message' => 'Product Price Successfully', 'class' => 'success', 'position' => 'top-right'));
+            $this->session->set_flashdata('msg', array('message' => 'Product feature added Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-    // }else{
-    //     $this->session->set_flashdata('msg', array('message' => 'Category Already Exists', 'class' => 'error', 'position' => 'top-right'));
-    // }
-        redirect('backend/Products/addprice/'.$this->input->post('product_id'));
+    
+        redirect('backend/Products/features/'.$this->input->post('product_id'));
     }
 
 
@@ -256,16 +265,17 @@ echo json_encode(['result'=>true]);
              'name' => $this->input->post('name'),
             'sub_cat' => $this->input->post('sub_cat'),
             'product_code' => $this->input->post('product_code'),
-            'color' => $this->input->post('color'),
+            'color' => implode(",",$this->input->post('color')),
             'offer' => $this->input->post('discount'),
             'cat' => $this->input->post('cat'),
             'qty' => $this->input->post('qty'),
-            'age' => $this->input->post('age'),
+            'age' => implode(",",$this->input->post('age')),
             'purchase_price' => $this->input->post('purchase_price'),
             'price_sale' => $this->input->post('sale_price'),
             'for' => $this->input->post('for'),
             'description' => $this->input->post('desc'),
-            'size' => $this->input->post('size'),
+            'brand' => $this->input->post('brand'),
+            'size' => implode(",",$this->input->post('size')) ,
             'updated_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {

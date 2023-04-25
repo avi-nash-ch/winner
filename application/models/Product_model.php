@@ -28,6 +28,17 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
+    public function AllFeatures($product_id)
+    {
+        $this->db->select('tbl_product_features.*');
+        $this->db->from('tbl_product_features');
+        $this->db->where('isDeleted', false);
+        $this->db->where('product_id', $product_id);
+        $this->db->order_by('id', 'asc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function FilterAllProduct($sub_cat='')
     {
         $this->db->select('tbl_product.*');
@@ -164,9 +175,9 @@ class Product_model extends MY_Model
         return $this->db->insert_id();
     }
 
-    public function AddProductPrice($data)
+    public function AddProductFeatures($data)
     {
-        $this->db->insert('tbl_product_price', $data);
+        $this->db->insert('tbl_product_features', $data);
         return $this->db->insert_id();
     }
 
@@ -191,14 +202,14 @@ class Product_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function DeletePrice($id)
+    public function DeleteFeature($id)
     {
         $data = [
             'isDeleted' => TRUE,
             'updated_date' => date('Y-m-d H:i:s')
         ];
         $this->db->where('id', $id);
-        $this->db->update('tbl_product_price', $data);
+        $this->db->update('tbl_product_features', $data);
         return $this->db->last_query();
     }
 

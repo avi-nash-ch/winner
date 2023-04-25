@@ -3,15 +3,15 @@
         <div class="card">
             <div class="card-body">
                 <?php
-            echo form_open_multipart('backend/Language/update', ['autocomplete' => false, 'id' => 'edit_language'
+            echo form_open_multipart('backend/Brands/update', ['autocomplete' => false, 'id' => 'edit_language'
                 ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_language'),
                 'id'=> $data->id])
                 ?>
              
              <div class="form-group row">
              <div class="col-md-4">
-                    <label for="class">Language</label>
-                        <input class="form-control" type="text" value="<?= $data->name ?>" Placeholder="Language" name="name"
+                    <label for="class">Name</label>
+                        <input class="form-control" type="text" value="<?= $data->name ?>" Placeholder="Brand" name="name"
                             id="class">
                     </div> 
                 </div>
@@ -22,7 +22,7 @@
                         echo form_submit('submit', 'Update', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
                        
                         ?>
-                         <a href="<?= base_url('backend/Language')?>" class="btn btn-secondary waves-effect">Cancel</a>
+                         <a href="<?= base_url('backend/Brands')?>" class="btn btn-secondary waves-effect">Cancel</a>
                     </div>
                 </div>
                 <?php

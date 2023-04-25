@@ -40,6 +40,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <span>Category</span></a>
                         </li> 
                         <li
+                            class="<?= (array_filter([strpos($final_url, "backend/Brands")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Brands') ?>" class="waves-effect">
+                                <span>Brands</span></a>
+                        </li>
+                        <li
                             class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
                                 <span>Products</span></a>

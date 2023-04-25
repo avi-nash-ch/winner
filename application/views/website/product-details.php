@@ -1,5 +1,5 @@
 
-
+ <script src="<?= base_url()?>assets/website/js/jquery-3.4.1.min.js" type="text/javascript"></script>
   <section class="item-details section">
     <div class=container>
       <div class=top-area>
@@ -11,23 +11,16 @@
                   <img src="<?= base_url('uploads/images/').$data->image ?>" id=current alt="#">
                 </div>
                 <div class=images>
-                  <img src="<?= base_url('uploads/images/').$data->image2 ?>" class=img alt="#">
-                  <img data-pagespeed-lazy-src="assets/images/product-details/02.jpg" class=img alt="#"
-                    src="<?= base_url('uploads/images/').$data->image2 ?>"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <img data-pagespeed-lazy-src="<?= base_url('uploads/images/').$data->image3 ?>"
-                    class=img alt="#" src="<?= base_url('uploads/images/').$data->image3 ?>"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <img data-pagespeed-lazy-src="<?= base_url('uploads/images/').$data->image4 ?>"
-                    class=img alt="#" src="<?= base_url('uploads/images/').$data->image4 ?>"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <img data-pagespeed-lazy-src="<?= base_url('uploads/images/').$data->image3 ?>" class=img alt="#"
-                    src="<?= base_url('uploads/images/').$data->image3 ?>"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                 
+                  <img 
+                    src="<?= base_url('uploads/images/').$data->image ?>" onclick="set_img('<?= $data->image?>')">
+                  <img  src="<?= base_url('uploads/images/').$data->image2 ?>" onclick="set_img('<?= $data->image2?>')"
+                    >
+                  <img  src="<?= base_url('uploads/images/').$data->image3 ?>" onclick="set_img('<?= $data->image3 ?>')"
+                   >
+                  <img 
+                    src="<?= base_url('uploads/images/').$data->image4 ?>"
+                    onclick="set_img('<?= $data->image4 ?>')">
                 </div>
               </main>
             </div>
@@ -35,46 +28,92 @@
           <div class="col-lg-6 col-md-12 col-12">
             <div class=product-info>
               <h2 class=title><?= $data->name ?></h2>
-              <p class=category><i class="lni lni-tag"></i> Drones:<a href="javascript:void(0)">Action
-                  cameras</a></p>
               <h3 class=price>$<?= number_format($data->price_sale-($data->price_sale/100)*$data->offer,2) ?><span>$<?= number_format($data->price_sale,2) ?></span></h3>
               <p class=info-text><?= $data->description ?></p>
+              <?php $color=explode(",",$data->color);$size=explode(",",$data->size);  ?>
               <div class=row>
                 <div class="col-lg-4 col-md-4 col-12">
                   <div class="form-group color-option">
                     <label class=title-label for=size>Choose color</label>
-                    <div class="single-checkbox checkbox-style-1">
-                      <input type=checkbox id=checkbox-1 checked>
-                      <label for=checkbox-1><span></span></label>
+                    <?php foreach ($color as $key => $c) { 
+                       switch ($c) {
+                        case '1': ?>
+                         <div class="single-checkbox checkbox-style-white">
+                      <input type=checkbox id=checkbox-white name="color[]" value="1">
+                      <label for=checkbox-white><span></span></label>
                     </div>
-                    <div class="single-checkbox checkbox-style-2">
-                      <input type=checkbox id=checkbox-2>
-                      <label for=checkbox-2><span></span></label>
-                    </div>
-                    <div class="single-checkbox checkbox-style-3">
-                      <input type=checkbox id=checkbox-3>
+                         
+                         <?php  break; 
+                        
+                         case '2': ?>
+                          <div class="single-checkbox checkbox-style-3">
+                      <input type=checkbox id=checkbox-3 name="color[]" value="2">
                       <label for=checkbox-3><span></span></label>
                     </div>
-                    <div class="single-checkbox checkbox-style-4">
-                      <input type=checkbox id=checkbox-4>
+                         <?php  break; 
+                         case '3': ?>
+                         <div class="single-checkbox checkbox-style-2">
+                      <input type=checkbox id=checkbox-2 name="color[]" value="3">
+                      <label for=checkbox-2><span></span></label>
+                    </div>
+                      
+                         <?php  break;
+                           case '4': ?>
+                            <div class="single-checkbox checkbox-style-4">
+                      <input type=checkbox id=checkbox-4 name="color[]" value="4">
                       <label for=checkbox-4><span></span></label>
                     </div>
+                           <?php  break;
+                             case '5': ?>
+                             <div class="single-checkbox checkbox-style-yellow">
+                      <input type=checkbox id=checkbox-yellow name="color[]" value="5">
+                      <label for=checkbox-yellow><span></span></label>
+                    </div>
+                             <?php  break;
+                               case '6': ?>
+                               <div class="single-checkbox checkbox-style-pink">
+                      <input type=checkbox id=checkbox-pink name="color[]" value="6">
+                      <label for=checkbox-pink><span></span></label>
+                    </div>
+                               <?php  break;
+                                 case '7': ?>
+                                 <div class="single-checkbox checkbox-style-1">
+                      <input type=checkbox id=checkbox-1 name="color[]" name="7">
+                      <label for=checkbox-1><span></span></label>
+                    </div>
+                                 <?php  break; 
+                                  case '8': ?>
+                            <div class="single-checkbox checkbox-style-brown">
+                      <input type=checkbox id=checkbox-brown name="color[]" value="8"> 
+                      <label for=checkbox-brown><span></span></label>
+                    </div>
+                         <?php  break;
+                  
+                    default:
+                          # code...
+                          break;
+                       }
+                      ?>
+                      
+                    <?php } ?>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                   <div class=form-group>
-                    <label for=color>Battery capacity</label>
-                    <select class=form-control id=color>
-                      <option>5100 mAh</option>
-                      <option>6200 mAh</option>
-                      <option>8000 mAh</option>
+                    <label for=color>Size</label>
+                    <select class=form-control id=color name="color" required>
+                  
+                        <?php foreach ($size as $key => $s) { ?>
+                          <option value="<?= $s ?>"><?php if($s==1){echo "L";}elseif($s==2){echo "XL";}elseif($s==3){echo "M";}elseif($s==4){echo "S";} ?></option>
+                        <?php } ?>
+                      
                     </select>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                   <div class="form-group quantity">
                     <label for=color>Quantity</label>
-                    <select class=form-control>
+                    <select class="form-control" name="qty">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -91,16 +130,6 @@
                       <button class=btn style="width: 100%;">Add to Cart</button>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-12">
-                    <div class=wish-button>
-                      <button class=btn><i class="lni lni-reload"></i> Compare</button>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-12">
-                    <div class=wish-button>
-                      <button class=btn><i class="lni lni-heart"></i> To Wishlist</button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -113,170 +142,19 @@
             <div class="col-lg-6 col-12">
               <div class="info-body custom-responsive-margin">
                 <h4>Details</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
+                <p><?= $data->description?></p>
                 <h4>Features</h4>
                 <ul class=features>
-                  <li>Capture 4K30 Video and 12MP Photos</li>
-                  <li>Game-Style Controller with Touchscreen</li>
-                  <li>View Live Camera Feed</li>
-                  <li>Full Control of HERO6 Black</li>
-                  <li>Use App for Dedicated Camera Operation</li>
+                  <?php foreach ($features as $key => $value) { ?>
+                    <li><?= $value->feature?></li>
+                <?php  } ?>
                 </ul>
               </div>
             </div>
-            <div class="col-lg-6 col-12">
-              <div class=info-body>
-                <h4>Specifications</h4>
-                <ul class=normal-list>
-                  <li><span>Weight:</span> 35.5oz (1006g)</li>
-                  <li><span>Maximum Speed:</span> 35 mph (15 m/s)</li>
-                  <li><span>Maximum Distance:</span> Up to 9,840ft (3,000m)</li>
-                  <li><span>Operating Frequency:</span> 2.4GHz</li>
-                  <li><span>Manufacturer:</span> GoPro, USA</li>
-                </ul>
-                <h4>Shipping Options:</h4>
-                <ul class=normal-list>
-                  <li><span>Courier:</span> 2 - 4 days, $22.50</li>
-                  <li><span>Local Shipping:</span> up to one week, $10.00</li>
-                  <li><span>UPS Ground Shipping:</span> 4 - 6 days, $18.00</li>
-                  <li><span>Unishop Global Export:</span> 3 - 4 days, $25.00</li>
-                </ul>
-              </div>
-            </div>
+           
           </div>
         </div>
-        <div class=row>
-          <div class="col-lg-4 col-12">
-            <div class="single-block give-review">
-              <h4>4.5 (Overall)</h4>
-              <ul>
-                <li>
-                  <span>5 stars - 38</span>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                </li>
-                <li>
-                  <span>4 stars - 10</span>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star"></i>
-                </li>
-                <li>
-                  <span>3 stars - 3</span>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                </li>
-                <li>
-                  <span>2 stars - 1</span>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                </li>
-                <li>
-                  <span>1 star - 0</span>
-                  <i class="lni lni-star-filled"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                  <i class="lni lni-star"></i>
-                </li>
-              </ul>
-
-              <button type=button class="btn review-btn" data-bs-toggle=modal data-bs-target="#exampleModal">
-                Leave a Review
-              </button>
-            </div>
-          </div>
-          <div class="col-lg-8 col-12">
-            <div class=single-block>
-              <div class=reviews>
-                <h4 class=title>Latest Reviews</h4>
-
-                <div class=single-review>
-                  <img data-pagespeed-lazy-src="assets/images/blog/xcomment1.jpg.pagespeed.ic.yRrtPo0G_Y.jpg" alt="#"
-                    src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <div class=review-info>
-                    <h4>Awesome quality for the price
-                      <span>Jacob Hammond
-                      </span>
-                    </h4>
-                    <ul class=stars>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor...</p>
-                  </div>
-                </div>
-
-
-                <div class=single-review>
-                  <img data-pagespeed-lazy-src="assets/images/blog/xcomment2.jpg.pagespeed.ic.P3c5pVzEa7.jpg" alt="#"
-                    src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <div class=review-info>
-                    <h4>My husband love his new...
-                      <span>Alex Jaza
-                      </span>
-                    </h4>
-                    <ul class=stars>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star"></i></li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor...</p>
-                  </div>
-                </div>
-
-
-                <div class=single-review>
-                  <img data-pagespeed-lazy-src="assets/images/blog/comment3.jpg" alt="#"
-                    src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                  <div class=review-info>
-                    <h4>I love the built quality...
-                      <span>Jacob Hammond
-                      </span>
-                    </h4>
-                    <ul class=stars>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                      <li><i class="lni lni-star-filled"></i></li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor...</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -341,10 +219,12 @@
   <!-- dynamic footer and header create -->
   <div id="footer"></div>
   <script>
-    $(document).ready(function () {
-      $('#header').load("common-header.html");
-      $('#footer').load("common-footer.html");
-    });
+    // $(document).ready(function () {
+      function set_img(img) {
+        $("#current").attr("src","<?= base_url('uploads/images/')?>"+img);
+      }
+     
+    // });
   </script>
   <!-- dynamic footer and header end-->
 

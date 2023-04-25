@@ -27,15 +27,13 @@ class Website_model extends MY_Model
 
 
 
-    public function GateRelatedProduct($related,$id)
+    public function getProductFeatures($id)
     {
-        $this->db->select('tbl_product.*');
-        $this->db->from('tbl_product');
-        $this->db->where('tbl_product.isDeleted', false);
-        $this->db->where('tbl_product.type',$related);
-        $this->db->where('tbl_product.id!=',$id);
-        $this->db->limit(5);
-        $this->db->order_by('tbl_product.id', 'desc');
+        $this->db->select('tbl_product_features.*');
+        $this->db->from('tbl_product_features');
+        $this->db->where('tbl_product_features.isDeleted', false);
+        $this->db->where('tbl_product_features.product_id',$id);
+        $this->db->order_by('tbl_product_features.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
     }
