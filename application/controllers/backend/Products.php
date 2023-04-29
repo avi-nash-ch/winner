@@ -4,7 +4,7 @@ class Products extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model','ProductCategory_model','Brand_model']);
+        $this->load->model(['Product_model','ProductCategory_model','Brand_model','Shop_model']);
     }
 
     public function index()
@@ -54,6 +54,7 @@ $result['data']=$Products;
         $data = [
             'title' => 'Add Product',
             'Category' => $this->ProductCategory_model->All(),
+            'Shop' => $this->Shop_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
             'AllBrands' => $this->Brand_model->All(),
         ];
@@ -65,6 +66,7 @@ $result['data']=$Products;
         $data = [
             'title' => 'Edit Product',
             'Category' => $this->ProductCategory_model->All(),
+            'Shop' => $this->Shop_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
             'Product' => $this->Product_model->ViewTableMaster($id),
             'AllBrands' => $this->Brand_model->All(),
@@ -202,6 +204,7 @@ echo json_encode(['result'=>true]);
         }
         $data = [
             'name' => $this->input->post('name'),
+            'shop_id' => ($this->session->role==0)?$this->input->post('shop_id'):$this->session->admin_id,
             'sub_cat' => $this->input->post('sub_cat'),
             'product_code' => $this->input->post('product_code'),
             'color' => implode(",",$this->input->post('color')),
@@ -263,6 +266,7 @@ echo json_encode(['result'=>true]);
         $product_image4='';
         $data = [
              'name' => $this->input->post('name'),
+             'shop_id' => ($this->session->role==0)?$this->input->post('shop_id'):$this->session->admin_id,
             'sub_cat' => $this->input->post('sub_cat'),
             'product_code' => $this->input->post('product_code'),
             'color' => implode(",",$this->input->post('color')),

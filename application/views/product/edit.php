@@ -28,10 +28,23 @@
                 ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_product'),
                 'id'=> $Product->id])
                 ?>
+                 <?php if($this->session->role==0){ ?>
+              <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="name">Shop Name *</label>
+                       <select class="form-control select2" name="shop_id" required>
+                        <option value="">Select Shop</option>
+                        <?php foreach ($Shop as $key => $value) { ?>
+                        <option value="<?= $value->id ?>" <?= ($Product->shop_id==$value->id)?'selected':''?>><?= $value->first_name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                        </div>
+                        <?php } ?>
              <div class="form-group row">
              <div class="col-md-2">
              <label for="name">Category *</label>
-                       <select class="form-control" name="type">
+                       <select class="form-control" name="cat">
                         <option value="">Select Category</option>
                         <?php foreach ($Category as $key => $value) { ?>
                         <option value="<?= $value->id ?>" <?= ($Product->cat==$value->id)?'selected':''?>><?= $value->name ?></option>
@@ -40,7 +53,7 @@
                     </div>
                     <div class="col-md-2">
              <label for="name">Sub Category *</label>
-                       <select class="form-control" name="type">
+                       <select class="form-control" name="sub_cat">
                         <option value="">Select Sub Category</option>
                         <?php foreach ($SubCategory as $key => $value) { ?>
                         <option value="<?= $value->id ?>" <?= ($Product->sub_cat==$value->id)?'selected':''?>><?= $value->name ?></option>

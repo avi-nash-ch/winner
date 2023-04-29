@@ -103,5 +103,5 @@ define('CIPHER', 'AES-128-ECB');
 
 define('APP_URL', '/');
 define('BANNER_URL', 'uploads/banner/');
-define('LOGO', 'uploads/logo/');
+define('LOGO', 'uploads/images/');
 define('IMAGE_URL', 'uploads/images/');

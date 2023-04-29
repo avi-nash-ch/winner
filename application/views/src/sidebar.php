@@ -12,12 +12,20 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
             <ul class="metismenu" id="side-menu">     
             <li><a href="<?= base_url('backend/dashboard') ?>" class="waves-effect"><i class="ti-home"></i>
                         <span>Dashboard</span></a></li>
-                <li class="menu-title">Content</li>      
+                <li class="menu-title">Content</li>   
+                <?php if($this->session->role==0){ ?>   
                 <li  class="<?= (array_filter([strpos($final_url, "backend/workers")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="<?= base_url('backend/Workers') ?>" class="waves-effect">
                 <a href="<?= base_url('backend/Workers') ?>">
                         <i class="ion ion-md-contact"></i>
                         <span>Manage Workers</span>
+                    </a>  
+</li> 
+<li  class="<?= (array_filter([strpos($final_url, "backend/shops")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Shops') ?>" class="waves-effect">
+                <a href="<?= base_url('backend/Shops') ?>">
+                        <i class="ion ion-md-contact"></i>
+                        <span>Manage Shops</span>
                     </a>  
 </li> 
 <li  class="<?= (array_filter([strpos($final_url, "backend/Transport")], 'is_numeric')) ? 'mm-active' : '' ?>">
@@ -73,13 +81,6 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                     </ul>
                 </li>
 
-                <!-- <li
-                            class="<?= (array_filter([strpos($final_url, "backend/reports")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('backend/Reports') ?>" class="waves-effect">
-                            <i class="ion ion-md-contact"></i>
-                                <span>Reports</span></a>
-                        </li>
-                        -->
                         <li
                             class="<?= (array_filter([strpos($final_url, "backend/users")], 'is_numeric')) ? 'mm-active' : '' ?>">
                             <a href="<?= base_url('backend/Users') ?>" class="waves-effect">
@@ -98,6 +99,32 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <i class="ion ion-md-contact"></i>
                                 <span>Contact to Transport</span></a>
                         </li> 
+                        <?php }else { ?>
+                            <li class="">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ion ion-md-contact"></i>
+                        <span>Manage Products</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse">
+                    
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/productcategory")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/ProductCategory') ?>" class="waves-effect">
+                                <span>Category</span></a>
+                        </li> 
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/Brands")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Brands') ?>" class="waves-effect">
+                                <span>Brands</span></a>
+                        </li>
+                        <li
+                            class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
+                                <span>Products</span></a>
+                        </li>
+                    </ul>
+                </li>
+                            <?php } ?>
             </ul>
         </div>
         <!-- Sidebar -->

@@ -8,6 +8,9 @@ class Product_model extends MY_Model
         $this->db->from('tbl_product');
         $this->db->where('isDeleted', false);
         $this->db->order_by('id', 'desc');
+        if($this->session->role==1){
+            $this->db->where('shop_id',$this->session->admin_id); 
+        }
         if(!empty($limit)){
             $this->db->limit($limit);
         }

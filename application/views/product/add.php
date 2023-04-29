@@ -28,6 +28,19 @@
             echo form_open_multipart('backend/Products/insert', ['autocomplete' => false, 'id' => 'add_product'
                 ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_product')])
             ?>
+            <?php if($this->session->role==0){ ?>
+              <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="name">Shop Name *</label>
+                       <select class="form-control select2" name="shop_id" required>
+                        <option value="">Select Shop</option>
+                        <?php foreach ($Shop as $key => $value) { ?>
+                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option>
+                   <?php } ?>
+                       </select>
+                    </div>
+                        </div>
+                        <?php } ?>
                 <div class="form-group row">
                 <div class="col-md-2">
                     <label for="name">Category *</label>
