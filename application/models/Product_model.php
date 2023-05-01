@@ -55,6 +55,24 @@ class Product_model extends MY_Model
         return $Query->result();
     }
 
+    public function ProductByFilter($cat=null,$brand=null,$shop=null)
+    {
+        $this->db->select('tbl_product.*');
+        $this->db->from('tbl_product');
+        $this->db->where('tbl_product.isDeleted', false);
+        if(!empty($cat)){
+            $this->db->where_in('tbl_product.cat',$cat);
+        }
+        if(!empty($brand)){
+            $this->db->where_in('tbl_product.brand',$brand);
+        }
+        if(!empty($shop)){
+            $this->db->where('tbl_product.shop_id',$shop);
+        }
+        $this->db->order_by('tbl_product.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
 
     public function AllMostViewedProduct()
     {

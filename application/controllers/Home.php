@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model','Product_model','ProductCategory_model']);
+        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model','Product_model','ProductCategory_model','Shop_model','Brand_model']);
     }
 
     public function index()
@@ -28,7 +28,8 @@ class Home extends CI_Controller
             'title' => 'Home',
             'Category' => $this->ProductCategory_model->All(),
             'AllProducts' => $this->Product_model->FilterAllProduct(),
-            // 'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
+            'Shop' => $this->Shop_model->All(),
+            'Brand' => $this->Brand_model->All(),
         ];
         website('website/buyall', $data);
     }
@@ -63,6 +64,24 @@ class Home extends CI_Controller
             'Allcity' => $Allcity,
         ];
         website('website/findworker', $data);
+    }
+
+    public function p()
+    {
+
+        $cat=$this->input->get('c');
+        $brand=$this->input->get('b');
+        $shop=$this->input->get('s');
+        
+        $AllProducts =$this->Product_model->ProductByFilter($cat,$brand,$shop);
+        $data = [
+            'title' => 'Find Workers',
+            'Category' => $this->ProductCategory_model->All(),
+            'AllProducts' => $AllProducts,
+            'Shop' => $this->Shop_model->All(),
+            'Brand' => $this->Brand_model->All(),
+        ];
+        website('website/buyall', $data);
     }
 
     public function t()
@@ -114,7 +133,8 @@ class Home extends CI_Controller
             'title' => 'Home',
             'Category' => $this->ProductCategory_model->All(),
             'AllProducts' => $this->Product_model->FilterAllProduct($sub_cat),
-            // 'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
+            'Shop' => $this->Shop_model->All(),
+            'Brand' => $this->Brand_model->All(),
         ];
         website('website/product-grids', $data);
     }

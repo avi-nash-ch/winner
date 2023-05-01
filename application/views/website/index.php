@@ -237,7 +237,7 @@
                                 <li><span>4.0 Review(s)</span></li>
                             </ul>
                             <div class=price>
-                                <span>$<?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?></span>
+                                <span>INR <?= number_format($value->price_sale-($value->price_sale/100)*$value->offer,2) ?></span>
                             </div>
                         </div>
                     </div>
