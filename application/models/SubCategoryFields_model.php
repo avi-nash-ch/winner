@@ -4,7 +4,7 @@ class SubCategoryFields_model extends MY_Model
 
     public function All($subCatId)
     {
-        $this->db->select('sub_category_field_mapping.*,tbl_attributes.name as fieldName, tbl_sell_subcategories.name as sub_cat_name');
+        $this->db->select('sub_category_field_mapping.*,tbl_attributes.name as fieldName, tbl_attributes.type as field_type, tbl_sell_subcategories.name as sub_cat_name');
         $this->db->from('sub_category_field_mapping');
         $this->db->join('tbl_attributes', 'tbl_attributes.id=sub_category_field_mapping.field_id');
         $this->db->join('tbl_sell_subcategories', 'tbl_sell_subcategories.id=sub_category_field_mapping.sub_cat_id');

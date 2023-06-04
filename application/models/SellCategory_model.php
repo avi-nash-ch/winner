@@ -15,8 +15,8 @@ class SellCategory_model extends MY_Model
 
     public function subCategory($cat_id)
     {
-        $this->db->select('tbl_sell_subcategory.*');
-        $this->db->from('tbl_sell_subcategory');
+        $this->db->select('tbl_sell_subcategories.*');
+        $this->db->from('tbl_sell_subcategories');
         $this->db->where('category_id', $cat_id);
         $this->db->where('isDeleted', false);
         $this->db->order_by('id', 'asc');

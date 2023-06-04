@@ -46,5 +46,12 @@ if (!function_exists('render')) {
         return $Query->result();
     }
 
+    function getSellsCategories()
+    {
+        $ci = &get_instance();
+        $ci->load->model('SellCategory_model');
+        return $ci->SellCategory_model->All();
+    }
+
 
 }

@@ -51,7 +51,7 @@
                         echo form_submit('submit', 'Submit', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
 
                         ?>
-                        <a href="<?= base_url('backend/AttributeOptions/index/' . $sub_cat_id) ?>" class="btn btn-secondary waves-effect">Cancel</a>
+                        <a href="<?= base_url('backend/SubCategoryFields/index/' . $sub_cat_id) ?>" class="btn btn-secondary waves-effect">Cancel</a>
                     </div>
                 </div>
                 <?php

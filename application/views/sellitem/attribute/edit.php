@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="type">Color *</label>
+                        <label for="type">Attribute Type *</label>
                         <select class="form-control select2" name="type" data-placeholder="Select Type" required>
                             <option value="">Select Type</option>
                             <option <?= $data->type == "textfield" ? 'selected' : '' ?> value="textfield">Text Field</option>
