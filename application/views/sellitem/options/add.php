@@ -27,26 +27,17 @@
         <div class="card">
             <div class="card-body">
                 <?php
-                echo form_open_multipart('backend/Attributes/insert', [
+                echo form_open_multipart('backend/AttributeOptions/insert', [
                     'autocomplete' => false, 'id' => 'add_category', 'method' => 'post'
-                ], ['type' => $this->url_encrypt->encode('tbl_sell_category')])
+                ], ['type' => $this->url_encrypt->encode('tbl_attributes_options')])
                 ?>
                 <div class="form-group row">
 
                     <div class="col-md-4">
                         <label for="class">Name</label>
                         <input class="form-control" type="text" Placeholder="Name" name="name" id="class" required>
-                    </div>
 
-                    <div class="col-md-4">
-                        <label for="type">Color *</label>
-                        <select class="form-control select2" name="type" data-placeholder="Select Type" required>
-                            <option value="">Select Type</option>
-                            <option value="textfield">Text Field</option>
-                            <option value="dropdown">Dropdown</option>
-                            <option value="radiobutton">Radio Button</option>
-                            <!-- <option value="checkbox">Checkbox</option> -->
-                        </select>
+                        <input type="hidden" name="field_id" value="<?= $fieldId?>" >
                     </div>
                 </div>
                 
@@ -57,7 +48,7 @@
                         echo form_submit('submit', 'Submit', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
 
                         ?>
-                        <a href="<?= base_url('backend/Attributes') ?>" class="btn btn-secondary waves-effect">Cancel</a>
+                        <a href="<?= base_url('backend/AttributeOptions/index/'.$fieldId) ?>" class="btn btn-secondary waves-effect">Cancel</a>
                     </div>
                 </div>
                 <?php

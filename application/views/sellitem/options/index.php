@@ -9,8 +9,8 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
+                            <th>Attribute</th>
                             <th>Name</th>
-                            <th>Category</th>
                             <th>Added Date</th>
                             <th>Action</th>
                         </tr>
@@ -23,21 +23,18 @@
                         ?>
                         <tr>
                             <td><?= $i ?></td>
+                            <td><?= $row->fieldName ?></td>
                             <td><?= $row->name ?></td>
-                            <td><?= $row->category ?></td>
                             <td><?= date("d-m-Y h:i A", strtotime($row->added_date)) ?></td>
                             <td>
-                                <a href="<?= base_url('backend/SellSubCategory/edit/' . $row->id) ?>"
+                                <a href="<?= base_url('backend/AttributeOptions/edit/' . $row->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
                                         class="fa fa-edit"></span></a>
                                
-                                | <a href="<?= base_url('backend/SellSubCategory/delete/' . $row->id) ?>"
+                                | <a href="<?= base_url('backend/AttributeOptions/delete/' . $row->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>
 
-                                | <a href="<?= base_url('backend/SubCategoryFields/index/' . $row->id) ?>"
-                                    class="btn btn-info" data-toggle="tooltip" data-placement="top"
-                                    title="Manage Fields"><span class="fa fa-plus"></span></a>
                             </td>
                         </tr>
                         <?php }

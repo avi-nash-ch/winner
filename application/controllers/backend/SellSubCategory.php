@@ -4,7 +4,7 @@ class SellSubCategory extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['SellSubCategory_model', 'SellCategory_model']);
+        $this->load->model(['SellSubCategory_model', 'SellCategory_model', 'Attribute_model']);
     }
 
     public function index()
@@ -21,7 +21,8 @@ class SellSubCategory extends MY_Controller
     {
         $data = [
             'title' => 'Add Sub Category',
-            'categories' => $this->SellCategory_model->All()
+            'categories' => $this->SellCategory_model->All(),
+            'attributes' => $this->Attribute_model->All(),
         ];
 
         template('sellitem/subcategory/add', $data);
@@ -58,8 +59,18 @@ class SellSubCategory extends MY_Controller
         ];
         $check = $this->SellSubCategory_model->CheckDuplicate($this->input->post('name'), $this->input->post('category_id'));
         if (empty($check)) {
-            $category = $this->SellSubCategory_model->AddTableMaster($data);
-            if ($category) {
+            $subCat = $this->SellSubCategory_model->AddTableMaster($data);
+            if ($subCat) {
+                // Add Attributes for sub category
+                $attributes = $this->input->post('attributes');
+                if(!empty($attributes)) {
+                    $attributeData = [];
+                    foreach($attributes as $key => $attr) {
+                        $attributeData[$key]['field_id'] = $attr;
+                        $attributeData[$key]['sub_cat_id'] = $subCat;
+                    }
+                    $this->db->insert_batch('sub_category_field_mapping', $attributeData); 
+                }
                 $this->session->set_flashdata('msg', array('message' => 'Sub Category Added Successfully', 'class' => 'success', 'position' => 'top-right'));
             } else {
                 $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));

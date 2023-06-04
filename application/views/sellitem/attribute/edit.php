@@ -48,7 +48,7 @@
                             <option <?= $data->type == "textfield" ? 'selected' : '' ?> value="textfield">Text Field</option>
                             <option <?= $data->type == "dropdown" ? 'selected' : '' ?> value="dropdown">Dropdown</option>
                             <option <?= $data->type == "radiobutton" ? 'selected' : '' ?> value="radiobutton">Radio Button</option>
-                            <option <?= $data->type == "checkbox" ? 'selected' : '' ?> value="checkbox">Checkbox</option>
+                            <!-- <option <?= $data->type == "checkbox" ? 'selected' : '' ?> value="checkbox">Checkbox</option> -->
                         </select>
                     </div>
                 </div>

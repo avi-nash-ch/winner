@@ -34,6 +34,12 @@
                                 | <a href="<?= base_url('backend/Attributes/delete/' . $row->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>
+
+                                <?php if($row->type == "dropdown" || $row->type == "radiobutton") {?>
+                                    | <a href="<?= base_url('backend/AttributeOptions/index/' . $row->id) ?>"
+                                    class="btn btn-info" data-toggle="tooltip" data-placement="top"
+                                    title="Manage Options"><span class="fa fa-plus"></span></a>
+                                <?php }?>
                             </td>
                         </tr>
                         <?php }

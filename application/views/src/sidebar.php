@@ -83,7 +83,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         </a>
                         <ul class="sub-menu mm-collapse">
 
-                            <li class="<?= (array_filter([strpos($final_url, "backend/attributes")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <li class="<?= (array_filter([strpos($final_url, "backend/attributes"), strpos($final_url, "backend/attributeoptions")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Attributes') ?>" class="waves-effect">
                                     <span>Attributes</span></a>
                             </li>
