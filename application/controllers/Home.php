@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model','Website_model','Category_model','Location_model','Transport_model','Product_model','ProductCategory_model','Shop_model','Brand_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model']);
     }
 
     public function index()
@@ -34,14 +34,14 @@ class Home extends CI_Controller
         website('website/buyall', $data);
     }
 
-    public function FindWorkers($class='')
+    public function FindWorkers($class = '')
     {
 
-        $AllWorkers =$this->Worker_model->AllWorkers();
-        $Allcity =$this->Location_model->All();
+        $AllWorkers = $this->Worker_model->AllWorkers();
+        $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Find Workers',
-            'AllWorkers'=>$AllWorkers,
+            'AllWorkers' => $AllWorkers,
             'AllCategory' => $this->Category_model->All(),
             'Allcity' => $Allcity,
         ];
@@ -51,15 +51,15 @@ class Home extends CI_Controller
     public function filter()
     {
 
-        $cat=$this->input->get('a');
-        $search=$this->input->get('b');
-        $location=$this->input->get('location');
-        
-        $AllWorkers =$this->Worker_model->AllWorkers($cat,$search,$location);
-        $Allcity =$this->Location_model->All();
+        $cat = $this->input->get('a');
+        $search = $this->input->get('b');
+        $location = $this->input->get('location');
+
+        $AllWorkers = $this->Worker_model->AllWorkers($cat, $search, $location);
+        $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Find Workers',
-            'AllWorkers'=>$AllWorkers,
+            'AllWorkers' => $AllWorkers,
             'AllCategory' => $this->Category_model->All(),
             'Allcity' => $Allcity,
         ];
@@ -69,11 +69,11 @@ class Home extends CI_Controller
     public function p()
     {
 
-        $cat=$this->input->get('c');
-        $brand=$this->input->get('b');
-        $shop=$this->input->get('s');
-        
-        $AllProducts =$this->Product_model->ProductByFilter($cat,$brand,$shop);
+        $cat = $this->input->get('c');
+        $brand = $this->input->get('b');
+        $shop = $this->input->get('s');
+
+        $AllProducts = $this->Product_model->ProductByFilter($cat, $brand, $shop);
         $data = [
             'title' => 'Find Workers',
             'Category' => $this->ProductCategory_model->All(),
@@ -87,13 +87,13 @@ class Home extends CI_Controller
     public function t()
     {
 
-        $cat=$this->input->get('a');
-        $search=$this->input->get('b');
-        $AllTransport =$this->Transport_model->TransportByFilter($cat,$search);
-        $Allcity =$this->Location_model->All();
+        $cat = $this->input->get('a');
+        $search = $this->input->get('b');
+        $AllTransport = $this->Transport_model->TransportByFilter($cat, $search);
+        $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Transport',
-            'AllTransport'=>$AllTransport,
+            'AllTransport' => $AllTransport,
             'Allcity' => $Allcity,
         ];
         website('website/transportservice', $data);
@@ -102,12 +102,12 @@ class Home extends CI_Controller
     public function s()
     {
 
-        $search=$this->input->get('s');
-        $AllTransport =$this->Transport_model->search($search);
-        $Allcity =$this->Location_model->All();
+        $search = $this->input->get('s');
+        $AllTransport = $this->Transport_model->search($search);
+        $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Transport',
-            'AllTransport'=>$AllTransport,
+            'AllTransport' => $AllTransport,
             'Allcity' => $Allcity,
         ];
         website('website/transportservice', $data);
@@ -116,19 +116,19 @@ class Home extends CI_Controller
     public function Transport()
     {
 
-        $AllTransport =$this->Transport_model->All(1);
-        $Allcity =$this->Location_model->All();
+        $AllTransport = $this->Transport_model->All(1);
+        $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Transport Service',
-            'AllTransport'=>$AllTransport,
+            'AllTransport' => $AllTransport,
             'Allcity' => $Allcity,
         ];
         website('website/transportservice', $data);
     }
 
-    public function products($sub_cat_id='')
+    public function products($sub_cat_id = '')
     {
-        $sub_cat=$this->url_encrypt->decode($sub_cat_id);
+        $sub_cat = $this->url_encrypt->decode($sub_cat_id);
         $data = [
             'title' => 'Home',
             'Category' => $this->ProductCategory_model->All(),
@@ -141,13 +141,13 @@ class Home extends CI_Controller
 
     public function productDeatils($id)
     {
-        $id=$this->url_encrypt->decode($id);
-        $product=$this->Website_model->ProductById($id);
-        $features=$this->Website_model->getProductFeatures($id);
+        $id = $this->url_encrypt->decode($id);
+        $product = $this->Website_model->ProductById($id);
+        $features = $this->Website_model->getProductFeatures($id);
         $data = [
             'title' => 'product-details',
             'data' => $product,
-            'features'=>$features
+            'features' => $features
         ];
         website('website/product-details', $data);
     }
@@ -160,14 +160,14 @@ class Home extends CI_Controller
         ];
         website('website/checkout/cart/index', $data);
     }
-   
+
 
 
     public function site_map()
     {
         $data = [
             'title' => 'Site Map',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -175,12 +175,12 @@ class Home extends CI_Controller
         ];
         website('website/footerpages/sitemap', $data);
     }
-    
+
     public function feedback()
     {
         $data = [
             'title' => 'About Us',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -193,7 +193,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Bulk Enquiry',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -206,7 +206,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Track Order',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -247,7 +247,7 @@ class Home extends CI_Controller
             // 'Publishers' => $this->Publisher_model->All(),
             // 'Setting' => $this->Setting_model->Setting(),
         ];
-        
+
         website('website/Privacy-Policy', $data);
     }
 
@@ -261,7 +261,7 @@ class Home extends CI_Controller
             // 'Publishers' => $this->Publisher_model->All(),
             // 'Setting' => $this->Setting_model->Setting(),
         ];
-        
+
         website('website/return-policy', $data);
     }
 
@@ -275,7 +275,7 @@ class Home extends CI_Controller
             // 'Publishers' => $this->Publisher_model->All(),
             // 'Setting' => $this->Setting_model->Setting(),
         ];
-        
+
         website('website/delivery-policy', $data);
     }
     public function cancellation_policy()
@@ -288,7 +288,7 @@ class Home extends CI_Controller
             // 'Publishers' => $this->Publisher_model->All(),
             // 'Setting' => $this->Setting_model->Setting(),
         ];
-        
+
         website('website/can-policy', $data);
     }
 
@@ -330,7 +330,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Help Support',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -343,7 +343,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Login',
-           
+
             'Setting' => $this->Setting_model->Setting(),
         ];
         website('website/login', $data);
@@ -352,7 +352,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'My cart',
-            'class'=>'',
+            'class' => '',
             'Classes' => $this->Class_model->All(),
             'Subjects' => $this->Subject_model->All(),
             'Publishers' => $this->Publisher_model->All(),
@@ -365,14 +365,14 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Registartion',
-            'class'=>'',
+            'class' => '',
         ];
         website('website/register', $data);
     }
 
     public function UserRegistration()
     {
-        $result=[];
+        $result = [];
         $data = [
             'first_name' => $this->input->post('fname'),
             'last_name' => $this->input->post('lname'),
@@ -381,25 +381,25 @@ class Home extends CI_Controller
             'password' => '',
             'created' => date('Y-m-d H:i:s')
         ];
-        $check=$this->Website_model->CheckDuplicate($this->input->post('phone_no'));
-        if(empty($check)){
-        $category = $this->Website_model->AddTableMaster($data);
-        if ($category) {
-           $result['result']=true;
+        $check = $this->Website_model->CheckDuplicate($this->input->post('phone_no'));
+        if (empty($check)) {
+            $category = $this->Website_model->AddTableMaster($data);
+            if ($category) {
+                $result['result'] = true;
+            } else {
+                $result['result'] = 2;
+            }
         } else {
-            $result['result']=2;
+            $result['result'] = 4;
         }
-    }else{
-        $result['result']=4;
-    }
         echo json_encode($result);
     }
 
-   
+
     public function CheckLogin()
     {
-        $data=$this->Website_model->login($this->input->post('email'),$this->input->post('password'));
-        if(!empty($data)){
+        $data = $this->Website_model->login($this->input->post('email'), $this->input->post('password'));
+        if (!empty($data)) {
             $user_data = array(
                 'admin_id' => $data->id,
                 'email' => $data->email,
@@ -407,56 +407,52 @@ class Home extends CI_Controller
             );
             $this->session->set_userdata($user_data);
             echo "<script>alert('Login Successfully')
-            window.location.href='".base_url('Home')."'
+            window.location.href='" . base_url('Home') . "'
             </script>";
-    }else{
-        echo "<script>alert('Invalid Credential');
-        window.location.href='".base_url('Home/Login')."'
+        } else {
+            echo "<script>alert('Invalid Credential');
+        window.location.href='" . base_url('Home/Login') . "'
         </script>";
-        // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
-    }
-        
+            // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+        }
     }
 
 
     public function LogOut()
     {
-       
+
         $this->session->sess_destroy();
         redirect('Home');
-        
     }
 
 
     public function Contact()
     {
-        $id=$this->url_encrypt->decode($this->input->get('id'));
+        $id = $this->url_encrypt->decode($this->input->get('id'));
         $data = [
             'user_id' => $this->session->admin_id,
             'worker_id' => $id,
             'added_date' => date('Y-m-d H:i:s')
         ];
-         $this->Website_model->AddContact($data);
-        
+        $this->Website_model->AddContact($data);
     }
 
     public function TransportContact()
     {
-        $id=$this->url_encrypt->decode($this->input->get('id'));
+        $id = $this->url_encrypt->decode($this->input->get('id'));
         $data = [
             'user_id' => $this->session->admin_id,
             'transport_id' => $id,
             'added_date' => date('Y-m-d H:i:s')
         ];
-         $this->Website_model->AddTransportContact($data);
-        
+        $this->Website_model->AddTransportContact($data);
     }
 
-   
+
 
     public function store_transport()
     {
-        $veh_img='';
+        $veh_img = '';
         $data = [
             'name' => $this->input->post('driver_name'),
             'whatsapp_no' => $this->input->post('mobile_no'),
@@ -466,12 +462,12 @@ class Home extends CI_Controller
             'from_city' => $this->input->post('from_city'),
             'to_city' => $this->input->post('to_city'),
             'by_root' => $this->input->post('by_root'),
-            'date' => date('Y-m-d',strtotime($this->input->post('date'))) ,
+            'date' => date('Y-m-d', strtotime($this->input->post('date'))),
             'time' => $this->input->post('time'),
             'comment' => $this->input->post('comment'),
             'added_date' => date('Y-m-d H:i:s')
         ];
-        if (! empty($_FILES['veh_img']['name'])) {
+        if (!empty($_FILES['veh_img']['name'])) {
             $_FILES['images']['name'] = $_FILES['veh_img']['name'];
             $_FILES['images']['type'] = $_FILES['veh_img']['type'];
             $_FILES['images']['tmp_name'] = $_FILES['veh_img']['tmp_name'];
@@ -492,82 +488,134 @@ class Home extends CI_Controller
                 exit;
             }
         }
-        $data['image']=$veh_img;
+        $data['image'] = $veh_img;
         $category = $this->Website_model->store_transport($data);
         if ($category) {
             echo "<script>alert('Transport Service Added Successfully,Will display On Portal After Verification')
-            window.location.href='".base_url('Home')."'
+            window.location.href='" . base_url('Home') . "'
             </script>";
-            
+
             // redirect('Home/account');
             // $this->session->set_flashdata('msg', array('message' => 'Registration Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-    
-        
-    }   
-
-public function SendOtp()
-{ 
-    $result=[];
-    $numbers = $this->input->post('mobile');
-    $data=$this->Website_model->getUserData($this->input->post('mobile'));
-    if(!empty($data)){
-        if(!empty($numbers)){
-            $otp=random_int(100000, 999999);
-            $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
-            // Send the POST request with cURL
-            $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91'.$numbers.'/'.$otp.'/OTP1');
-            curl_setopt($ch, CURLOPT_POST, true);
-            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch);
-           $r=json_decode($response);
-        //    echo $response;
-           if($r->Status=='Success'){
-            $result['result']=true;
-           }else{
-            $result['result']=2;
-           }
-        }else{
-            $result['result']=3;
-        }
-    }else{
-        $result['result']=4;
     }
-   echo json_encode($result);
-  
 
-}
+    public function SendOtp()
+    {
+        $result = [];
+        $numbers = $this->input->post('mobile');
+        $data = $this->Website_model->getUserData($this->input->post('mobile'));
+        if (!empty($data)) {
+            if (!empty($numbers)) {
+                $otp = random_int(100000, 999999);
+                $this->Website_model->InsertOtp(['mobile' => $numbers, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
+                // Send the POST request with cURL
+                $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91' . $numbers . '/' . $otp . '/OTP1');
+                curl_setopt($ch, CURLOPT_POST, true);
+                // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($ch);
+                curl_close($ch);
+                $r = json_decode($response);
+                //    echo $response;
+                if ($r->Status == 'Success') {
+                    $result['result'] = true;
+                } else {
+                    $result['result'] = 2;
+                }
+            } else {
+                $result['result'] = 3;
+            }
+        } else {
+            $result['result'] = 4;
+        }
+        echo json_encode($result);
+    }
 
 
-public function VerifyOtp()
-{
-    $result=[];
-    $data=$this->Website_model->getUserData($this->input->post('mobile'));
-    if(!empty($data)){
-        $check_otp=$this->Website_model->verifyotp($this->input->post('mobile'),$this->input->post('otp'));
-        if(!empty($check_otp)){
-            $user_data = array(
-                'admin_id' => $data->id,
-                'email' => $data->email,
-                'name' => $data->first_name,
-            );
-            $this->session->set_userdata($user_data);
-            $this->Website_model->otpUpdate($check_otp->id);
-            $result['result']=true;
-        }else{
-            $result['result']=2;
-        } 
-}else{
-    $result['result']=3;
-    // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
-}
-echo json_encode($result);
-    
-}
+    public function VerifyOtp()
+    {
+        $result = [];
+        $data = $this->Website_model->getUserData($this->input->post('mobile'));
+        if (!empty($data)) {
+            $check_otp = $this->Website_model->verifyotp($this->input->post('mobile'), $this->input->post('otp'));
+            if (!empty($check_otp)) {
+                $user_data = array(
+                    'admin_id' => $data->id,
+                    'email' => $data->email,
+                    'name' => $data->first_name,
+                );
+                $this->session->set_userdata($user_data);
+                $this->Website_model->otpUpdate($check_otp->id);
+                $result['result'] = true;
+            } else {
+                $result['result'] = 2;
+            }
+        } else {
+            $result['result'] = 3;
+            // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+        }
+        echo json_encode($result);
+    }
 
+    public function getSellsSubCategory()
+    {
+        $cat_id = $this->input->post('cat_id');
+        $subCat = $this->SellCategory_model->subCategory($cat_id);
+        echo json_encode(['success' => true, 'data' => $subCat]);
+    }
 
+    public function getFields()
+    {
+        $sub_cat_id = $this->input->post('sub_cat_id');
+        $fields = $this->SubCategoryFields_model->All($sub_cat_id);
+        $str = "";
+        foreach ($fields as $field) {
+            $options = $this->AttributeOptions_model->All($field->field_id);
+            if($field->field_type == "textfield") {
+                $str .= $this->getTextField($field);
+            }elseif($field->field_type == "dropdown") {
+                $str .= $this->getDropdown($field, $options);
+            }elseif($field->field_type == "radiobutton") {
+                $str .= $this->getCheckbox($field, $options);
+            }
+            // $field->options = $this->AttributeOptions_model->All($field->field_id);
+        }
+        echo json_encode(['success' => true, 'data' => $fields, 'str' => $str]);
+    }
+
+    private function getTextField($field)
+    {
+        return "<div class='mb-4 mt-4'><label class='form-label'>$field->fieldName</label><input type='text' item-id='{$field->id}' class='form-control item-custom-field' placeholder='$field->fieldName'></div>";
+    }
+
+    private function getDropdown($field, $options)
+    {
+        $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><select item-id='{$field->id}' aria-label='.form-select-sm example' class='form-select form-select-sm item-custom-field'><option selected>select $field->fieldName</option>";
+        foreach($options as $option) {
+            $str .= "<option value='".$option->name."'>$option->name</option>";
+        }
+        $str .= "</select></div>";
+        return $str;
+    }
+
+    private function getCheckbox($field, $options)
+    {
+        $fName = url_title($field->fieldName, 'dash', true);
+        $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><br>";
+        foreach($options as $option) {
+            $fId = $fName.'_'.$option->id;
+            $str .= "<div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='{$field->id}' id='$fId' name='$fName' type='radio' value='$option->name'> <label class='form-check-label' for='$fId'>$option->name</label></div>";
+        }
+        $str .= "</div>";
+        return $str;
+    }
+
+    public function postSellItem()
+    {
+        $dynamicFieldsValues = $this->input->post('dynamicFieldsValues');
+        $fieldsValues = $this->input->post('fieldsValues');
+    }
 }

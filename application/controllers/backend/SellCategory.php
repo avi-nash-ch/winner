@@ -88,11 +88,4 @@ class SellCategory extends MY_Controller
         }
         redirect('backend/SellCategory');
     }
-
-    public function getSubCategory()
-    {
-        $cat_id = $this->input->post('cat_id');
-        $subCat = $this->SellCategory_model->subCategory($cat_id);
-        echo json_encode(['success' => true, 'data' => $subCat]);
-    }
 }

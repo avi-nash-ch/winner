@@ -13,7 +13,7 @@
     <link rel=stylesheet href="<?= base_url() ?>web_assets/css/A.bootstrap.min.css%2bLineIcons.3.0.css%2btiny-slider.css%2bglightbox.min.css%2cMcc.OzR7N5fb_Y.css.pagespeed.cf.svKjl5Nf5n.css" />
     <link rel=stylesheet href="<?= base_url() ?>web_assets/css/A.main.css.pagespeed.cf.wZnWV-GMUP.css" />
 
-    <script src="<?= base_url('assets/js/jquery.min.js')?>"></script>
+    <script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
     <!-- javascript cdn link -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -414,8 +414,8 @@
                                     <option>Two Wheeler</option>
                                 </select> -->
                                 <label>Select Type*</label>
-                                <?php $categories = $categories = getSellsCategories(); ?>
-                                <select class="form-select form-select-sm mandatory-field" id="sellsCat" aria-label=".form-select-sm example" required>
+                                <?php $categories = getSellsCategories(); ?>
+                                <select class="form-select form-select-sm mandatory-field fixed_field" id="sellsCat" aria-label=".form-select-sm example" required>
                                     <option selected value="">Select Category</option>
                                     <?php
                                     foreach ($categories as $category) { ?>
@@ -432,8 +432,8 @@
 
                             <div>
                                 <label> Select Sub Category *</label>
-                                <select class="form-select form-select-sm mandatory-field" id="sellsSubCat" aria-label=".form-select-sm example" required>
-                                    <option selected>Select</option>
+                                <select class="form-select form-select-sm mandatory-field fixed_field" id="sellsSubCat" aria-label=".form-select-sm example" required>
+                                    <option value="" selected>Select</option>
                                     <!-- <option value="maruti-suzuki">Maruti Suzuki</option>
                                     <option value="hyundai">Hyundai</option>
                                     <option value="tata">Tata</option>
@@ -514,7 +514,7 @@
                         </div>
 
                         <div class="dynamic-attributes-div">
-                        <!-- <div class='mb-4 mt-4'><label>Select Battery</label><select item-id='1' aria-label='.form-select-sm example' class='form-select form-select-sm item-custom-field'><option selected>select Battery</option><option value='1'>Dr3</option><option value='2'>Dr2</option><option value='3'>Dr1</option></select></div><div class='mb-4 mt-4'><label class='form-label'>Field2</label><input type='text' item-id='2' class='form-control item-custom-field' placeholder='Field2'></div><div class='mb-4 mt-4'><label class='form-label'>Version</label><input type='text' item-id='4' class='form-control item-custom-field' placeholder='Version'></div><div class='mb-4 mt-4'><label class='form-label'>Model</label><input type='text' item-id='5' class='form-control item-custom-field' placeholder='Model'></div><div class='mb-4 mt-4'><label>Select Radio</label><br><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_4' name='radio' type='radio' value='4'> <label class='form-check-label' for='radio_4'>Radio</label></div><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_5' name='radio' type='radio' value='5'> <label class='form-check-label' for='radio_5'>Radio</label></div><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_6' name='radio' type='radio' value='6'> <label class='form-check-label' for='radio_6'>Radio</label></div></div> -->
+                            <!-- <div class='mb-4 mt-4'><label>Select Battery</label><select item-id='1' aria-label='.form-select-sm example' class='form-select form-select-sm item-custom-field'><option selected>select Battery</option><option value='1'>Dr3</option><option value='2'>Dr2</option><option value='3'>Dr1</option></select></div><div class='mb-4 mt-4'><label class='form-label'>Field2</label><input type='text' item-id='2' class='form-control item-custom-field' placeholder='Field2'></div><div class='mb-4 mt-4'><label class='form-label'>Version</label><input type='text' item-id='4' class='form-control item-custom-field' placeholder='Version'></div><div class='mb-4 mt-4'><label class='form-label'>Model</label><input type='text' item-id='5' class='form-control item-custom-field' placeholder='Model'></div><div class='mb-4 mt-4'><label>Select Radio</label><br><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_4' name='radio' type='radio' value='4'> <label class='form-check-label' for='radio_4'>Radio</label></div><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_5' name='radio' type='radio' value='5'> <label class='form-check-label' for='radio_5'>Radio</label></div><div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='6' id='radio_6' name='radio' type='radio' value='6'> <label class='form-check-label' for='radio_6'>Radio</label></div></div> -->
                         </div>
                         <!-- year select -->
 
@@ -611,7 +611,7 @@
                         <!-- Add Title -->
                         <div class="mb-4 mt-4">
                             <label for="title" class="form-label">Add Title *</label> <br>
-                            <input type="text" class="form-control mandatory-field" id="title" name="title" required>
+                            <input type="text" class="form-control mandatory-field fixed_field" id="title" name="title" required>
 
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
@@ -620,7 +620,7 @@
                         <!-- description -->
                         <div class="mb-4 mt-4">
                             <label>Description *</label>
-                            <textarea name="description" class="mandatory-field" id="description" cols="60" rows="10" required></textarea>
+                            <textarea name="description" class="mandatory-field fixed_field" id="description" cols="60" rows="10" required></textarea>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                         <hr>
@@ -632,7 +632,7 @@
                             </div>
                             <div class="mt-4 mb-4">
                                 <label>price*</label>
-                                <input type="number" name="price" id="price" class="form-control mandatory-field" placeholder="₹" required>
+                                <input type="number" name="price" id="price" class="form-control mandatory-field fixed_field" placeholder="₹" required>
 
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
@@ -674,7 +674,7 @@
 
                             <div>
                                 <label>NAME *:</label>
-                                <input type="text" name="name" id="name" class="form-control mandatory-field" placeholder="please enter your name" required>
+                                <input type="text" name="name" id="name" class="form-control mandatory-field fixed_field" placeholder="please enter your name" required>
 
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
@@ -682,15 +682,20 @@
 
                             <div>
                                 <label> PHONE NUMBER *:</label>
-                                <input type="number" name="phone" id="phone" class="form-control mandatory-field" placeholder="please enter phone number" required>
+                                <input type="number" name="phone" id="phone" class="form-control mandatory-field fixed_field" placeholder="please enter phone number" required>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
                             <div class="mt-4 mb-4">
                                 <label>Select State *</label>
-                                <select class="form-select form-select-sm mandatory-field" id="sellsCat" aria-label=".form-select-sm example" required>
+                                <?php $states = getStates(); ?>
+                                <select class="form-select form-select-sm mandatory-field fixed_field" id="sellsCat" aria-label=".form-select-sm example" required>
                                     <option value="" selected>select state</option>
-                                    <option value="2007598">Andaman &amp; Nicobar Islands</option>
+                                    <?php
+                                    foreach ($states as $state) { ?>
+                                        <option value="<?= $state->id ?>"><?= $state->name ?></option>
+                                    <?php } ?>
+                                    <!-- <option value="2007598">Andaman &amp; Nicobar Islands</option>
                                     <option value="2001145">Andhra Pradesh</option>
                                     <option value="2001146">Arunachal Pradesh</option>
                                     <option value="2001147">Assam</option>
@@ -725,32 +730,32 @@
                                     <option value="2001174">Tripura</option>
                                     <option value="2001176">Uttar Pradesh</option>
                                     <option value="2001175">Uttaranchal</option>
-                                    <option value="2001177">West Bengal</option>
+                                    <option value="2001177">West Bengal</option> -->
                                 </select>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
                             <div>
                                 <label>VILLAGE *:</label>
-                                <input type="text" name="village" id="village" class="form-control mandatory-field" placeholder="please enter your village" required>
+                                <input type="text" name="village" id="village" class="form-control mandatory-field fixed_field" placeholder="please enter your village" required>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
                             <div>
                                 <label>TALUKA *:</label>
-                                <input type="text" name="taluka" id="taluka" class="form-control mandatory-field" placeholder="please enter your taluka" required>
+                                <input type="text" name="taluka" id="taluka" class="form-control mandatory-field fixed_field" placeholder="please enter your taluka" required>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
                             <div>
                                 <label>DIST *:</label>
-                                <input type="text" name="dist" id="dist" class="form-control mandatory-field" placeholder="please enter your dist" required>
+                                <input type="text" name="dist" id="dist" class="form-control mandatory-field fixed_field" placeholder="please enter your dist" required>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
                             <div>
                                 <label>PINCODE *:</label>
-                                <input type="number" name="pincode" id="pincode" class="form-control mandatory-field" placeholder="please enter your pincode" required>
+                                <input type="number" name="pincode" id="pincode" class="form-control mandatory-field fixed_field" placeholder="please enter your pincode" required>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
 
@@ -801,23 +806,23 @@
     <!-- google tranlate -->
 
     <script>
-        const baseurl = "<?= base_url()?>";
+        const baseurl = "<?= base_url() ?>";
         $(document).ready(function() {
             $("#sellsCat").on("change", function() {
                 const cat_id = $(this).val();
                 $.ajax({
                     type: 'POST',
-                    url: baseurl + "backend/SellCategory/getSubCategory",
+                    url: baseurl + "Home/getSellsSubCategory",
                     data: {
                         cat_id
                     },
                     success: function(data) {
                         const response = JSON.parse(data);
                         optionsStr = "<option value='' selected>Select</option>";
-                        if(response.success) {
+                        if (response.success) {
                             for (let index = 0; index < response.data.length; index++) {
                                 const element = response.data[index];
-                                optionsStr += "<option value='"+element.id+"'>"+element.name+"</option>";
+                                optionsStr += "<option value='" + element.id + "'>" + element.name + "</option>";
                             }
                         }
                         $("#sellsSubCat").html(optionsStr);
@@ -830,13 +835,13 @@
                 const sub_cat_id = $(this).val();
                 $.ajax({
                     type: 'POST',
-                    url: baseurl + "backend/SellSubCategory/getFields",
+                    url: baseurl + "Home/getFields",
                     data: {
                         sub_cat_id
                     },
                     success: function(data) {
                         const response = JSON.parse(data);
-                        if(response.success) {
+                        if (response.success) {
                             $(".dynamic-attributes-div").html(response.str);
                         }
                     }
@@ -844,17 +849,58 @@
             });
 
 
-            $(".post_now").on("click", function(){
+            $(".post_now").on("click", function() {
                 let isValidate = true;
-                $(".mandatory-field").each(function(){
-                    if($(this).val() == "") {
+                const fieldsValues = [];
+                $(".mandatory-field").each(function() {
+                    fieldsValues.push($(this).val());
+                    if ($(this).val() == "") {
                         isValidate = false;
                     }
                 });
-                if(!isValidate) {
+                if (!isValidate) {
                     alert("Validation Failed");
                 }
 
+                const dynamicFieldsValues = [];
+                $('.item-custom-field').each(function() {
+                    const currentObj = $(this);
+                    const itemId = currentObj.attr('item-id');
+                    const itemValue = currentObj.val()
+                    const item = {
+                        id: itemId,
+                        value: itemValue
+                    };
+                    dynamicFieldsValues.push(item);
+                })
+                const selectedCheckboxes = $('input[type=radio].item-custom-checkbox:checked');
+                if (selectedCheckboxes) {
+                    $(selectedCheckboxes).each(function(i) {
+                        const currentObj = $(this);
+                        const itemId = currentObj.attr('item-id');
+                        const itemValue = currentObj.val()
+                        const item = {
+                            id: itemId,
+                            value: itemValue
+                        };
+                        dynamicFieldsValues.push(item);
+                    });
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: baseurl + "Home/postSellItem",
+                    data: {
+                        dynamicFieldsValues,
+                        fieldsValues
+                    },
+                    success: function(data) {
+                        const response = JSON.parse(data);
+                        if (response.success) {
+                            $(".dynamic-attributes-div").html(response.str);
+                        }
+                    }
+                });
             })
         })
     </script>

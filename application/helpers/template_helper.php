@@ -53,5 +53,12 @@ if (!function_exists('render')) {
         return $ci->SellCategory_model->All();
     }
 
+    function getStates()
+    {
+        $ci = &get_instance();
+        $ci->load->model('Setting_model');
+        return $ci->Setting_model->getStates();
+    }
+
 
 }

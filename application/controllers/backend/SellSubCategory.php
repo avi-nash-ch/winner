@@ -106,7 +106,7 @@ class SellSubCategory extends MY_Controller
         redirect('backend/SellSubCategory');
     }
 
-    public function getFields()
+    /*public function getFields()
     {
         $sub_cat_id = $this->input->post('sub_cat_id');
         $fields = $this->SubCategoryFields_model->All($sub_cat_id);
@@ -150,5 +150,5 @@ class SellSubCategory extends MY_Controller
         }
         $str .= "</div>";
         return $str;
-    }
+    }*/
 }
