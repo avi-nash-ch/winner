@@ -115,7 +115,7 @@
                                 <li><a href=<?= base_url('Home/FindWorkers') ?>>Find worker</a></li>
                                 <li><a href=<?= base_url('Home/buyItems') ?>>Buy Items</a></li>
 
-                                <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
                                         <a>Sell Items</a>
                                     </button></li>
                             </ul>
@@ -347,7 +347,7 @@
                                             <a data-bs-toggle="modal"
                                             data-bs-target="#myModal">Sell Items</a>
                                         </button> -->
-                                        <a data-bs-toggle="modal" data-bs-target="#myModal" style="cursor: pointer;">Sell Items</a>
+                                        <a data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">Sell Items</a>
                                     </li>
 
                                 </ul>
@@ -384,7 +384,7 @@
 
 
     <!-- The Modal  start-->
-    <div class="modal" id="myModal">
+    <div class="modal" id="postModal">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
 
@@ -860,6 +860,7 @@
                 });
                 if (!isValidate) {
                     alert("Validation Failed");
+                    return false;
                 }
 
                 const dynamicFieldsValues = [];
@@ -896,8 +897,13 @@
                     },
                     success: function(data) {
                         const response = JSON.parse(data);
+                        $("#postModal").modal('hide')
                         if (response.success) {
-                            $(".dynamic-attributes-div").html(response.str);
+                            alert("Post Added successfully.. it will take 1-2 days for publish")
+                            location.reload();
+                            console.log(response.message)
+                        }else {
+                            console.log(response.message)
                         }
                     }
                 });

@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model']);
     }
 
     public function index()
@@ -617,5 +617,53 @@ class Home extends CI_Controller
     {
         $dynamicFieldsValues = $this->input->post('dynamicFieldsValues');
         $fieldsValues = $this->input->post('fieldsValues');
+        $title = $fieldsValues[2];
+        $isTitleExists = false;
+        if($this->SellItem_model->CheckDuplicate($title)){
+            $isTitleExists = true;
+        }
+        $data = [
+            'cat_id' => $fieldsValues[0],
+            'sub_cat_id' => $fieldsValues[1],
+            'title' => $title,
+            'description' => $fieldsValues[3],
+            'price' => $fieldsValues[4],
+            'seller_name' => $fieldsValues[5],
+            'seller_phone' => $fieldsValues[6],
+            'seller_state' => $fieldsValues[7],
+            'seller_village' => $fieldsValues[8],
+            'seller_taluka' => $fieldsValues[9],
+            'seller_district' => $fieldsValues[10],
+            'seller_pincode' => $fieldsValues[11],
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+        $inseriId = $this->SellItem_model->AddTableMaster($data);
+        $slug = url_title($title, 'dash', true);
+        if($isTitleExists) {
+            $slug .= '-'. $inseriId;
+        }
+        $slugData = [
+            'slug' => $slug
+        ];
+        // Update slug
+        $this->SellItem_model->UpdateTableMaster($slugData, $inseriId);
+
+        // Add dynamic fields
+        $fieldData = [];
+        foreach($dynamicFieldsValues as $field) {
+            $item['item_id'] = $inseriId;
+            $item['field_id'] = $field['id'];
+            $item['field_value'] = $field['value'];
+            $item['added_date'] = date('Y-m-d H:i:s');
+            $fieldData[] = $item;
+        }
+
+        if($this->SellItem_model->AddDynamicFields($fieldData))
+        {
+            echo json_encode(['success' => true, 'message' => 'Sell item post successfully']);
+        }else {
+            echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
+        }
+        
     }
 }
