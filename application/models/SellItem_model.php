@@ -4,9 +4,10 @@ class SellItem_model extends MY_Model
 
     public function All()
     {
-        $this->db->select('item_sells.*,tbl_sell_category.name as category');
+        $this->db->select('item_sells.*,tbl_sell_category.name as cat_name, tbl_sell_subcategories.name as sub_cat_name');
         $this->db->from('item_sells');
-        $this->db->join('tbl_sell_category', 'tbl_sell_category.id=item_sells.category_id');
+        $this->db->join('tbl_sell_category', 'tbl_sell_category.id=item_sells.cat_id');
+        $this->db->join('tbl_sell_subcategories', 'tbl_sell_subcategories.id=item_sells.sub_cat_id');
         $this->db->where('item_sells.isDeleted', false);
         $this->db->order_by('item_sells.id', 'asc');
         $Query = $this->db->get();

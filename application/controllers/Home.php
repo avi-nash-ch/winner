@@ -617,6 +617,12 @@ class Home extends CI_Controller
     {
         $dynamicFieldsValues = $this->input->post('dynamicFieldsValues');
         $fieldsValues = $this->input->post('fieldsValues');
+
+        $dynamicFieldsValues = json_decode($dynamicFieldsValues, true);
+        $fieldsValues = json_decode($fieldsValues, true);
+
+        // print_r($dynamicFieldsValues);die;
+
         $title = $fieldsValues[2];
         $isTitleExists = false;
         if($this->SellItem_model->CheckDuplicate($title)){
@@ -637,6 +643,81 @@ class Home extends CI_Controller
             'seller_pincode' => $fieldsValues[11],
             'added_date' => date('Y-m-d H:i:s')
         ];
+        $image1 = "";
+
+        if (!empty($_FILES['image1']['name'])) {
+            $_FILES['images']['name'] = $_FILES['image1']['name'];
+            $_FILES['images']['type'] = $_FILES['image1']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['image1']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['image1']['error'];
+            $_FILES['images']['size'] = $_FILES['image1']['size'];
+            $config['upload_path'] = './uploads/sellitems/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image1')) {
+                $data1 = $this->upload->data();
+                $image1 = $data1['file_name'];
+                if (empty($image1)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        $data['image1'] = $image1;
+
+        $image2 = "";
+
+        if (!empty($_FILES['image2']['name'])) {
+            $_FILES['images']['name'] = $_FILES['image2']['name'];
+            $_FILES['images']['type'] = $_FILES['image2']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['image2']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['image2']['error'];
+            $_FILES['images']['size'] = $_FILES['image2']['size'];
+            $config['upload_path'] = './uploads/sellitems/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image2')) {
+                $data1 = $this->upload->data();
+                $image2 = $data1['file_name'];
+                if (empty($image2)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        $data['image2'] = $image2;
+
+        $image3 = "";
+
+        if (!empty($_FILES['image3']['name'])) {
+            $_FILES['images']['name'] = $_FILES['image3']['name'];
+            $_FILES['images']['type'] = $_FILES['image3']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['image3']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['image3']['error'];
+            $_FILES['images']['size'] = $_FILES['image3']['size'];
+            $config['upload_path'] = './uploads/sellitems/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image3')) {
+                $data1 = $this->upload->data();
+                $image3 = $data1['file_name'];
+                if (empty($image3)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        $data['image3'] = $image3;
+
         $inseriId = $this->SellItem_model->AddTableMaster($data);
         $slug = url_title($title, 'dash', true);
         if($isTitleExists) {

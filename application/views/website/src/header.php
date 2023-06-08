@@ -655,11 +655,11 @@
 
                             <!--  -->
                             <div>
-                                <input type="file" src="cutom-file" alt=" img is not upload">
+                                <input type="file" id="image1" src="cutom-file" alt=" img is not upload">
                                 <div class="_2LfUG" style="margin-bottom: 10px;"><span>Add photo</span></div>
-                                <input type="file" src="cutom-file" alt=" img is not upload">
+                                <input type="file" id="image2" src="cutom-file" alt=" img is not upload">
                                 <div class="_2LfUG"><span>Add photo</span></div>
-                                <input type="file" src="cutom-file" alt=" img is not upload">
+                                <input type="file" id="image3" src="cutom-file" alt=" img is not upload">
                                 <div class="_2LfUG"><span>Add photo</span></div>
                             </div>
 
@@ -859,7 +859,7 @@
                     }
                 });
                 if (!isValidate) {
-                    alert("Validation Failed");
+                    alert("Please fill required fields");
                     return false;
                 }
 
@@ -888,13 +888,28 @@
                     });
                 }
 
+                var fd = new FormData();
+                var image1 = $('#image1')[0].files[0];
+                var image2 = $('#image2')[0].files[0];
+                var image3 = $('#image3')[0].files[0];
+                fd.append('image1', image1);
+                fd.append('image2', image1);
+                fd.append('image3', image1);
+                fd.append('dynamicFieldsValues', JSON.stringify(dynamicFieldsValues));
+                fd.append('fieldsValues', JSON.stringify(fieldsValues));
+                console.log(fd)
+                // return
+                // {
+                //     dynamicFieldsValues,
+                //     fieldsValues
+                // },
+
                 $.ajax({
                     type: 'POST',
                     url: baseurl + "Home/postSellItem",
-                    data: {
-                        dynamicFieldsValues,
-                        fieldsValues
-                    },
+                    data: fd,
+                    processData: false,
+                    contentType: false,
                     success: function(data) {
                         const response = JSON.parse(data);
                         $("#postModal").modal('hide')
@@ -902,7 +917,7 @@
                             alert("Post Added successfully.. it will take 1-2 days for publish")
                             location.reload();
                             console.log(response.message)
-                        }else {
+                        } else {
                             console.log(response.message)
                         }
                     }

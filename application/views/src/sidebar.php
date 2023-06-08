@@ -97,6 +97,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                     <span>Sub Category</span></a>
                             </li>
 
+                            <li class="<?= (array_filter([strpos($final_url, "backend/sellitem")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                                <a href="<?= base_url('backend/SellItem') ?>" class="waves-effect">
+                                    <span>Sell Items</span></a>
+                            </li>
+
                         </ul>
                     </li>
 
