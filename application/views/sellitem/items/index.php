@@ -32,15 +32,14 @@
                                 <td><?= date("d-m-Y h:i A", strtotime($row->added_date)) ?></td>
                                 <td>
                                     <?php if ($row->is_verified == 0) { ?>
-                                        <a href="<?= base_url('backend/SellItem/publish/1/' . $row->id) ?>" onclick="return confirm('Are you sure you want to remove from publish?')" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Publicsh"><span class="fa fa-times"></span></a>
+                                        <a href="<?= base_url('backend/SellItem/publish/1/' . $row->id) ?>" onclick="return confirm('Are you sure you want to publish?')" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Publicsh"><span class="fa fa-times"></span></a>
 
                                     <?php } else { ?>
-                                        <a href="<?= base_url('backend/SellItem/publish/0/' . $row->id) ?>" onclick="return confirm('Are you sure you want to publish?')" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Publicsh"><span class="fa fa-check"></span></a>
+                                        <a href="<?= base_url('backend/SellItem/publish/0/' . $row->id) ?>" onclick="return confirm('Are you sure you want to remove from publish?')" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Remove Publicsh"><span class="fa fa-check"></span></a>
                                     <?php } ?>
                                 </td>
                                 <td>
                                     <a href="<?= base_url('backend/SellItem/view/' . $row->id) ?>" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View"><span class="fa fa-eye"></span></a>
-
                                 </td>
                             </tr>
                         <?php }

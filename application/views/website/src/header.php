@@ -347,7 +347,8 @@
                                             <a data-bs-toggle="modal"
                                             data-bs-target="#myModal">Sell Items</a>
                                         </button> -->
-                                        <a data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">Sell Items</a>
+                                        <!-- <a data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">Sell Items</a> -->
+                                        <a href="<?= base_url('Home/sellItems')?>">Sell Items</a>
                                     </li>
 
                                 </ul>

@@ -2,12 +2,15 @@
 class SellSubCategory_model extends MY_Model
 {
 
-    public function All()
+    public function All($category_id="")
     {
         $this->db->select('tbl_sell_subcategories.*,tbl_sell_category.name as category');
         $this->db->from('tbl_sell_subcategories');
         $this->db->join('tbl_sell_category', 'tbl_sell_category.id=tbl_sell_subcategories.category_id');
         $this->db->where('tbl_sell_subcategories.isDeleted', false);
+        if(!empty($category_id)) {
+            $this->db->where('category_id', $category_id);
+        }
         $this->db->order_by('tbl_sell_subcategories.id', 'asc');
         $Query = $this->db->get();
         return $Query->result();

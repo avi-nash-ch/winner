@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model']);
     }
 
     public function index()
@@ -746,5 +746,19 @@ class Home extends CI_Controller
             echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
         }
         
+    }
+
+    public function sellItems()
+    {
+        $cat = $this->input->get('cat');
+        $sub_cat = $this->input->get('sub_cat');
+        $title = $this->input->get('title');
+        $data = [
+            'title' => 'Home',
+            'SellCategory' => $this->SellCategory_model->All(),
+            'AllItems' => $this->SellItem_model->All($cat, $sub_cat, $title),
+            'SellSubCategory' => $this->SellSubCategory_model->All($cat),
+        ];
+        website('website/sellall', $data);
     }
 }
