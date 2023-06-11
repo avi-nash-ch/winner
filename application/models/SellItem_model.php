@@ -2,7 +2,7 @@
 class SellItem_model extends MY_Model
 {
 
-    public function All($cat="", $sub_cat="", $title="")
+    public function All($cat="", $sub_cat="", $title="", $published="")
     {
         $this->db->select('item_sells.*,tbl_sell_category.name as cat_name, tbl_sell_subcategories.name as sub_cat_name');
         $this->db->from('item_sells');
@@ -16,7 +16,10 @@ class SellItem_model extends MY_Model
             $this->db->where_in('item_sells.sub_cat_id', $sub_cat);
         }
         if(!empty($title)) {
-            $this->db->where_in('item_sells.title', $title, 'both');
+            $this->db->like('item_sells.title', $title, 'both');
+        }
+        if($published) {
+            $this->db->where('item_sells.is_verified', 1);
         }
         $this->db->order_by('item_sells.id', 'asc');
         $Query = $this->db->get();

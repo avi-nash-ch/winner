@@ -753,10 +753,11 @@ class Home extends CI_Controller
         $cat = $this->input->get('cat');
         $sub_cat = $this->input->get('sub_cat');
         $title = $this->input->get('title');
+        $published = 1;
         $data = [
             'title' => 'Home',
             'SellCategory' => $this->SellCategory_model->All(),
-            'AllItems' => $this->SellItem_model->All($cat, $sub_cat, $title),
+            'AllItems' => $this->SellItem_model->All($cat, $sub_cat, $title, $published),
             'SellSubCategory' => $this->SellSubCategory_model->All($cat),
         ];
         website('website/sellall', $data);

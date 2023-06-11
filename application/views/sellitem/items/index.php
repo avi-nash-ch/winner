@@ -40,6 +40,9 @@
                                 </td>
                                 <td>
                                     <a href="<?= base_url('backend/SellItem/view/' . $row->id) ?>" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View"><span class="fa fa-eye"></span></a>
+                                    | <a href="<?= base_url('backend/SellItem/delete/' . $row->id) ?>"
+                                    onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
+                                    title="Delete"><span class="fa fa-times"></span></a>
                                 </td>
                             </tr>
                         <?php }

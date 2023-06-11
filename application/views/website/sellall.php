@@ -9,7 +9,7 @@
             <div class="single-widget search">
               <h3>Search Item</h3>
               <form method="get" action="<?= base_url('Home/sellItems')?>" name="form">
-                <input type=text name="title" placeholder="Search Here...">
+                <input type=text name="title" value="<?= $this->input->get('title') ?>" placeholder="Search Here...">
                 <button type=submit><i class="lni lni-search-alt"></i></button>
              
             </div>

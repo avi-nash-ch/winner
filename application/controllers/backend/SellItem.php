@@ -93,7 +93,7 @@ class SellItem extends MY_Controller
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/SellCategory');
+        redirect('backend/SellItem');
     }
 
 
