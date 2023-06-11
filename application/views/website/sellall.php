@@ -7,7 +7,7 @@
           <div class=product-sidebar>
 
             <div class="single-widget search">
-              <h3>Search Product</h3>
+              <h3>Search Item</h3>
               <form method="get" action="<?= base_url('Home/sellItems')?>" name="form">
                 <input type=text name="title" placeholder="Search Here...">
                 <button type=submit><i class="lni lni-search-alt"></i></button>
@@ -112,7 +112,7 @@
                         <div class=product-info>
                             <span class=category><?= $value->sub_cat_name ?></span>
                             <h4 class=title>
-                                <a href="<?= base_url('Home/itemDetail/'.$value->slug)?>"><?= $value->title ?></a>
+                                <a href="<?= base_url('Home/itemDetails/'.$value->slug)?>"><?= $value->title ?></a>
                             </h4>
                             <ul class=review>
                                 <li><i class="lni lni-star-filled"></i></li>

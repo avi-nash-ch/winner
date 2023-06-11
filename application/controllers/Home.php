@@ -761,4 +761,36 @@ class Home extends CI_Controller
         ];
         website('website/sellall', $data);
     }
+
+    public function itemDetails($slug)
+    {
+        $items = $this->SellItem_model->viewItemBySlug($slug);
+        $itemArray = [];
+        foreach($items as $key => $item) {
+            $itemArray[$item->id]['id'] = $item->id;
+            $itemArray[$item->id]['title'] = $item->title;
+            $itemArray[$item->id]['cat_name'] = $item->cat_name;
+            $itemArray[$item->id]['sub_cat_name'] = $item->sub_cat_name;
+            $itemArray[$item->id]['slug'] = $item->slug;
+            $itemArray[$item->id]['description'] = $item->description;
+            $itemArray[$item->id]['image1'] = $item->image1;
+            $itemArray[$item->id]['image2'] = $item->image2;
+            $itemArray[$item->id]['image3'] = $item->image3;
+            $itemArray[$item->id]['price'] = $item->price;
+            $itemArray[$item->id]['seller_name'] = $item->seller_name;
+            $itemArray[$item->id]['seller_phone'] = $item->seller_phone;
+            $itemArray[$item->id]['seller_village'] = $item->seller_village;
+            $itemArray[$item->id]['seller_taluka'] = $item->seller_taluka;
+            $itemArray[$item->id]['seller_district'] = $item->seller_district;
+            $itemArray[$item->id]['seller_pincode'] = $item->seller_pincode;
+            $itemArray[$item->id]['fields'][$key]['field_name'] = $item->field_name;
+            $itemArray[$item->id]['fields'][$key]['field_value'] = $item->field_value;
+        }
+        $itemArray = array_values($itemArray);
+        $data = [
+            'title' => 'item-details',
+            'data' => $itemArray[0],
+        ];
+        website('website/item-details', $data);
+    }
 }
