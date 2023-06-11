@@ -114,10 +114,11 @@
                                 <li><a href=contact.html>Contact Us</a></li>
                                 <li><a href=<?= base_url('Home/FindWorkers') ?>>Find worker</a></li>
                                 <li><a href=<?= base_url('Home/buyItems') ?>>Buy Items</a></li>
+                                <li><a href="<?= base_url('Home/sellItems')?>">Sell Items</a></li>
 
-                                <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
+                                <!-- <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
                                         <a>Sell Items</a>
-                                    </button></li>
+                                    </button></li> -->
                             </ul>
                         </div>
                     </div>
