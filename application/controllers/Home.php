@@ -782,6 +782,7 @@ class Home extends CI_Controller
             $itemArray[$item->id]['seller_village'] = $item->seller_village;
             $itemArray[$item->id]['seller_taluka'] = $item->seller_taluka;
             $itemArray[$item->id]['seller_district'] = $item->seller_district;
+            $itemArray[$item->id]['state_name'] = $item->state_name;
             $itemArray[$item->id]['seller_pincode'] = $item->seller_pincode;
             $itemArray[$item->id]['fields'][$key]['field_name'] = $item->field_name;
             $itemArray[$item->id]['fields'][$key]['field_value'] = $item->field_value;

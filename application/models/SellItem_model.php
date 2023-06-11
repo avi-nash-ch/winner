@@ -73,16 +73,29 @@ class SellItem_model extends MY_Model
 
     public function viewItemBySlug($slug)
     {
-        $this->db->select('item_sells.*,tbl_sell_category.name as cat_name, tbl_sell_subcategories.name as sub_cat_name, sells_item_fields_values.field_value, tbl_attributes.name as field_name');
+        $condition = ['slug' => $slug];
+        return $this->getItemDetails($condition);
+    }
+
+    public function viewItemById($id)
+    {
+        $condition = ['item_sells.id' => $id];
+        return $this->getItemDetails($condition);
+    }
+
+    public function getItemDetails($condition) 
+    {
+        $this->db->select('item_sells.*,tbl_sell_category.name as cat_name, tbl_sell_subcategories.name as sub_cat_name, sells_item_fields_values.field_value, tbl_attributes.name as field_name, tbl_states.name as state_name');
         $this->db->from('item_sells');
         $this->db->join('tbl_sell_category', 'tbl_sell_category.id=item_sells.cat_id');
         $this->db->join('tbl_sell_subcategories', 'tbl_sell_subcategories.id=item_sells.sub_cat_id');
+        $this->db->join('tbl_states', 'tbl_states.id=item_sells.seller_state', 'left');
 
         $this->db->join('sells_item_fields_values', 'sells_item_fields_values.item_id=item_sells.id', 'left');
         $this->db->join('tbl_attributes', 'tbl_attributes.id=sells_item_fields_values.field_id', 'left');
 
         $this->db->where('item_sells.isDeleted', false);
-        $this->db->where('slug', $slug);
+        $this->db->where($condition);
         $Query = $this->db->get();
         return $Query->result();
     }
