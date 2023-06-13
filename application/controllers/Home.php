@@ -518,7 +518,7 @@ public function SendOtp()
             $otp=random_int(100000, 999999);
             $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
             // Send the POST request with cURL
-            $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91'.$numbers.'/'.$otp.'/OTP1');
+            $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$numbers.'&from=Nxgtch&templatename=PMS+Login+-+OTP&var1='.$otp.'&var2=PratapMultiServices');
             curl_setopt($ch, CURLOPT_POST, true);
             // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
