@@ -500,41 +500,6 @@ class Home extends CI_Controller
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-<<<<<<< HEAD
-    
-        
-    }   
-
-public function SendOtp()
-{ 
-    $result=[];
-    $numbers = $this->input->post('mobile');
-    $data=$this->Website_model->getUserData($this->input->post('mobile'));
-    if(!empty($data)){
-        if(!empty($numbers)){
-            $otp=random_int(100000, 999999);
-            $this->Website_model->InsertOtp(['mobile'=>$numbers,'otp'=>$otp,'added_date'=>date('Y-m-d H:i:s')]);
-            // Send the POST request with cURL
-            $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$numbers.'&from=Nxgtch&templatename=PMS+Login+-+OTP&var1='.$otp.'&var2=PratapMultiServices');
-            curl_setopt($ch, CURLOPT_POST, true);
-            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch);
-           $r=json_decode($response);
-        //    echo $response;
-           if($r->Status=='Success'){
-            $result['result']=true;
-           }else{
-            $result['result']=2;
-           }
-        }else{
-            $result['result']=3;
-        }
-    }else{
-        $result['result']=4;
-=======
->>>>>>> 6dfbafec556e031f3b70a1823cd77fc11fcee384
     }
 
     public function SendOtp()
@@ -547,7 +512,7 @@ public function SendOtp()
                 $otp = random_int(100000, 999999);
                 $this->Website_model->InsertOtp(['mobile' => $numbers, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
                 // Send the POST request with cURL
-                $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91' . $numbers . '/' . $otp . '/OTP1');
+                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
                 curl_setopt($ch, CURLOPT_POST, true);
                 // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -566,7 +531,6 @@ public function SendOtp()
         } else {
             $result['result'] = 4;
         }
-        echo json_encode($result);
     }
 
 
@@ -609,11 +573,11 @@ public function SendOtp()
         $str = "";
         foreach ($fields as $field) {
             $options = $this->AttributeOptions_model->All($field->field_id);
-            if($field->field_type == "textfield") {
+            if ($field->field_type == "textfield") {
                 $str .= $this->getTextField($field);
-            }elseif($field->field_type == "dropdown") {
+            } elseif ($field->field_type == "dropdown") {
                 $str .= $this->getDropdown($field, $options);
-            }elseif($field->field_type == "radiobutton") {
+            } elseif ($field->field_type == "radiobutton") {
                 $str .= $this->getCheckbox($field, $options);
             }
             // $field->options = $this->AttributeOptions_model->All($field->field_id);
@@ -629,8 +593,8 @@ public function SendOtp()
     private function getDropdown($field, $options)
     {
         $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><select item-id='{$field->id}' aria-label='.form-select-sm example' class='form-select form-select-sm item-custom-field'><option selected>select $field->fieldName</option>";
-        foreach($options as $option) {
-            $str .= "<option value='".$option->name."'>$option->name</option>";
+        foreach ($options as $option) {
+            $str .= "<option value='" . $option->name . "'>$option->name</option>";
         }
         $str .= "</select></div>";
         return $str;
@@ -640,8 +604,8 @@ public function SendOtp()
     {
         $fName = url_title($field->fieldName, 'dash', true);
         $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><br>";
-        foreach($options as $option) {
-            $fId = $fName.'_'.$option->id;
+        foreach ($options as $option) {
+            $fId = $fName . '_' . $option->id;
             $str .= "<div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='{$field->id}' id='$fId' name='$fName' type='radio' value='$option->name'> <label class='form-check-label' for='$fId'>$option->name</label></div>";
         }
         $str .= "</div>";
@@ -660,7 +624,7 @@ public function SendOtp()
 
         $title = $fieldsValues[2];
         $isTitleExists = false;
-        if($this->SellItem_model->CheckDuplicate($title)){
+        if ($this->SellItem_model->CheckDuplicate($title)) {
             $isTitleExists = true;
         }
         $data = [
@@ -755,8 +719,8 @@ public function SendOtp()
 
         $inseriId = $this->SellItem_model->AddTableMaster($data);
         $slug = url_title($title, 'dash', true);
-        if($isTitleExists) {
-            $slug .= '-'. $inseriId;
+        if ($isTitleExists) {
+            $slug .= '-' . $inseriId;
         }
         $slugData = [
             'slug' => $slug
@@ -766,7 +730,7 @@ public function SendOtp()
 
         // Add dynamic fields
         $fieldData = [];
-        foreach($dynamicFieldsValues as $field) {
+        foreach ($dynamicFieldsValues as $field) {
             $item['item_id'] = $inseriId;
             $item['field_id'] = $field['id'];
             $item['field_value'] = $field['value'];
@@ -774,13 +738,11 @@ public function SendOtp()
             $fieldData[] = $item;
         }
 
-        if($this->SellItem_model->AddDynamicFields($fieldData))
-        {
+        if ($this->SellItem_model->AddDynamicFields($fieldData)) {
             echo json_encode(['success' => true, 'message' => 'Sell item post successfully']);
-        }else {
+        } else {
             echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
         }
-        
     }
 
     public function sellItems()
@@ -802,7 +764,7 @@ public function SendOtp()
     {
         $items = $this->SellItem_model->viewItemBySlug($slug);
         $itemArray = [];
-        foreach($items as $key => $item) {
+        foreach ($items as $key => $item) {
             $itemArray[$item->id]['id'] = $item->id;
             $itemArray[$item->id]['title'] = $item->title;
             $itemArray[$item->id]['cat_name'] = $item->cat_name;
