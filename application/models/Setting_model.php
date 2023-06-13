@@ -164,4 +164,11 @@ class Setting_model extends MY_Model
             ->get();
         return $Query->result();
     }
+
+    public function getStates()
+    {
+        $this->db->from('tbl_states');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
 }
