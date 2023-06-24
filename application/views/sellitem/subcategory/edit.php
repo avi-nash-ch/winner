@@ -42,9 +42,9 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="type">Color *</label>
-                        <select class="form-control select2" name="category_id" data-placeholder="Select Type" required>
-                            <option value="">Select Type</option>
+                        <label for="type">Category *</label>
+                        <select class="form-control select2" name="category_id" data-placeholder="Select Category" required>
+                            <option value="">Select Category</option>
                             <?php foreach($categories as $cat){?>
                                 <option <?= $data->category_id == $cat->id ? 'selected' : '' ?> value="<?= $cat->id?>"><?= $cat->name ?></option>
                             <?php }?>
