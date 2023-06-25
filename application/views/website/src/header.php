@@ -830,7 +830,6 @@
                         $("#sellsSubCat").html(optionsStr);
                     }
                 });
-                $("#sellsSubCat").append()
             })
 
             $("#sellsSubCat").on("change", function() {

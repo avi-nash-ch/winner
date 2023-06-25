@@ -106,7 +106,7 @@
                         <div class=product-image>
                             <img  src="<?= base_url('uploads/sellitems/'.$value->image1)?>" alt="#">
                             <div class=button>
-                                <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
+                                <a href="<?= base_url('Home/itemDetails/'.$value->slug)?>" class=btn><i class="lni lni-eye"></i> Veiw Item</a>
                             </div>
                         </div>
                         <div class=product-info>
@@ -114,16 +114,16 @@
                             <h4 class=title>
                                 <a href="<?= base_url('Home/itemDetails/'.$value->slug)?>"><?= $value->title ?></a>
                             </h4>
-                            <ul class=review>
+                            <!-- <ul class=review>
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star-filled"></i></li>
                                 <li><i class="lni lni-star"></i></li>
                                 <li><span>4.0 Review(s)</span></li>
-                            </ul>
+                            </ul> -->
                             <div class=price>
-                                <span>INR <?= number_format($value->price) ?></span>
+                                <span>₹ <?= number_format($value->price) ?></span>
                             </div>
                         </div>
                     </div>

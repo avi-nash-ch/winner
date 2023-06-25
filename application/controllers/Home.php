@@ -680,8 +680,8 @@ class Home extends CI_Controller
             $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('image2')) {
-                $data1 = $this->upload->data();
-                $image2 = $data1['file_name'];
+                $data2 = $this->upload->data();
+                $image2 = $data2['file_name'];
                 if (empty($image2)) {
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
@@ -705,8 +705,8 @@ class Home extends CI_Controller
             $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('image3')) {
-                $data1 = $this->upload->data();
-                $image3 = $data1['file_name'];
+                $data3 = $this->upload->data();
+                $image3 = $data3['file_name'];
                 if (empty($image3)) {
                     echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                     exit;
