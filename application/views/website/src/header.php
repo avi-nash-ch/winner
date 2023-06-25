@@ -817,7 +817,6 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         $("#sellsSubCat").html(optionsStr);
                     }
                 });
-                $("#sellsSubCat").append()
             })
 
             $("#sellsSubCat").on("change", function() {
