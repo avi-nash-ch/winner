@@ -13,12 +13,18 @@ class ProductCategory_model extends MY_Model
     }
 
 
-    public function AllSubCategory()
+    public function AllSubCategory($cat_id='',$limit='')
     {
         $this->db->select('tbl_sub_category.*');
         $this->db->from('tbl_sub_category');
         $this->db->where('isDeleted', false);
-        $this->db->where('isDisplay', true);
+        // $this->db->where('isDisplay', true);
+        if(!empty($cat_id)){
+            $this->db->where('category_id',$cat_id); 
+        }
+        if(!empty($limit)){
+            $this->db->limit(6); 
+        }
         $this->db->order_by('id', 'asc');
         $Query = $this->db->get();
         return $Query->result();

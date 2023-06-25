@@ -53,7 +53,28 @@ class Brands extends MY_Controller
             'name' => $this->input->post('name'),
             'added_date' => date('Y-m-d H:i:s')
         ];
-       
+        if (! empty($_FILES['image']['name'])) {
+            $_FILES['images']['name'] = $_FILES['image']['name'];
+            $_FILES['images']['type'] = $_FILES['image']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['image']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['image']['error'];
+            $_FILES['images']['size'] = $_FILES['image']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image')) {
+                $data1 = $this->upload->data();
+                $product_image = $data1['file_name'];
+                if (empty($product_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
+        $data['logo']=$product_image;
         $check=$this->Brand_model->CheckDuplicate($this->input->post('name'));
         if(empty($check)){
         $category = $this->Brand_model->AddTableMaster($data);
@@ -77,6 +98,28 @@ class Brands extends MY_Controller
             'updated_date' => date('Y-m-d H:i:s')
         ];
         
+        if (! empty($_FILES['image']['name'])) {
+            $_FILES['images']['name'] = $_FILES['image']['name'];
+            $_FILES['images']['type'] = $_FILES['image']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['image']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['image']['error'];
+            $_FILES['images']['size'] = $_FILES['image']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image')) {
+                $data1 = $this->upload->data();
+                $product_image = $data1['file_name'];
+                if (empty($product_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+            $data['logo']=$product_image;
+        }
         
         $class = $this->Brand_model->UpdateTableMaster($data, $this->input->post('id'));
         if ($class) {

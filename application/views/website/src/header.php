@@ -71,7 +71,10 @@
 
 <body>
 
-
+<?php
+$actual_link = (($this->input->server('HTTPS') === 'on') ? "https" : "http") . "://" . $this->input->server('HTTP_HOST') . $this->input->server('REQUEST_URI');
+$final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
+?>
 
     <header class="header navbar-area">
 
@@ -159,7 +162,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-7">
 
-                        <a class=navbar-brand href=index.html>
+                        <a class=navbar-brand href="<?= base_url("Home")?>">
                             <img src="<?= base_url() ?>web_assets/images/logo/logo2.jpg" alt=Logo>
                         </a>
 
@@ -307,36 +310,19 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id=navbarSupportedContent>
                                 <ul id=nav class="navbar-nav ms-auto">
                                     <li class=nav-item>
-                                        <a href=<?= base_url('Home') ?> class=active aria-label="Toggle navigation">Home</a>
+                                        <a href=<?= base_url('Home') ?> class="<?= (array_filter([strpos($final_url, "home")], 'is_numeric')) ? 'active' : '' ?>" aria-label="Toggle navigation">Home</a>
                                     </li>
+                                   
                                     <li class=nav-item>
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle=collapse data-bs-target="#submenu-1-2" aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">Info</a>
-                                        <ul class="sub-menu collapse" id=submenu-1-2>
-                                            <li class=nav-item><a href=<?= base_url('Home/about_us') ?>>About Us</a></li>
-                                            <li class=nav-item><a href=<?= base_url('Home/contact_us') ?>>Contact Us</a></li>
-                                            <li class=nav-item><a href=faq.html>Faq</a></li>
-                                            <li class=nav-item><a href=<?= base_url('Home/Login') ?>>Login</a></li>
-                                            <li class=nav-item><a href=<?= base_url('Home/Registration') ?>>Register</a></li>
-
-                                        </ul>
+                                        <a href=<?= base_url('Home/Transport') ?>>Transport services</a>
                                     </li>
-                                    <li class=nav-item>
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle=collapse data-bs-target="#submenu-1-3" aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">more services</a>
-                                        <ul class="sub-menu collapse" id=submenu-1-3>
-                                            <li class=nav-item><a href="<?= base_url('Home/Transport') ?>">Transport services</a></li>
-                                            <li class=nav-item><a href=product-grids.html>Shop Grid</a></li>
-                                            <li class=nav-item><a href=product-list.html>Shop List</a></li>
-                                            <li class=nav-item><a href=product-details.html>shop Single</a></li>
-                                            <li class=nav-item><a href=cart.html>Cart</a></li>
-                                            <li class=nav-item><a href=checkout.html>Checkout</a></li>
-                                        </ul>
-                                    </li>
+                                   
                                     <li class=nav-item>
 
 
                                         <a href="<?= base_url('Home/FindWorkers') ?>">Find worker</a>
                                     </li>
-                                    <li class=nav-item>
+                                    <li class="nav-item" class="<?= (array_filter([strpos($final_url, "home/buyitems")], 'is_numeric')) ? 'active' : '' ?>">
                                         <a href=<?= base_url('Home/buyItems') ?>>Buy Items</a>
 
                                     </li>
@@ -351,7 +337,8 @@
                                         <!-- <a data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">Sell Items</a> -->
                                         <a href="<?= base_url('Home/sellItems')?>">Sell Items</a>
                                     </li>
-
+                                    <li class=nav-item><a href=<?= base_url('Home/about_us') ?>>About Us</a></li>
+                                            <!-- <li class=nav-item><a href=<?= base_url('Home/contact_us') ?>>Contact Us</a></li> -->
                                 </ul>
                             </div>
                         </nav>

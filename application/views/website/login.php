@@ -87,7 +87,7 @@ function send_otp() {
         alert('Otp send Successfully')
         $('.show').show();
         $('.hide').hide();
-       }else if(data.result==4){
+       }else if(data.code==4){
         alert('Mobile Does not exist,Please first complete registration with this number');
         window.location.href = "<?= base_url('Home/Registration') ?>";
        }else{
@@ -121,7 +121,7 @@ function verify_otp() {
        if(data.result==true){
         alert('Otp vrified Successfully');
         window.location.href = "<?= base_url('Home') ?>";
-       }else if(data.result==2){
+       }else if(data.code==2){
         alert('Otp not matched')
        }
     },

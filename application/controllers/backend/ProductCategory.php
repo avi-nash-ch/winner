@@ -23,7 +23,7 @@ class ProductCategory extends MY_Controller
             'title' => 'Manage Sub Category',
             'category_id'=>$id,
             'sub_cat_id'=>$sub_cat_id,
-            'All' => $this->ProductCategory_model->AllSubCategory()
+            'All' => $this->ProductCategory_model->AllSubCategory($id)
         ];
         $data['SideBarbutton'] = '';
         template('pcategory/subcategory', $data);

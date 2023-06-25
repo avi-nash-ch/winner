@@ -16,6 +16,7 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Home',
             'Category' => $this->ProductCategory_model->All(),
+            'Brands' => $this->Brand_model->All(),
             'AllProducts' => $this->Product_model->AllProduct(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
@@ -522,15 +523,20 @@ class Home extends CI_Controller
                 //    echo $response;
                 if ($r->Status == 'Success') {
                     $result['result'] = true;
+                    $result['data']=$data;
                 } else {
-                    $result['result'] = 2;
+                    $result['result'] = false;
+                    $result['code'] = 2;
                 }
             } else {
-                $result['result'] = 3;
+                $result['result'] = false;
+                    $result['code'] = 3;
             }
         } else {
-            $result['result'] = 4;
+            $result['result'] = false;
+            $result['code'] = 4;
         }
+        echo json_encode($result);
     }
 
 
@@ -550,10 +556,12 @@ class Home extends CI_Controller
                 $this->Website_model->otpUpdate($check_otp->id);
                 $result['result'] = true;
             } else {
-                $result['result'] = 2;
+                $result['result'] = false;
+                $result['code'] = 2;
             }
         } else {
-            $result['result'] = 3;
+            $result['result'] = false;
+            $result['code'] = 3;
             // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
         }
         echo json_encode($result);
