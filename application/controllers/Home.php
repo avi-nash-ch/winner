@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model','Banner_model']);
     }
 
     public function index()
@@ -18,6 +18,7 @@ class Home extends CI_Controller
             'Category' => $this->ProductCategory_model->All(),
             'Brands' => $this->Brand_model->All(),
             'AllProducts' => $this->Product_model->AllProduct(),
+            'AllBanner' => $this->Banner_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/index', $data);
@@ -121,6 +122,7 @@ class Home extends CI_Controller
         $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Transport Service',
+            'Category' => $this->ProductCategory_model->All(),
             'AllTransport' => $AllTransport,
             'Allcity' => $Allcity,
         ];

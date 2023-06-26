@@ -3,77 +3,31 @@
     <section class=hero-area>
         <div class=container>
             <div class=row>
-                <div class="col-lg-8 col-12 custom-padding-right">
+                <div class="col-lg-12 col-12 custom-padding-right">
                     <div class=slider-head>
 
                         <div class=hero-slider>
-
+                        <?php foreach ($AllBanner as $key => $value) { ?>
                             <div class=single-slider
-                                style="background-image:url(<?= base_url()?>web_assets/images/hero/xslider-bg1.jpg.pagespeed.ic.QB-k7UuPjB.jpg)">
-                                <div class=content>
+                                style="background-image:url(<?= base_url('uploads/images/'.$value->icon)?>)">
+                                <!-- <div class=content>
                                     <h2><span>No restocking fee (3500 savings)</span>
                                         M75 Sport Watch
                                     </h2>
-                                    <p>The Best Sports Watches: Time for Some New Gear? Today's sports watches have so many advanced features that it can be a bit overwhelming just selecting the right one</p>
+                                    <p><?= $value->description?></p>
                                     <h3><span>Now Only</span>INR 3500.99</h3>
                                     <div class=button>
                                         <a href=product-grids.html class=btn>Shop Now</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-
-
-                            <div class=single-slider
-                                style="background-image:url(<?= base_url()?>web_assets/images/hero/xslider-bg2.jpg.pagespeed.ic.nEcfNovovG.jpg)">
-                                <div class=content>
-                                    <h2><span>Big Sale Offer</span>
-                                        Get the Best Deal on CCTV Camera
-                                    </h2>
-                                    <p>Looking for the best security camera for home but overwhelmed by looking at multiple choices?
-                                    Be it your home or office, a good quality camera is sure to help you in so many ways.
-                                    </p>
-                                    <h3><span>Combo Only:</span>INR 15000.00</h3>
-                                    <div class=button>
-                                        <a href=product-grids.html class=btn>Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
 
                         </div>
 
                     </div>
                 </div>
-                <div class="col-lg-4 col-12">
-                    <div class=row>
-                        <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
-
-                            <div class=hero-small-banner
-                                style="background-image:url(<?= base_url()?>web_assets/images/hero/xslider-bnr.jpg.pagespeed.ic.71c5Z3kdJp.jpg)">
-                                <div class=content>
-                                    <h2>
-                                        <span>New line required</span>
-                                        iPhone 12 Pro Max
-                                    </h2>
-                                    <h3>INR 40000</h3>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-12 col-md-6 col-12">
-
-                            <div class="hero-small-banner style2">
-                                <div class=content>
-                                    <h2>Weekly Sale!</h2>
-                                    <p>Saving up to 50% off all online store items this week.</p>
-                                    <div class=button>
-                                        <a class=btn href=product-grids.html>Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+              
             </div>
         </div>
     </section>

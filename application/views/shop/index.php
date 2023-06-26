@@ -34,7 +34,7 @@
                             <td><?= $shop->contact_us ?></td>
                             <!-- <td><?= $shop->service_provider ?></td> -->
                             <td><?= date("d-m-Y h:i A", strtotime($shop->created_date)) ?></td>
-                            <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $AllProduct->id ?>')" <?= !empty($AllProduct->most_viewd)?'checked':'' ?>></td>
+                            <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $shop->id ?>')" <?= !empty($shop->top_shop)?'checked':'' ?>></td>
                             <td>
                                 <a href="<?= base_url('backend/Shops/edit/' . $shop->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
