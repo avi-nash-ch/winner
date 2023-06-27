@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model','Cart_model']);
     }
 
     public function index()
@@ -794,5 +794,27 @@ class Home extends CI_Controller
             'data' => $itemArray[0],
         ];
         website('website/item-details', $data);
+    }
+
+    public function productAddToCart()
+    {
+        $size = $this->input->post('size');
+        $color = $this->input->post('color');
+        $qty = $this->input->post('qty');
+        $productId = $this->input->post('product_id');
+        $cost = $this->input->post('cost');
+
+        // $cost = (float) filter_var($cost, FILTER_SANITIZE_NUMBER_INT);
+        $cost = (float) str_replace(',', '', $cost);
+
+        $data = [
+            'product_id' => $productId,
+            'size' => $size,
+            'color' => $color,
+            'cost' => $cost,
+            'quantity' => $qty,
+            'user_id' =>  $this->session->userdata('admin_id')
+        ];
+        $this->Cart_model->AddTableMaster($data);
     }
 }

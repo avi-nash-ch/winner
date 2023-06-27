@@ -114,7 +114,7 @@
                                 <li><a href=contact.html>Contact Us</a></li>
                                 <li><a href=<?= base_url('Home/FindWorkers') ?>>Find worker</a></li>
                                 <li><a href=<?= base_url('Home/buyItems') ?>>Buy Items</a></li>
-                                <li><a href="<?= base_url('Home/sellItems')?>">Sell Items</a></li>
+                                <li><a href="<?= base_url('Home/sellItems') ?>">Sell Items</a></li>
 
                                 <!-- <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
                                         <a>Sell Items</a>
@@ -219,7 +219,22 @@
                                             <a href=cart.html>View Cart</a>
                                         </div>
                                         <ul class=shopping-list>
-                                            <li>
+                                            <?php $carts = getCart();
+                                            foreach ($carts as $cart) { ?>
+                                                <li>
+                                                    <a href="javascript:void(0)" class=remove title="Remove this item"><i class="lni lni-close"></i></a>
+                                                    <div class=cart-img-head>
+                                                        <a class=cart-img href=<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>><img src="<?= base_url('uploads/images/') . $cart->image ?>" alt="#"></a>
+                                                    </div>
+                                                    <div class=content>
+                                                        <h4><a href=<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>>
+                                                                <?= $cart->product_name ?></a></h4>
+                                                        <p class=quantity><?= $cart->quantity?> x - <span class=amount>₹<?= $cart->cost * $cart->quantity ?></span></p>
+                                                    </div>
+                                                </li>
+                                            <?php }
+                                            ?>
+                                            <!-- <li>
                                                 <a href="javascript:void(0)" class=remove title="Remove this item"><i class="lni lni-close"></i></a>
                                                 <div class=cart-img-head>
                                                     <a class=cart-img href=product-details.html><img src="<?= base_url() ?>web_assets/images/header/cart-items/item1.jpg" alt="#"></a>
@@ -239,7 +254,7 @@
                                                     <h4><a href=product-details.html>Wi-Fi Smart Camera</a></h4>
                                                     <p class=quantity>1x - <span class=amount>$35.00</span></p>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                         <div class=bottom>
                                             <div class=total>
@@ -349,7 +364,7 @@
                                             data-bs-target="#myModal">Sell Items</a>
                                         </button> -->
                                         <!-- <a data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">Sell Items</a> -->
-                                        <a href="<?= base_url('Home/sellItems')?>">Sell Items</a>
+                                        <a href="<?= base_url('Home/sellItems') ?>">Sell Items</a>
                                     </li>
 
                                 </ul>

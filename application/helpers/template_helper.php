@@ -60,5 +60,12 @@ if (!function_exists('render')) {
         return $ci->Setting_model->getStates();
     }
 
+    function getCart()
+    {
+        $ci = &get_instance();
+        $ci->load->model('Cart_model');
+        return $ci->Cart_model->All();
+    }
+
 
 }
