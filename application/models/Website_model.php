@@ -188,7 +188,7 @@ class Website_model extends MY_Model
 
     public function getUserData($mobile)
     {
-        $Query = $this->db->select('id,role,email,first_name,last_name')
+        $Query = $this->db->select('id,role,email,first_name,last_name,phone')
                  ->where('isDeleted',false)
                  ->where('phone',$mobile)
                  ->get('user');      

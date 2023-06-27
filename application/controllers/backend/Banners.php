@@ -1,56 +1,55 @@
 <?php
-class Brands extends MY_Controller
+class Banners extends MY_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Brand_model']);
+        $this->load->model(['Banner_model']);
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Manage Brands',
-            'All' => $this->Brand_model->All()
+            'title' => 'Manage Banners',
+            'All' => $this->Banner_model->All()
         ];
-        $data['SideBarbutton'] = ['backend/Brands/add', 'Add Brand'];
-        template('brand/index', $data);
+        $data['SideBarbutton'] = ['backend/Banners/add', 'Add Banner'];
+        template('banner/index', $data);
     }
 
     public function add()
     {
         $data = [
-            'title' => 'Add Brand'
+            'title' => 'Add Banner'
         ];
 
-        template('brand/add', $data);
+        template('banner/add', $data);
     }
 
     public function edit($id)
     {
         $data = [
-            'title' => 'Edit brand',
-            'data' => $this->Brand_model->ViewTableMaster($id)
+            'title' => 'Edit Banner',
+            'data' => $this->Banner_model->ViewTableMaster($id)
         ];
 
-        template('brand/edit', $data);
+        template('banner/edit', $data);
     }
    
     public function delete($id)
     {
-        if ($this->Brand_model->Delete($id)) {
-            $this->session->set_flashdata('msg', array('message' => 'Brand Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
+        if ($this->Banner_model->Delete($id)) {
+            $this->session->set_flashdata('msg', array('message' => 'Banner Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/Brands');
+        redirect('backend/Banners');
     }
 
 
     public function insert()
     {
         $data = [
-            'name' => $this->input->post('name'),
             'added_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['image']['name'])) {
@@ -74,19 +73,15 @@ class Brands extends MY_Controller
                 exit;
             }
         }
-        $data['logo']=$product_image;
-        $check=$this->Brand_model->CheckDuplicate($this->input->post('name'));
-        if(empty($check)){
-        $category = $this->Brand_model->AddTableMaster($data);
+        $data['icon']=$product_image;
+        $category = $this->Banner_model->AddTableMaster($data);
         if ($category) {
-            $this->session->set_flashdata('msg', array('message' => 'Brand Added Successfully', 'class' => 'success', 'position' => 'top-right'));
+            $this->session->set_flashdata('msg', array('message' => 'Banner Added Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-    }else{
-        $this->session->set_flashdata('msg', array('message' => 'brand Already Exists', 'class' => 'error', 'position' => 'top-right'));
-    }
-        redirect('backend/Brands');
+    
+        redirect('backend/Banners');
     }
 
    
@@ -94,7 +89,6 @@ class Brands extends MY_Controller
     public function update()
     {
         $data = [
-            'name' => $this->input->post('name'),
             'updated_date' => date('Y-m-d H:i:s')
         ];
         
@@ -118,16 +112,16 @@ class Brands extends MY_Controller
                 echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                 exit;
             }
-            $data['logo']=$product_image;
+            $data['icon']=$product_image;
         }
         
-        $class = $this->Brand_model->UpdateTableMaster($data, $this->input->post('id'));
+        $class = $this->Banner_model->UpdateTableMaster($data, $this->input->post('id'));
         if ($class) {
-            $this->session->set_flashdata('msg', array('message' => 'Brand Updated Successfully', 'class' => 'success', 'position' => 'top-right'));
+            $this->session->set_flashdata('msg', array('message' => 'Banner Updated Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/Brands');
+        redirect('backend/Banners');
     }
 
 

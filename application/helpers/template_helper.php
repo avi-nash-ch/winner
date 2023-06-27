@@ -67,5 +67,11 @@ if (!function_exists('render')) {
         return $ci->Cart_model->All();
     }
 
+    function getSubcategory($cat_id)
+    {
+        $ci = &get_instance();
+        $ci->load->model('ProductCategory_model');
+        return $ci->ProductCategory_model->AllSubCategory($cat_id,6);
+    }
 
 }

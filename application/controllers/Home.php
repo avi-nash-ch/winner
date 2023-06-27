@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model','Cart_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model','Banner_model','Cart_model']);
     }
 
     public function index()
@@ -16,7 +16,9 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Home',
             'Category' => $this->ProductCategory_model->All(),
+            'Brands' => $this->Brand_model->All(),
             'AllProducts' => $this->Product_model->AllProduct(),
+            'AllBanner' => $this->Banner_model->All(),
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/index', $data);
@@ -120,6 +122,7 @@ class Home extends CI_Controller
         $Allcity = $this->Location_model->All();
         $data = [
             'title' => 'Transport Service',
+            'Category' => $this->ProductCategory_model->All(),
             'AllTransport' => $AllTransport,
             'Allcity' => $Allcity,
         ];
@@ -512,7 +515,7 @@ class Home extends CI_Controller
                 $otp = random_int(100000, 999999);
                 $this->Website_model->InsertOtp(['mobile' => $numbers, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
                 // Send the POST request with cURL
-                $ch = curl_init('https://2factor.in/API/V1/64434758-d05b-11ed-81b6-0200cd936042/SMS/+91' . $numbers . '/' . $otp . '/OTP1');
+                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
                 curl_setopt($ch, CURLOPT_POST, true);
                 // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -522,14 +525,18 @@ class Home extends CI_Controller
                 //    echo $response;
                 if ($r->Status == 'Success') {
                     $result['result'] = true;
+                    $result['data']=$data;
                 } else {
-                    $result['result'] = 2;
+                    $result['result'] = false;
+                    $result['code'] = 2;
                 }
             } else {
-                $result['result'] = 3;
+                $result['result'] = false;
+                    $result['code'] = 3;
             }
         } else {
-            $result['result'] = 4;
+            $result['result'] = false;
+            $result['code'] = 4;
         }
         echo json_encode($result);
     }
@@ -551,10 +558,12 @@ class Home extends CI_Controller
                 $this->Website_model->otpUpdate($check_otp->id);
                 $result['result'] = true;
             } else {
-                $result['result'] = 2;
+                $result['result'] = false;
+                $result['code'] = 2;
             }
         } else {
-            $result['result'] = 3;
+            $result['result'] = false;
+            $result['code'] = 3;
             // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
         }
         echo json_encode($result);
@@ -574,11 +583,11 @@ class Home extends CI_Controller
         $str = "";
         foreach ($fields as $field) {
             $options = $this->AttributeOptions_model->All($field->field_id);
-            if($field->field_type == "textfield") {
+            if ($field->field_type == "textfield") {
                 $str .= $this->getTextField($field);
-            }elseif($field->field_type == "dropdown") {
+            } elseif ($field->field_type == "dropdown") {
                 $str .= $this->getDropdown($field, $options);
-            }elseif($field->field_type == "radiobutton") {
+            } elseif ($field->field_type == "radiobutton") {
                 $str .= $this->getCheckbox($field, $options);
             }
             // $field->options = $this->AttributeOptions_model->All($field->field_id);
@@ -594,8 +603,8 @@ class Home extends CI_Controller
     private function getDropdown($field, $options)
     {
         $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><select item-id='{$field->id}' aria-label='.form-select-sm example' class='form-select form-select-sm item-custom-field'><option selected>select $field->fieldName</option>";
-        foreach($options as $option) {
-            $str .= "<option value='".$option->name."'>$option->name</option>";
+        foreach ($options as $option) {
+            $str .= "<option value='" . $option->name . "'>$option->name</option>";
         }
         $str .= "</select></div>";
         return $str;
@@ -605,8 +614,8 @@ class Home extends CI_Controller
     {
         $fName = url_title($field->fieldName, 'dash', true);
         $str = "<div class='mb-4 mt-4'><label>Select $field->fieldName</label><br>";
-        foreach($options as $option) {
-            $fId = $fName.'_'.$option->id;
+        foreach ($options as $option) {
+            $fId = $fName . '_' . $option->id;
             $str .= "<div class='form-check form-check-inline'><input class='form-check-input item-custom-checkbox' item-id='{$field->id}' id='$fId' name='$fName' type='radio' value='$option->name'> <label class='form-check-label' for='$fId'>$option->name</label></div>";
         }
         $str .= "</div>";
@@ -625,7 +634,7 @@ class Home extends CI_Controller
 
         $title = $fieldsValues[2];
         $isTitleExists = false;
-        if($this->SellItem_model->CheckDuplicate($title)){
+        if ($this->SellItem_model->CheckDuplicate($title)) {
             $isTitleExists = true;
         }
         $data = [
@@ -720,8 +729,8 @@ class Home extends CI_Controller
 
         $inseriId = $this->SellItem_model->AddTableMaster($data);
         $slug = url_title($title, 'dash', true);
-        if($isTitleExists) {
-            $slug .= '-'. $inseriId;
+        if ($isTitleExists) {
+            $slug .= '-' . $inseriId;
         }
         $slugData = [
             'slug' => $slug
@@ -731,7 +740,7 @@ class Home extends CI_Controller
 
         // Add dynamic fields
         $fieldData = [];
-        foreach($dynamicFieldsValues as $field) {
+        foreach ($dynamicFieldsValues as $field) {
             $item['item_id'] = $inseriId;
             $item['field_id'] = $field['id'];
             $item['field_value'] = $field['value'];
@@ -739,13 +748,11 @@ class Home extends CI_Controller
             $fieldData[] = $item;
         }
 
-        if($this->SellItem_model->AddDynamicFields($fieldData))
-        {
+        if ($this->SellItem_model->AddDynamicFields($fieldData)) {
             echo json_encode(['success' => true, 'message' => 'Sell item post successfully']);
-        }else {
+        } else {
             echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
         }
-        
     }
 
     public function sellItems()
@@ -767,7 +774,7 @@ class Home extends CI_Controller
     {
         $items = $this->SellItem_model->viewItemBySlug($slug);
         $itemArray = [];
-        foreach($items as $key => $item) {
+        foreach ($items as $key => $item) {
             $itemArray[$item->id]['id'] = $item->id;
             $itemArray[$item->id]['title'] = $item->title;
             $itemArray[$item->id]['cat_name'] = $item->cat_name;

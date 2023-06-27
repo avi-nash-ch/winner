@@ -17,6 +17,18 @@ class Product_model extends MY_Model
         $Query = $this->db->get();
         return $Query->result();
     }
+
+    public function AllBanner($limit =null)
+    {
+        $this->db->select('tbl_product.*');
+        $this->db->from('tbl_product');
+        $this->db->where('isDeleted', false);
+        $this->db->where('banner', true);
+        $this->db->order_by('id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function AllProductByType($column,$id,$limit =null)
     {
         $this->db->select('tbl_product.*');
@@ -217,6 +229,17 @@ class Product_model extends MY_Model
     {
         $data = [
             'most_viewd' => $status,
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_product', $data);
+        return $this->db->last_query();
+    }
+
+
+    public function banner($id,$status)
+    {
+        $data = [
+            'banner' => $status,
         ];
         $this->db->where('id', $id);
         $this->db->update('tbl_product', $data);

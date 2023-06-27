@@ -24,34 +24,34 @@
         <div class="card">
             <div class="card-body">
                 <?php
-            echo form_open_multipart('backend/Brands/insert', ['autocomplete' => false, 'id' => 'add_language'
-                ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_language')])
+            echo form_open_multipart('backend/Banners/insert', ['autocomplete' => false, 'id' => 'add_category'
+                ,'method'=>'post'], ['type' => $this->url_encrypt->encode('tbl_category')])
             ?>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
               
                 <div class="col-md-4">
                     <label for="class">Name</label>
                         <input class="form-control" type="text" Placeholder="Name" name="name"
                             id="class">
                     </div> 
-
-                    <div class="col-md-2">
-                <label for="image">Logo *</label>
+                </div> -->
+               
+                <div class="col-md-2">
+                <label for="image">Banner *</label>
                     <div class="holder">
                 <img id="imgPreview" src="#" style="display:none"  />
             </div>
                    
                         <input class="form-control" type="file" name="image" id="image" required>
                     </div>
-                </div>
-               
+                    <br>
                 <div class="form-group mb-0">
                     <div>
                         <?php
                         echo form_submit('submit', 'Submit', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
                        
                         ?>
-                         <a href="<?= base_url('backend/Brands')?>" class="btn btn-secondary waves-effect">Cancel</a>
+                         <a href="<?= base_url('backend/Category')?>" class="btn btn-secondary waves-effect">Cancel</a>
                     </div>
                 </div>
                 <?php
