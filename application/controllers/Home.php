@@ -344,6 +344,14 @@ class Home extends CI_Controller
 
     public function Login()
     {
+
+        /*$user_data = array(
+            'admin_id' => 1,
+            'email' => 'suraj@gmail.com',
+            'name' => 'Suraj',
+        );
+        $this->session->set_userdata($user_data);*/
+
         $data = [
             'title' => 'Login',
 
@@ -823,5 +831,9 @@ class Home extends CI_Controller
             'user_id' =>  $this->session->userdata('admin_id')
         ];
         $this->Cart_model->AddTableMaster($data);
+
+        $response = ['status' => true, 'message' => 'Product added to cart'];
+
+        echo json_encode($response);
     }
 }

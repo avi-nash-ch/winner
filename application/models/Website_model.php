@@ -221,4 +221,13 @@ class Website_model extends MY_Model
         $this->db->update('tbl_otp', $data);
         return $this->db->last_query();
     }
+
+    public function getUserById($id)
+    {
+        $Query = $this->db->select('first_name,last_name,email,phone')
+                 ->where('isDeleted',false)
+                 ->where('id',$id)
+                 ->get('user');      
+        return $Query->row();
+    }
 }

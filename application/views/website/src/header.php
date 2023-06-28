@@ -71,10 +71,10 @@
 
 <body>
 
-<?php
-$actual_link = (($this->input->server('HTTPS') === 'on') ? "https" : "http") . "://" . $this->input->server('HTTP_HOST') . $this->input->server('REQUEST_URI');
-$final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
-?>
+    <?php
+    $actual_link = (($this->input->server('HTTPS') === 'on') ? "https" : "http") . "://" . $this->input->server('HTTP_HOST') . $this->input->server('REQUEST_URI');
+    $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
+    ?>
 
     <header class="header navbar-area">
 
@@ -162,7 +162,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-7">
 
-                        <a class=navbar-brand href="<?= base_url("Home")?>">
+                        <a class=navbar-brand href="<?= base_url("Home") ?>">
                             <img src="<?= base_url() ?>web_assets/images/logo/logo2.jpg" alt=Logo>
                         </a>
 
@@ -203,41 +203,48 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                     <span>96043 66262</span>
                                 </h3>
                             </div>
-                            <div class=navbar-cart>
-                                <div class=wishlist>
-                                    <a href="javascript:void(0)">
-                                        <i class="lni lni-heart"></i>
-                                        <span class=total-items>0</span>
-                                    </a>
-                                </div>
-                                <div class=cart-items>
-                                    <a href="javascript:void(0)" class=main-btn>
-                                        <i class="lni lni-cart"></i>
-                                        <span class=total-items>2</span>
-                                    </a>
-
-                                    <div class=shopping-item>
-                                        <div class=dropdown-cart-header>
-                                            <span>2 Items</span>
-                                            <a href=cart.html>View Cart</a>
-                                        </div>
-                                        <ul class=shopping-list>
-                                            <?php $carts = getCart();
-                                            foreach ($carts as $cart) { ?>
-                                                <li>
-                                                    <a href="javascript:void(0)" class=remove title="Remove this item"><i class="lni lni-close"></i></a>
-                                                    <div class=cart-img-head>
-                                                        <a class=cart-img href=<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>><img src="<?= base_url('uploads/images/') . $cart->image ?>" alt="#"></a>
-                                                    </div>
-                                                    <div class=content>
-                                                        <h4><a href=<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>>
-                                                                <?= $cart->product_name ?></a></h4>
-                                                        <p class=quantity><?= $cart->quantity?> x - <span class=amount>₹<?= $cart->cost * $cart->quantity ?></span></p>
-                                                    </div>
-                                                </li>
-                                            <?php }
-                                            ?>
-                                            <!-- <li>
+                            <?php
+                            if (!empty($this->session->admin_id)) { ?>
+                                <div class=navbar-cart>
+                                    <div class=wishlist>
+                                        <a href="javascript:void(0)">
+                                            <i class="lni lni-heart"></i>
+                                            <span class=total-items>0</span>
+                                        </a>
+                                    </div>
+                                    <?php 
+                                    $carts = getCart();
+                                    ?>
+                                    <div class=cart-items>
+                                        <a href="javascript:void(0)" class=main-btn>
+                                            <i class="lni lni-cart"></i>
+                                            <span class=total-items><?= count($carts)?></span>
+                                        </a>
+                                        <div class=shopping-item>
+                                            <div class=dropdown-cart-header>
+                                                <span><?= count($carts)?> Items</span>
+                                                <a href="<?= base_url('Cart/list')?>">View Cart</a>
+                                            </div>
+                                            <ul class=shopping-list>
+                                                <?php
+                                                $total = 0;
+                                                foreach ($carts as $cart) { ?>
+                                                    <li>
+                                                        <!-- <a href="javascript:void(0)" class=remove title="Remove this item"><i class="lni lni-close"></i></a> -->
+                                                        <div class=cart-img-head>
+                                                            <a class=cart-img href=<?= base_url('Home/productDeatils/' . $this->url_encrypt->encode($cart->product_id)) ?>><img src="<?= base_url('uploads/images/') . $cart->image ?>" alt="#"></a>
+                                                        </div>
+                                                        <div class=content>
+                                                            <h4><a href=<?= base_url('Home/productDeatils/' . $this->url_encrypt->encode($cart->product_id)) ?>>
+                                                                    <?= $cart->product_name ?></a></h4>
+                                                            <p class=quantity><?= $cart->quantity ?> x - <span class=amount>₹<?= $cart->cost * $cart->quantity ?></span></p>
+                                                        </div>
+                                                    </li>
+                                                <?php 
+                                                $total += ($cart->cost * $cart->quantity);
+                                                }
+                                                ?>
+                                                <!-- <li>
                                                 <a href="javascript:void(0)" class=remove title="Remove this item"><i class="lni lni-close"></i></a>
                                                 <div class=cart-img-head>
                                                     <a class=cart-img href=product-details.html><img src="<?= base_url() ?>web_assets/images/header/cart-items/item1.jpg" alt="#"></a>
@@ -258,20 +265,22 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                                     <p class=quantity>1x - <span class=amount>$35.00</span></p>
                                                 </div>
                                             </li> -->
-                                        </ul>
-                                        <div class=bottom>
-                                            <div class=total>
-                                                <span>Total</span>
-                                                <span class=total-amount>$134.00</span>
-                                            </div>
-                                            <div class=button>
-                                                <a href=checkout.html class="btn animate">Checkout</a>
+                                            </ul>
+                                            <div class=bottom>
+                                                <div class=total>
+                                                    <span>Total</span>
+                                                    <span class=total-amount>₹<?= $total ?></span>
+                                                </div>
+                                                <div class=button>
+                                                    <a href="<?= base_url('Cart/checkout')?>" class="btn animate">Checkout</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
+                            <?php }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -287,15 +296,16 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <div class=mega-category-menu>
                             <span class=cat-button><i class="lni lni-menu"></i>All Categories</span>
                             <ul class=sub-category>
-                            <?php foreach ($Category as $key => $value) { ?>
-                                <li><a href=<?= base_url('Home/buyItems')?>><?= $value->name ?> <i class="lni lni-chevron-right"></i></a>
-                                    <ul class=inner-sub-category>
-                                    <?php $SubCategory=getSubcategory($value->id); foreach ($SubCategory as $key => $sub_cat) { ?>
-                                        <li><a href=<?= base_url('Home/buyItems')?>><?= $sub_cat->name?></a></li>
-                                
-                                        <?php } ?>
-                                    </ul>
-                                </li>
+                                <?php foreach ($Category as $key => $value) { ?>
+                                    <li><a href=<?= base_url('Home/buyItems') ?>><?= $value->name ?> <i class="lni lni-chevron-right"></i></a>
+                                        <ul class=inner-sub-category>
+                                            <?php $SubCategory = getSubcategory($value->id);
+                                            foreach ($SubCategory as $key => $sub_cat) { ?>
+                                                <li><a href=<?= base_url('Home/buyItems') ?>><?= $sub_cat->name ?></a></li>
+
+                                            <?php } ?>
+                                        </ul>
+                                    </li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -312,11 +322,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                     <li class=nav-item>
                                         <a href=<?= base_url('Home') ?> class="<?= (array_filter([strpos($final_url, "home")], 'is_numeric')) ? 'active' : '' ?>" aria-label="Toggle navigation">Home</a>
                                     </li>
-                                   
+
                                     <li class=nav-item>
                                         <a href=<?= base_url('Home/Transport') ?>>Transport services</a>
                                     </li>
-                                   
+
                                     <li class=nav-item>
 
 
@@ -338,7 +348,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                         <a href="<?= base_url('Home/sellItems') ?>">Sell Items</a>
                                     </li>
                                     <li class=nav-item><a href=<?= base_url('Home/about_us') ?>>About Us</a></li>
-                                            <!-- <li class=nav-item><a href=<?= base_url('Home/contact_us') ?>>Contact Us</a></li> -->
+                                    <!-- <li class=nav-item><a href=<?= base_url('Home/contact_us') ?>>Contact Us</a></li> -->
                                 </ul>
                             </div>
                         </nav>

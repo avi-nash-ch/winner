@@ -29,10 +29,10 @@
                 <div class=cart-single-list>
                     <div class="row align-items-center">
                         <div class="col-lg-1 col-md-1 col-12">
-                            <a href=product-details.html><img src="<?= base_url('uploads/images/') . $cart->image ?>" alt="#"></a>
+                            <a href="<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>"><img src="<?= base_url('uploads/images/') . $cart->image ?>" alt="#"></a>
                         </div>
                         <div class="col-lg-4 col-md-3 col-12">
-                            <h5 class=product-name><a href=product-details.html>
+                            <h5 class=product-name><a href="<?= base_url('Home/productDeatils/'.$this->url_encrypt->encode($cart->product_id))?>">
                                     <?= $cart->product_name ?></a></h5>
                             <p class=product-des>
                                 <span><em>Size:</em> <?= $cart->size ?></span>
@@ -51,127 +51,18 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-12">
-                            <p>₹<?= $cart->cost * $cart->quantity?></p>
+                            <p>₹<?= $cart->cost * $cart->quantity ?></p>
                         </div>
                         <!-- <div class="col-lg-2 col-md-2 col-12">
                             <p>$29.00</p>
                         </div> -->
                         <div class="col-lg-1 col-md-2 col-12">
-                            <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
+                            <a class=remove-item href="javascript:void(0)" onclick="removeProduct('<?= $cart->id ?>', this)"><i class="lni lni-close"></i></a>
                         </div>
                     </div>
                 </div>
             <?php }
             ?>
-            <!-- <div class=cart-single-list>
-                <div class="row align-items-center">
-                    <div class="col-lg-1 col-md-1 col-12">
-                        <a href=product-details.html><img src="<?= base_url('uploads/images/') . $data->image ?>" alt="#"></a>
-                    </div>
-                    <div class="col-lg-4 col-md-3 col-12">
-                        <h5 class=product-name><a href=product-details.html>
-                                Canon EOS M50 Mirrorless Camera</a></h5>
-                        <p class=product-des>
-                            <span><em>Type:</em> Mirrorless</span>
-                            <span><em>Color:</em> Black</span>
-                        </p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <div class=count-input>
-                            <select class=form-control>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>$910.00</p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>$29.00</p>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-12">
-                        <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <!-- <div class=cart-single-list>
-                <div class="row align-items-center">
-                    <div class="col-lg-1 col-md-1 col-12">
-                        <a href=product-details.html><img src="assets/images/cart/x02.jpg.pagespeed.ic.ciMpeAtsld.jpg" alt="#"></a>
-                    </div>
-                    <div class="col-lg-4 col-md-3 col-12">
-                        <h5 class=product-name><a href=product-details.html>
-                                Apple iPhone X 256 GB Space Gray</a></h5>
-                        <p class=product-des>
-                            <span><em>Memory:</em> 256 GB</span>
-                            <span><em>Color:</em> Space Gray</span>
-                        </p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <div class=count-input>
-                            <select class=form-control>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>$1100.00</p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>—</p>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-12">
-                        <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class=cart-single-list>
-                <div class="row align-items-center">
-                    <div class="col-lg-1 col-md-1 col-12">
-                        <a href=product-details.html><img src="assets/images/cart/x03.jpg.pagespeed.ic.D7-y7DEWw8.jpg" alt="#"></a>
-                    </div>
-                    <div class="col-lg-4 col-md-3 col-12">
-                        <h5 class=product-name><a href=product-details.html>HP LaserJet Pro Laser Printer</a></h5>
-                        <p class=product-des>
-                            <span><em>Type:</em> Laser</span>
-                            <span><em>Color:</em> White</span>
-                        </p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <div class=count-input>
-                            <select class=form-control>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>$550.00</p>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <p>—</p>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-12">
-                        <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
-                    </div>
-                </div>
-            </div> -->
-
         </div>
         <div class=row>
             <div class=col-12>
@@ -190,24 +81,45 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class=right>
-                                <ul>
-                                    <li>Cart Subtotal<span>₹<?= $cart->cost * $cart->quantity?></span></li>
-                                    <li>Shipping<span>Free</span></li>
-                                    <!-- <li>You Save<span>$29.00</span></li>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class=right>
+                            <ul>
+                                <li>Cart Subtotal<span>₹<?= $cart->cost * $cart->quantity ?></span></li>
+                                <li>Shipping<span>Free</span></li>
+                                <!-- <li>You Save<span>$29.00</span></li>
                                     <li class=last>You Pay<span>$2531.00</span></li> -->
-                                </ul>
-                                <div class=button>
-                                    <a href=checkout.html class=btn>Checkout</a>
-                                    <a href=product-grids.html class="btn btn-alt">Continue shopping</a>
-                                </div>
+                            </ul>
+                            <div class=button>
+                                <a href="<?= base_url('Cart/checkout')?>" class=btn>Checkout</a>
+                                <a href="<?= base_url('Home')?>" class="btn btn-alt">Continue shopping</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </div>
+</div>
+
+<script>
+    const removeProduct = (cartId, currentObj) => {
+        $.ajax({
+            type: 'POST',
+            data: {
+                cart_id: cartId
+            },
+            url: '<?= base_url('Cart/removeProduct') ?>',
+            dataType: 'json',
+            beforeSend: function() {},
+            success: function(data) {
+                if (data.status == true) {
+                    const $target = $(currentObj).closest('.cart-single-list')
+                    $target.hide('slow', function(){ $target.remove(); });
+                }
+            },
+            error: function(e) {},
+        });
+    }
+</script>

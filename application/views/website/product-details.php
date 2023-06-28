@@ -251,6 +251,15 @@
       const qty = $("#qty").val();
       const product_id = $(".product-info").find('.title').attr('pid');
       const cost = $(".product-info").find('.price').attr('price');
+      if(!color) {
+        alert("Select color");return;
+      }
+      if(!size) {
+        alert("Select size");return;
+      }
+      if(!qty) {
+        alert("Select quantity");return;
+      }
       $.ajax({
         type: 'POST',
         data: {
@@ -264,7 +273,7 @@
         dataType: 'json',
         beforeSend: function() {},
         success: function(data) {
-          if (data.result == true) {
+          if (data.status == true) {
             alert('Added to cart');
             location.reload();
           }
