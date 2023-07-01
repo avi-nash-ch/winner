@@ -445,7 +445,7 @@ echo json_encode(['result'=>true]);
         $product = $this->Cart_model->OrderedProductsDetails($id);
 
         $data = [
-            'title' => 'Ordered products',
+            'title' => 'Ordered product Detail',
             'Product' => $product
         ];
         template('product/order/view', $data);
