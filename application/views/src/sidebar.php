@@ -124,6 +124,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <i class="ion ion-md-contact"></i>
                             <span>Contact to Transport</span></a>
                     </li>
+                    <li class="<?= (array_filter([strpos($final_url, "backend/Products/ordered")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                        <a href="<?= base_url('backend/Products/ordered') ?>" class="waves-effect">
+                            <i class="ion ion-md-contact"></i>
+                            <span>Ordered Products</span></a>
+                    </li>
                 <?php } else { ?>
                     <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">

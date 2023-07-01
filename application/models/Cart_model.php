@@ -67,4 +67,31 @@ class Cart_model extends MY_Model
         $this->db->insert('product_orders', $data);
         return $this->db->insert_id();
     }
+
+    public function OrderedProducts()
+    {
+        $this->db->select('product_orders.*,tbl_product.name as product_name,tbl_product.image,user.first_name,user.last_name');
+        $this->db->from('product_orders');
+        $this->db->join('tbl_product', 'tbl_product.id=product_orders.product_id');
+        $this->db->join('user', 'user.id=product_orders.user_id');
+        // $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('product_orders.isDeleted', false);
+        $this->db->order_by('product_orders.id', 'asc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+    public function OrderedProductsDetails($id)
+    {
+        $this->db->select('product_orders.*,tbl_product.name as product_name,tbl_product.image,user.first_name,user.last_name, tbl_states.name as state');
+        $this->db->from('product_orders');
+        $this->db->join('tbl_product', 'tbl_product.id=product_orders.product_id');
+        $this->db->join('user', 'user.id=product_orders.user_id');
+        $this->db->join('tbl_states', 'tbl_states.id=product_orders.state_id', 'left');
+        $this->db->where('product_orders.id', $id);
+        $this->db->where('product_orders.isDeleted', false);
+        $this->db->order_by('product_orders.id', 'asc');
+        $Query = $this->db->get();
+        return $Query->row();
+    }
 }

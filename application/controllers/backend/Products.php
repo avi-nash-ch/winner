@@ -4,7 +4,7 @@ class Products extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Product_model','ProductCategory_model','Brand_model','Shop_model']);
+        $this->load->model(['Product_model','ProductCategory_model','Brand_model','Shop_model', 'Cart_model']);
     }
 
     public function index()
@@ -427,6 +427,28 @@ echo json_encode(['result'=>true]);
             $result = ['response' => false, 'msg' => 'Invalid Param'];
         }
         echo json_encode($result);
+    }
+
+    public function Ordered()
+    {
+        $products = $this->Cart_model->OrderedProducts();
+
+        $data = [
+            'title' => 'Ordered products',
+            'products' => $products
+        ];
+        template('product/order/index', $data);
+    }
+
+    public function OrderedView($id)
+    {
+        $product = $this->Cart_model->OrderedProductsDetails($id);
+
+        $data = [
+            'title' => 'Ordered products',
+            'Product' => $product
+        ];
+        template('product/order/view', $data);
     }
 
 }

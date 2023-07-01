@@ -25,6 +25,7 @@
             </div>
 
             <?php
+            $cartTotal = 0;
             foreach ($carts as $cart) { ?>
                 <div class=cart-single-list>
                     <div class="row align-items-center">
@@ -61,7 +62,9 @@
                         </div>
                     </div>
                 </div>
-            <?php }
+            <?php 
+            $cartTotal += $cart->cost * $cart->quantity;
+            }
             ?>
         </div>
         <div class=row>
@@ -84,7 +87,7 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class=right>
                             <ul>
-                                <li>Cart Subtotal<span>₹<?= $cart->cost * $cart->quantity ?></span></li>
+                                <li>Cart Subtotal<span>₹<?= $cartTotal ?></span></li>
                                 <li>Shipping<span>Free</span></li>
                                 <!-- <li>You Save<span>$29.00</span></li>
                                     <li class=last>You Pay<span>$2531.00</span></li> -->

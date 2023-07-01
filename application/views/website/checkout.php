@@ -94,8 +94,8 @@
                                                 <div class=select-items>
                                                     <select class=form-control name="payment_mode" required>
                                                         <option value="">select</option>
-                                                        <option value="Cash">Cash</option>
-                                                        <option value="Online">Online</option>
+                                                        <option value="Cash On Delivery">Cash On Delivery</option>
+                                                        <option disabled value="Online">Online</option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -28,7 +28,7 @@ class Cart extends CI_Controller
 
         if ($removed) {
             $response = ['status' => true, 'message' => 'Product removed from cart'];
-        }else {
+        } else {
             $response = ['status' => false, 'message' => 'Woops something went wrong !!'];
         }
         echo json_encode($response);
@@ -39,7 +39,7 @@ class Cart extends CI_Controller
         $carts = $this->Cart_model->All();
         $adminId = $this->session->admin_id;
 
-        if(count($carts) == 0) {
+        if (count($carts) == 0) {
             $this->session->set_flashdata('msg', array('message' => 'Your cart is empty', 'class' => 'error', 'position' => 'top-right'));
             redirect(base_url('Home'));
         }
@@ -55,7 +55,7 @@ class Cart extends CI_Controller
     public function placeOrder()
     {
         $carts = $this->Cart_model->All();
-        foreach($carts as $cart) {
+        foreach ($carts as $cart) {
             $data = [
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
@@ -81,9 +81,9 @@ class Cart extends CI_Controller
                 'status' => 1
             ];
             $this->Cart_model->UpdateTableMaster($cartBody, $cart->id);
-
-            $this->session->set_flashdata('msg', array('message' => 'Order placed successfully', 'class' => 'success', 'position' => 'top-right'));
-            redirect(base_url('Home'));
         }
+
+        $this->session->set_flashdata('msg', array('message' => 'Order placed successfully', 'class' => 'success', 'position' => 'top-right'));
+        redirect(base_url('Home'));
     }
 }
