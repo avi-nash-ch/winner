@@ -74,4 +74,64 @@ if (!function_exists('render')) {
         return $ci->ProductCategory_model->AllSubCategory($cat_id,6);
     }
 
+    function getColorNameByNumber($number)
+    {
+        $color = '';
+        switch ($number) {
+            case '1':
+                $color = 'White';
+                break;
+            case '2':
+                $color = 'Red';
+                break;
+            case '3':
+                $color = 'Blue';
+                break;
+            case '4':
+                $color = 'Green';
+                break;
+            case '5':
+                $color = 'Yellow';
+                break;
+            case '6':
+                $color = 'Pink';
+                break;
+            case '7':
+                $color = 'Black';
+                break;
+            case '8':
+                $color = 'Brown';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return $color;
+    }
+
+    function getSizeNameByNumber($number)
+    {
+        $size = '';
+        switch ($number) {
+            case '1':
+                $size = 'L';
+                break;
+            case '2':
+                $size = 'XL';
+                break;
+            case '3':
+                $size = 'M';
+                break;
+            case '4':
+                $size = 'S';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return $size;
+    }
+
 }

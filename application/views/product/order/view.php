@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="qty">Cost.</label>
-                        <input class="form-control" type="number" Placeholder="Cost" value="<?= $Product->quantity * $Product->cost ?>" name="cost" id="cost" readonly>
+                        <input class="form-control" type="text" Placeholder="Cost" value="<?= $Product->quantity * $Product->cost ?>" name="cost" id="cost" readonly>
                     </div>
                     <div class="col-md-3">
                         <label for="payment_mode">Paymet Mode.</label>
@@ -91,11 +91,11 @@
                 <div class="form-group row">
                     <div class="col-md-3">
                         <label for="name">Color</label>
-                        <input class="form-control" type="text" name="color" value="<?= $Product->color ?>" id="color" readonly>
+                        <input class="form-control" type="text" name="color" value="<?= getColorNameByNumber($Product->color) ?>" id="color" readonly>
                     </div>
                     <div class="col-md-3">
                         <label for="qty">Size.</label>
-                        <input class="form-control" type="number" Placeholder="Size" value="<?= $Product->size ?>" name="size" id="size" readonly>
+                        <input class="form-control" type="text" Placeholder="Size" value="<?= getSizeNameByNumber($Product->size) ?>" name="size" id="size" readonly>
                     </div>
                 </div>
 
