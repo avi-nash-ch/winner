@@ -8,7 +8,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_model');
-        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model','Banner_model','Cart_model']);
+        $this->load->model(['Worker_model', 'Website_model', 'Category_model', 'Location_model', 'Transport_model', 'Product_model', 'ProductCategory_model', 'Shop_model', 'Brand_model', 'SellCategory_model', 'SubCategoryFields_model', 'AttributeOptions_model', 'SellItem_model', 'SellSubCategory_model', 'Banner_model', 'Cart_model']);
     }
 
     public function index()
@@ -536,14 +536,14 @@ class Home extends CI_Controller
                 //    echo $response;
                 if ($r->Status == 'Success') {
                     $result['result'] = true;
-                    $result['data']=$data;
+                    $result['data'] = $data;
                 } else {
                     $result['result'] = false;
                     $result['code'] = 2;
                 }
             } else {
                 $result['result'] = false;
-                    $result['code'] = 3;
+                $result['code'] = 3;
             }
         } else {
             $result['result'] = false;
@@ -839,5 +839,55 @@ class Home extends CI_Controller
         $response = ['status' => true, 'message' => 'Product added to cart'];
 
         echo json_encode($response);
+    }
+
+    public function PlaceOrderOTP()
+    {
+        $result = [];
+        $number = $this->input->post('mobile');
+        if (!empty($number)) {
+            $otp = random_int(100000, 999999);
+            $this->Website_model->InsertOtp(['mobile' => $number, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
+            // Send the POST request with cURL
+            $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+            curl_setopt($ch, CURLOPT_POST, true);
+            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $r = json_decode($response);
+            // $result['result'] = true;
+            // $result['message'] = "OTP sent successully";
+            if ($r->Status == 'Success') {
+                $result['result'] = true;
+                $result['message'] = "OTP sent successully";
+            } else {
+                $result['result'] = false;
+                $result['code'] = 2;
+            }
+        } else {
+            $result['result'] = false;
+            $result['code'] = 3;
+        }
+        echo json_encode($result);
+    }
+
+    public function ProductOrderVerifyOtp()
+    {
+        $result = [];
+        if (!empty($this->input->post('mobile') && !empty($this->input->post('otp')))) {
+            $check_otp = $this->Website_model->verifyotp($this->input->post('mobile'), $this->input->post('otp'));
+            if (!empty($check_otp)) {
+                $this->Website_model->otpUpdate($check_otp->id);
+                $result['result'] = true;
+            } else {
+                $result['result'] = false;
+                $result['message'] = 'OTP not matched !!';
+            }
+        } else {
+            $result['result'] = false;
+            $result['message'] = "OTP missing";
+        }
+        echo json_encode($result);
     }
 }
