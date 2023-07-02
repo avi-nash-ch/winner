@@ -841,7 +841,7 @@ class Home extends CI_Controller
         echo json_encode($response);
     }
 
-    public function PlaceOrderOTP()
+    /*public function PlaceOrderOTP()
     {
         $result = [];
         $number = $this->input->post('mobile');
@@ -889,5 +889,5 @@ class Home extends CI_Controller
             $result['message'] = "OTP missing";
         }
         echo json_encode($result);
-    }
+    }*/
 }

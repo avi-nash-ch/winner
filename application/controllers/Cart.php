@@ -86,4 +86,15 @@ class Cart extends CI_Controller
         $this->session->set_flashdata('msg', array('message' => 'Order placed successfully', 'class' => 'success', 'position' => 'top-right'));
         redirect(base_url('Home'));
     }
+
+    public function sendConfirmedOrderSms($number)
+    {
+        // Send the POST request with cURL
+        $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+        curl_setopt($ch, CURLOPT_POST, true);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+    }
 }
