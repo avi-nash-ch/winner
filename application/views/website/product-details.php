@@ -25,7 +25,7 @@
             $offerPrice = number_format($data->price_sale - ($data->price_sale / 100) * $data->offer, 2);
             ?>
             <h2 pid="<?= $data->id ?>" class=title><?= $data->name ?></h2>
-            <h3 price="<?= $offerPrice ?>" class=price>₹<?= $offerPrice ?><span>$<?= number_format($data->price_sale, 2) ?></span></h3>
+            <h3 price="<?= $offerPrice ?>" class=price><?= $offerPrice ?><span>₹<?= number_format($data->price_sale, 2) ?></span></h3>
             <p class=info-text><?= $data->description ?></p>
             <?php $color = explode(",", $data->color);
             $size = explode(",", $data->size);  ?>

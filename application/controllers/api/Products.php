@@ -50,4 +50,32 @@ class Products extends REST_Controller
         }
     }
 
+
+    public function productAddToCart_post()
+    {
+        $this->load->modal('Cart_model');
+        $size = $this->input->post('size');
+        $color = $this->input->post('color');
+        $qty = $this->input->post('qty');
+        $productId = $this->input->post('product_id');
+        $cost = $this->input->post('cost');
+
+        // $cost = (float) filter_var($cost, FILTER_SANITIZE_NUMBER_INT);
+        $cost = (float) str_replace(',', '', $cost);
+
+        $data = [
+            'product_id' => $productId,
+            'size' => $size,
+            'color' => $color,
+            'cost' => $cost,
+            'quantity' => $qty,
+            'user_id' =>  $this->session->userdata('admin_id')
+        ];
+        $this->Cart_model->AddTableMaster($data);
+
+        $response = ['status' => true, 'message' => 'Product added to cart'];
+
+        echo json_encode($response);
+    }
+
 }

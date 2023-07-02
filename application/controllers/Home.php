@@ -44,8 +44,9 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Find Workers',
             'AllWorkers' => $AllWorkers,
-            'AllCategory' => $this->Category_model->All(),
+            'Category' => $this->ProductCategory_model->All(),
             'Allcity' => $Allcity,
+            'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/findworker', $data);
     }
@@ -150,7 +151,8 @@ class Home extends CI_Controller
         $data = [
             'title' => 'product-details',
             'data' => $product,
-            'features' => $features
+            'features' => $features,
+            'Category' => $this->ProductCategory_model->All(),
         ];
         website('website/product-details', $data);
     }
@@ -222,6 +224,7 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'About Us',
+            'Category' => $this->ProductCategory_model->All(),
             // 'class'=>'',
             // 'Subjects' => $this->Subject_model->All(),
             // 'Publishers' => $this->Publisher_model->All(),
@@ -771,6 +774,7 @@ class Home extends CI_Controller
         $published = 1;
         $data = [
             'title' => 'Home',
+            'Category' => $this->ProductCategory_model->All(),
             'SellCategory' => $this->SellCategory_model->All(),
             'AllItems' => $this->SellItem_model->All($cat, $sub_cat, $title, $published),
             'SellSubCategory' => $this->SellSubCategory_model->All($cat),
