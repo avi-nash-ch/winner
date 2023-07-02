@@ -7,7 +7,7 @@
             <li>
               <h6 class=title>Delivery Details </h6>
               <section class="checkout-steps-form-content">
-                <form method="post" action="<?= base_url('Cart/placeOrder') ?>" onsubmit="return validateForm()">
+                <form method="post" action="<?= base_url('Cart/placeOrder') ?>">
                   <div class=row>
                     <div class=col-md-6>
                       <div class="single-form form-default">
@@ -25,7 +25,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class=col-md-5>
+                    <div class=col-md-6>
                       <div class="single-form form-default">
                         <label>Email Address</label>
                         <div class="form-input form">
@@ -33,7 +33,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class=col-md-4>
+                    <div class=col-md-6>
                       <div class="single-form form-default">
                         <label>Phone Number</label>
                         <div class="form-input form">
@@ -41,12 +41,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class=col-md-3>
+                    <!-- <div class=col-md-3>
                       <div class="single-form button">
-                        <!-- <label for="">d</label> -->
                         <button type="button" onclick="sendOTP()" style="margin-top: 30px;" class="btn">Send OTP</button>
                       </div>
-                    </div>
+                    </div> -->
                     <div class=col-md-12>
                       <div class="single-form form-default">
                         <label>Delivery Address</label>
