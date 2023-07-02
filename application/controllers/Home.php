@@ -45,6 +45,7 @@ class Home extends CI_Controller
             'title' => 'Find Workers',
             'AllWorkers' => $AllWorkers,
             'Category' => $this->ProductCategory_model->All(),
+            'AllCategory' => $this->Category_model->All(),
             'Allcity' => $Allcity,
             'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
@@ -63,8 +64,10 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Find Workers',
             'AllWorkers' => $AllWorkers,
+            'Category' => $this->ProductCategory_model->All(),
             'AllCategory' => $this->Category_model->All(),
             'Allcity' => $Allcity,
+            'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/findworker', $data);
     }
@@ -357,8 +360,9 @@ class Home extends CI_Controller
 
         $data = [
             'title' => 'Login',
-
+            'Category' => $this->ProductCategory_model->All(),
             'Setting' => $this->Setting_model->Setting(),
+            'SubCategory' => $this->ProductCategory_model->AllSubCategory(),
         ];
         website('website/login', $data);
     }

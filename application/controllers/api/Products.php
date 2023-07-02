@@ -27,6 +27,27 @@ class Products extends REST_Controller
         }
     }
 
+    public function cart_list_post()
+    {
+        $this->load->model(['Cart_model']);
+        $user_id = $this->input->post('user_id');
+        $All = $this->Product_model->AllApi($user_id);
+        if ($All) {
+            $data = [
+                'List' => $All,
+                'message' => 'Success',
+                'code' => HTTP_OK,
+            ];
+            $this->response($data, HTTP_OK);
+        } else {
+            $data = [
+                'message' => 'No Data Found.',
+                'code' => HTTP_NOT_FOUND,
+            ];
+            $this->response($data, HTTP_OK);
+        }
+    }
+
     public function p_post()
     {
         $this->load->model(['Product_model']);
@@ -74,6 +95,17 @@ class Products extends REST_Controller
         $this->Cart_model->AddTableMaster($data);
 
         $response = ['status' => true, 'message' => 'Product added to cart'];
+
+        echo json_encode($response);
+    }
+
+    public function removeCart_post()
+    {
+        $this->load->modal('Cart_model');
+        $cart_id = $this->input->post('cart_id');
+        $this->Cart_model->removeCart($cart_id);
+
+        $response = ['status' => true, 'message' => 'Cart Removed Successfully'];
 
         echo json_encode($response);
     }
