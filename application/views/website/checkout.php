@@ -1,122 +1,131 @@
 <section class="checkout-wrapper section">
-    <div class=container>
-        <div class="row justify-content-center">
-            <div class=col-lg-8>
-                <div class=checkout-steps-form-style-1>
-                    <ul id=accordionExample>
-                        <li>
-                            <h6 class=title>Delivery Details </h6>
-                            <section class="checkout-steps-form-content">
-                                <form method="post" action="<?= base_url('Cart/placeOrder') ?>">
-                                    <div class=row>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>First Name</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="first_name" value="<?= $user->first_name ?>" placeholder="First Name" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Last Name</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="last_name" value="<?= $user->last_name ?>" placeholder="Last Name" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Email Address</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="email" value="<?= $user->email ?>" placeholder="Email Address" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Phone Number</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="phone" value="<?= $user->phone ?>" placeholder="Phone Number" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-12>
-                                            <div class="single-form form-default">
-                                                <label>Delivery Address</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="address" placeholder="Delivery Address" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>City</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="city" placeholder=City required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Post Code</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="postal_code" placeholder="Post Code" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Country</label>
-                                                <div class="form-input form">
-                                                    <input type=text name="country" placeholder=Country required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Region/State</label>
-                                                <div class=select-items>
-                                                    <select class=form-control name="state_id" required>
-                                                        <option value="">select</option>
-                                                        <?php
-                                                        foreach (getStates() as $state) { ?>
-                                                            <option value="<?= $state->id ?>"><?= $state->name ?></option>
-                                                        <?php }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=col-md-6>
-                                            <div class="single-form form-default">
-                                                <label>Payment Mode</label>
-                                                <div class=select-items>
-                                                    <select class=form-control name="payment_mode" required>
-                                                        <option value="">select</option>
-                                                        <option value="Cash On Delivery">Cash On Delivery</option>
-                                                        <option disabled value="Online">Online</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <div class=col-md-12>
+  <div class=container>
+    <div class="row justify-content-center">
+      <div class=col-lg-8>
+        <div class=checkout-steps-form-style-1>
+          <ul id=accordionExample>
+            <li>
+              <h6 class=title>Delivery Details </h6>
+              <section class="checkout-steps-form-content">
+                <form method="post" action="<?= base_url('Cart/placeOrder') ?>" onsubmit="return validateForm()">
+                  <div class=row>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>First Name</label>
+                        <div class="form-input form">
+                          <input type=text name="first_name" value="<?= $user->first_name ?>" placeholder="First Name" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>Last Name</label>
+                        <div class="form-input form">
+                          <input type=text name="last_name" value="<?= $user->last_name ?>" placeholder="Last Name" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-5>
+                      <div class="single-form form-default">
+                        <label>Email Address</label>
+                        <div class="form-input form">
+                          <input type=text name="email" value="<?= $user->email ?>" placeholder="Email Address" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-4>
+                      <div class="single-form form-default">
+                        <label>Phone Number</label>
+                        <div class="form-input form">
+                          <input type=text name="phone" value="<?= $user->phone ?>" id="phone_number" placeholder="Phone Number" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-3>
+                      <div class="single-form button">
+                        <!-- <label for="">d</label> -->
+                        <button type="button" onclick="sendOTP()" style="margin-top: 30px;" class="btn">Send OTP</button>
+                      </div>
+                    </div>
+                    <div class=col-md-12>
+                      <div class="single-form form-default">
+                        <label>Delivery Address</label>
+                        <div class="form-input form">
+                          <input type=text name="address" placeholder="Delivery Address" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>City</label>
+                        <div class="form-input form">
+                          <input type=text name="city" placeholder=City required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>Post Code</label>
+                        <div class="form-input form">
+                          <input type=text name="postal_code" placeholder="Post Code" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>Country</label>
+                        <div class="form-input form">
+                          <input type=text name="country" placeholder=Country required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>Region/State</label>
+                        <div class=select-items>
+                          <select class=form-control name="state_id" required>
+                            <option value="">select</option>
+                            <?php
+                            foreach (getStates() as $state) { ?>
+                              <option value="<?= $state->id ?>"><?= $state->name ?></option>
+                            <?php }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=col-md-6>
+                      <div class="single-form form-default">
+                        <label>Payment Mode</label>
+                        <div class=select-items>
+                          <select class=form-control name="payment_mode" required>
+                            <option value="">select</option>
+                            <option value="Cash On Delivery">Cash On Delivery</option>
+                            <option value="Online" disabled>Online</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class=col-md-12>
                       <div class="single-checkbox checkbox-style-3">
                         <input type=checkbox id=checkbox-3>
                         <label for=checkbox-3><span></span></label>
                         <p>My delivery and mailing addresses are the same.</p>
                       </div>
                     </div> -->
-                                        <div class=col-md-12>
-                                            <div class="single-form button">
-                                                <button class=btn data-bs-toggle=collapse data-bs-target="#collapseFour" aria-expanded=false aria-controls=collapseFour>Place Order</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </section>
-                        </li>
-                        <!-- <li>
+
+                    <input type="hidden" id="is_otp_verified" value="">
+
+                    <div class=col-md-12>
+                      <div class="single-form button">
+                        <button class=btn data-bs-toggle=collapse data-bs-target="#collapseFour" aria-expanded=false aria-controls=collapseFour>Place Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </li>
+            <!-- <li>
                 <h6 class="title collapsed" data-bs-toggle=collapse data-bs-target="#collapseFour" aria-expanded=false
                   aria-controls=collapseFour>Shipping Address</h6>
                 <section class="checkout-steps-form-content collapse" id=collapseFour aria-labelledby=headingFour
@@ -260,7 +269,7 @@
                   </div>
                 </section>
               </li> -->
-                        <!-- <li>
+            <!-- <li>
                 <h6 class="title collapsed" data-bs-toggle=collapse data-bs-target="#collapsefive" aria-expanded=false
                   aria-controls=collapsefive>Payment Info</h6>
                 <section class="checkout-steps-form-content collapse" id=collapsefive aria-labelledby=headingFive
@@ -311,12 +320,12 @@
                   </div>
                 </section>
               </li> -->
-                    </ul>
-                </div>
-            </div>
-            <div class=col-lg-4>
-                <div class=checkout-sidebar>
-                    <!-- <div class=checkout-sidebar-coupon>
+          </ul>
+        </div>
+      </div>
+      <div class=col-lg-4>
+        <div class=checkout-sidebar>
+          <!-- <div class=checkout-sidebar-coupon>
               <p>Appy Coupon to get discount!</p>
               <form action="#">
                 <div class="single-form form-default">
@@ -329,32 +338,32 @@
                 </div>
               </form>
             </div> -->
-                    <div class="checkout-sidebar-price-table mt-30">
-                        <h5 class=title>Pricing Table</h5>
-                        <div class=sub-total-price>
-                            <?php
-                            $totalAmount = 0;
-                            foreach ($carts as $cart) { ?>
-                                <div class=total-price>
-                                    <p class=value><?= $cart->product_name ?>:</p>
-                                    <p class=price>₹<?= $cart->cost * $cart->quantity ?></p>
-                                </div>
-                            <?php
-                                $totalAmount += ($cart->cost * $cart->quantity);
-                            }
-                            ?>
-                        </div>
-                        <div class=total-payable>
-                            <div class=payable-price>
-                                <p class=value>Subotal Price:</p>
-                                <p class=price>₹<?= $totalAmount ?></p>
-                            </div>
-                        </div>
-                        <!-- <div class="price-table-btn button">
+          <div class="checkout-sidebar-price-table mt-30">
+            <h5 class=title>Pricing Table</h5>
+            <div class=sub-total-price>
+              <?php
+              $totalAmount = 0;
+              foreach ($carts as $cart) { ?>
+                <div class=total-price>
+                  <p class=value><?= $cart->product_name ?>:</p>
+                  <p class=price>₹<?= $cart->cost * $cart->quantity ?></p>
+                </div>
+              <?php
+                $totalAmount += ($cart->cost * $cart->quantity);
+              }
+              ?>
+            </div>
+            <div class=total-payable>
+              <div class=payable-price>
+                <p class=value>Subotal Price:</p>
+                <p class=price>₹<?= $totalAmount ?></p>
+              </div>
+            </div>
+            <!-- <div class="price-table-btn button">
                 <a href="javascript:void(0)" class="btn btn-alt">Checkout</a>
               </div> -->
-                    </div>
-                    <!-- <div class="checkout-sidebar-banner mt-30">
+          </div>
+          <!-- <div class="checkout-sidebar-banner mt-30">
               <a href=product-grids.html>
                 <img data-pagespeed-lazy-src="assets/images/banner/xbanner.jpg.pagespeed.ic.DwfKKdyUMh.jpg" alt="#"
                   src="../../pagespeed_static/1.JiBnMqyl6S.gif"
@@ -362,8 +371,100 @@
                   onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
               </a>
             </div> -->
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="verifyOTPModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Verify OTP:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="mt-3 mb-3">
+              <label> <b>OTP:</b> </label>
+              <input type="text" id="product_otp" class="form-control" value="">
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="verifyOTP()">Verify</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<script>
+  // $(document).ready(function() {
+  function sendOTP() {
+    const mobile = $("#phone_number").val();
+    if(!mobile) {
+      alert("Enter Mobile first");
+      return
+    }
+    $.ajax({
+      type: 'POST',
+      url: baseurl + "Home/PlaceOrderOTP",
+      data: {
+        mobile
+      },
+      // processData: false,
+      // contentType: false,
+      success: function(data) {
+        const response = JSON.parse(data);
+        console.log(response)
+        if (response.result) {
+          $("#verifyOTPModal").modal('show')
+        } else {
+          alert("woops something went wrong while sent otp !!")
+        }
+      }
+    });
+  }
+
+  function verifyOTP() {
+    const mobile = $("#phone_number").val();
+    const otp = $("#product_otp").val();
+    if(!otp) {
+      alert("Enter OTP");
+      return
+    }
+    $.ajax({
+      type: 'POST',
+      url: baseurl + "Home/ProductOrderVerifyOtp",
+      data: {
+        mobile,
+        otp
+      },
+      // processData: false,
+      // contentType: false,
+      success: function(data) {
+        const response = JSON.parse(data);
+        if (response.result) {
+          $("#verifyOTPModal").modal('hide');
+          $("#is_otp_verified").val('yes');
+        } else {
+          alert(response.message)
+        }
+      }
+    });
+  }
+
+  function validateForm() {
+    const isVerified = $("#is_otp_verified").val();
+    if (isVerified == "yes")
+    {
+      return true
+    }
+    else {
+      alert("Verify Mobile No")
+      return false
+    }
+  }
+</script>
