@@ -55,6 +55,7 @@ class Cart extends CI_Controller
     public function placeOrder()
     {
         $carts = $this->Cart_model->All();
+        $orderId = random_number();
         foreach ($carts as $cart) {
             $data = [
                 'first_name' => $this->input->post('first_name'),
@@ -68,11 +69,12 @@ class Cart extends CI_Controller
                 'state_id' => $this->input->post('state_id'),
                 'payment_mode' => $this->input->post('payment_mode'),
                 'product_id' => $cart->product_id,
-                'cost' => $cart->cost,
+                'cost' => $cart->cost * $cart->quantity,
                 'size' => $cart->size,
                 'color' => $cart->color,
                 'quantity' => $cart->quantity,
-                'user_id' => $cart->user_id
+                'user_id' => $cart->user_id,
+                'order_id' => $orderId
             ];
 
             $this->Cart_model->placeOrder($data);
@@ -83,7 +85,7 @@ class Cart extends CI_Controller
             $this->Cart_model->UpdateTableMaster($cartBody, $cart->id);
         }
 
-        $this->session->set_flashdata('msg', array('message' => 'Order placed successfully', 'class' => 'success', 'position' => 'top-right'));
+        $this->session->set_flashdata('order_placed_id', $orderId);
         redirect(base_url('Home'));
     }
 

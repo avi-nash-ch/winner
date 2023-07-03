@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="qty">Cost.</label>
-                        <input class="form-control" type="text" Placeholder="Cost" value="<?= $Product->quantity * $Product->cost ?>" name="cost" id="cost" readonly>
+                        <input class="form-control" type="text" Placeholder="Cost" value="<?= $Product->cost ?>" name="cost" id="cost" readonly>
                     </div>
                     <div class="col-md-3">
                         <label for="payment_mode">Paymet Mode.</label>

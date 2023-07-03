@@ -28,7 +28,7 @@
                             <td><?= $product->first_name .' '.$product->last_name ?></td>
                             <td><?= $product->product_name ?></td>
                             <td><?= $product->quantity ?></td>
-                            <td><?= $product->quantity * $product->cost ?></td>
+                            <td><?= $product->cost ?></td>
                             <td><img src="<?= base_url('uploads/images/'.$product->image); ?>" height="80px" width="80px"></td>
                             <td>
                                 <a href="<?= base_url('backend/Products/OrderedView/' . $product->id) ?>"

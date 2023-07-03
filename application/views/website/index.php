@@ -335,4 +335,11 @@
                 </li>
             </ul>
         </div>
+        <?php
+        // $this->load->view('website/order_success');
+        if($this->session->flashdata('order_placed_id')) {
+            $this->load->view('website/order_success');
+            $this->session->unset_userdata('order_placed_id');
+        }
+        ?>
     </section>
