@@ -85,13 +85,13 @@
                     <div class="col-lg-2 col-md-4 col-12">
                         <div class=top-left>
                             <ul class=menu-top-link>
-                                <li>
+                                <!-- <li>
                                     <div class=select-position>
                                         <select id=select4>
                                             <option value=3>₹ INR</option>
                                         </select>
                                     </div>
-                                </li>
+                                </li> -->
                                 <li>
                                     <!-- <div class=select-position>
                                         <select id=select5>
@@ -112,16 +112,13 @@
                     <div class="col-lg-7 col-md-6 col-12">
                         <div class=top-middle>
                             <ul class=useful-links>
-                                <li><a href=<?= base_url('Home') ?>>Home</a></li>
+                                <!-- <li><a href=<?= base_url('Home') ?>>Home</a></li>
                                 <li><a href=<?= base_url('About-us') ?>>About Us</a></li>
                                 <li><a href=contact.html>Contact Us</a></li>
                                 <li><a href=<?= base_url('Home/FindWorkers') ?>>Find worker</a></li>
                                 <li><a href=<?= base_url('Home/buyItems') ?>>Buy Items</a></li>
-                                <li><a href="<?= base_url('Home/sellItems') ?>">Sell Items</a></li>
+                                <li><a href="<?= base_url('Home/sellItems') ?>">Sell Items</a></li> -->
 
-                                <!-- <li> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
-                                        <a>Sell Items</a>
-                                    </button></li> -->
                             </ul>
                         </div>
                     </div>
@@ -130,9 +127,9 @@
                             <div class=user>
                                 <!-- <i class="lni lni-user"></i> -->
                                 <ul>
-                                    <li>
+                                    <!-- <li>
                                         <a href="<?= base_url('Home/Transport') ?>" style="color: aliceblue;">Transports</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <ul class=user-login>
@@ -172,7 +169,7 @@
                         <div class=main-menu-search>
 
                             <div class="navbar-search search-style-5">
-                                <div class=search-select>
+                                <!-- <div class=search-select>
                                     <div class=select-position>
                                         <select id=select1>
                                             <option selected>All</option>
@@ -183,7 +180,7 @@
                                             <option value=5>option 05</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class=search-input>
                                     <input type=text placeholder=Search>
                                 </div>
@@ -297,11 +294,11 @@
                             <span class=cat-button><i class="lni lni-menu"></i>All Categories</span>
                             <ul class=sub-category>
                                 <?php foreach ($Category as $key => $value) { ?>
-                                    <li><a href=<?= base_url('Home/buyItems') ?>><?= $value->name ?> <i class="lni lni-chevron-right"></i></a>
+                                    <li><a href=#><?= $value->name ?> <i class="lni lni-chevron-right"></i></a>
                                         <ul class=inner-sub-category>
                                             <?php $SubCategory = getSubcategory($value->id);
                                             foreach ($SubCategory as $key => $sub_cat) { ?>
-                                                <li><a href=<?= base_url('Home/buyItems') ?>><?= $sub_cat->name ?></a></li>
+                                                <li><a href=<?= base_url('Home/Products/').$this->url_encrypt->encode($sub_cat->id)?>><?= $sub_cat->name ?></a></li>
 
                                             <?php } ?>
                                         </ul>

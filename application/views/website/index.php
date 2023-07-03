@@ -53,7 +53,7 @@
                         <?php $SubCategory=getSubcategory($value->id); foreach ($SubCategory as $key => $sub_cat) { ?>
                             <li><a href="<?= base_url('Home/Products/').$this->url_encrypt->encode($sub_cat->id)?>"><?= $sub_cat->name ?></a></li>
                             <?php } ?>
-                            <li><a href=product-grids.html>View All</a></li>
+                            <!-- <li><a href=<?= base_url('Home/Products/')?>>View All</a></li> -->
                         </ul>
                         <div class=images>
                             <img src="<?= base_url('uploads/images/'.$value->icon)?>" alt="#">
@@ -90,7 +90,7 @@
                             <span class=sale-tag>-<?= $value->offer ?>%</span>
                             <?php } ?>
                             <div class=button>
-                                <a href="<?= base_url('Home/productDeatils/').$this->url_encrypt->encode($value->id)?>" class=btn><i class="lni lni-cart"></i> Add to Cart</a>
+                                <a href="<?= base_url('Home/productDeatils/').$this->url_encrypt->encode($value->id)?>" class=btn><i class="lni lni-eye"></i> View</a>
                             </div>
                         </div>
                         <div class=product-info>
@@ -119,7 +119,7 @@
         </div>
     </section>
 
-    <section class="home-product-list section">
+    <!-- <section class="home-product-list section">
         <div class=container>
             <div class=row>
                 <div class="col-lg-4 col-md-4 col-12 custom-responsive-margin">
@@ -268,7 +268,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <div class=brands>

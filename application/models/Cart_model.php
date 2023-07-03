@@ -94,4 +94,19 @@ class Cart_model extends MY_Model
         $Query = $this->db->get();
         return $Query->row();
     }
+
+    public function AllApi($user_id)
+    {
+        $userId = $user_id;
+        $this->db->select('cart.*,tbl_product.name as product_name,image');
+        $this->db->from('cart');
+        $this->db->join('tbl_product', 'tbl_product.id=cart.product_id');
+        $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('cart.user_id', $userId);
+        $this->db->where('status', 0);
+        $this->db->order_by('cart.id', 'asc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
 }

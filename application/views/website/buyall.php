@@ -107,7 +107,7 @@
                             <span class=sale-tag>-<?= $value->offer ?>%</span>
                             <?php } ?>
                             <div class=button>
-                                <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
+                                <a href=<?= base_url('Home/productDeatils/').$this->url_encrypt->encode($value->id)?> class=btn><i class="lni lni-eye"></i> View</a>
                             </div>
                         </div>
                         <div class=product-info>

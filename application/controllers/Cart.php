@@ -7,7 +7,7 @@ class Cart extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Cart_model', 'Website_model']);
+        $this->load->model(['Cart_model', 'Website_model','ProductCategory_model']);
     }
 
     public function list()
@@ -16,7 +16,9 @@ class Cart extends CI_Controller
 
         $data = [
             'title' => 'Cart',
-            'carts' => $carts
+            'carts' => $carts,
+            'Category' => $this->ProductCategory_model->All(),
+
         ];
         website('website/cart', $data);
     }
@@ -47,6 +49,7 @@ class Cart extends CI_Controller
         $data = [
             'title' => 'Checkout',
             'carts' => $carts,
+            'Category' => $this->ProductCategory_model->All(),
             'user' => $this->Website_model->getUserById($adminId)
         ];
         website('website/checkout', $data);
