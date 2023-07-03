@@ -146,4 +146,11 @@ if (!function_exists('render')) {
         return rand(100000000000, 999999999999);
     }
 
+    function getOrderedProducts()
+    {
+        $ci = &get_instance();
+        $ci->load->model('Cart_model');
+        return $ci->Cart_model->OrderedProducts();
+    }
+
 }

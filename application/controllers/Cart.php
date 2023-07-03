@@ -102,4 +102,15 @@ class Cart extends CI_Controller
         $response = curl_exec($ch);
         curl_close($ch);
     }
+
+    public function myorder()
+    {
+        $products = $this->Cart_model->OrderedProducts();
+
+        $data = [
+            'title' => 'Ordered products',
+            'products' => $products
+        ];
+        website('website/myorder', $data);
+    }
 }

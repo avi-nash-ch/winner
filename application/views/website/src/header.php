@@ -204,9 +204,9 @@
                             if (!empty($this->session->admin_id)) { ?>
                                 <div class=navbar-cart>
                                     <div class=wishlist>
-                                        <a href="javascript:void(0)">
+                                        <a href="<?= base_url('Cart/myorder')?>">
                                             <i class="lni lni-heart"></i>
-                                            <span class=total-items>0</span>
+                                            <span class=total-items><?= count(getOrderedProducts())?></span>
                                         </a>
                                     </div>
                                     <?php 
