@@ -77,7 +77,8 @@ class Cart extends CI_Controller
                 'color' => $cart->color,
                 'quantity' => $cart->quantity,
                 'user_id' => $cart->user_id,
-                'order_id' => $orderId
+                'order_id' => $orderId,
+                'added_date' => date('Y-m-d H:i:s')
             ];
 
             $this->Cart_model->placeOrder($data);
@@ -87,20 +88,40 @@ class Cart extends CI_Controller
             ];
             $this->Cart_model->UpdateTableMaster($cartBody, $cart->id);
         }
-
+        // $this->sendConfirmedOrderSms($this->input->post('phone'), $orderId);
         $this->session->set_flashdata('order_placed_id', $orderId);
         redirect(base_url('Home'));
     }
 
-    public function sendConfirmedOrderSms($number)
+    public function sendConfirmedOrderSms($number, $orderId)
     {
-        // Send the POST request with cURL
-        $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+        /*$ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=RBOOKS&var1=' . $orderId . '&var2='. date('Y-m-d'));
         curl_setopt($ch, CURLOPT_POST, true);
         // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
         curl_close($ch);
+        */
+
+        // Send the POST request with cURL
+        $message = "Your order $orderId placed on". date('Y-m-d') ."has been confirmed. We’ll pack and dispatch your products soon! You’ll get the shipping details and a tracking link when we dispatch your order.";
+        $message = urlencode($message);
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://2factor.in/API/R1/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg=DLT%20Approved%20Message%20Text%20Goes%20Here',
+          ));
+          
+          $response = curl_exec($curl);
+          
+          curl_close($curl);
     }
 
     public function myorder()
