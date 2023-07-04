@@ -104,7 +104,7 @@ class Cart extends CI_Controller
         */
 
         // Send the POST request with cURL
-        $message = "Your order $orderId placed on". date('Y-m-d') ."has been confirmed. We’ll pack and dispatch your products soon! You’ll get the shipping details and a tracking link when we dispatch your order.";
+        $message = "Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- 9604366262 Regards, -NextGenTech.";
         $message = urlencode($message);
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -116,7 +116,7 @@ class Cart extends CI_Controller
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg=DLT%20Approved%20Message%20Text%20Goes%20Here',
+            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg='.$message
           ));
           
           $response = curl_exec($curl);
