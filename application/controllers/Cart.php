@@ -88,23 +88,17 @@ class Cart extends CI_Controller
             ];
             $this->Cart_model->UpdateTableMaster($cartBody, $cart->id);
         }
-        // $this->sendConfirmedOrderSms($this->input->post('phone'), $orderId);
+
+        $message = "Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- ".CONTACT_PERSON_NUMBER." Regards, -NextGenTech.";
+        // sendSmsNotification($this->input->post('phone'), $message);
         $this->session->set_flashdata('order_placed_id', $orderId);
         redirect(base_url('Home'));
     }
 
-    public function sendConfirmedOrderSms($number, $orderId)
+    /*public function sendConfirmedOrderSms($number, $orderId)
     {
-        /*$ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=RBOOKS&var1=' . $orderId . '&var2='. date('Y-m-d'));
-        curl_setopt($ch, CURLOPT_POST, true);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        */
-
         // Send the POST request with cURL
-        $message = "Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- 9604366262 Regards, -NextGenTech.";
+        $message = "Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- ".CONTACT_PERSON_NUMBER." Regards, -NextGenTech.";
         $message = urlencode($message);
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -116,13 +110,13 @@ class Cart extends CI_Controller
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg='.$message
+            CURLOPT_POSTFIELDS => 'module=TRANS_SMS&apikey='.SMS_API_KEY.'&to='.$number.'&from=Nxgtch&msg='.$message
           ));
           
           $response = curl_exec($curl);
           
           curl_close($curl);
-    }
+    }*/
 
     public function myorder()
     {

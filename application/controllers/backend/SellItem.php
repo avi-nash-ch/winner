@@ -79,6 +79,10 @@ class SellItem extends MY_Controller
 
         $class = $this->SellItem_model->UpdateTableMaster($data, $id);
         if ($class) {
+            if($status == 1) {
+                $message = "Publish message item message";
+                // sendSmsNotification($sellerPhoneNumber, $message);
+            }
             $this->session->set_flashdata('msg', array('message' => 'Verified Status Changed Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));

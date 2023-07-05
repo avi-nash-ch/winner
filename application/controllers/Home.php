@@ -530,7 +530,7 @@ class Home extends CI_Controller
                 $otp = random_int(100000, 999999);
                 $this->Website_model->InsertOtp(['mobile' => $numbers, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
                 // Send the POST request with cURL
-                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey='.SMS_API_KEY.'&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
                 curl_setopt($ch, CURLOPT_POST, true);
                 // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -651,6 +651,7 @@ class Home extends CI_Controller
         if ($this->SellItem_model->CheckDuplicate($title)) {
             $isTitleExists = true;
         }
+        $sellerPhoneNumber = $fieldsValues[6];
         $data = [
             'cat_id' => $fieldsValues[0],
             'sub_cat_id' => $fieldsValues[1],
@@ -763,6 +764,8 @@ class Home extends CI_Controller
         }
 
         if ($this->SellItem_model->AddDynamicFields($fieldData)) {
+            $message = "Post sell item message";
+        // sendSmsNotification($sellerPhoneNumber, $message);
             echo json_encode(['success' => true, 'message' => 'Sell item post successfully']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
@@ -852,7 +855,7 @@ class Home extends CI_Controller
             $otp = random_int(100000, 999999);
             $this->Website_model->InsertOtp(['mobile' => $number, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
             // Send the POST request with cURL
-            $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to=' . $number . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+            $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey='.SMS_API_KEY.'&to=' . $number . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
             curl_setopt($ch, CURLOPT_POST, true);
             // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -932,7 +935,7 @@ class Home extends CI_Controller
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg='.$message
+            CURLOPT_POSTFIELDS => 'module=TRANS_SMS&apikey='.SMS_API_KEY.'&to='.$number.'&from=Nxgtch&msg='.$message
           ));
           
           $response = curl_exec($curl);
