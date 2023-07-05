@@ -893,4 +893,71 @@ class Home extends CI_Controller
         }
         echo json_encode($result);
     }*/
+    public function sell_item_otp()
+    {
+        $result = [];
+        $number = $this->input->post('mobile');
+        if (!empty($number)) {
+            $otp = random_int(100000, 999999);
+            $this->Website_model->InsertOtp(['mobile' => $number, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
+            // Send the POST request with cURL
+            
+            $r = $this->sendSellItemSms($number, $otp);
+
+            if ($r->Status == 'Success') {
+                $result['result'] = true;
+                $result['message'] = "OTP sent successully";
+            } else {
+                $result['result'] = false;
+                $result['code'] = 2;
+            }
+        } else {
+            $result['result'] = false;
+            $result['code'] = 3;
+        }
+        echo json_encode($result);
+    }
+    public function sendSellItemSms($number, $otp)
+    {
+        $tomorrow = date("Y-m-d", strtotime("+1 day"));
+        $message = "Product sell confirmation & you suppose confirm same through above OTP $otp and valid till $tomorrow. - PMS Thank you, -NextGenTech";
+        $message = urlencode($message);
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://2factor.in/API/R1/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => 'module=PROMO_SMS&apikey=64434758-d05b-11ed-81b6-0200cd936042&to='.$number.'&from=Nxgtch&msg='.$message
+          ));
+          
+          $response = curl_exec($curl);
+          
+          curl_close($curl);
+
+          return json_decode($response);
+    }
+
+    public function SellItemVerifyOtp()
+    {
+        $result = [];
+        if (!empty($this->input->post('mobile') && !empty($this->input->post('otp')))) {
+            $check_otp = $this->Website_model->verifyotp($this->input->post('mobile'), $this->input->post('otp'));
+            if (!empty($check_otp)) {
+                $this->Website_model->otpUpdate($check_otp->id);
+                $result['result'] = true;
+            } else {
+                $result['result'] = false;
+                $result['message'] = 'OTP not matched !!';
+            }
+        } else {
+            $result['result'] = false;
+            $result['message'] = "OTP missing";
+        }
+        echo json_encode($result);
+    }
 }

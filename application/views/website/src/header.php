@@ -204,23 +204,23 @@
                             if (!empty($this->session->admin_id)) { ?>
                                 <div class=navbar-cart>
                                     <div class=wishlist>
-                                        <a href="<?= base_url('Cart/myorder')?>">
+                                        <a href="<?= base_url('Cart/myorder') ?>">
                                             <i class="lni lni-heart"></i>
-                                            <span class=total-items><?= count(getOrderedProducts())?></span>
+                                            <span class=total-items><?= count(getOrderedProducts()) ?></span>
                                         </a>
                                     </div>
-                                    <?php 
+                                    <?php
                                     $carts = getCart();
                                     ?>
                                     <div class=cart-items>
                                         <a href="javascript:void(0)" class=main-btn>
                                             <i class="lni lni-cart"></i>
-                                            <span class=total-items><?= count($carts)?></span>
+                                            <span class=total-items><?= count($carts) ?></span>
                                         </a>
                                         <div class=shopping-item>
                                             <div class=dropdown-cart-header>
-                                                <span><?= count($carts)?> Items</span>
-                                                <a href="<?= base_url('Cart/list')?>">View Cart</a>
+                                                <span><?= count($carts) ?> Items</span>
+                                                <a href="<?= base_url('Cart/list') ?>">View Cart</a>
                                             </div>
                                             <ul class=shopping-list>
                                                 <?php
@@ -237,8 +237,8 @@
                                                             <p class=quantity><?= $cart->quantity ?> x - <span class=amount>₹<?= $cart->cost * $cart->quantity ?></span></p>
                                                         </div>
                                                     </li>
-                                                <?php 
-                                                $total += ($cart->cost * $cart->quantity);
+                                                <?php
+                                                    $total += ($cart->cost * $cart->quantity);
                                                 }
                                                 ?>
                                                 <!-- <li>
@@ -269,7 +269,7 @@
                                                     <span class=total-amount>₹<?= $total ?></span>
                                                 </div>
                                                 <div class=button>
-                                                    <a href="<?= base_url('Cart/checkout')?>" class="btn animate">Checkout</a>
+                                                    <a href="<?= base_url('Cart/checkout') ?>" class="btn animate">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +298,7 @@
                                         <ul class=inner-sub-category>
                                             <?php $SubCategory = getSubcategory($value->id);
                                             foreach ($SubCategory as $key => $sub_cat) { ?>
-                                                <li><a href=<?= base_url('Home/Products/').$this->url_encrypt->encode($sub_cat->id)?>><?= $sub_cat->name ?></a></li>
+                                                <li><a href=<?= base_url('Home/Products/') . $this->url_encrypt->encode($sub_cat->id) ?>><?= $sub_cat->name ?></a></li>
 
                                             <?php } ?>
                                         </ul>
@@ -775,6 +775,43 @@
         </div>
     </div>
 
+    <div class="modal" id="sellItemOTP">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title ">Verify OTP</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <form action="/action_page.php" class="was-validated">
+                        <div>
+                            <div class="mb-4 mt-4">
+                                <label for="otp" class="form-label">OTP *</label>
+                                <input type="text" class="form-control" id="otp" name="otp" placeholder="please enter otp" required>
+
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </div>
+                        <!-- YOUR DETAILS -->
+                    </form>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mt-5 mb-3" onclick="verifySellOtp()">Verify OTP</button>
+                    <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- google translate -->
 
     <div class="container">
@@ -858,8 +895,53 @@
                     return false;
                 }
 
-                const dynamicFieldsValues = [];
-                $('.item-custom-field').each(function() {
+                // postSellItem();
+                $("#sellItemOTP").modal("show");
+                sendSellItemOtp();
+            })
+
+            function sendSellItemOtp() {
+                const number = $("#phone").val();
+                $.ajax({
+                    type: 'POST',
+                    url: baseurl + "Home/sell_item_otp",
+                    data: {
+                        mobile: number
+                    },
+                    // processData: false,
+                    // contentType: false,
+                    success: function(data) {
+                        // const response = JSON.parse(data);
+                        $("#sellItemOTP").modal("show");
+                        /*if (response.result) {
+                            $("#sellItemOTP").modal("show");
+                        } else {
+                            alert("Error while send otp")
+                        }*/
+                    }
+                });
+            }
+        })
+
+        function postSellItem() {
+            const fieldsValues = [];
+            $(".mandatory-field").each(function() {
+                fieldsValues.push($(this).val());
+            });
+            const dynamicFieldsValues = [];
+            $('.item-custom-field').each(function() {
+                const currentObj = $(this);
+                const itemId = currentObj.attr('item-id');
+                const itemValue = currentObj.val()
+                const item = {
+                    id: itemId,
+                    value: itemValue
+                };
+                dynamicFieldsValues.push(item);
+            })
+            const selectedCheckboxes = $('input[type=radio].item-custom-checkbox:checked');
+            if (selectedCheckboxes) {
+                $(selectedCheckboxes).each(function(i) {
                     const currentObj = $(this);
                     const itemId = currentObj.attr('item-id');
                     const itemValue = currentObj.val()
@@ -868,55 +950,60 @@
                         value: itemValue
                     };
                     dynamicFieldsValues.push(item);
-                })
-                const selectedCheckboxes = $('input[type=radio].item-custom-checkbox:checked');
-                if (selectedCheckboxes) {
-                    $(selectedCheckboxes).each(function(i) {
-                        const currentObj = $(this);
-                        const itemId = currentObj.attr('item-id');
-                        const itemValue = currentObj.val()
-                        const item = {
-                            id: itemId,
-                            value: itemValue
-                        };
-                        dynamicFieldsValues.push(item);
-                    });
-                }
-
-                var fd = new FormData();
-                var image1 = $('#image1')[0].files[0];
-                var image2 = $('#image2')[0].files[0];
-                var image3 = $('#image3')[0].files[0];
-                fd.append('image1', image1);
-                fd.append('image2', image1);
-                fd.append('image3', image1);
-                fd.append('dynamicFieldsValues', JSON.stringify(dynamicFieldsValues));
-                fd.append('fieldsValues', JSON.stringify(fieldsValues));
-                console.log(fd)
-                // return
-                // {
-                //     dynamicFieldsValues,
-                //     fieldsValues
-                // },
-
-                $.ajax({
-                    type: 'POST',
-                    url: baseurl + "Home/postSellItem",
-                    data: fd,
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        const response = JSON.parse(data);
-                        $("#postModal").modal('hide')
-                        if (response.success) {
-                            alert("Post Added successfully.. it will take 1-2 days for publish")
-                            location.reload();
-                            console.log(response.message)
-                        } else {
-                            console.log(response.message)
-                        }
-                    }
                 });
-            })
-        })
+            }
+
+            var fd = new FormData();
+            var image1 = $('#image1')[0].files[0];
+            var image2 = $('#image2')[0].files[0];
+            var image3 = $('#image3')[0].files[0];
+            fd.append('image1', image1);
+            fd.append('image2', image1);
+            fd.append('image3', image1);
+            fd.append('dynamicFieldsValues', JSON.stringify(dynamicFieldsValues));
+            fd.append('fieldsValues', JSON.stringify(fieldsValues));
+
+            $.ajax({
+                type: 'POST',
+                url: baseurl + "Home/postSellItem",
+                data: fd,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    const response = JSON.parse(data);
+                    $("#postModal").modal('hide')
+                    if (response.success) {
+                        alert("Post Added successfully.. it will take 1-2 days for publish")
+                        location.reload();
+                    } else {
+                        console.log(response.message)
+                    }
+                }
+            });
+        }
+
+        function verifySellOtp() {
+            const otp = $("#otp").val();
+            const number = $("#phone").val();
+            $.ajax({
+                type: 'POST',
+                url: baseurl + "Home/SellItemVerifyOtp",
+                data: {
+                    mobile: number,
+                    otp
+                },
+                // processData: false,
+                // contentType: false,
+                success: function(data) {
+                    const response = JSON.parse(data);
+                    if (response.result) {
+                        $("#sellItemOTP").modal('hide')
+                        alert("OTP verified")
+                        postSellItem();
+                    } else {
+                        alert("OTP not matched")
+                    }
+                }
+            });
+        }
     </script>
