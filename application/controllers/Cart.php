@@ -130,6 +130,7 @@ class Cart extends CI_Controller
 
         $data = [
             'title' => 'Ordered products',
+            'Category' => $this->ProductCategory_model->All(),
             'products' => $products
         ];
         website('website/myorder', $data);

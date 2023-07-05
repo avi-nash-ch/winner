@@ -537,7 +537,6 @@ class Home extends CI_Controller
                 $response = curl_exec($ch);
                 curl_close($ch);
                 $r = json_decode($response);
-                //    echo $response;
                 if ($r->Status == 'Success') {
                     $result['result'] = true;
                     $result['data'] = $data;

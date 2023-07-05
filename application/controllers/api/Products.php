@@ -31,7 +31,7 @@ class Products extends REST_Controller
     {
         $this->load->model(['Cart_model']);
         $user_id = $this->input->post('user_id');
-        $All = $this->Product_model->AllApi($user_id);
+        $All = $this->Cart_model->AllApi($user_id);
         if ($All) {
             $data = [
                 'List' => $All,
@@ -74,12 +74,13 @@ class Products extends REST_Controller
 
     public function productAddToCart_post()
     {
-        $this->load->modal('Cart_model');
+        $this->load->model('Cart_model');
         $size = $this->input->post('size');
         $color = $this->input->post('color');
         $qty = $this->input->post('qty');
         $productId = $this->input->post('product_id');
         $cost = $this->input->post('cost');
+        $user_id = $this->input->post('user_id');
 
         // $cost = (float) filter_var($cost, FILTER_SANITIZE_NUMBER_INT);
         $cost = (float) str_replace(',', '', $cost);
@@ -90,10 +91,23 @@ class Products extends REST_Controller
             'color' => $color,
             'cost' => $cost,
             'quantity' => $qty,
-            'user_id' =>  $this->session->userdata('admin_id')
+            'user_id' =>  $user_id
         ];
-        $this->Cart_model->AddTableMaster($data);
-
+        $id=$this->Cart_model->AddTableMaster($data);
+        if($id){
+            $result = [
+                'message' => 'Success',
+                'code' => HTTP_OK,
+            ];
+            $this->response($result, HTTP_OK);
+        }else{
+            $result = [
+                'message' => 'failed',
+                'code' => HTTP_OK,
+            ];
+            $this->response($result, HTTP_OK);
+        }
+        
         $response = ['status' => true, 'message' => 'Product added to cart'];
 
         echo json_encode($response);
@@ -101,7 +115,7 @@ class Products extends REST_Controller
 
     public function removeCart_post()
     {
-        $this->load->modal('Cart_model');
+        $this->load->model('Cart_model');
         $cart_id = $this->input->post('cart_id');
         $this->Cart_model->removeCart($cart_id);
 
