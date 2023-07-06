@@ -44,7 +44,7 @@ define('HTTP_NOT_ACCEPTABLE', 406);
 
 /****************** SMS API KEY ****************** */
 define('SMS_API_KEY', '64434758-d05b-11ed-81b6-0200cd936042');
-define('CONTACT_PERSON_NUMBER', '64434758-d05b-11ed-81b6-0200cd936042');
+define('CONTACT_PERSON_NUMBER', '8767998452');
 
 /*
 |--------------------------------------------------------------------------

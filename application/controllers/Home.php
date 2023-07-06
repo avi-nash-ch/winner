@@ -530,7 +530,7 @@ class Home extends CI_Controller
                 $otp = random_int(100000, 999999);
                 $this->Website_model->InsertOtp(['mobile' => $numbers, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
                 // Send the POST request with cURL
-                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey='.SMS_API_KEY.'&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
+                $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=' . SMS_API_KEY . '&to=' . $numbers . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $otp . '&var2=PratapMultiServices');
                 curl_setopt($ch, CURLOPT_POST, true);
                 // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -659,7 +659,7 @@ class Home extends CI_Controller
             'description' => $fieldsValues[3],
             'price' => $fieldsValues[4],
             'seller_name' => $fieldsValues[5],
-            'seller_phone' => $fieldsValues[6],
+            'seller_phone' => $sellerPhoneNumber,
             'seller_state' => $fieldsValues[7],
             'seller_village' => $fieldsValues[8],
             'seller_taluka' => $fieldsValues[9],
@@ -764,8 +764,11 @@ class Home extends CI_Controller
         }
 
         if ($this->SellItem_model->AddDynamicFields($fieldData)) {
-            $message = "Post sell item message";
-        // sendSmsNotification($sellerPhoneNumber, $message);
+            // $categoryData = $this->SellCategory_model->ViewTableMaster($fieldsValues[0]);
+            // echo "<pre>";print_r($categoryData);die;
+            // $message = urldecode("Dear Pratap, We have received new request for selling old item with category $categoryData->name. Your approval required. Thanks, -NextGenTech");
+            $message = "Dear Pratap, We have received new request for selling old item. Your approval required. Thanks, -NextGenTech";
+            sendSmsNotification(CONTACT_PERSON_NUMBER, $message);
             echo json_encode(['success' => true, 'message' => 'Sell item post successfully']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Error ! while post.. ']);
@@ -904,8 +907,7 @@ class Home extends CI_Controller
             $otp = random_int(100000, 999999);
             $this->Website_model->InsertOtp(['mobile' => $number, 'otp' => $otp, 'added_date' => date('Y-m-d H:i:s')]);
             // Send the POST request with cURL
-            
-            $r = $this->sendSellItemSms($number, $otp);
+            $r = $this->sendSellItemOtp($number, $otp);
 
             if ($r->Status == 'Success') {
                 $result['result'] = true;
@@ -920,7 +922,7 @@ class Home extends CI_Controller
         }
         echo json_encode($result);
     }
-    public function sendSellItemSms($number, $otp)
+    public function sendSellItemOtp($number, $otp)
     {
         $tomorrow = date("Y-m-d", strtotime("+1 day"));
         $message = "Product sell confirmation & you suppose confirm same through above OTP $otp and valid till $tomorrow. - PMS Thank you, -NextGenTech";
@@ -935,14 +937,14 @@ class Home extends CI_Controller
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'module=TRANS_SMS&apikey='.SMS_API_KEY.'&to='.$number.'&from=Nxgtch&msg='.$message
-          ));
-          
-          $response = curl_exec($curl);
-          
-          curl_close($curl);
+            CURLOPT_POSTFIELDS => 'module=TRANS_SMS&apikey=' . SMS_API_KEY . '&to=' . $number . '&from=Nxgtch&msg=' . $message
+        ));
 
-          return json_decode($response);
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($response);
     }
 
     public function SellItemVerifyOtp()

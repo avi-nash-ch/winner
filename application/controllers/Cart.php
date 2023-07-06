@@ -89,8 +89,8 @@ class Cart extends CI_Controller
             $this->Cart_model->UpdateTableMaster($cartBody, $cart->id);
         }
 
-        $message = "Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- ".CONTACT_PERSON_NUMBER." Regards, -NextGenTech.";
-        // sendSmsNotification($this->input->post('phone'), $message);
+        $message = urldecode("Your order has been successfully placed at PRATAP MULTI SERVICES. Your order number is $orderId. For more details, please contact us at helpline number- ".CONTACT_PERSON_NUMBER." Regards, -NextGenTech.");
+        sendSmsNotification($this->input->post('phone'), $message);
         $this->session->set_flashdata('order_placed_id', $orderId);
         redirect(base_url('Home'));
     }

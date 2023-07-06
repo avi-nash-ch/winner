@@ -197,7 +197,7 @@ if (!function_exists('render')) {
           
           curl_close($curl);
 
-          echo json_encode($response);die;
+        //   echo json_encode($response);die;
     }
 
 }
