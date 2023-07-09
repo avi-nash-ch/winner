@@ -46,13 +46,6 @@ private $data;
         $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
          
         Send_SMS($MobileNo,'The OTP is '.$OTP);
-        // $url = "http://androapps.msg4all.com/GatewayAPI/rest?method=SendMessage&send_to=$MobileNo&msg=Your+Verification+Code+is+%3A-+$OTP&msg_type=TEXT&loginid=Rupee1&auth_scheme=plain&password=nV12IxSoD&v=1.1&format=text";
-
-        // $curl = curl_init();
-        // curl_setopt($curl, CURLOPT_URL, $url);
-        // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($curl, CURLOPT_HEADER, false);
-        // $strc = curl_exec($curl);
         $strc = true;
         if ($strc) {
             $data['message'] = 'OTP Sent Successfully';
