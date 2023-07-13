@@ -9,12 +9,12 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Category</th>
+                            <!-- <th>Category</th> -->
                             <th>Name</th>
-                            <th>Location</th>
+                            <!-- <th>Location</th> -->
                             <th>Whatsapp No</th>
                             <th>Address</th>
-                            <th>Service Provider</th>
+                            <!-- <th>Service Provider</th> -->
                             <th>Added Date</th>
                             <th>Action</th>
                         </tr>
@@ -27,12 +27,12 @@
                         ?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?= $worker->category ?></td>
+                            <!-- <td><?= $worker->category ?></td> -->
                             <td><?= $worker->name ?></td>
-                            <td><?= $worker->location ?></td>
+                            <!-- <td><?= $worker->location ?></td> -->
                             <td><?= $worker->whatsapp_no ?></td>
                             <td><?= $worker->address ?></td>
-                            <td><?= $worker->service_provider ?></td>
+                            <!-- <td><?= $worker->service_provider ?></td> -->
                             <td><?= date("d-m-Y h:i A", strtotime($worker->added_date)) ?></td>
                             <td>
                                 <a href="<?= base_url('backend/Workers/edit/' . $worker->id) ?>"

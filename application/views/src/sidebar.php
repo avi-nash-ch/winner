@@ -18,7 +18,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <a href="<?= base_url('backend/Workers') ?>" class="waves-effect">
                             <a href="<?= base_url('backend/Workers') ?>">
                                 <i class="ion ion-md-contact"></i>
-                                <span>Manage Workers</span>
+                                <span>Manage Delevery Boy </span>
                             </a>
                     </li>
                     <li class="<?= (array_filter([strpos($final_url, "backend/shops")], 'is_numeric')) ? 'mm-active' : '' ?>">
@@ -28,13 +28,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <span>Manage Shops</span>
                             </a>
                     </li>
-                    <li class="<?= (array_filter([strpos($final_url, "backend/Transport")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                        <a href="<?= base_url('backend/Transport') ?>" class="waves-effect">
-                            <a href="<?= base_url('backend/Transport') ?>">
-                                <i class="ion ion-md-contact"></i>
-                                <span>Manage Transports</span>
-                            </a>
-                    </li>
+                
                     <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ion ion-md-contact"></i>
@@ -46,10 +40,6 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <a href="<?= base_url('backend/ProductCategory') ?>" class="waves-effect">
                                     <span>Category</span></a>
                             </li>
-                            <li class="<?= (array_filter([strpos($final_url, "backend/Brands")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                                <a href="<?= base_url('backend/Brands') ?>" class="waves-effect">
-                                    <span>Brands</span></a>
-                            </li>
                             <li class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
                                     <span>Products</span></a>
@@ -60,27 +50,8 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             </li>
                         </ul>
                     </li>
-                    <li class="">
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ion ion-md-contact"></i>
-                            <span>Masters</span>
-                        </a>
-                        <ul class="sub-menu mm-collapse">
-
-                            <li class="<?= (array_filter([strpos($final_url, "backend/category")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                                <a href="<?= base_url('backend/Category') ?>" class="waves-effect">
-                                    <span>Category</span></a>
-                            </li>
-
-                            <li class="<?= (array_filter([strpos($final_url, "backend/location")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                                <a href="<?= base_url('backend/Location') ?>" class="waves-effect">
-                                    <span>Location</span></a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="">
+        
+                    <!-- <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ion ion-md-contact"></i>
                             <span>Sell Items</span>
@@ -107,9 +78,9 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             </li>
 
                         </ul>
-                    </li>
+                    </li> -->
 
-                    <li class="<?= (array_filter([strpos($final_url, "backend/users")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                    <!-- <li class="<?= (array_filter([strpos($final_url, "backend/users")], 'is_numeric')) ? 'mm-active' : '' ?>">
                         <a href="<?= base_url('backend/Users') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
                             <span>Users</span></a>
@@ -123,11 +94,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                         <a href="<?= base_url('backend/Transport/Contact') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
                             <span>Contact to Transport</span></a>
-                    </li>
+                    </li> -->
                     <li class="<?= (array_filter([strpos($final_url, "backend/Products/ordered")], 'is_numeric')) ? 'mm-active' : '' ?>">
                         <a href="<?= base_url('backend/Products/ordered') ?>" class="waves-effect">
                             <i class="ion ion-md-contact"></i>
-                            <span>Ordered Products</span></a>
+                            <span>Manage Orders</span></a>
                     </li>
                 <?php } else { ?>
                     <li class="">
@@ -141,15 +112,20 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <a href="<?= base_url('backend/ProductCategory') ?>" class="waves-effect">
                                     <span>Category</span></a>
                             </li>
-                            <li class="<?= (array_filter([strpos($final_url, "backend/Brands")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <!-- <li class="<?= (array_filter([strpos($final_url, "backend/Brands")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Brands') ?>" class="waves-effect">
                                     <span>Brands</span></a>
-                            </li>
-                            <li class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            </li> -->
+                            <li class="<?= (array_filter([strpos($final_url, "backend/products")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
                                     <span>Products</span></a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="<?= (array_filter([strpos($final_url, "backend/Products/ordered")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                        <a href="<?= base_url('backend/Products/ordered') ?>" class="waves-effect">
+                            <i class="ion ion-md-contact"></i>
+                            <span>Manage Orders</span></a>
                     </li>
                 <?php } ?>
             </ul>

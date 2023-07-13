@@ -19,21 +19,19 @@ private $data;
             $this->response($data, HTTP_OK);
             exit();
         }
-        if (!isset($header['Content-Type']) && $header['Content-Type']!= 'application/json') {
-            $data['message'] = 'Invalid Data';
-            $data['code'] = HTTP_UNAUTHORIZED;
-            $this->response($data, HTTP_OK);
-            exit();
-        }
-        $this->data = json_decode(file_get_contents('php://input'));
-
+        // if (!isset($header['Content-Type']) && $header['Content-Type']!= 'application/json') {
+        //     $data['message'] = 'Invalid Data';
+        //     $data['code'] = HTTP_UNAUTHORIZED;
+        //     $this->response($data, HTTP_OK);
+        //     exit();
+        // }
         $this->load->model([
-            'Users_model'
+            'Users_model','Website_model'
         ]);
     }
     function index_post() {
         
-        $MobileNo = $this->data->MobileNo;
+        $MobileNo = $this->input->post('MobileNo');
        
         if (empty($MobileNo) || strlen($MobileNo) !== 10) {
             $data['message'] = 'Invalid Mobile Number';
@@ -41,15 +39,16 @@ private $data;
             $this->response($data, HTTP_OK);
             exit();
         }
-        //$OTP = rand(100000,999999);
+        // $OTP = rand(100000,999999);
         $OTP = 9988;
-        $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
+        // $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
          
-        Send_SMS($MobileNo,'The OTP is '.$OTP);
+        // Send_OTP($MobileNo,$OTP);
         $strc = true;
         if ($strc) {
             $data['message'] = 'OTP Sent Successfully';
-            $data['id'] = $this->url_encrypt->encode($GenerateOTP);
+            // $data['id'] = $this->url_encrypt->encode($GenerateOTP);
+            $data['id'] = 1;
             $data['code'] = HTTP_OK;
             $this->response($data, HTTP_OK);
         } else {
@@ -59,81 +58,62 @@ private $data;
         }
         // curl_close($curl);
     }
-    function Confirm_post() {
-        $OTP = $this->data->OTP;
-        $id = $this->data->Id;
-        $MobileNo = $this->data->MobileNo;
-        $FCM = $this->data->fcm;
-        if (empty($OTP)) {
-            $data['message'] = 'Invalid OTP';
-            $data['code'] = HTTP_BLANK;
-            $this->response($data, HTTP_OK);
-            exit();
-        }
-        if (empty($MobileNo)) {
-            $data['message'] = 'Invalid Mobile Number';
-            $data['code'] = HTTP_BLANK;
-            $this->response($data, HTTP_OK);
-            exit();
-        }
-        if (empty($FCM)) {
-            $data['message'] = 'Invalid Param';
-            $data['code'] = HTTP_BLANK;
-            $this->response($data, HTTP_OK);
-            exit();
-        }
-        if (empty($id)) {
-            $data['message'] = 'Invalid User';
-            $data['code'] = HTTP_BLANK;
-            $this->response($data, HTTP_OK);
-            exit();
-        }
-        $OTPConfirm = $this->Users_model->OTPConfirm($this->url_encrypt->decode($id), $OTP, $MobileNo);
-        if ($OTPConfirm) {
-            //check user already registed
-            $UserDetails = $this->Users_model->UserByMobile($MobileNo);
-            if($UserDetails)
-            {
-                //update token
-                UpdateToken($UserDetails->id,$FCM);
-                $UserDetails = $this->Users_model->UserByMobile($MobileNo);
-                $data=[
-                    'UserId'=> $UserDetails->token,
-                    'token'=>$this->url_encrypt->encode($UserDetails->id),
-                    'message'=>'Success',
-                    'AlreadyRegistered'=>TRUE,
-                    'code'=>HTTP_OK
-                ];
-                $this->response($data, HTTP_OK);
-            }else{
-                // Register User
-                $RegisterUser = $this->Users_model->RegisterUser($MobileNo);
-                if($RegisterUser)
-                {
-                    UpdateToken($RegisterUser,$FCM);
-                    $UserDetails = $this->Users_model->UserByMobile($MobileNo);
-                    $data=[
-                        'UserId'=> $UserDetails->token,
-                        'token'=>$this->url_encrypt->encode($UserDetails->id),
-                        'message'=>'Success',
-                        'AlreadyRegistered'=>FALSE,
-                        'code'=>HTTP_OK
-                    ];
-                    $this->response($data, HTTP_OK);
-                }else{
-                    $data=[
-                       
-                        'message'=>'Technical Error',
-                        'code'=>HTTP_NOT_ACCEPTABLE
-                    ];
-                    $this->response($data, HTTP_OK);
-                }
-                
-            }
-        } else {
-            $data['message'] = 'OTP Not Matched1';
+    function statusUpdate_post() {
+        
+        $status = $this->input->post('status');
+        $latitude = $this->input->post('latitude');
+        $longitude = $this->input->post('longitude');
+        $fcm = $this->input->post('fcm');
+        $user_id = $this->input->post('user_id');
+       
+        if (empty($status) || empty($user_id)) {
+            $data['message'] = 'Invalid User Id';
             $data['code'] = HTTP_NOT_ACCEPTABLE;
             $this->response($data, HTTP_OK);
+            exit();
         }
+        $result = $this->Website_model->statusUpdate($id,$status,$latitude,$longitude,$fcm);
+        if ($result) {
+            $data['message'] = 'updated Successfully';
+            $data['code'] = HTTP_OK;
+            $this->response($data, HTTP_OK);
+        } else {
+            $data['code'] = HTTP_FORBIDDEN;
+            $data['message'] = 'Something Went Wrong';
+            $this->response(NULL, 200);
+        }
+        // curl_close($curl);
     }
+    public function VerifyOtp_post()
+    {
+        $result = [];
+        $data = $this->Website_model->getDeleveryrData($this->input->post('mobile'));
+        if (!empty($data)) {
+            $check_otp = $this->Website_model->verifyotp($this->input->post('mobile'), $this->input->post('otp'));
+            if (!empty($check_otp)) {
+                // $user_data = array(
+                //     'admin_id' => $data->id,
+                //     'email' => $data->email,
+                //     'name' => $data->first_name,
+                // );
+                // $this->Website_model->otpUpdate($check_otp->id);
+                $result['message'] = 'OTP Verified Successfully';
+                $result['result'] = $data;
+                $result['code'] = HTTP_OK;
+                $this->response($result, HTTP_OK);
+                // $result['date'] = $data;
+            } else {
+                $result['code'] = 404;
+                $result['message'] = 'Otp not matched';
+                $this->response($result, 400);
+            }
+        } else {
+            $result['code'] = 404;
+            $result['message'] = 'Something went wrong.';
+            $this->response($result, 400);
+            // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
+        }
+        // echo json_encode($result);
+    }
+
 }

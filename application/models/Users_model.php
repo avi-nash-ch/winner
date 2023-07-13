@@ -110,6 +110,7 @@ class Users_model extends MY_Model
     public function InsertOTP($MobileNo, $OTP)
     {
         $this->db->where('mobile', $MobileNo);
+        $this->db->where('isVerified',0);
         $Query = $this->db->get('tbl_otp');
         $OTPRecord = $Query->row();
         if ($OTPRecord) {
@@ -442,14 +443,11 @@ class Users_model extends MY_Model
 
     public function UserProfile($id)
     {
-        $this->db->select('user.*');
-        $this->db->from('user');
+        $this->db->select('tbl_worker.*');
+        $this->db->from('tbl_worker');
         $this->db->where('isDeleted', false);
-        $this->db->where('user.id', $id);
-
+        $this->db->where('tbl_worker.id', $id);
         $Query = $this->db->get();
-        // echo $this->db->last_query();
-        // die();
         return $Query->result();
     }
 

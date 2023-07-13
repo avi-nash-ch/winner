@@ -67,7 +67,7 @@ class Workers extends MY_Controller
     {
         $product_image='';
         $product_image2='';
-        $product_imag3='';
+        $product_image3='';
         $product_image4='';
         if (! empty($_FILES['product_image']['name'])) {
             $_FILES['images']['name'] = $_FILES['product_image']['name'];
@@ -155,12 +155,12 @@ class Workers extends MY_Controller
         }
         $data = [
             'name' => $this->input->post('name'),
-            'category' => $this->input->post('category'),
-            'location' => $this->input->post('location'),
+            // 'category' => $this->input->post('category'),
+            // 'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
             'shop_name' => $this->input->post('shop_name'),
-            'service_provider' => $this->input->post('service_provider'),
+            // 'service_provider' => $this->input->post('service_provider'),
             'image' => $product_image,
             'image2' => $product_image2,
             'image3' => $product_image3,
@@ -186,16 +186,16 @@ class Workers extends MY_Controller
     {
         $product_image='';
         $product_image2='';
-        $product_imag3='';
+        $product_image3='';
         $product_image4='';
         $data = [
             'name' => $this->input->post('name'),
-            'category' => $this->input->post('category'),
-            'location' => $this->input->post('location'),
+            // 'category' => $this->input->post('category'),
+            // 'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
-            'shop_name' => $this->input->post('shop_name'),
-            'service_provider' => $this->input->post('service_provider'),
+            // 'shop_name' => $this->input->post('shop_name'),
+            // 'service_provider' => $this->input->post('service_provider'),
             'updated_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {

@@ -10,12 +10,10 @@
                         <tr>
                             <th>Sr. No.</th>
                             <th>Product Name</th>
-                            <th>Qty</th>
-                            <th>Available Qty</th>
                             <th>Sale Price</th>
                             <th>Image</th>
                             <th>Added Date</th>
-                            <th>Most Viewed</th>
+                            <!-- <th>Most Viewed</th> -->
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -28,19 +26,17 @@
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $AllProduct->name ?></td>
-                            <td><?= $AllProduct->qty ?></td>
-                            <td><?= $AllProduct->qty ?></td>
                             <td><?= $AllProduct->price_sale ?></td>
                             <td><img src="<?= base_url('uploads/images/'.$AllProduct->image); ?>" height="80px" width="80px"></td>
                             <td><?= date("d-m-Y h:i A", strtotime($AllProduct->added_date)) ?></td>
-                            <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $AllProduct->id ?>')" <?= !empty($AllProduct->most_viewd)?'checked':'' ?>></td>
+                            <!-- <td><input type="checkbox"  name="most_viewed" onclick="most_viewed(this,'<?= $AllProduct->id ?>')" <?= !empty($AllProduct->most_viewd)?'checked':'' ?>></td> -->
                             <td>
                                 <a href="<?= base_url('backend/Products/edit/' . $AllProduct->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                        class="fa fa-edit"></span></a>|
-                                        <a href="<?= base_url('backend/Products/features/' . $AllProduct->id) ?>"
+                                        class="fa fa-edit"></span></a>
+                                        <!-- <a href="<?= base_url('backend/Products/features/' . $AllProduct->id) ?>"
                                     class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add Features"><span
-                                        class="fa fa-plus"></span></a>
+                                        class="fa fa-plus"></span></a> -->
                                 | <a href="<?= base_url('backend/Products/delete/' . $AllProduct->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>

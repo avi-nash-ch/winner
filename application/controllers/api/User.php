@@ -12,21 +12,21 @@ class User extends REST_Controller
     public function __construct()
     {
         parent::__construct();
-        // $header = $this->input->request_headers('token');
+        $header = $this->input->request_headers('token');
 
-        // if (!isset($header['token'])) {
-        //     $data['message'] = 'Invalid Request';
-        //     $data['code'] = HTTP_UNAUTHORIZED;
-        //     $this->response($data, HTTP_OK);
-        //     exit();
-        // }
+        if (!isset($header['token'])) {
+            $data['message'] = 'Invalid Request';
+            $data['code'] = HTTP_UNAUTHORIZED;
+            $this->response($data, HTTP_OK);
+            exit();
+        }
 
-        // if ($header['token'] != getToken()) {
-        //     $data['message'] = 'Invalid Authorization';
-        //     $data['code'] = HTTP_METHOD_NOT_ALLOWED;
-        //     $this->response($data, HTTP_OK);
-        //     exit();
-        // }
+        if ($header['token'] != getToken()) {
+            $data['message'] = 'Invalid Authorization';
+            $data['code'] = HTTP_METHOD_NOT_ALLOWED;
+            $this->response($data, HTTP_OK);
+            exit();
+        }
 
         $this->data = $this->input->post();
 
@@ -63,6 +63,25 @@ class User extends REST_Controller
             exit();
         }
     }
+
+    public function userById_post()
+    {
+        $user = $this->Users_model->UserProfile($this->data['user_id']);
+        if ($user) {
+            $data['message'] = 'Success';
+            $data['user_data'] = $user;
+            $data['code'] = HTTP_OK;
+            $this->response($data, HTTP_OK);
+            exit();
+        } else {
+                $data['message'] = 'Invalid Id';
+                $data['code'] = 408;
+                $this->response($data, HTTP_OK);
+                exit();
+           
+        }
+    }
+
 
     public function login_post()
     {

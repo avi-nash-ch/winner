@@ -42,7 +42,7 @@
                         </div>
                         <?php } ?>
                 <div class="form-group row">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <label for="name">Category *</label>
                        <select class="form-control select2" name="cat" required>
                         <option value="">Select Category</option>
@@ -52,7 +52,7 @@
                        </select>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                     <label for="name">Sub Category *</label>
                        <select class="form-control select2" name="sub_cat" required>
                         <option value="">Select Category</option>
@@ -61,69 +61,28 @@
                    <?php } ?>
                        </select>
                     </div>
-                    <div class="col-md-2">
-                    <label for="name">Color *</label>
-                       <select class="form-control select2" name="color[]" data-placeholder="Select Color" multiple required>
-                        <option value="">Select Color</option>
-                        <option value="1">White</option>
-                        <option value="2">Red</option>
-                        <option value="3">Blue</option>
-                        <option value="4">Green</option>
-                        <option value="5">Yellow</option>
-                        <option value="6">Pink</option>
-                        <option value="7">Black</option>
-                        <option value="8">Brown</option>
+                    <div class="col-md-3">
+                    <label for="name">Food Type *</label>
+                       <select class="form-control select2" name="food_type" required>
+                        <option value="">Select Type</option>
+                        <option value="1">Veg</option>
+                        <option value="2">Non-Veg</option>
                        </select>
                     </div>
-                    <div class="col-md-2">
-                    <label for="name">Age </label>
-                       <select class="form-control select2" data-placeholder="Select Age" name="age[]" multiple>
-                        <option value="">Select Age</option>
-                        <?php for ($i=1; $i <81 ; $i++) { ?>
-                        <option value="<?= $i ?>"><?= $i ?></option>
-                    <?php } ?>
-                       </select>
-                    </div>
-                    <div class="col-md-2">
-                    <label for="name">For *</label>
-                       <select class="form-control select2" name="for" required>
-                        <option value="">Select For </option>
-                        <option value="1">Men</option>
-                        <option value="2">Boys</option>
-                        <option value="3">Girl</option>
-                        <option value="4">Women</option>
-                       </select>
-                    </div>
-                    <div class="col-md-2">
-                    <label for="name">Size *</label>
-                       <select class="form-control select2" data-placeholder="Select Size" name="size[]" multiple required>
-                        <option value="">Select Size </option>
-                        <option value="1">L</option>
-                        <option value="2">XL</option>
-                        <option value="3">M</option>
-                        <option value="4">S</option>
-                       </select>
-                    </div>
+                 
                 </div>
                 <div class="form-group row">
                
-                <div class="col-md-3">
+                <div class="col-md-8">
                     <label for="name">Product Name *</label>
-                        <input class="form-control" type="text" Placeholder="Name"  name="name" required
-                            id="name">
+                    <textarea class="form-control" type="text" Placeholder="Product Name *" name="name"
+                            id="desc"></textarea>
+                        <!-- <input class="form-control" type="text" Placeholder="Name"  name="name" required
+                            id="name"> -->
                     </div>
-                    <div class="col-md-2">
-                    <label for="qty">Qty. *</label>
-                        <input class="form-control" type="number" Placeholder="Price"  name="qty" required
-                            id="prcie">
-                    </div>
+                   
                     <div class="col-md-3">
-                    <label for="price">Purchase Price Per Piece *</label>
-                        <input class="form-control" type="text" Placeholder="Price"  name="purchase_price" required
-                            id="prcie">
-                    </div>
-                    <div class="col-md-3">
-                    <label for="price">Sale Price Per Piece *</label>
+                    <label for="price">Sale Price *</label>
                         <input class="form-control" type="text" Placeholder="Price"  name="sale_price" required
                             id="prcie">
                     </div>
@@ -137,30 +96,12 @@
                             id="desc"></textarea>
                     </div>
                     <div class="col-md-3">
-                    <label for="name">Brand *</label>
-                       <select class="form-control select2" name="brand" required>
-                        <option value="">Select Brand</option>
-                        <?php foreach ($AllBrands as $key => $value) { ?>
-                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
-                   <?php } ?>
-                       </select>
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                <div class="col-md-3">
-                    <label for="product_code">ISBN/Product Code</label>
-                        <input class="form-control" type="text" Placeholder="ISBN/Product Code"  name="product_code"
-                            id="product_code">
-                    </div>
-                   
-                    <div class="col-md-3">
                     <label for="discount">Discount in %</label>
                         <input class="form-control" type="text" Placeholder="discount" name="discount"
                             id="discount">
                     </div>
                 </div>
-
+                
                 <div class="form-group row">
                     <div class="col-md-2">
                     <div class="holder">

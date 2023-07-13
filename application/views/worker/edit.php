@@ -29,7 +29,7 @@
                 'id'=> $Product->id])
                 ?>
              <div class="form-group row">
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <label for="category">Category *</label>
                        <select class="form-control" name="category" required>
                         <option value="">Select Category</option>
@@ -37,7 +37,7 @@
                         <option value="<?= $value->id ?>" <?= ($Product->category==$value->id)?'selected':''?>><?= $value->name ?></option>
                    <?php } ?>
                        </select>
-                    </div>
+                    </div> -->
                     <div class="col-md-3">
                     <label for="name">Name *</label>
                         <input class="form-control" type="text" Placeholder="Name"  value="<?= $Product->name?>" name="name" required
@@ -48,11 +48,11 @@
                         <input class="form-control" type="text" Placeholder="Whatsapp No." value="<?= $Product->whatsapp_no?>" name="whatsapp_no"
                             id="whatsapp_no">
                     </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                     <label for="service_provider">Service Provider</label>
                         <input class="form-control" type="text" Placeholder="Service Provider" value="<?= $Product->service_provider ?>" name="service_provider"
                             id="service_provider">
-                    </div>
+                    </div> -->
                 </div>
                
                 <div class="form-group row">
@@ -62,7 +62,7 @@
                             id="address">
                     </div>
                    
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                     <label for="location">Location</label>
                     <select class="form-control" name="location" required>
                         <option value="">Select Location</option>
@@ -70,16 +70,16 @@
                         <option value="<?= $value->id ?>" <?= ($Product->location==$value->id)?'selected':''?>><?= $value->name ?></option>
                    <?php } ?>
                        </select>
-                    </div>
+                    </div> -->
                    
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                 <div class="col-md-6">
                     <label for="shop_name">Shop Name</label>
                         <input class="form-control" type="text" Placeholder="Shop Name" value="<?= $Product->shop_name?>"  name="shop_name"
                             id="shop_name">
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group row">
                    
                 <div class="col-md-2">
@@ -96,22 +96,22 @@
                     <label for="image2">Image2</label>
                         <input class="form-control" type="file" name="product_image2" id="image2">
                     </div>
-                    <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                     <div class="holder">
                 <img id="imgPreview3" src="#" style="display:none"  />
             </div>
                     <label for="imag3">Image3</label>
                         <input class="form-control" type="file" name="product_image3" id="image3">
-                    </div>
-                    <div class="col-md-2">
+                    </div> -->
+                    <!-- <div class="col-md-2">
                     <div class="holder">
                 <img id="imgPreview4" src="#" style="display:none"  />
             </div>
                     <label for="image4">Image4</label>
                         <input class="form-control" type="file" name="product_image4" id="image4">
-                    </div>
+                    </div> -->
                    
-                </div>
+                </div> 
 
                 <div class="form-group mb-0">
                     <div>

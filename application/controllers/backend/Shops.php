@@ -145,7 +145,7 @@ class Shops extends MY_Controller
                 echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                 exit;
             }
-            $data['image']= $product_image;
+            $data['logo']= $product_image;
         }
         $check=$this->Shop_model->CheckDuplicateOnUpdate($this->input->post('email'),$this->input->post('id'));
         if(empty($check)){

@@ -116,7 +116,7 @@ echo json_encode(['result'=>true]);
     {
         $product_image='';
         $product_image2='';
-        $product_imag3='';
+        $product_image3='';
         $product_image4='';
         if (! empty($_FILES['product_image']['name'])) {
             $_FILES['images']['name'] = $_FILES['product_image']['name'];
@@ -206,18 +206,11 @@ echo json_encode(['result'=>true]);
             'name' => $this->input->post('name'),
             'shop_id' => ($this->session->role==0)?$this->input->post('shop_id'):$this->session->admin_id,
             'sub_cat' => $this->input->post('sub_cat'),
-            'product_code' => $this->input->post('product_code'),
-            'color' => implode(",",$this->input->post('color')),
             'offer' => $this->input->post('discount'),
             'cat' => $this->input->post('cat'),
-            'qty' => $this->input->post('qty'),
-            'age' => implode(",",$this->input->post('age')),
-            'purchase_price' => $this->input->post('purchase_price'),
             'price_sale' => $this->input->post('sale_price'),
-            'for' => $this->input->post('for'),
-            'brand' => $this->input->post('brand'),
             'description' => $this->input->post('desc'),
-            'size' => implode(",",$this->input->post('size')) ,
+            'food_type' => $this->input->post('food_type') ,
             'image' => $product_image,
             'image2' => $product_image2,
             'image3' => $product_image3,
@@ -265,22 +258,19 @@ echo json_encode(['result'=>true]);
         $product_imag3='';
         $product_image4='';
         $data = [
-             'name' => $this->input->post('name'),
-             'shop_id' => ($this->session->role==0)?$this->input->post('shop_id'):$this->session->admin_id,
+            'name' => $this->input->post('name'),
+            'shop_id' => ($this->session->role==0)?$this->input->post('shop_id'):$this->session->admin_id,
             'sub_cat' => $this->input->post('sub_cat'),
-            'product_code' => $this->input->post('product_code'),
-            'color' => implode(",",$this->input->post('color')),
             'offer' => $this->input->post('discount'),
             'cat' => $this->input->post('cat'),
-            'qty' => $this->input->post('qty'),
-            'age' => implode(",",$this->input->post('age')),
-            'purchase_price' => $this->input->post('purchase_price'),
             'price_sale' => $this->input->post('sale_price'),
-            'for' => $this->input->post('for'),
             'description' => $this->input->post('desc'),
-            'brand' => $this->input->post('brand'),
-            'size' => implode(",",$this->input->post('size')) ,
-            'updated_date' => date('Y-m-d H:i:s')
+            'food_type' => $this->input->post('food_type') ,
+            'image' => $product_image,
+            'image2' => $product_image2,
+            'image3' => $product_image3,
+            'image4' => $product_image4,
+            'added_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {
             $_FILES['images']['name'] = $_FILES['product_image']['name'];

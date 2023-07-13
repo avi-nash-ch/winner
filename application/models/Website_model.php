@@ -195,6 +195,15 @@ class Website_model extends MY_Model
         return $Query->row();
     }
 
+    public function getDeleveryrData($mobile)
+    {
+        $Query = $this->db->select('*')
+                 ->where('isDeleted',false)
+                 ->where('whatsapp_no',$mobile)
+                 ->get('tbl_worker');      
+        return $Query->row();
+    }
+
     public function verifyotp($mobile,$otp)
     {
         $Query = $this->db->select('id')
@@ -222,12 +231,27 @@ class Website_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function getUserById($id)
+    public function statusUpdate($id,$status,$lat,$long,$fcm)
     {
-        $Query = $this->db->select('first_name,last_name,email,phone')
+        $data = [
+            'status' => $status,
+            'lat'=>$lat,
+            'long'=>$long,
+            '$fcm'=>$fcm,
+            // 'offline_time' => TRUE,
+            'updated_date' => date('Y-m-d H:i:s')
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
+
+    public function getDeleveryBoyById($id)
+    {
+        $Query = $this->db->select('*')
                  ->where('isDeleted',false)
                  ->where('id',$id)
-                 ->get('user');      
+                 ->get('tbl_worker');      
         return $Query->row();
     }
 }
