@@ -63,7 +63,7 @@ private $data;
         $status = $this->input->post('status');
         $latitude = $this->input->post('latitude');
         $longitude = $this->input->post('longitude');
-        $fcm = $this->input->post('fcm');
+       
         $user_id = $this->input->post('user_id');
        
         if (empty($status) || empty($user_id)) {
@@ -72,7 +72,7 @@ private $data;
             $this->response($data, HTTP_OK);
             exit();
         }
-        $result = $this->Website_model->statusUpdate($id,$status,$latitude,$longitude,$fcm);
+        $result = $this->Website_model->statusUpdate($id,$status,$latitude,$longitude);
         if ($result) {
             $data['message'] = 'updated Successfully';
             $data['code'] = HTTP_OK;

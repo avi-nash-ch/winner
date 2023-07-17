@@ -37,19 +37,29 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-        <div class="mb-3 col-lg-3">
+        <div class="row">
+        <div class="mb-5 col-lg-5">
                             <label for="box0">Customer Name</label>
                             <input class="form-control" type="text" Placeholder="Customer Name" name="customer_name" id="customer_name">
                         </div>
-                        <div class="mb-3 col-lg-3">
+                        <div class="mb-5 col-lg-5">
                             <label for="box0">Mobile No.</label>
                             <input class="form-control" type="text" Placeholder="Mobile No." name="mobile_no" id="mobile_no">
                         </div>
+                        <div class="mb-5 col-lg-5">
+                            <label for="address">Address</label>
+                            <input class="form-control" type="text" Placeholder="Address" name="address" id="address">
+                        </div>
+                        <div class="mb-5 col-lg-5">
+                            <label for="room">Bilduing/Room</label>
+                            <input class="form-control" type="text" Placeholder="Bilduing/Room" name="room" id="room">
+                        </div>
+</div>
         </div>
         <div class="modal-body">
          <div class="row items_row">
           <div class="mb-3 col-lg-6">
-            <label for="item_desc0">Product Name *</label>
+            <label for="item_desc0">Item Name *</label>
             <select class="form-control select2 select_item" name="item_desc[]" id="item_desc0" required>
             <?php
             $option='<option value="">Select Product</option>';
@@ -79,7 +89,7 @@
          </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="generateBill()">Print</button>
+        <button type="button" class="btn btn-primary" onclick="generateBill()">Submit</button>
           <a href="<?= base_url('backend/Dashboard')?>" class="btn btn-danger" >Close</a>
         </div>
       </div>

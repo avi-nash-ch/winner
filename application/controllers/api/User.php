@@ -68,10 +68,13 @@ class User extends REST_Controller
     {
         $user = $this->Users_model->UserProfile($this->data['user_id']);
         if ($user) {
-            $data['message'] = 'Success';
-            $data['user_data'] = $user;
             $data['code'] = HTTP_OK;
+            $data['message'] = 'Success';
+            $data['result'] = $user;
             $this->response($data, HTTP_OK);
+            if(!empty($this->data['fcm'])){
+                $this->Users_mode->fcmUpdate($this->data['user_id'],$this->data['fcm']);
+            }
             exit();
         } else {
                 $data['message'] = 'Invalid Id';
@@ -119,5 +122,24 @@ class User extends REST_Controller
             exit();
         }
     }
+
+    public function pushNoti_post()
+    {
+        $user = $this->Users_model->UserProfile($this->data['user_id']);
+        if ($user) {
+            $result=push_notification_android($user->fcm,'this is test');
+            $data['code'] = HTTP_OK;
+            $data['message'] = 'Success';
+            $data['result'] = $result;
+            $this->response($data, HTTP_OK);
+        } else {
+                $data['message'] = 'Invalid Id';
+                $data['code'] = 408;
+                $this->response($data, HTTP_OK);
+                exit();
+           
+        }
+    }
+
   
 }

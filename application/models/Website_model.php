@@ -231,15 +231,24 @@ class Website_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function statusUpdate($id,$status,$lat,$long,$fcm)
+    public function statusUpdate($id,$status,$lat,$long)
     {
         $data = [
             'status' => $status,
             'lat'=>$lat,
             'long'=>$long,
-            '$fcm'=>$fcm,
             // 'offline_time' => TRUE,
             'updated_date' => date('Y-m-d H:i:s')
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
+
+    public function fcmUpdate($id,$fcm)
+    {
+        $data = [
+            'fcm'=>$fcm,
         ];
         $this->db->where('id', $id);
         $this->db->update('tbl_worker', $data);
