@@ -71,11 +71,10 @@ class User extends REST_Controller
             $data['code'] = HTTP_OK;
             $data['message'] = 'Success';
             $data['result'] = $user;
-            $this->response($data, HTTP_OK);
             if(!empty($this->data['fcm'])){
-                $this->Users_mode->fcmUpdate($this->data['user_id'],$this->data['fcm']);
+                $this->Users_model->fcmUpdate($this->data['user_id'],$this->data['fcm']);
             }
-            exit();
+            $this->response($data, HTTP_OK);
         } else {
                 $data['message'] = 'Invalid Id';
                 $data['code'] = 408;
@@ -127,7 +126,11 @@ class User extends REST_Controller
     {
         $user = $this->Users_model->UserProfile($this->data['user_id']);
         if ($user) {
-            $result=push_notification_android($user->fcm,'this is test');
+            $dat['title']='New Order recieved';
+            $dat['order_id']='1';
+            $dat['description']='Garam Masala';
+            $dat['order_status']='1';
+            $result=push_notification_android($user[0]->fcm,$dat);
             $data['code'] = HTTP_OK;
             $data['message'] = 'Success';
             $data['result'] = $result;
@@ -141,5 +144,49 @@ class User extends REST_Controller
         }
     }
 
+
+    function latLongUpdate_post() {
+        
+        $latitude = $this->input->post('latitude');
+        $longitude = $this->input->post('longitude');
+        $user_id = $this->input->post('user_id');
+       
+        if (empty($user_id)) {
+            $data['message'] = 'Invalid User Id';
+            $data['code'] = HTTP_NOT_ACCEPTABLE;
+            $this->response($data, HTTP_OK);
+            exit();
+        }
+        $result = $this->Users_model->latLongUpdate($user_id,$latitude,$longitude);
+        if ($result) {
+            $data['message'] = 'updated Successfully';
+            $data['code'] = HTTP_OK;
+            $this->response($data, HTTP_OK);
+        } else {
+            $data['code'] = HTTP_FORBIDDEN;
+            $data['message'] = 'Something Went Wrong';
+            $this->response(NULL, 200);
+        }
+        // curl_close($curl);
+    }
+
+
+    public function TodaysOrder_post()
+    {
+        $user = $this->Users_model->getTodaysOrder($this->data['user_id']);
+        if ($user) {
+            $data['message'] = 'Success';
+            $data['user_data'] = $user;
+            $data['code'] = HTTP_OK;
+            $this->response($data, HTTP_OK);
+            exit();
+        } else {
+                $data['message'] = 'Invalid Credentials';
+                $data['code'] = 408;
+                $this->response($data, HTTP_OK);
+                exit();
+           
+        }
+    }
   
 }

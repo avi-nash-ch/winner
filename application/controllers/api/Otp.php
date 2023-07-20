@@ -66,13 +66,13 @@ private $data;
        
         $user_id = $this->input->post('user_id');
        
-        if (empty($status) || empty($user_id)) {
+        if (empty($user_id)) {
             $data['message'] = 'Invalid User Id';
             $data['code'] = HTTP_NOT_ACCEPTABLE;
             $this->response($data, HTTP_OK);
             exit();
         }
-        $result = $this->Website_model->statusUpdate($id,$status,$latitude,$longitude);
+        $result = $this->Website_model->statusUpdate($user_id,$status,$latitude,$longitude);
         if ($result) {
             $data['message'] = 'updated Successfully';
             $data['code'] = HTTP_OK;
@@ -104,13 +104,13 @@ private $data;
                 // $result['date'] = $data;
             } else {
                 $result['code'] = 404;
-                $result['message'] = 'Otp not matched';
-                $this->response($result, 400);
+                $result['message'] = 'Otp is not matched';
+                $this->response($result, HTTP_OK);
             }
         } else {
-            $result['code'] = 404;
+            $result['code'] = 200;
             $result['message'] = 'Something went wrong.';
-            $this->response($result, 400);
+            $this->response($result, HTTP_OK);
             // $this->session->set_flashdata('msg', array('message' => 'Email Already Exists', 'class' => 'error', 'position' => 'top-right'));
         }
         // echo json_encode($result);

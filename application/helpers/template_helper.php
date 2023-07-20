@@ -42,6 +42,7 @@ if (!function_exists('render')) {
         $ci->db->select('id,name,price_sale');
         $ci->db->from('tbl_product');
         $ci->db->where('isDeleted',false);
+        $ci->db->where('shop_id',$ci->session->admin_id);
         $Query=$ci->db->get();
         return $Query->result();
     }

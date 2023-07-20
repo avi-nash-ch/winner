@@ -13,6 +13,19 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
+    public function getTodaysOrder($user_id)
+    {
+        $this->db->select('product_orders.*');
+        $this->db->from('product_orders');
+        $this->db->where('product_orders.isDeleted', false);
+        $this->db->where('product_orders.user_id', $user_id);
+        $this->db->order_by('product_orders.id', 'desc');
+        // $this->db->limit(10);
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+
     public function WelcomeBonus($id = '')
     {
         if (!empty($id)) {
@@ -558,6 +571,15 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
+    public function fcmUpdate($id,$fcm)
+    {
+        $data = [
+            'fcm'=>$fcm,
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
     public function IsValidReferral($referral_code)
     {
         $this->db->select('user.*');
@@ -783,4 +805,18 @@ class Users_model extends MY_Model
         $Query = $this->db->get('user');
         return $Query->num_rows();
     }
+
+    public function latLongUpdate($id,$lat,$long)
+    {
+        $data = [
+            'lat'=>$lat,
+            'long'=>$long,
+            // 'offline_time' => TRUE,
+            'updated_date' => date('Y-m-d H:i:s')
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
+
 }
