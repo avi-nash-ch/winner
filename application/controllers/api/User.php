@@ -170,23 +170,5 @@ class User extends REST_Controller
         // curl_close($curl);
     }
 
-
-    public function TodaysOrder_post()
-    {
-        $user = $this->Users_model->getTodaysOrder($this->data['user_id']);
-        if ($user) {
-            $data['message'] = 'Success';
-            $data['user_data'] = $user;
-            $data['code'] = HTTP_OK;
-            $this->response($data, HTTP_OK);
-            exit();
-        } else {
-                $data['message'] = 'Invalid Credentials';
-                $data['code'] = 408;
-                $this->response($data, HTTP_OK);
-                exit();
-           
-        }
-    }
   
 }

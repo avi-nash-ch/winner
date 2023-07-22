@@ -136,9 +136,15 @@ class Shop_model extends MY_Model
         return $this->db->insert_id();
     }
 
-    public function AddProductPrice($data)
+    public function AddShop($data)
     {
-        $this->db->insert('tbl_worker_price', $data);
+        $this->db->insert('tbl_worker', $data);
+        return $this->db->insert_id();
+    }
+
+    public function orderPlaced($data)
+    {
+        $this->db->insert('product_orders', $data);
         return $this->db->insert_id();
     }
 
@@ -153,12 +159,9 @@ class Shop_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function most_viewed_status($id,$status)
+    public function updateShop($id,$data)
     {
-        $data = [
-            'most_viewd' => $status,
-        ];
-        $this->db->where('id', $id);
+        $this->db->where('shop_id', $id);
         $this->db->update('tbl_worker', $data);
         return $this->db->last_query();
     }
@@ -188,19 +191,19 @@ class Shop_model extends MY_Model
         return $this->db->last_query();
     }
 
-    public function CheckDuplicate($name)
+    public function CheckDuplicate($mobile)
     {
         $this->db->select('id');
         $this->db->from('tbl_admin');
-        $this->db->where(['email_id'=>$name,'isDeleted'=>0]);
+        $this->db->where(['mobile'=>$mobile,'isDeleted'=>0]);
         return $num_results = $this->db->count_all_results();
     }
 
-    public function CheckDuplicateOnUpdate($email,$id)
+    public function CheckDuplicateOnUpdate($mobile,$id)
     {
         $this->db->select('id');
         $this->db->from('tbl_admin');
-        $this->db->where(['email_id'=>$email,'isDeleted'=>0,'id!='=>$id]);
+        $this->db->where(['mobile'=>$mobile,'isDeleted'=>0,'id!='=>$id]);
         return $num_results = $this->db->count_all_results();
     }
 

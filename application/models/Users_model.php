@@ -2,23 +2,45 @@
 
 class Users_model extends MY_Model
 {
-    public function AllUserList()
+    public function AllDeleveryBoys()
     {
-        $this->db->select('user.*');
-        $this->db->from('user');
-        $this->db->where('user.isDeleted', false);
-        $this->db->order_by('user.id', 'asc');
+        $this->db->select('tbl_worker.*');
+        $this->db->from('tbl_worker');
+        $this->db->where('tbl_worker.isDeleted', false);
+        $this->db->where('tbl_worker.role', 0);
+        $this->db->where('tbl_worker.status', 1);
+        $this->db->order_by('tbl_worker.id', 'asc');
         // $this->db->limit(10);
         $Query = $this->db->get();
         return $Query->result();
     }
 
-    public function getTodaysOrder($user_id)
+    public function getAllFcm()
     {
-        $this->db->select('product_orders.*');
+        $this->db->select('GROUP_CONCAT(tbl_worker.fcm SEPARATOR ",") as fcm_str');
+        $this->db->from('tbl_worker');
+        $this->db->where('tbl_worker.isDeleted', false);
+        $this->db->where('tbl_worker.role', 0);
+        $this->db->where('tbl_worker.status', 1);
+        $this->db->where('tbl_worker.fcm!=','');
+        $this->db->order_by('tbl_worker.id', 'asc');
+        // $this->db->limit(10);
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
+    public function getTodaysOrder($user_id,$type)
+    {
+        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,shop.name as shop_name');
         $this->db->from('product_orders');
+        $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
+        $this->db->join('tbl_worker', 'tbl_worker.id=product_orders.user_id','left');
         $this->db->where('product_orders.isDeleted', false);
-        $this->db->where('product_orders.user_id', $user_id);
+        if($type==1){
+            $this->db->where('product_orders.shop_id', $user_id);
+        }else{
+            $this->db->where('product_orders.user_id', $user_id);
+        }
         $this->db->order_by('product_orders.id', 'desc');
         // $this->db->limit(10);
         $Query = $this->db->get();
@@ -464,6 +486,16 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
+    public function getOrderStatus($id)
+    {
+        $this->db->select('status');
+        $this->db->from('product_orders');
+        $this->db->where('isDeleted', false);
+        $this->db->where('id', $id);
+        $Query = $this->db->get();
+        return $Query->row();
+    }
+
     public function UserCheck($mobile)
     {
         $this->db->select('user.id');
@@ -578,6 +610,16 @@ class Users_model extends MY_Model
         ];
         $this->db->where('id', $id);
         $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
+    public function acceptStatus($user_id,$order_id,$status)
+    {
+        $data = [
+            'status'=>$status,
+            'user_id'=>$user_id,
+        ];
+        $this->db->where('id', $order_id);
+        $this->db->update('product_orders', $data);
         return $this->db->last_query();
     }
     public function IsValidReferral($referral_code)

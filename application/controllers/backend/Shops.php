@@ -96,10 +96,21 @@ class Shops extends MY_Controller
             'role'=>1,
             'created_date' => date('Y-m-d H:i:s')
         ];
-        $check=$this->Shop_model->CheckDuplicate($this->input->post('email'));
+        $check=$this->Shop_model->CheckDuplicate($this->input->post('whatsapp_no'));
         if(empty($check)){
         $category = $this->Shop_model->AddTableMaster($data);
         if ($category) {
+            $shop_data = [
+                'name' => $this->input->post('shop_name'),
+                'shop_name' => $this->input->post('shop_name'),
+                'address' => $this->input->post('address'),
+                'whatsapp_no' => $this->input->post('whatsapp_no'),
+                'shop_id' => $category,
+                'image' => $product_image,
+                'role'=>1,
+                'added_date' => date('Y-m-d H:i:s')
+            ];
+            $this->Shop_model->AddShop($shop_data);
             $this->session->set_flashdata('msg', array('message' => 'Shop Added Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
@@ -147,10 +158,19 @@ class Shops extends MY_Controller
             }
             $data['logo']= $product_image;
         }
-        $check=$this->Shop_model->CheckDuplicateOnUpdate($this->input->post('email'),$this->input->post('id'));
+        $check=$this->Shop_model->CheckDuplicateOnUpdate($this->input->post('whatsapp_no'),$this->input->post('id'));
         if(empty($check)){
         $Category = $this->Shop_model->UpdateTableMaster($data, $this->input->post('id'));
         if ($Category) {
+            $shop_data = [
+                'name' => $this->input->post('shop_name'),
+                'shop_name' => $this->input->post('shop_name'),
+                'address' => $this->input->post('address'),
+                'whatsapp_no' => $this->input->post('whatsapp_no'),
+                'image' => $product_image,
+                'updated_date' => date('Y-m-d H:i:s')
+            ];
+            $this->Shop_model->updateShop($this->input->post('id'),$shop_data);
             $this->session->set_flashdata('msg', array('message' => 'Shop Updated Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
