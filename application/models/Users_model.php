@@ -590,6 +590,16 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
+    public function orderById($id)
+    {
+        $this->db->select('product_orders.*');
+        $this->db->from('product_orders');
+        $this->db->where('isDeleted', false);
+        $this->db->where('product_orders.id', $id);
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function UserProfileByEmail($Email)
     {
         $this->db->select('user.*');

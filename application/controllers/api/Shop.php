@@ -55,6 +55,23 @@ class Shop extends REST_Controller
         }
     }
 
+    public function orderById_post()
+    {
+        $order = $this->Users_model->orderById($this->data['order_id']);
+        if ($order) {
+            $data['code'] = HTTP_OK;
+            $data['message'] = 'Success';
+            $data['result'] = $order;
+            $this->response($data, HTTP_OK);
+        } else {
+                $data['message'] = 'Not data found.';
+                $data['code'] = 408;
+                $this->response($data, HTTP_OK);
+                exit();
+           
+        }
+    }
+
     public function confirm_update_status_post()
     {
         $order_id=$this->data['order_id'];
@@ -161,7 +178,7 @@ class Shop extends REST_Controller
         $user = $this->Users_model->getTodaysOrder($this->data['user_id'],$this->data['type']);
         if ($user) {
             $data['message'] = 'Success';
-            $data['data'] = $user;
+            $data['result'] = $user;
             $data['code'] = HTTP_OK;
             $this->response($data, HTTP_OK);
             exit();
