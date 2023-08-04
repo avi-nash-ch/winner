@@ -62,7 +62,7 @@ class Shops extends MY_Controller
     public function insert()
     {
         $product_image='';
-      
+        $qr_image='';
         if (! empty($_FILES['product_image']['name'])) {
             $_FILES['images']['name'] = $_FILES['product_image']['name'];
             $_FILES['images']['type'] = $_FILES['product_image']['type'];
@@ -84,6 +84,27 @@ class Shops extends MY_Controller
                 exit;
             }
         }
+        if (! empty($_FILES['qr_image']['name'])) {
+            $_FILES['images']['name'] = $_FILES['qr_image']['name'];
+            $_FILES['images']['type'] = $_FILES['qr_image']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['qr_image']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['qr_image']['error'];
+            $_FILES['images']['size'] = $_FILES['qr_image']['size'];
+            $config['upload_path'] = './uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('qr_image')) {
+                $data1 = $this->upload->data();
+                $qr_image = $data1['file_name'];
+                if (empty($qr_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+        }
       
         $data = [
             'first_name' => $this->input->post('shop_name'),
@@ -93,6 +114,7 @@ class Shops extends MY_Controller
             'mobile' => $this->input->post('whatsapp_no'),
             'email_id' => $this->input->post('email'),
             'logo' => $product_image,
+            'qr_image' => $qr_image,
             'role'=>1,
             'created_date' => date('Y-m-d H:i:s')
         ];
@@ -107,6 +129,7 @@ class Shops extends MY_Controller
                 'whatsapp_no' => $this->input->post('whatsapp_no'),
                 'shop_id' => $category,
                 'image' => $product_image,
+                'image2' => $qr_image,
                 'role'=>1,
                 'added_date' => date('Y-m-d H:i:s')
             ];
@@ -125,6 +148,7 @@ class Shops extends MY_Controller
     public function update()
     {
         $product_image='';
+        $qr_image='';
       
         $data = [
             'first_name' => $this->input->post('shop_name'),
@@ -133,7 +157,13 @@ class Shops extends MY_Controller
             'contact_us' => $this->input->post('address'),
             'mobile' => $this->input->post('whatsapp_no'),
             'email_id' => $this->input->post('email'),
-            'logo' => $product_image,
+            'updated_date' => date('Y-m-d H:i:s')
+        ];
+        $shop_data = [
+            'name' => $this->input->post('shop_name'),
+            'shop_name' => $this->input->post('shop_name'),
+            'address' => $this->input->post('address'),
+            'whatsapp_no' => $this->input->post('whatsapp_no'),
             'updated_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {
@@ -156,20 +186,38 @@ class Shops extends MY_Controller
                 echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
                 exit;
             }
+          
             $data['logo']= $product_image;
+            $shop_data['image'] = $product_image;
         }
+        if (! empty($_FILES['qr_image']['name'])) {
+            $_FILES['images']['name'] = $_FILES['qr_image']['name'];
+            $_FILES['images']['type'] = $_FILES['qr_image']['type'];
+            $_FILES['images']['tmp_name'] = $_FILES['qr_image']['tmp_name'];
+            $_FILES['images']['error'] = $_FILES['qr_image']['error'];
+            $_FILES['images']['size'] = $_FILES['qr_image']['size'];
+            $config['upload_path'] = 'uploads/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg|jfif|JFIF|';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('qr_image')) {
+                $data1 = $this->upload->data();
+                $qr_image = $data1['file_name'];
+                if (empty($qr_image)) {
+                    echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                    exit;
+                }
+            } else {
+                echo json_encode(['message' => $this->upload->display_errors(), 'class' => 'error', 'type' => 2]);
+                exit;
+            }
+            $data['qr_image']= $qr_image;
+            $shop_data['image2']=$qr_image;
+        }
+            
         $check=$this->Shop_model->CheckDuplicateOnUpdate($this->input->post('whatsapp_no'),$this->input->post('id'));
         if(empty($check)){
         $Category = $this->Shop_model->UpdateTableMaster($data, $this->input->post('id'));
         if ($Category) {
-            $shop_data = [
-                'name' => $this->input->post('shop_name'),
-                'shop_name' => $this->input->post('shop_name'),
-                'address' => $this->input->post('address'),
-                'whatsapp_no' => $this->input->post('whatsapp_no'),
-                'image' => $product_image,
-                'updated_date' => date('Y-m-d H:i:s')
-            ];
             $this->Shop_model->updateShop($this->input->post('id'),$shop_data);
             $this->session->set_flashdata('msg', array('message' => 'Shop Updated Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {

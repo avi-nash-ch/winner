@@ -111,3 +111,6 @@ define('LOGO', 'uploads/images/');
 define('IMAGE_URL', 'uploads/images/');
 // FCM Notification
 define('SERVER_KEY', 'AAAAGkJH19Q:APA91bFulQnYXqpoIpOvA4Fex-cB9KA1WTQM7FafbbkW6qE4YZyZrIgZ2yDX0oMwJYnDHYI6Chkyh3K40IV3G2MiL6B74WA-IVO-ZASaiNTGv2ZmM4nSEzRM5Crlrclg0Yg6cToo2DZ_');
+
+// google map key
+define('MapKey', 'AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0');

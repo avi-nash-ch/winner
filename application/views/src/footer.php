@@ -37,10 +37,11 @@
    <script src="<?= base_url('assets/js/app.js')?>"></script>
    <script src="<?= base_url('assets/js/select2.min.js')?>"></script>
    <script src="<?= base_url('assets/js/custom/validation.js')?>"></script>
+  
    </body>
 
    </html>
-
+  
    <script>
       $(document).ready(function () {
         $('#item_desc0').select2();

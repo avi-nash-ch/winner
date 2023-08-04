@@ -27,7 +27,7 @@
    <script src="<?= base_url('assets/js/toastr.min.js') ?>"></script>
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script src="<?= base_url('js/onscan.js-master/onscan.js?ver=' . filemtime(FCPATH . 'js/onscan.js-master/onscan.js')) ?>" defer></script>
-
+   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=<?= MapKey ?>&libraries=places&callback=initMap" async defer></script> -->
 </head>
 <?php
             echo form_open_multipart('backend/Board/insert', ['autocomplete' => false, 'id' => 'add_bill'
@@ -48,7 +48,7 @@
                         </div>
                         <div class="mb-5 col-lg-5">
                             <label for="address">Address</label>
-                            <input class="form-control" type="text" Placeholder="Address" name="address" id="address">
+                            <input class="form-control" type="text" Placeholder="Address" name="address" id="map">
                         </div>
                         <div class="mb-5 col-lg-5">
                             <label for="room">Bilduing/Room</label>
@@ -101,3 +101,4 @@
    const BASE_URL = '<?= base_url()?>';
 </script>
 <body>
+

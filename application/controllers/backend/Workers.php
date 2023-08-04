@@ -16,7 +16,14 @@ class Workers extends MY_Controller
         $data['SideBarbutton'] = ['backend/Workers/add', 'Add Worker'];
         template('worker/index', $data);
     }
-
+    public function Map()
+    {
+        $data = [
+            'title' => 'Delevery Boy',
+            // 'AllWorkers' => $this->Worker_model->Contact()
+        ];
+        $this->load->view('map_test');
+    }
 
     public function Contact()
     {

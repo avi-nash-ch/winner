@@ -77,19 +77,39 @@ class Shop extends REST_Controller
         $order_id=$this->data['order_id'];
         $status=$this->data['status'];
         $order = $this->Users_model->getOrderStatus($this->data['order_id']);
-        if($order->status==1){
+        if($order->status==1 && $this->data['status']==0){
             $data['message'] = 'Order already accepted by other delevery boy';
             $data['code'] = 408;
             $this->response($data, HTTP_OK);
             exit();
         }
         //status=1 confirm,2=on the way,3=delivered,4=customer not accepted
+        $trans_pic='';
+        $payment_mode=0;
+        $collect_price=0;
+        $reason='';
         if ($order) {
+            if($status==3){
+                $trans_pic = '';
+                if (!empty($this->data['trans_pic'])) {
+                    $img = $this->data['trans_pic'];
+                    $img = str_replace(' ', '+', $img);
+                    $img_data = base64_decode($img);
+                    $trans_pic = uniqid().'.jpg';
+                    $file = './uploads/transaction/'.$trans_pic;
+                    file_put_contents($file, $img_data);
+                }
+                $payment_mode=$this->data['payment_mode'];
+                $collect_price=$this->data['collect_price'];
+            }
+            if($status==4){
+                $reason=$this->data['reason'];
+            }
             $data['code'] = HTTP_OK;
             $data['message'] = 'Success';
             $data['result'] = $order;
             if(!empty($this->data['user_id'])){
-                $this->Users_model->acceptStatus($this->data['user_id'],$order_id,$status);
+                $this->Users_model->acceptStatus($this->data['user_id'],$order_id,$status,$payment_mode,$collect_price,$trans_pic,$reason);
             }
             $this->response($data, HTTP_OK);
         } else {
@@ -134,7 +154,7 @@ class Shop extends REST_Controller
             if ($user) {
                 $dat['title']='New Order recieved';
                 $dat['order_id']=$orderId;
-                $dat['description']=$this->data['shop_name'].'('.$this->data['address'].')';
+                $dat['description']='Garam Masala(Rable)';
                 $dat['order_status']='0';
                 $result=push_notification_android($user[0]->fcm_str,$dat);
                 $data['code'] = HTTP_OK;
@@ -184,7 +204,8 @@ class Shop extends REST_Controller
             exit();
         } else {
                 $data['message'] = 'No orders found';
-                $data['code'] = 408;
+                $data['code'] = HTTP_OK;
+                $data['result'] ='No' ;
                 $this->response($data, HTTP_OK);
                 exit();
            

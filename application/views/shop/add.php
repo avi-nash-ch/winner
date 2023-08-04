@@ -69,7 +69,13 @@
                         <input class="form-control" type="file" name="product_image" id="image" required>
                     </div>
                    
-                   
+                    <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview2" src="#" style="display:none"  />
+            </div>
+                    <label for="image2">Qr Image *</label>
+                        <input class="form-control" type="file" name="qr_image" id="image2" required>
+                    </div>
                    
                 </div>
                 <div class="form-group mb-0">

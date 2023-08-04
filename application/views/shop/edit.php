@@ -69,7 +69,13 @@
                     <label for="image">Shop Image *</label>
                         <input class="form-control" type="file" name="product_image" id="image">
                     </div>
-                
+                    <div class="col-md-2">
+                    <div class="holder">
+                <img id="imgPreview2" src="#" style="display:none"  />
+            </div>
+                    <label for="image2">Qr Image *</label>
+                        <input class="form-control" type="file" name="qr_image" id="image2">
+                    </div>
                    
                 </div>
 
@@ -95,7 +101,10 @@
                     $("#imgPreview").attr("src",'<?= base_url('uploads/images/').$Product[0]->logo ?>');
                     $("#imgPreview").show()
                     <?php } ?>
-                  
+                    <?php if($Product[0]->qr_image){ ?>
+                    $("#imgPreview2").attr("src",'<?= base_url('uploads/images/').$Product[0]->qr_image ?>');
+                    $("#imgPreview2").show()
+                    <?php } ?>
                 $("#image").change(function () {
                     const file = this.files[0];
                     if (file) {
@@ -104,6 +113,20 @@
                             $("#imgPreview")
                               .attr("src", event.target.result);
                               $('#imgPreview').show()
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                   
+                $("#image2").change(function () {
+                    const file = this.files[0];
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#imgPreview2")
+                              .attr("src", event.target.result);
+                              $('#imgPreview2').show()
                         };
                         reader.readAsDataURL(file);
                     }

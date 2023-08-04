@@ -100,6 +100,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <i class="ion ion-md-contact"></i>
                             <span>Manage Orders</span></a>
                     </li>
+                    <li class="<?= (array_filter([strpos($final_url, "backend/Workers/map")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                        <a href="<?= base_url('backend/Workers/map') ?>" class="waves-effect">
+                            <i class="ion ion-md-contact"></i>
+                            <span>Map</span></a>
+                    </li>
                 <?php } else { ?>
                     <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">

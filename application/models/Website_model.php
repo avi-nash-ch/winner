@@ -236,7 +236,7 @@ class Website_model extends MY_Model
         $data = [
             'status' => $status,
             'lat'=>$lat,
-            'long'=>$long,
+            'lng'=>$long,
             // 'offline_time' => TRUE,
             'updated_date' => date('Y-m-d H:i:s')
         ];

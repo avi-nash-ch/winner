@@ -31,7 +31,7 @@ class Users_model extends MY_Model
 
     public function getTodaysOrder($user_id,$type)
     {
-        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,shop.name as shop_name');
+        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,shop.name as shop_name,shop.image2 as qr_image');
         $this->db->from('product_orders');
         $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
         $this->db->join('tbl_worker', 'tbl_worker.id=product_orders.user_id','left');
@@ -592,9 +592,10 @@ class Users_model extends MY_Model
 
     public function orderById($id)
     {
-        $this->db->select('product_orders.*');
+        $this->db->select('product_orders.*,shop.name as shop_name,shop.image2 as qr_image');
         $this->db->from('product_orders');
-        $this->db->where('isDeleted', false);
+        $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
+        $this->db->where('product_orders.isDeleted', false);
         $this->db->where('product_orders.id', $id);
         $Query = $this->db->get();
         return $Query->result();
@@ -622,11 +623,16 @@ class Users_model extends MY_Model
         $this->db->update('tbl_worker', $data);
         return $this->db->last_query();
     }
-    public function acceptStatus($user_id,$order_id,$status)
+    public function acceptStatus($user_id,$order_id,$status,$payment_mode,$collect_price,$trans_pic,$reason)
     {
         $data = [
             'status'=>$status,
             'user_id'=>$user_id,
+            'mode'=>$payment_mode,
+            'reason'=>$reason,
+            'collect_price'=>$collect_price,
+            'transaction_image'=>$trans_pic,
+            
         ];
         $this->db->where('id', $order_id);
         $this->db->update('product_orders', $data);
@@ -862,7 +868,7 @@ class Users_model extends MY_Model
     {
         $data = [
             'lat'=>$lat,
-            'long'=>$long,
+            'lng'=>$long,
             // 'offline_time' => TRUE,
             'updated_date' => date('Y-m-d H:i:s')
         ];
