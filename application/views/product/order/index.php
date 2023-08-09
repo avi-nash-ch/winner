@@ -9,11 +9,16 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>User Name</th>
-                            <th>Product Name</th>
-                            <th>Qty</th>
-                            <th>Cost</th>
-                            <th>Image</th>
+                            <th>Shop Name</th>
+                            <th>Delivery Boy</th>
+                            <th>Delivery Boy Mo.</th>
+                            <th>Customer Name</th>
+                            <th>Customer Address</th>
+                            <th>Customer Mo.</th>
+                            <th>Status</th>
+                            <th>Price</th>
+                            <th>Screenshot</th>
+                            <th>Reason</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -25,11 +30,27 @@
                         ?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?= $product->first_name .' '.$product->last_name ?></td>
-                            <td><?= $product->product_name ?></td>
-                            <td><?= $product->quantity ?></td>
-                            <td><?= $product->cost ?></td>
-                            <td><img src="<?= base_url('uploads/images/'.$product->image); ?>" height="80px" width="80px"></td>
+                            <td><?= $product->shop_name ?></td>
+                            <td><?= $product->delivery_boy ?></td>
+                            <td><?= $product->d_contact ?></td>
+                            <td><?= $product->first_name ?></td>
+                            <td><?= $product->address ?></td>
+                            <td><?= $product->phone ?></td>
+                            <td><?php if($product->status==0){
+                                echo "Pending";
+                            }else if($product->status==1){
+                                echo "Accept By Delivery Boy";
+                            }else if($product->status==2){
+                                echo "Out For Delivery";
+                            }else if($product->status==3){
+                                echo "Delivered";
+                            }else if($product->status==4){
+                                echo "Customer Not Accept";
+                            } ?>
+                            </td>
+                            <td><?= $product->collect_price ?></td>
+                            <td><img src="<?= base_url('uploads/transaction/'.$product->transaction_image); ?>" height="200px" width="200px"></td>
+                            <td><?= $product->reason ?></td>
                             <td>
                                 <a href="<?= base_url('backend/Products/OrderedView/' . $product->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View"><span

@@ -421,7 +421,7 @@ echo json_encode(['result'=>true]);
 
     public function Ordered()
     {
-        $products = $this->Cart_model->OrderedProducts();
+        $products = $this->Shop_model->AllOrder();
 
         $data = [
             'title' => 'Ordered products',

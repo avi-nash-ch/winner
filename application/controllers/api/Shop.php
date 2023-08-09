@@ -147,6 +147,7 @@ class Shop extends REST_Controller
             'address'=>$this->data['address'],
             'latitude'=>$this->data['lat'],
             'longitude'=>$this->data['long'],
+            'cost'=>$this->data['price'],
         ];
         $orderId = $this->Shop_model->orderPlaced($data_post);
         if($orderId){
