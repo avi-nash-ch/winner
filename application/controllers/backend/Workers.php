@@ -20,9 +20,9 @@ class Workers extends MY_Controller
     {
         $data = [
             'title' => 'Delevery Boy',
-            // 'AllWorkers' => $this->Worker_model->Contact()
+            'AllWorkers' => $this->Worker_model->Workers()
         ];
-        $this->load->view('map_test');
+        $this->load->view('map_test',$data);
     }
 
     public function Contact()

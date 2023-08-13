@@ -1,68 +1,50 @@
-<html>
-  <head>
-    <title>Add Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script type="module" src="./index.js"></script> -->
-    <style>
-    /* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-#map {
-  height: 100%;
-}
 
-/* 
- * Optional: Makes the sample page fill the window. 
- */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-    </style>
-  </head>
-  <body>
-    <h3>Delivery Boy</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map" style="width: 2000px; height: 1000px;"></div>
 
-    <!-- prettier-ignore -->
-    <!-- <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0&callback=initMap&v=weekly"
-      defer
-    ></script> -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0", v: "beta"});</script>
-  </body>
+  <script type="text/javascript">
+    <?php $location=''; foreach ($AllWorkers as $key => $value) {
+      $location.='['.$value->name.','.$value->lat.','. $value->lng.','.($key+1).']';
+    }
+    // echo $location;
+    ?>
+    var locations = [
+      '<?= $location ?>'
+      // ['Bondi Beach jhsgdjdjasy', 19.1463, 73.0081, 4],
+      // ['Coogee Beach', 19.1254, 72.9992, 5],
+    ];
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(19.1463, 73.0081),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      
+      google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
 </html>
-<script>
-        // Initialize and add the map
-let map;
-
-async function initMap() {
-  // The location of Uluru
-  const position = { lat: 19.0237, lng: 73.0404 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-  // The map, centered at Uluru
-  map = new Map(document.getElementById("map"), {
-    zoom: 12,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
-
-  // The marker, positioned at Uluru
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Uluru",
-  });
-}
-
-initMap();
-        </script>

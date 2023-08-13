@@ -25,9 +25,20 @@ class Worker_model extends MY_Model
         return $Query->result();
     }
 
+    public function Workers()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_worker');
+        $this->db->where('isDeleted', false);
+        $this->db->where('role',0);
+        $this->db->order_by('id','desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function Contact()
     {
-        $this->db->select('user.first_name as user_name,user.phone as user_phone,tbl_worker.name as worker_name,tbl_worker.whatsapp_no as worker_phone,tbl_worker.shop_name,tbl_worker.address as shop_address,tbl_contact_worker.added_date');
+        $this->db->select('user.first_name as user_name,user.phone as user_phone,tbl_worker.name as worker_name,tbl_worker.whatsapp_no as worker_phone,tbl_worker.shop_name,tbl_worker.address as shop_address,tbl_contact_worker.added_date,');
         $this->db->from('tbl_contact_worker');
         $this->db->join('user','user.id=tbl_contact_worker.user_id');
         $this->db->join('tbl_worker','tbl_worker.id=tbl_contact_worker.worker_id');

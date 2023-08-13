@@ -148,6 +148,7 @@ class Shop extends REST_Controller
             'latitude'=>$this->data['lat'],
             'longitude'=>$this->data['long'],
             'cost'=>$this->data['price'],
+            'payment_status'=>$this->data['payment_status']
         ];
         $orderId = $this->Shop_model->orderPlaced($data_post);
         if($orderId){
@@ -159,8 +160,8 @@ class Shop extends REST_Controller
                 $dat['order_status']='0';
                 $result=push_notification_android($user[0]->fcm_str,$dat);
                 $data['code'] = HTTP_OK;
-                $data['message'] = 'Success';
-                $data['result'] = $result;
+                $data['message'] = 'Order added Successfully';
+                $data['result'] =['id'=>$orderId];
                 $this->response($data, HTTP_OK);
             }
         }

@@ -31,7 +31,7 @@ class Users_model extends MY_Model
 
     public function getTodaysOrder($user_id,$type)
     {
-        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,shop.name as shop_name,shop.image2 as qr_image,shop.lat as shop_lat,shop.lng as shop_long');
+        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.lat as del_boy_lat,tbl_worker.lng as del_boy_long,shop.name as shop_name,shop.image2 as qr_image,shop.lat as shop_lat,shop.lng as shop_long');
         $this->db->from('product_orders');
         $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
         $this->db->join('tbl_worker', 'tbl_worker.id=product_orders.user_id','left');
