@@ -23,11 +23,9 @@ function push_notification_android($device_id, $message)
 
     /*api_key available in:
     Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key*/    $api_key = SERVER_KEY;
-
     $fields = array(
-        'registration_ids' => array(
-                $device_id
-        ),
+        'registration_ids' => 
+                $device_id,
         'data' => array(
                 "message" => $message
         )

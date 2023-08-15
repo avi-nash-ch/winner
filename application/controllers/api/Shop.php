@@ -137,9 +137,34 @@ class Shop extends REST_Controller
            
         }
     }
+    public function haversineGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
+      {
+        // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+      
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+      
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+          cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return round(($angle * $earthRadius)/1000,1);
+      }
 
     public function callDeleveryBoy_post()
     {
+        $price_setting = $this->Users_model->getPriceSetting();
+       $distance= $this->haversineGreatCircleDistance($this->data['shop_lat'],$this->data['shop_long'],$this->data['lat'],$this->data['long']);
+       if($distance<=$price_setting->base_km){
+        $delivery_charges=$price_setting->base_price;
+       }else if(($price_setting->base_km<$distance) && ($distance<=$price_setting->after_km)){
+        $delivery_charges=$price_setting->base_price+$price_setting->between_price;
+       }else{
+        $delivery_charges=($price_setting->base_price+$price_setting->between_price)+(($distance-$price_setting->after_km)*$price_setting->after_km_price);
+       }
         $data_post=[
             'shop_id'=>$this->data['shop_id'],
             'first_name'=>$this->data['customer_name'],
@@ -148,6 +173,9 @@ class Shop extends REST_Controller
             'latitude'=>$this->data['lat'],
             'longitude'=>$this->data['long'],
             'cost'=>$this->data['price'],
+            'room_no'=>$this->data['room_no'],
+            'delivery_charges'=>$delivery_charges,
+            'distance'=>$distance,
             'payment_status'=>$this->data['payment_status']
         ];
         $orderId = $this->Shop_model->orderPlaced($data_post);
@@ -158,7 +186,7 @@ class Shop extends REST_Controller
                 $dat['order_id']=$orderId;
                 $dat['description']='Garam Masala(Rable)';
                 $dat['order_status']='0';
-                $result=push_notification_android($user[0]->fcm_str,$dat);
+                // $result=push_notification_android(explode(",",$user[0]->fcm_str) ,$dat);
                 $data['code'] = HTTP_OK;
                 $data['message'] = 'Order added Successfully';
                 $data['result'] =['id'=>$orderId];
@@ -197,7 +225,7 @@ class Shop extends REST_Controller
 
     public function TodaysOrder_post()
     {
-        $user = $this->Users_model->getTodaysOrder($this->data['user_id'],$this->data['type']);
+        $user = $this->Users_model->getTodaysOrder($this->data['user_id'],$this->data['type'],$this->data['date']);
         if ($user) {
             $data['message'] = 'Success';
             $data['result'] = $user;
@@ -206,7 +234,7 @@ class Shop extends REST_Controller
             exit();
         } else {
                 $data['message'] = 'No orders found';
-                $data['code'] = HTTP_OK;
+                $data['code'] = 408;
                 $data['result'] ='No' ;
                 $this->response($data, HTTP_OK);
                 exit();

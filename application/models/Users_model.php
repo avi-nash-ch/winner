@@ -29,8 +29,9 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
-    public function getTodaysOrder($user_id,$type)
+    public function getTodaysOrder($user_id,$type,$date)
     {
+        $date=date('Y-m-d',strtotime($date));
         $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.lat as del_boy_lat,tbl_worker.lng as del_boy_long,shop.name as shop_name,shop.image2 as qr_image,shop.lat as shop_lat,shop.lng as shop_long');
         $this->db->from('product_orders');
         $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
@@ -41,10 +42,16 @@ class Users_model extends MY_Model
         }else{
             $this->db->where('product_orders.user_id', $user_id);
         }
+        $this->db->where('DATE(product_orders.added_date)',$date);
         $this->db->order_by('product_orders.id', 'desc');
         // $this->db->limit(10);
         $Query = $this->db->get();
         return $Query->result();
+    }
+    public function getPriceSetting()
+    {
+        $Query = $this->db->get('tbl_price_setting');
+        return $Query->row();
     }
 
 
