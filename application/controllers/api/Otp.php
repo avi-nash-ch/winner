@@ -39,16 +39,16 @@ private $data;
             $this->response($data, HTTP_OK);
             exit();
         }
-        // $OTP = rand(100000,999999);
-        $OTP = 9988;
-        // $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
+        $OTP = rand(100000,999999);
+        // $OTP = 9988;
+        $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
          
-        // Send_OTP($MobileNo,$OTP);
+        Send_OTP($MobileNo,$OTP);
         $strc = true;
         if ($strc) {
             $data['message'] = 'OTP Sent Successfully';
-            // $data['id'] = $this->url_encrypt->encode($GenerateOTP);
-            $data['id'] = 1;
+            $data['id'] = $this->url_encrypt->encode($GenerateOTP);
+            // $data['id'] = 1;
             $data['code'] = HTTP_OK;
             $this->response($data, HTTP_OK);
         } else {
@@ -96,7 +96,7 @@ private $data;
                 //     'email' => $data->email,
                 //     'name' => $data->first_name,
                 // );
-                // $this->Website_model->otpUpdate($check_otp->id);
+                $this->Website_model->otpUpdate($check_otp->id);
                 $result['message'] = 'OTP Verified Successfully';
                 $result['result'] = $data;
                 $result['code'] = HTTP_OK;

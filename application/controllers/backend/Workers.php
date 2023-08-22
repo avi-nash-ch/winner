@@ -58,6 +58,15 @@ class Workers extends MY_Controller
         template('worker/edit', $data);
     }
    
+    public function orders($id)
+    {
+        $data = [
+            'title' => 'Orders Details',
+            'Orders' => $this->Worker_model->getOrderByDeliveryBoy($id)
+        ];
+
+        template('worker/order_details', $data);
+    }
 
     public function delete($id)
     {

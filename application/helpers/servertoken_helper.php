@@ -78,7 +78,7 @@ function Send_SMS($MobileNo, $MSZ)
 
 function Send_OTP($MobileNo, $OTP)
 {
-    $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=' . SMS_API_KEY . '&to=' . $MobileNo . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $OTP . '&var2=PratapMultiServices');
+    $ch = curl_init('https://2factor.in/API/R1/?module=TRANS_SMS&apikey=' . SMS_API_KEY . '&to=' . $MobileNo . '&from=Nxgtch&templatename=PMS+Login+-+OTP&var1=' . $OTP . '&var2=IYE');
                 curl_setopt($ch, CURLOPT_POST, true);
                 // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -144,6 +144,20 @@ class Worker_model extends MY_Model
         return $Query->row();
     }
 
+
+    public function getOrderByDeliveryBoy($id)
+    {
+        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.whatsapp_no as d_contact,shop.name as shop_name');
+        $this->db->from('product_orders');
+        $this->db->join('tbl_worker', 'tbl_worker.id=product_orders.user_id');
+        $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
+        $this->db->where('product_orders.isDeleted', false);
+        $this->db->where('product_orders.user_id',$id);
+        $this->db->order_by('product_orders.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+
     public function GetProductByQrCode($qr_code)
     {
         $Query = $this->db->where('isDeleted', False)

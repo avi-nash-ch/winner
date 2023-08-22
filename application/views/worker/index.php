@@ -37,7 +37,11 @@
                             <td>
                                 <a href="<?= base_url('backend/Workers/edit/' . $worker->id) ?>"
                                     class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                        class="fa fa-edit"></span></a>
+                                        class="fa fa-edit"></span></a>|
+                                        <a href="<?= base_url('backend/Workers/orders/' . $worker->id) ?>"
+                                    class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Orders"><span
+                                        class="fa fa-eye"></span></a>
+
                                 | <a href="<?= base_url('backend/Workers/delete/' . $worker->id) ?>"
                                     onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><span class="fa fa-times"></span></a>

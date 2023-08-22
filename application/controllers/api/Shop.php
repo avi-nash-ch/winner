@@ -160,10 +160,13 @@ class Shop extends REST_Controller
        $distance= $this->haversineGreatCircleDistance($this->data['shop_lat'],$this->data['shop_long'],$this->data['lat'],$this->data['long']);
        if($distance<=$price_setting->base_km){
         $delivery_charges=$price_setting->base_price;
+        $delivery_boy_charges=$price_setting->delivery_boy_charges;
        }else if(($price_setting->base_km<$distance) && ($distance<=$price_setting->after_km)){
         $delivery_charges=$price_setting->base_price+$price_setting->between_price;
+        $delivery_boy_charges=$price_setting->delivery_boy_charges;
        }else{
         $delivery_charges=($price_setting->base_price+$price_setting->between_price)+(($distance-$price_setting->after_km)*$price_setting->after_km_price);
+        $delivery_boy_charges=($price_setting->delivery_boy_charges)+(($distance-$price_setting->after_km)*$price_setting->after_km_delboy_chrgs);
        }
         $data_post=[
             'shop_id'=>$this->data['shop_id'],
@@ -175,6 +178,7 @@ class Shop extends REST_Controller
             'cost'=>$this->data['price'],
             'room_no'=>$this->data['room_no'],
             'delivery_charges'=>$delivery_charges,
+            'delivery_boy_charges'=>$delivery_boy_charges,
             'distance'=>$distance,
             'payment_status'=>$this->data['payment_status']
         ];
@@ -186,7 +190,7 @@ class Shop extends REST_Controller
                 $dat['order_id']=$orderId;
                 $dat['description']='Garam Masala(Rable)';
                 $dat['order_status']='0';
-                // $result=push_notification_android(explode(",",$user[0]->fcm_str) ,$dat);
+                $result=push_notification_android(explode(",",$user[0]->fcm_str) ,$dat);
                 $data['code'] = HTTP_OK;
                 $data['message'] = 'Order added Successfully';
                 $data['result'] =['id'=>$orderId];
