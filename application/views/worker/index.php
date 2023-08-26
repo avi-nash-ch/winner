@@ -14,7 +14,7 @@
                             <!-- <th>Location</th> -->
                             <th>Whatsapp No</th>
                             <th>Address</th>
-                            <!-- <th>Service Provider</th> -->
+                            <th>Status</th>
                             <th>Added Date</th>
                             <th>Action</th>
                         </tr>
@@ -32,7 +32,7 @@
                             <!-- <td><?= $worker->location ?></td> -->
                             <td><?= $worker->whatsapp_no ?></td>
                             <td><?= $worker->address ?></td>
-                            <!-- <td><?= $worker->service_provider ?></td> -->
+                            <td><?= ($worker->status==1)?'<span style="color:green">Online</span>':'<span style="color:red">Offline</span>' ?></td>
                             <td><?= date("d-m-Y h:i A", strtotime($worker->added_date)) ?></td>
                             <td>
                                 <a href="<?= base_url('backend/Workers/edit/' . $worker->id) ?>"

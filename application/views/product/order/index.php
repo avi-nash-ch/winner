@@ -9,6 +9,7 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
+                            <th>Order Id</th>
                             <th>Shop Name</th>
                             <th>Delivery Boy</th>
                             <th>Delivery Boy Mo.</th>
@@ -30,6 +31,7 @@
                         ?>
                         <tr>
                             <td><?= $i ?></td>
+                            <td><?= $product->id ?></td>
                             <td><?= $product->shop_name ?></td>
                             <td><?= $product->delivery_boy ?></td>
                             <td><?= $product->d_contact ?></td>

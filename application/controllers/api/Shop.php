@@ -156,8 +156,9 @@ class Shop extends REST_Controller
 
     public function callDeleveryBoy_post()
     {
+        $shop=$this->Shop_model->getShop($this->data['shop_id']);
         $price_setting = $this->Users_model->getPriceSetting();
-       $distance= $this->haversineGreatCircleDistance($this->data['shop_lat'],$this->data['shop_long'],$this->data['lat'],$this->data['long']);
+       $distance= $this->haversineGreatCircleDistance($shop->lat,$shop->lng,round($this->data['lat'], 6),round($this->data['long'], 6));
        if($distance<=$price_setting->base_km){
         $delivery_charges=$price_setting->base_price;
         $delivery_boy_charges=$price_setting->delivery_boy_charges;
@@ -173,8 +174,8 @@ class Shop extends REST_Controller
             'first_name'=>$this->data['customer_name'],
             'phone'=>$this->data['mobile_no'],
             'address'=>$this->data['address'],
-            'latitude'=>$this->data['lat'],
-            'longitude'=>$this->data['long'],
+            'latitude'=>round($this->data['lat'], 6),
+            'longitude'=>round($this->data['long'], 6),
             'cost'=>$this->data['price'],
             'room_no'=>$this->data['room_no'],
             'delivery_charges'=>$delivery_charges,
@@ -183,14 +184,15 @@ class Shop extends REST_Controller
             'payment_status'=>$this->data['payment_status']
         ];
         $orderId = $this->Shop_model->orderPlaced($data_post);
+      
         if($orderId){
             $user = $this->Users_model->getAllFcm();
             if ($user) {
                 $dat['title']='New Order recieved';
                 $dat['order_id']=$orderId;
-                $dat['description']='Garam Masala(Rable)';
+                $dat['description']=$shop->name.'('.$shop->address.')';
                 $dat['order_status']='0';
-                $result=push_notification_android(explode(",",$user[0]->fcm_str) ,$dat);
+                // $result=push_notification_android(explode(",",$user[0]->fcm_str) ,$dat);
                 $data['code'] = HTTP_OK;
                 $data['message'] = 'Order added Successfully';
                 $data['result'] =['id'=>$orderId];

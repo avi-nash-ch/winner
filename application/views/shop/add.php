@@ -54,8 +54,8 @@
                 <div class="form-group row main_location">
                 <div class="col-md-6">
                     <label for="address">Address</label>
-                    <input type="text" name="street_address" onchange="getlatlong(this)" class="form-control query start pac-target-input" id="pac-input" placeholder="&nbsp">
-                                    
+                    <input type="text" name="street_address"class="form-control" id="pac-input" placeholder="&nbsp">
+                    <div id="map"></div>
                         <!-- <input class="form-control" type="text" Placeholder="Address"  name="address"
                             id="address"> -->
                     </div>
@@ -96,7 +96,7 @@
         </div><!-- end col -->
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0&callback=initAutocomplete&libraries=places&v=weekly"
-      defer type="text/javascript"></script>
+      defer></script>
     
     <script>
             $(document).ready(() => {
@@ -150,15 +150,9 @@
                 });
             });
 
-// This example adds a search box to a map, using the Google Place Autocomplete
-// feature. People can enter geographical searches. The search box will return a
-// pick list containing a mix of places and predicted search terms.
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 function initAutocomplete() {
   const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 19.1316833, lng: 73.005094 },
+    center: { lat: 19.148575, lng:  72.989941 },
     zoom: 13,
     mapTypeId: "roadmap",
   });

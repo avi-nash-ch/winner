@@ -147,8 +147,8 @@ class User extends REST_Controller
 
     function latLongUpdate_post() {
         
-        $latitude = $this->input->post('latitude');
-        $longitude = $this->input->post('longitude');
+        $latitude = round($this->input->post('latitude'), 6);
+        $longitude = round($this->input->post('longitude'), 6);
         $user_id = $this->input->post('user_id');
        
         if (empty($user_id)) {

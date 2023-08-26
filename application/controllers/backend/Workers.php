@@ -20,7 +20,7 @@ class Workers extends MY_Controller
     {
         $data = [
             'title' => 'Delevery Boy',
-            'AllWorkers' => $this->Worker_model->Workers()
+            'AllWorkers' => $this->Worker_model->AllActiveWorkers()
         ];
         $this->load->view('map_test',$data);
     }
@@ -171,11 +171,11 @@ class Workers extends MY_Controller
         }
         $data = [
             'name' => $this->input->post('name'),
-            // 'category' => $this->input->post('category'),
+             'shop_name' =>'',
             // 'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
-            'shop_name' => $this->input->post('shop_name'),
+            // 'shop_name' => $this->input->post('shop_name'),
             // 'service_provider' => $this->input->post('service_provider'),
             'image' => $product_image,
             'image2' => $product_image2,

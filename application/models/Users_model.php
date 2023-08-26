@@ -880,6 +880,7 @@ class Users_model extends MY_Model
             'updated_date' => date('Y-m-d H:i:s')
         ];
         $this->db->where('id', $id);
+        $this->db->where('role',0);
         $this->db->update('tbl_worker', $data);
         return $this->db->last_query();
     }

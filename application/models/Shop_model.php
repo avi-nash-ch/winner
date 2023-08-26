@@ -123,6 +123,14 @@ class Shop_model extends MY_Model
         return $Query->row();
     }
 
+    public function getShop($id)
+    {
+        $Query = $this->db->where('isDeleted', False)
+            ->where('shop_id', $id)
+            ->get('tbl_worker');
+        return $Query->row();
+    }
+
     public function GetProductByQrCode($qr_code)
     {
         $Query = $this->db->where('isDeleted', False)

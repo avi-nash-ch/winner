@@ -58,9 +58,42 @@ class Shops extends MY_Controller
         redirect('backend/Shops');
     }
 
-   
+    function get_longitude_latitude_from_adress($address){
+  
+        $lat =  0;
+        $long = 0;
+         
+         $address = str_replace(',,', ',', $address);
+         $address = str_replace(', ,', ',', $address);
+         $address = str_replace(" ", "+", $address);
+          try {
+         $json = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&key=AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0');
+         $json1 = json_decode($json);
+         if($json1->{'status'} == 'ZERO_RESULTS') {
+         return [
+             'lat' => 0,
+             'lng' => 0
+            ];
+         }
+         
+         if(isset($json1->results)){
+            
+            $lat = ($json1->{'results'}[0]->{'geometry'}->{'location'}->{'lat'});
+            $long = ($json1->{'results'}[0]->{'geometry'}->{'location'}->{'lng'});
+          }
+          } catch(exception $e) { }
+         return [
+         'lat' => $lat,
+         'lng' => $long
+         ];
+        }
+
     public function insert()
     {
+        $address =$this->input->post('street_address');
+        $array  = $this->get_longitude_latitude_from_adress($address);
+        $latitude  = round($array['lat'], 6);
+        $longitude = round($array['lng'], 6);  
         $product_image='';
         $qr_image='';
         if (! empty($_FILES['product_image']['name'])) {
@@ -106,11 +139,12 @@ class Shops extends MY_Controller
             }
         }
       
+      
         $data = [
             'first_name' => $this->input->post('shop_name'),
             'password' => $this->input->post('password'),
             'sw_password' => md5($this->input->post('password')),
-            'contact_us' => $this->input->post('address'),
+            'contact_us' => '',
             'mobile' => $this->input->post('whatsapp_no'),
             'email_id' => $this->input->post('email'),
             'logo' => $product_image,
@@ -125,11 +159,13 @@ class Shops extends MY_Controller
             $shop_data = [
                 'name' => $this->input->post('shop_name'),
                 'shop_name' => $this->input->post('shop_name'),
-                'address' => $this->input->post('address'),
+                'address' => $this->input->post('street_address'),
                 'whatsapp_no' => $this->input->post('whatsapp_no'),
                 'shop_id' => $category,
                 'image' => $product_image,
                 'image2' => $qr_image,
+                'lat'=>$latitude,
+                'lng'=>$longitude,
                 'role'=>1,
                 'added_date' => date('Y-m-d H:i:s')
             ];
@@ -149,7 +185,10 @@ class Shops extends MY_Controller
     {
         $product_image='';
         $qr_image='';
-      
+        $address =$this->input->post('address');
+        $array  = $this->get_longitude_latitude_from_adress($address);
+        $latitude  = round($array['lat'], 6);
+        $longitude = round($array['lng'], 6); 
         $data = [
             'first_name' => $this->input->post('shop_name'),
             'password' => $this->input->post('password'),
@@ -164,6 +203,8 @@ class Shops extends MY_Controller
             'shop_name' => $this->input->post('shop_name'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
+            'lat'=>$latitude,
+            'lng'=>$longitude,
             'updated_date' => date('Y-m-d H:i:s')
         ];
         if (! empty($_FILES['product_image']['name'])) {

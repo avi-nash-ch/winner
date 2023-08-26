@@ -9,6 +9,7 @@ class Worker_model extends MY_Model
         // $this->db->join('tbl_category','tbl_category.id=tbl_worker.category');
         // $this->db->join('tbl_location','tbl_location.id=tbl_worker.location','left');
         $this->db->where('tbl_worker.isDeleted', false);
+        $this->db->where('tbl_worker.role', 0);
         if(!empty($cat)){
             // $this->db->where_in('tbl_category.id',$cat);
         }
@@ -20,6 +21,17 @@ class Worker_model extends MY_Model
             // $this->db->or_like('tbl_worker.location',$search);
             // $this->db->or_like('tbl_worker.service_provider',$search);
         }
+        $this->db->order_by('tbl_worker.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
+    public function AllActiveWorkers($cat=null,$search=null,$location=null)
+    {
+        $this->db->select('tbl_worker.*');
+        $this->db->from('tbl_worker');
+        $this->db->where('tbl_worker.isDeleted', false);
+        $this->db->where('tbl_worker.status', 1);
+        $this->db->where('tbl_worker.role', 0);
         $this->db->order_by('tbl_worker.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();
