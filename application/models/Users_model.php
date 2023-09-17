@@ -15,13 +15,14 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
-    public function getAllFcm()
+    public function getAllFcm($type)
     {
         $this->db->select('GROUP_CONCAT(tbl_worker.fcm SEPARATOR ",") as fcm_str');
         $this->db->from('tbl_worker');
         $this->db->where('tbl_worker.isDeleted', false);
         $this->db->where('tbl_worker.role', 0);
         $this->db->where('tbl_worker.status', 1);
+        $this->db->where('tbl_worker.delivery_boy_type',$type);
         $this->db->where('tbl_worker.fcm!=','');
         $this->db->order_by('tbl_worker.id', 'asc');
         // $this->db->limit(10);
@@ -32,7 +33,7 @@ class Users_model extends MY_Model
     public function getTodaysOrder($user_id,$type,$date)
     {
         $date=date('Y-m-d',strtotime($date));
-        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.lat as del_boy_lat,tbl_worker.lng as del_boy_long,shop.name as shop_name,shop.image2 as qr_image,shop.lat as shop_lat,shop.lng as shop_long,(select sum(delivery_charges) from product_orders where date(added_date)="'.$date.'") as total,(select sum(delivery_boy_charges) from product_orders where date(added_date)="'.$date.'") as delivery_boy_total');
+        $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.lat as del_boy_lat,tbl_worker.lng as del_boy_long,shop.name as shop_name,shop.image2 as qr_image,shop.lat as shop_lat,shop.lng as shop_long,(select sum(delivery_charges) from product_orders where date(added_date)="'.$date.'" and shop_id="'.$user_id.'") as total,(select sum(delivery_boy_charges) from product_orders where date(added_date)="'.$date.'" and user_id="'.$user_id.'") as delivery_boy_total');
         $this->db->from('product_orders');
         $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
         $this->db->join('tbl_worker', 'tbl_worker.id=product_orders.user_id','left');
@@ -43,7 +44,8 @@ class Users_model extends MY_Model
             $this->db->where('product_orders.user_id', $user_id);
         }
         $this->db->where('DATE(product_orders.added_date)',$date);
-        $this->db->order_by('product_orders.id', 'desc');
+        // $this->db->order_by('product_orders.id', 'desc');
+        $this->db->order_by('product_orders.status', 'asc');
         // $this->db->limit(10);
         $Query = $this->db->get();
         return $Query->result();
@@ -493,6 +495,15 @@ class Users_model extends MY_Model
         return $Query->result();
     }
 
+    public function orderByUserId($user_id)
+    {
+        $this->db->select('*');
+        $this->db->from('product_orders');
+        $this->db->where('isDeleted', false);
+        $this->db->where('customer_id', $user_id);
+        $Query = $this->db->get();
+        return $Query->result();
+    }
     public function getOrderStatus($id)
     {
         $this->db->select('status');
@@ -505,17 +516,17 @@ class Users_model extends MY_Model
 
     public function UserCheck($mobile)
     {
-        $this->db->select('user.id');
-        $this->db->from('user');
+        $this->db->select('id');
+        $this->db->from('tbl_worker');
         $this->db->where('isDeleted', false);
-        $this->db->where('user.phone', $mobile);
+        $this->db->where('whatsapp_no', $mobile);
         $Query = $this->db->get();
         return $Query->row();
     }
 
     public function Registration($data)
     {
-        $this->db->insert('user', $data);
+        $this->db->insert('tbl_worker', $data);
         return $this->db->insert_id();
     }
 
@@ -882,6 +893,18 @@ class Users_model extends MY_Model
         $this->db->where('id', $id);
         $this->db->where('role',0);
         $this->db->update('tbl_worker', $data);
+        return $this->db->last_query();
+    }
+
+    public function updatePrice($id,$shop_id,$price,$payment_mode)
+    {
+        $data = [
+            'cost'=>$price,
+            'payment_status'=>$payment_mode,
+        ];
+        $this->db->where('id', $id);
+        $this->db->where('shop_id', $shop_id);
+        $this->db->update('product_orders', $data);
         return $this->db->last_query();
     }
 

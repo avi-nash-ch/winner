@@ -60,9 +60,22 @@ class Workers extends MY_Controller
    
     public function orders($id)
     {
+        if(!empty($this->input->get('daterange'))){
+            $dateArr=explode("-",$this->input->get('daterange'));
+            $start_date=date('Y-m-d',strtotime($dateArr[0]));
+            $end_date=date('Y-m-d',strtotime($dateArr[1]));
+        }else{
+            $start_date=date('Y-m-d');
+            $end_date=date('Y-m-d');
+        }
+        $date1 = new DateTime($start_date);
+        $date2 = new DateTime($end_date);
+$days  = $date2->diff($date1)->format('%a');
         $data = [
             'title' => 'Orders Details',
-            'Orders' => $this->Worker_model->getOrderByDeliveryBoy($id)
+            'worker_id'=>$id,
+            'days'=>$days,
+            'Orders' => $this->Worker_model->getOrderByDeliveryBoy($id,$start_date,$end_date)
         ];
 
         template('worker/order_details', $data);
@@ -176,7 +189,7 @@ class Workers extends MY_Controller
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
             // 'shop_name' => $this->input->post('shop_name'),
-            // 'service_provider' => $this->input->post('service_provider'),
+            'delivery_boy_type' => $this->input->post('delivery_boy_type'),
             'image' => $product_image,
             'image2' => $product_image2,
             'image3' => $product_image3,
@@ -210,6 +223,7 @@ class Workers extends MY_Controller
             // 'location' => $this->input->post('location'),
             'address' => $this->input->post('address'),
             'whatsapp_no' => $this->input->post('whatsapp_no'),
+            'delivery_boy_type' => $this->input->post('delivery_boy_type'),
             // 'shop_name' => $this->input->post('shop_name'),
             // 'service_provider' => $this->input->post('service_provider'),
             'updated_date' => date('Y-m-d H:i:s')

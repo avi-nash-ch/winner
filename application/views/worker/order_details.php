@@ -1,9 +1,38 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <div class="row">
 
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
+            <?php echo form_open_multipart('backend/Workers/orders/'.$worker_id, ['autocomplete' => false, 'id' => 'edit_worker'
+                ,'method'=>'get'])
+                ?>
+            <div class="row">
+            <div class="col-md-6">
+                    <label for="address">Date</label>
+                        <input class="form-control" type="text" Placeholder="Address" name="daterange"
+                            id="reportrange">
+                          
+                    </div>
+                    <div class="form-group mb-0" style="margin-top: 26px;">
+                    <div>
+                        <?php
+                        echo form_submit('submit', 'Submit', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
+                       
+                        ?>
+                    </div>
+                </div>
+                   
+                </div>
+</div>
+<?php
+            echo form_close();
+            ?>
+            <!-- <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" /> -->
+<br>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
@@ -22,12 +51,14 @@
                             <!-- <th>Action</th> -->
                         </tr>
                     </thead>
-    
+                   
                     <tbody>
                         <?php
                         $i = 0;
+                        $total=0;
                         foreach ($Orders as $key => $product) {
                             $i++;
+                            $total=$total+$product->delivery_boy_charges;
                         ?>
                         <tr>
                             <td><?= $i ?></td>
@@ -62,7 +93,18 @@
                         ?>
 
                     </tbody>
-           
+                    <tfoot>
+       <tr id="tfooter">
+       <td></td>
+       <td></td>
+       <td></td>
+       <th>Total: <?= $total?>/-</th>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+       </tr>
+     </tfoot>
                 </table>
             </div>
         </div>
@@ -124,4 +166,29 @@ function most_viewed($this,id) {
     },
   });
 }
+$(function() {
+    var start = moment().subtract('<?= $days ?>', 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+        //    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+
+});
+
 </script>

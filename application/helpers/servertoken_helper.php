@@ -30,7 +30,6 @@ function push_notification_android($device_id, $message)
                 "message" => $message
         )
     );
-
     //header includes Content type and api key
     $headers = array(
         'Content-Type:application/json',

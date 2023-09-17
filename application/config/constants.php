@@ -110,7 +110,6 @@ define('BANNER_URL', 'uploads/banner/');
 define('LOGO', 'uploads/images/');
 define('IMAGE_URL', 'uploads/images/');
 // FCM Notification
-define('SERVER_KEY', 'AAAAGkJH19Q:APA91bFulQnYXqpoIpOvA4Fex-cB9KA1WTQM7FafbbkW6qE4YZyZrIgZ2yDX0oMwJYnDHYI6Chkyh3K40IV3G2MiL6B74WA-IVO-ZASaiNTGv2ZmM4nSEzRM5Crlrclg0Yg6cToo2DZ_');
-
+define('SERVER_KEY','AAAAUsflg-o:APA91bF2a8LpTNl5f0v6yDEdammd09dxWaTYhGhdBUFhHIJukuoi1lgNFq5CvyrObUsbsUpiiNomBEKBKXsbk_DLgLw4DQdK7YYxi3bREV5xzO3Hw4fruD1pH0A1CNawP-PqFe0omYyT');
 // google map key
 define('MapKey', 'AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0');

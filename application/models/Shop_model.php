@@ -6,11 +6,11 @@ class Shop_model extends MY_Model
     {
         $this->db->where('isDeleted', false);
         $this->db->where('role',1);
-        if(!empty($cat)){
+        if(!empty($id)){
             $this->db->where_in('id',$id);
         }
         $this->db->order_by('id', 'desc');
-        $Query = $this->db->get('tbl_admin');
+        $Query = $this->db->get('tbl_worker');
         return $Query->result();
     }
 
@@ -48,6 +48,19 @@ class Shop_model extends MY_Model
         return $Query->row();
     }
 
+
+    public function orderById($id,$shop_id)
+    {
+        $this->db->select('product_orders.*,shop.name as shop_name,shop.address as shop_address');
+        $this->db->from('product_orders');
+        $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
+        $this->db->where('product_orders.isDeleted', false);
+        $this->db->where('product_orders.shop_id', $shop_id);
+        $this->db->where('product_orders.id', $id);
+        $this->db->order_by('product_orders.id', 'desc');
+        $Query = $this->db->get();
+        return $Query->row();
+    }
 
 
     public function AllOrder()
@@ -127,6 +140,14 @@ class Shop_model extends MY_Model
     {
         $Query = $this->db->where('isDeleted', False)
             ->where('shop_id', $id)
+            ->get('tbl_worker');
+        return $Query->row();
+    }
+
+    public function getCustomer($id)
+    {
+        $Query = $this->db->where('isDeleted', False)
+            ->where('id', $id)
             ->get('tbl_worker');
         return $Query->row();
     }

@@ -157,7 +157,7 @@ class Worker_model extends MY_Model
     }
 
 
-    public function getOrderByDeliveryBoy($id)
+    public function getOrderByDeliveryBoy($id,$start_date,$end_date)
     {
         $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.whatsapp_no as d_contact,shop.name as shop_name');
         $this->db->from('product_orders');
@@ -165,6 +165,8 @@ class Worker_model extends MY_Model
         $this->db->join('tbl_worker shop', 'shop.shop_id=product_orders.shop_id');
         $this->db->where('product_orders.isDeleted', false);
         $this->db->where('product_orders.user_id',$id);
+        $this->db->where('DATE(product_orders.added_date)>=',$start_date);
+        $this->db->where('DATE(product_orders.added_date)<=',$end_date);
         $this->db->order_by('product_orders.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();

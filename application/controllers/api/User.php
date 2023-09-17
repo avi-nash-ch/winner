@@ -38,9 +38,9 @@ class User extends REST_Controller
     public function Registration_post()
     {
         $mobile = $this->data['mobile'];
-        $first_name = $this->data['first_name'];
-        $last_name = $this->data['last_name'];
+        $first_name = $this->data['name'];
         $email = $this->data['email'];
+        $user_type = $this->data['user_type'];
         $user = $this->Users_model->UserCheck($mobile);
         if ($user) {
             $data['message'] = 'Mobile Already Exist, Please Login';
@@ -49,11 +49,11 @@ class User extends REST_Controller
             exit();
         } else {
             $postData=[
-                'first_name'=>$first_name,
-                'phone'=>$mobile,
-                'last_name'=>$last_name,
-                'email'=>$email,
-                'created'=>date('Y-m-d H:i:s')
+                'name'=>$first_name,
+                'whatsapp_no'=>$mobile,
+                'user_email'=>$email,
+                'role'=>$user_type,
+                'added_date'=>date('Y-m-d H:i:s')
             ];
             $last_id = $this->Users_model->Registration($postData);
             $data['message'] = 'Success';
@@ -84,6 +84,22 @@ class User extends REST_Controller
         }
     }
 
+    public function orderByUserId_post()
+    {
+        $Orders = $this->Users_model->orderByUserId($this->data['user_id']);
+        if ($Orders) {
+            $data['code'] = HTTP_OK;
+            $data['message'] = 'Success';
+            $data['result'] = $Orders;
+            $this->response($data, HTTP_OK);
+        } else {
+                $data['message'] = 'No orders found.';
+                $data['code'] = 408;
+                $this->response($data, HTTP_OK);
+                exit();
+           
+        }
+    }
 
     public function login_post()
     {

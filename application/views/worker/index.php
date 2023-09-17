@@ -11,7 +11,7 @@
                             <th>Sr. No.</th>
                             <!-- <th>Category</th> -->
                             <th>Name</th>
-                            <!-- <th>Location</th> -->
+                            <th>ID Type</th>
                             <th>Whatsapp No</th>
                             <th>Address</th>
                             <th>Status</th>
@@ -29,7 +29,7 @@
                             <td><?= $i ?></td>
                             <!-- <td><?= $worker->category ?></td> -->
                             <td><?= $worker->name ?></td>
-                            <!-- <td><?= $worker->location ?></td> -->
+                            <td><?= ($worker->delivery_boy_type==0)?'Bike Id':'Cycle Id' ?></td>
                             <td><?= $worker->whatsapp_no ?></td>
                             <td><?= $worker->address ?></td>
                             <td><?= ($worker->status==1)?'<span style="color:green">Online</span>':'<span style="color:red">Offline</span>' ?></td>

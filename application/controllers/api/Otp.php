@@ -39,11 +39,18 @@ private $data;
             $this->response($data, HTTP_OK);
             exit();
         }
-        $OTP = rand(100000,999999);
-        // $OTP = 9988;
+        $checkMobile = $this->Website_model->getDeleveryrData($this->input->post('MobileNo'));
+        if (empty($checkMobile)) {
+            $data['message'] = 'Mobile number is not register';
+            $data['code'] = HTTP_NOT_ACCEPTABLE;
+            $this->response($data, HTTP_OK);
+            exit();
+        }
+        // $OTP = rand(100000,999999);
+        $OTP = 999999;
         $GenerateOTP = $this->Users_model->InsertOTP($MobileNo,$OTP);
          
-        Send_OTP($MobileNo,$OTP);
+        // Send_OTP($MobileNo,$OTP);
         $strc = true;
         if ($strc) {
             $data['message'] = 'OTP Sent Successfully';
@@ -96,7 +103,8 @@ private $data;
                 //     'email' => $data->email,
                 //     'name' => $data->first_name,
                 // );
-                $this->Website_model->otpUpdate($check_otp->id);
+                // $this->Website_model->otpUpdate($check_otp->id);
+                $this->Users_model->fcmUpdate($data->id,$this->input->post('fcm'));
                 $result['message'] = 'OTP Verified Successfully';
                 $result['result'] = $data;
                 $result['code'] = HTTP_OK;

@@ -48,11 +48,7 @@
                         <input class="form-control" type="text" Placeholder="Whatsapp No." name="whatsapp_no"
                             id="whatsapp_no">
                     </div>
-                    <!-- <div class="col-md-3">
-                    <label for="service_provider">Service Provider</label>
-                        <input class="form-control" type="text" Placeholder="Service Provider" name="service_provider"
-                            id="service_provider">
-                    </div> -->
+                  
                 </div>
                
                 <div class="form-group row">
@@ -62,24 +58,20 @@
                             id="address">
                     </div>
                    
-                    <!-- <div class="col-md-4">
-                    <label for="location">Location</label>
-                    <select class="form-control" name="location" required>
-                        <option value="">Select Location</option>
-                        <?php foreach ($Location as $key => $value) { ?>
-                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
-                   <?php } ?>
-                       </select>
-                    </div> -->
+
                    
                 </div>
-                <!-- <div class="form-group row">
-                <div class="col-md-6">
-                    <label for="shop_name">Shop Name</label>
-                        <input class="form-control" type="text" Placeholder="Shop Name"  name="shop_name"
-                            id="shop_name">
+                <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="service_provider">Cycle ID</label>
+                        <input type="radio"  name="delivery_boy_type" value="1"
+                           >
+                           <br>
+                           <label for="service_provider">Bike ID</label>
+                        <input type="radio"  name="delivery_boy_type" value="0" checked
+                           >
                     </div>
-                </div> -->
+                </div>
                 <div class="form-group row">
                     <div class="col-md-2">
                     <div class="holder">
