@@ -3,7 +3,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
                 <table id="datatable" class="table table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
@@ -17,34 +16,36 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i = 0;
-                        foreach ($All as $key => $row) {
-                            $i++;
+                            $i = 0;
+                            foreach ($All as $key => $row) : $i++; 
                         ?>
+                                
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $row->name ?></td>
-                            <td><img src="<?= base_url('uploads/images/'.$row->icon); ?>" height="80px" width="80px"></td>
+                            <td>
+                                <img src="<?= base_url('uploads/images/'.$row->icon); ?>" height="80px" width="80px">
+                            </td>
                             <td><?= date("d-m-Y h:i A", strtotime($row->added_date)) ?></td>
                             <td>
                                 <a href="<?= base_url('backend/ProductCategory/edit/' . $row->id) ?>"
-                                    class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span
-                                        class="fa fa-edit"></span></a>|
+                                    class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <span class="fa fa-edit"></span>
+                                </a>|
 
-                                        <a href="<?= base_url('backend/ProductCategory/addSubCategory/' . $row->id) ?>"
-                                    class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add Sub Category"><span
-                                        class="fa fa-plus"></span></a>
+                                <a href="<?= base_url('backend/ProductCategory/addSubCategory/' . $row->id) ?>"
+                                    class="btn btn-success" data-toggle="tooltip" data-placement="top"
+                                    title="Add Sub Category">
+                                    <span class="fa fa-plus"></span>
+                                </a>|
 
-                               
-                                | <a href="<?= base_url('backend/ProductCategory/delete/' . $row->id) ?>"
-                                    onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
-                                    title="Delete"><span class="fa fa-times"></span></a>
+                                <a href="<?= base_url('backend/ProductCategory/delete/' . $row->id) ?>"
+                                    onclick="return confirm('Are you sure you want to delete')" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <span class="fa fa-times"></span>
+                                </a>
                             </td>
                         </tr>
-                        <?php }
-                        ?>
-
-
+                        <?php endforeach ;?> 
                     </tbody>
                 </table>
             </div>

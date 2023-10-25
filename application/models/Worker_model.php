@@ -10,9 +10,9 @@ class Worker_model extends MY_Model
         // $this->db->join('tbl_location','tbl_location.id=tbl_worker.location','left');
         $this->db->where('tbl_worker.isDeleted', false);
         $this->db->where('tbl_worker.role', 0);
-        if(!empty($cat)){
-            // $this->db->where_in('tbl_category.id',$cat);
-        }
+            if(!empty($cat)){
+                // $this->db->where_in('tbl_category.id',$cat);
+            }
         if(!empty($location[0])){
             // $this->db->where_in('tbl_worker.location',$location);
         }

@@ -1,4 +1,4 @@
-<?php
+    <?php
 class Products extends MY_Controller
 {
     public function __construct()
@@ -40,8 +40,8 @@ public function getItem()
     $barcode=$this->input->post('barcode');
     $Products = $this->Product_model->GetProductByQrCode($barcode);
     if(!empty($Products)){
-$result['result']=true;
-$result['data']=$Products;
+    $result['result']=true;
+    $result['data']=$Products;
     }else{
         $result['result']=false;
         $result['data']=$Products;
@@ -93,13 +93,12 @@ $result['data']=$Products;
         }
         redirect('backend/Products');
     }
-
     public function most_viewed()
     {
         $id=$this->input->post('id');
         $status=$this->input->post('status');
         $this->Product_model->most_viewed_status($id,$status);
-echo json_encode(['result'=>true]);
+        echo json_encode(['result'=>true]);
     }
 
     public function featureDelete($product_id,$id)

@@ -47,7 +47,7 @@ p{
 <table class="table table-bordered table-responsive-sm" style="border:1px solid #000;" cellpadding="4.5px" autosize="1" width="100%" style="overflow: wrap;border-radius:5px;">
 <tbody>
        <tr>
-        <th>Sr.<th/>
+        <th>Sr.</th>
         <th>Product Name</th>
         <th>Qty. </th>
         <th>Price</th>

@@ -17,55 +17,12 @@ class ProductCategory extends MY_Controller
         template('pcategory/index', $data);
     }
 
-    public function addSubCategory($id,$sub_cat_id='')
-    {
-        $data = [
-            'title' => 'Manage Sub Category',
-            'category_id'=>$id,
-            'sub_cat_id'=>$sub_cat_id,
-            'All' => $this->ProductCategory_model->AllSubCategory($id)
-        ];
-        $data['SideBarbutton'] = '';
-        template('pcategory/subcategory', $data);
-    }
-
     public function add()
     {
         $data = [
             'title' => 'Add Category'
         ];
-
         template('pcategory/add', $data);
-    }
-
-    public function edit($id)
-    {
-        $data = [
-            'title' => 'Edit Category',
-            'data' => $this->ProductCategory_model->ViewTableMaster($id)
-        ];
-
-        template('pcategory/edit', $data);
-    }
-   
-    public function delete($id)
-    {
-        if ($this->ProductCategory_model->Delete($id)) {
-            $this->session->set_flashdata('msg', array('message' => 'Category Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
-        } else {
-            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
-        }
-        redirect('backend/ProductCategory');
-    }
-
-    public function deleteSubCategory($cat_id,$id)
-    {
-        if ($this->ProductCategory_model->deleteSubCategory($id)) {
-            $this->session->set_flashdata('msg', array('message' => 'SubCategory Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
-        } else {
-            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
-        }
-        redirect('backend/ProductCategory/addSubCategory/'.$cat_id);
     }
 
     public function insert()
@@ -110,26 +67,14 @@ class ProductCategory extends MY_Controller
         redirect('backend/ProductCategory');
     }
 
-    public function insert_subcategory()
+    public function edit($id)
     {
         $data = [
-            'name' => $this->input->post('name'),
-            'category_id' => $this->input->post('category_id'),
-            'added_date' => date('Y-m-d H:i:s')
+            'title' => 'Edit Category',
+            'data' => $this->ProductCategory_model->ViewTableMaster($id)
         ];
-       
-        $check=$this->ProductCategory_model->CheckDuplicateSubCategory($this->input->post('name'));
-        if(empty($check)){
-        $category = $this->ProductCategory_model->AddTableMasterSubCategory($data);
-        if ($category) {
-            $this->session->set_flashdata('msg', array('message' => 'SubCategory Added Successfully', 'class' => 'success', 'position' => 'top-right'));
-        } else {
-            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
-        }
-    }else{
-        $this->session->set_flashdata('msg', array('message' => 'SubCategory Already Exists', 'class' => 'error', 'position' => 'top-right'));
-    }
-        redirect('backend/ProductCategory/addSubCategory/'.$this->input->post('category_id'));
+
+        template('pcategory/edit', $data);
     }
 
     public function update()
@@ -170,6 +115,67 @@ class ProductCategory extends MY_Controller
         }
         redirect('backend/ProductCategory');
     }
+    public function delete($id)
+    {
+        if ($this->ProductCategory_model->Delete($id)) {
+            $this->session->set_flashdata('msg', array('message' => 'Category Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
+        } else {
+            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+        }
+        redirect('backend/ProductCategory');
+    }
 
+
+    public function addSubCategory($id,$sub_cat_id='')
+    {
+        $data = [
+            'title' => 'Manage Sub Category',
+            'category_id'=>$id,
+            // 'sub_cat_id'=>$sub_cat_id,
+            'All' => $this->ProductCategory_model->AllSubCategory($id)
+            
+        ];
+        // $data['SideBarbutton'] = '';
+        template('pcategory/subcategory', $data);
+    }
+
+    public function insert_subcategory()
+    {
+        $data = [
+            'name' => $this->input->post('name'),
+            'category_id' => $this->input->post('category_id'),
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+       
+        $check=$this->ProductCategory_model->CheckDuplicateSubCategory($this->input->post('name'));
+        if(empty($check)){
+        $category = $this->ProductCategory_model->AddTableMasterSubCategory($data);
+        if ($category) {
+            $this->session->set_flashdata('msg', array('message' => 'SubCategory Added Successfully', 'class' => 'success', 'position' => 'top-right'));
+        } else {
+            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+        }
+    }else{
+        $this->session->set_flashdata('msg', array('message' => 'SubCategory Already Exists', 'class' => 'error', 'position' => 'top-right'));
+    }
+        redirect('backend/ProductCategory/addSubCategory/'.$this->input->post('category_id'));
+    }
+
+
+    public function deleteSubCategory($cat_id,$id)
+    {
+        if ($this->ProductCategory_model->deleteSubCategory($id)) {
+            $this->session->set_flashdata('msg', array('message' => 'SubCategory Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
+        } else {
+            $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+        }
+        redirect('backend/ProductCategory/addSubCategory/'.$cat_id);
+    }
+
+    
+
+    
+
+    
 
 }

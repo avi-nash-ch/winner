@@ -41,7 +41,7 @@
                             <select class="form-control select2" name="shop_id" required>
                                 <option value="">Select Shop</option>
                                 <?php foreach ($Shop as $key => $value) { ?>
-                                    <option value="<?= $value->id ?>" <?= ($Product->shop_id == $value->id) ? 'selected' : '' ?>><?= $value->first_name ?></option>
+                                    <option value="<?= $value->id ?>" <?= ($Product->shop_id == $value->id) ? 'selected' : '' ?>><?= $value->shop_name ?></option>
                                 <?php } ?>
                             </select>
                         </div>

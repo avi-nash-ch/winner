@@ -325,8 +325,6 @@
                                     </li>
 
                                     <li class=nav-item>
-
-
                                         <a href="<?= base_url('Home/FindWorkers') ?>">Find worker</a>
                                     </li>
                                     <li class="nav-item" class="<?= (array_filter([strpos($final_url, "home/buyitems")], 'is_numeric')) ? 'active' : '' ?>">

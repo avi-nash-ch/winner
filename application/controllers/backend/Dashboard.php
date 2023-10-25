@@ -59,9 +59,9 @@ class Dashboard extends MY_Controller
             ];
         }
         $last_id = $this->Product_model->AddOrderItemMapping($data);
-if($last_id){
-    $result = [ 'response' => true, 'msg' => 'success'];
-}
+        if($last_id){
+            $result = [ 'response' => true, 'msg' => 'success'];
+        }
         echo json_encode($result);
     }
 }

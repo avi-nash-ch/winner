@@ -8,7 +8,7 @@ if (!function_exists('render')) {
         $ci->load->model('Setting_model');
         $title['logo'] = $ci->Setting_model->Setting();
         $ci->load->view('src/header', $data);
-        $ci->load->view('src/nav', $title);
+        $ci->load->view('src/nav', $title); 
         $ci->load->view('src/sidebar',$data);
         $ci->load->view('src/notification', $title);
         $ci->load->view($view, $data);

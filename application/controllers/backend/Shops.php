@@ -4,7 +4,7 @@ class Shops extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Shop_model']);
+        $this->load->model(['Shop_model','Worker_model']);
     }
 
     public function index()
@@ -32,6 +32,7 @@ class Shops extends MY_Controller
     {
         $data = [
             'title' => 'Add Shop',
+            'Product' => $this->Shop_model->All()
         ];
 
         template('shop/add', $data);
@@ -41,7 +42,7 @@ class Shops extends MY_Controller
     {
         $data = [
             'title' => 'Edit Shop',
-            'Product' => $this->Shop_model->All($id),
+            'Product' => $this->Shop_model->All($id)
         ];
 
         template('shop/edit', $data);
@@ -271,3 +272,4 @@ class Shops extends MY_Controller
     }
 
 }
+

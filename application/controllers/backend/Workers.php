@@ -16,6 +16,7 @@ class Workers extends MY_Controller
         $data['SideBarbutton'] = ['backend/Workers/add', 'Add Worker'];
         template('worker/index', $data);
     }
+    
     public function Map()
     {
         $data = [
@@ -50,8 +51,6 @@ class Workers extends MY_Controller
     {
         $data = [
             'title' => 'Edit Workers',
-            'Category' => $this->Category_model->All(),
-            'Location' => $this->Location_model->All(),
             'Product' => $this->Worker_model->ViewTableMaster($id)
         ];
 
@@ -70,13 +69,14 @@ class Workers extends MY_Controller
         }
         $date1 = new DateTime($start_date);
         $date2 = new DateTime($end_date);
-$days  = $date2->diff($date1)->format('%a');
+        $days  = $date2->diff($date1)->format('%a');
         $data = [
             'title' => 'Orders Details',
             'worker_id'=>$id,
             'days'=>$days,
             'Orders' => $this->Worker_model->getOrderByDeliveryBoy($id,$start_date,$end_date)
         ];
+        $data['SideBarbutton'] = ['backend/Workers', 'Back'];
 
         template('worker/order_details', $data);
     }

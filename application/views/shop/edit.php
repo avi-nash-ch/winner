@@ -31,31 +31,26 @@
               <div class="form-group row">
                     <div class="col-md-3">
                     <label for="name">Shop Name *</label>
-                        <input class="form-control" type="text" Placeholder="Shop Name" value=" <?= $Product[0]->first_name ?>"  name="shop_name" required
-                            id="name">
+                        <input class="form-control" type="text" Placeholder="Shop Name" value=" <?= $Product[0]->shop_name ?>"  name="shop_name" required
+                            id="shop_name">
                     </div>
                     <div class="col-md-3">
                     <label for="whatsapp_no">Mobile No.</label>
-                        <input class="form-control" type="text" value=" <?= $Product[0]->mobile ?>" Placeholder="Mobile No." name="whatsapp_no"
+                        <input class="form-control" type="text" value=" <?= $Product[0]->whatsapp_no ?>" Placeholder="Mobile No." name="whatsapp_no"
                             id="whatsapp_no">
                     </div>
                     <div class="col-md-3">
                     <label for="email">Email Id</label>
-                        <input class="form-control" type="text" Placeholder="Email Id" value=" <?= $Product[0]->email_id ?>" name="email"
+                        <input class="form-control" type="text" Placeholder="Email Id" value=" <?= $Product[0]->user_email ?>" name="user_email"
                             id="email">
-                    </div>
-                    <div class="col-md-3">
-                    <label for="password">Password</label>
-                        <input class="form-control" type="text" Placeholder="Password" value=" <?= $Product[0]->password ?>" name="password"
-                            id="password">
                     </div>
                 </div>
                
                 <div class="form-group row">
                 <div class="col-md-6">
                     <label for="address">Address</label>
-                        <input class="form-control" type="text" Placeholder="Address"   value=" <?= $Product[0]->contact_us ?>" name="address"
-                        id="pac-input" >
+                        <input class="form-control" type="text" Placeholder="Address"   value=" <?= $Product[0]->address ?>" name="address"
+                        id="address" >
                         <div id="map"></div>
                     </div>
                    

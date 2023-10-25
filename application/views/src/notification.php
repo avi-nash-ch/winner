@@ -20,7 +20,7 @@ if (null !== $this->session->flashdata('msg')) {
         }
     <?php
      unset($_SESSION['msg']);
-    echo '});';
+    echo '});'; 
     echo '</script>';
 }
 ?>

@@ -10,8 +10,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu" id="side-menu">
-                <li><a href="<?= base_url('backend/dashboard') ?>" class="waves-effect"><i class="ti-home"></i>
-                        <span>Dashboard</span></a></li>
+                <li>
+                    <a href="<?= base_url('backend/dashboard') ?>" class="waves-effect"><i class="ti-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
                 <li class="menu-title">Content</li>
                 <?php if ($this->session->role == 0) { ?>
                     <li class="<?= (array_filter([strpos($final_url, "backend/workers")], 'is_numeric')) ? 'mm-active' : '' ?>">
@@ -20,6 +23,15 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <i class="ion ion-md-contact"></i>
                                 <span>Manage Delevery Boy </span>
                             </a>
+                        </a>
+                    </li>
+                    <li class="<?= (array_filter([strpos($final_url, "backend/customer")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                        <a href="<?= base_url('backend/Customer') ?>" class="waves-effect">
+                            <a href="<?= base_url('backend/Customer') ?>">
+                                <i class="ion ion-md-contact"></i>
+                                <span>Manage Customers</span>
+                            </a>
+                        </a>
                     </li>
                     <li class="<?= (array_filter([strpos($final_url, "backend/shops")], 'is_numeric')) ? 'mm-active' : '' ?>">
                         <a href="<?= base_url('backend/Shops') ?>" class="waves-effect">
@@ -27,9 +39,11 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <i class="ion ion-md-contact"></i>
                                 <span>Manage Shops</span>
                             </a>
+                        </a>
                     </li>
-                
+
                     <li class="">
+
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ion ion-md-contact"></i>
                             <span>Manage Products</span>
@@ -38,19 +52,22 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
 
                             <li class="<?= (array_filter([strpos($final_url, "backend/productcategory")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/ProductCategory') ?>" class="waves-effect">
-                                    <span>Category</span></a>
+                                    <span>Category</span>
+                                </a>
                             </li>
                             <li class="<?= (array_filter([strpos($final_url, "backend/Products")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Products') ?>" class="waves-effect">
-                                    <span>Products</span></a>
+                                    <span>Products</span>
+                                </a>
                             </li>
                             <li class="<?= (array_filter([strpos($final_url, "backend/banners")], 'is_numeric')) ? 'mm-active' : '' ?>">
                                 <a href="<?= base_url('backend/Banners') ?>" class="waves-effect">
-                                    <span>Banners</span></a>
+                                    <span>Banners</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
-        
+
                     <!-- <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ion ion-md-contact"></i>
@@ -153,21 +170,17 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <h4 class="page-title"><?= $title ?></h4>
-
                     </div>
                     <div class="col-sm-6">
                         <div class="float-right d-md-block">
                             <?php
-                            if($this->uri->segment(2)=='dashboard'){
-                                     echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Order Items</button>';
-
+                            if ($this->uri->segment(2) == 'dashboard') {
+                                echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Order Items</button>';
                             }
                             if (isset($SideBarbutton) && isset($SideBarbutton[1])) {
                             ?>
-
-                                <a href="<?= base_url($SideBarbutton[0]) ?>" class="btn btn-primary btn-lg btn-dashboard custom-btn">
-                                    <?= $SideBarbutton[1] ?></a>
-
+                            <a href="<?= base_url($SideBarbutton[0]) ?>" class="btn btn-primary btn-lg btn-dashboard custom-btn">
+                            <?= $SideBarbutton[1] ?></a>
                             <?php
                             } ?>
 

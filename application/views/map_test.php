@@ -38,8 +38,8 @@ body {
       -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCheqXXLZiGbGYObQTX6HkOTjDklpBPCw0&callback=initMap&v=weekly"
-      defer
-    ></script>
+      defer>
+    </script>
   </body>
 </html>
 <script>
@@ -56,13 +56,13 @@ function initMap() {
 }
 
 <?php
-$s='';
-                        $i = 0;
-                        foreach ($AllWorkers as $key => $w) {
-                            $i++;
-                            $s.='["'.$w->name.'('.$w->whatsapp_no.')",'.$w->lat.','.$w->lng.'],';
-                        }
-                        ?>
+    $s='';
+    $i = 0;
+    foreach ($AllWorkers as $key => $w) {
+      $i++;
+    $s.='["'.$w->name.'('.$w->whatsapp_no.')",'.$w->lat.','.$w->lng.'],';
+    }
+?>
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
 // const beaches = [

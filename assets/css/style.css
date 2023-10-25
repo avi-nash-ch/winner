@@ -3587,7 +3587,7 @@ a.faq[data-toggle=collapse]:before {
 }
 
 .wrapper-page .logo-admin {
-    position: absolute;
+    position: absolute; 
     left: 0;
     right: 0;
     bottom: -31px;
