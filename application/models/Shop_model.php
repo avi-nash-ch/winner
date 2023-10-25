@@ -62,7 +62,6 @@ class Shop_model extends MY_Model
         return $Query->row();
     }
 
-
     public function AllOrder()
     {
         $this->db->select('product_orders.*,tbl_worker.name as delivery_boy,tbl_worker.whatsapp_no as d_contact,shop.name as shop_name');
