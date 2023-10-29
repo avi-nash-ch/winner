@@ -435,7 +435,7 @@ public function getItem()
 
         $data = [
             'title' => 'Ordered product Detail',
-            'Product' => $product
+            'product' => $product
         ];
         template('product/order/view', $data);
     }

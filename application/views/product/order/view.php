@@ -27,12 +27,12 @@
         <div class="card">
             <div class="card-body">
                 <?php
-                echo form_open_multipart('', [
-                    'autocomplete' => false, 'id' => 'edit_product', 'method' => 'post'
-                ], [
+                echo form_open_multipart('', 
+                ['autocomplete' => false, 'id' => 'edit_product', 'method' => 'post'],
+                [
                     'type' => $this->url_encrypt->encode('tbl_product'),
                     'id' => $product->id
-                ])
+                ]);
                 ?>
                 <div class="form-group row">
                     <div class="col-md-3">
@@ -43,7 +43,7 @@
                         <label for="email">Email</label>
                         <input class="form-control" type="text" name="email" value="<?= $product->email ?>" id="email" readonly>
                     </div>
-                    <div class="col-md-3">
+                       <div class="col-md-3">
                         <label for="phone">Phone</label>
                         <input class="form-control" type="text" name="phone" value="<?= $product->phone ?>" id="phone" readonly>
                     </div>
@@ -118,7 +118,7 @@
                 echo form_close();
                 ?>
             </div>
-        </div><!-- end col -->
+        </div><!-- end col -->\
     </div>
     <script>
         $(document).ready(() => {
@@ -129,3 +129,4 @@
             <?php } ?>
         });
     </script>
+    
