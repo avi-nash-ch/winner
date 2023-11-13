@@ -10,8 +10,7 @@
 
                 <div class="form-group row"><label for="name" class="col-sm-2 col-form-label"> Company Name *</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" value="<?= $admin->first_name ?>" name="name" required
-                            id="Name">
+                        <input class="form-control" type="text" value="<?= $admin->first_name ?>" name="name" required id="Name">
                     </div>
                 </div>
                 <input type="hidden" value="<?= $admin->id ?>" name="id">

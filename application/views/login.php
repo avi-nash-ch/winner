@@ -45,7 +45,7 @@
                         alt="logo"> -->
                 </a>
             </div>
-            <div class="account-card-content">
+            <div class="account-card-content bg-light">
                 <?php
                 echo  $this->load->view('src/notification', true, true);
                 $form = array(
@@ -86,7 +86,7 @@
                         <div class="form-group row m-t-20">
                             <div class="col-sm-6">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline"> 
+                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
                                     <label class="custom-control-label" for="customControlInline">Remember me</label>
                                 </div>
                             </div>

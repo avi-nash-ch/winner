@@ -74,7 +74,7 @@ class Cart_model extends MY_Model
         $this->db->from('product_orders');
         $this->db->join('tbl_product', 'tbl_product.id=product_orders.product_id');
         $this->db->join('user', 'user.id=product_orders.user_id');
-        // $this->db->where('tbl_product.isDeleted', false);
+        $this->db->where('tbl_product.isDeleted', false);
         $this->db->where('product_orders.isDeleted', false);
         $this->db->order_by('product_orders.id', 'asc');
         $Query = $this->db->get();
@@ -110,3 +110,4 @@ class Cart_model extends MY_Model
     }
 
 }
+
