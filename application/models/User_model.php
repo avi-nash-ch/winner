@@ -4,7 +4,7 @@ class User_model extends MY_Model
 {
     public function insert_user($data)
     {
-        // Assuming you have a database table named 'workers'
+        // Assuming you have a database table named 'user'
         $this->db->insert('user', $data);
         return $this->db->insert_id();
     }
@@ -12,6 +12,7 @@ class User_model extends MY_Model
     {
         $this->db->select("*");
         $this->db->from("user");
+        $this->db->where("isDeleted","0");
         $this->db->order_by('user.id', 'desc');
         $Query = $this->db->get();
         return $Query->result();

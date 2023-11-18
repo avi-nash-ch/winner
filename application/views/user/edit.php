@@ -62,7 +62,7 @@
                     <div class="col-md-6">
                         <label for="status">Status</label>
                         <select class="form-control" name="status" required>
-                            <option value="<?= $Userr->status ?>">Select Status</option>
+                            <option value="" selected>-Select Status-</option>
                             <?php
                             $statusOptions = [
                                 1 => 'Free user',
@@ -71,8 +71,13 @@
                                 4 => 'Demo user'
                             ];
                             foreach ($statusOptions as $id => $option) :
+                                if($id == $Userr->status  ){
+                                    $selected = 'selected';
+                                }else{
+                                    $selected= '';
+                                }
                             ?>
-                                <option value="<?= $id ?>"><?= $option ?></option>
+                                <option value="<?= $id ?>"  <?= $selected ?>><?= $option ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -86,8 +91,13 @@
                         <label for="product_count">Product Count</label>
                         <select class="form-control select2" name="product_count" required>
                             <option value="">-Select Product Count-</option>
-                            <?php for ($i = 1; $i <= 100; $i++) : ?>
-                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php for ($i = 1; $i <= 100; $i++) :
+                                if($i == $Userr->product_count  ){
+                                    $selected = 'selected';
+                                }else{
+                                    $selected= '';
+                                } ?>
+                                <option value="<?= $i ?>" <?= $selected ?>><?= $i ?></option>
                             <?php endfor; ?>
                         </select>
                     </div>

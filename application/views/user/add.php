@@ -71,6 +71,7 @@
                                 4 => 'Demo user'
                             ];
                             foreach ($statusOptions as $id => $option) :
+                                
                             ?>
                                 <option value="<?= $id ?>"><?= $option ?></option>
                             <?php endforeach; ?>

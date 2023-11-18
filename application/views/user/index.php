@@ -19,15 +19,13 @@
                         <?php
                         $i = 0;
                         $statusMapping = [
-                            '0' => 'Free user',
-                            '1' => 'Active Paid',
-                            '2' => 'Social user',
-                            '3' => 'Demo user'
+                            '1' => 'Free user',
+                            '2' => 'Active Paid',
+                            '3' => 'Social user',
+                            '4' => 'Demo user'
                         ];
 
                         foreach ($AllUsers as $key => $user) {
-                            // Check if the user is not deleted (isDeleted is FALSE or not set)
-                            if (!isset($user->isDeleted) || !$user->isDeleted) {
                                 $i++;
                         ?>
                                 <tr>
@@ -46,7 +44,6 @@
                                 </tr>
                         <?php
                             }
-                        }
                         ?>
                     </tbody>
                 </table>

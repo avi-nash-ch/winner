@@ -71,7 +71,7 @@ class Advertisement extends MY_Controller
     public function edit($id)
     {
         $data = [
-            'title' => 'Edit Company',
+            'title' => 'Edit Advertisement',
             'Company' => $this->Advertisement_model->editview($id)
         ];
         template('advertisement/edit', $data);
