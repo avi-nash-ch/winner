@@ -14,6 +14,18 @@ if (!function_exists('render')) {
         $ci->load->view($view, $data);
         $ci->load->view('src/footer', $data);
     }
+    function apptemplate($view, $data) {
+        $title['title'] = $data['title'];
+        $ci = &get_instance();
+        $ci->load->model('Setting_model');
+        $title['logo'] = $ci->Setting_model->Setting();
+        $ci->load->view('appview/src/header', $data);
+        $ci->load->view('appview/src/nav', $title); 
+        $ci->load->view('appview/src/sidebar',$data);
+        $ci->load->view('appview/src/notification', $title);
+        $ci->load->view($view, $data);
+        $ci->load->view('appview/src/footer', $data);
+    }
     function website($view, $data) {
         $title['title'] = $data['title'];
         $ci = &get_instance();

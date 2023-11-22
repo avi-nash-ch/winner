@@ -24,7 +24,7 @@ class Dashboard extends MY_Controller
         // exit;
         template('dashboard/manufacturer', $data);
     }
-
+    
     public function generateBill()
     {
         $result = [];
