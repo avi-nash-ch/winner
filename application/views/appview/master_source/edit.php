@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     .holder {
         height: 120px;
         width: 120px;
@@ -21,7 +21,7 @@
         font-size: 45px;
         color: green;
     }
-</style>
+</style> -->
 <div class="row">
     <div class="col-12">
         <div class="card">
