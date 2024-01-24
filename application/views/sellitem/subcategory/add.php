@@ -6,10 +6,10 @@
     }
 
     img {
-        max-width: 120px;
-        max-height: 120px;
-        min-width: 120px;
-        min-height: 120px;
+        max-width: 36px;
+        max-height: 36px;
+        min-width: 36px;
+        min-height: 36px;
     }
 
     input[type="file"] {

@@ -1,93 +1,92 @@
 <?php
 
-class Users extends MY_Controller
+class User extends MY_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['User_model']);
+        $this->load->model('AppUser_model');
+        $this->load->model('AppFiles_model');
     }
+
+
     public function index()
     {
         $data = [
-            'title' => 'Manage Users',
-            'AllUsers' => $this->User_model->AllUsers()
+            'title' => 'User',
+            'All' => $this->AppUser_model->All(),
         ];
-        $data['SideBarbutton'] = ['backend/Users/add', 'Add User'];
-        template('user/index', $data);
+        $data['SideBarbutton'] = ['app/User/add', 'Add User'];
+        apptemplate('appview/account_user/index', $data);
     }
+
     public function add()
     {
         $data = [
             'title' => 'Add User',
-            'AllUsers' => $this->User_model->AllUsers()
+            'All' => $this->AppUser_model->All(),
+            'AllFiles' => $this->AppFiles_model->allfiles   ()
         ];
-        template('user/add', $data);
+        apptemplate('appview/account_user/add', $data);
     }
+
     public function insert()
     {
         $data = array(
-            'first_name' => $this->input->post('first_name'),
-            'last_name' => $this->input->post('last_name'),
+            'user_name' => $this->input->post('user_name'),
             'mobile' => $this->input->post('mobile'),
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
-            'status' => $this->input->post('status'),
-            'expiry_date' => $this->input->post('expiry_date'),
-            'product_count' => $this->input->post('product_count'),
+            'user_type' => $this->input->post('user_type'),
+            // 'files' => $this->input->post('files'),
             'added_date' => date('Y-m-d H:i:s')
         );
-        // Call the model to insert data into the database
 
-        $inserted = $this->User_model->insert_user($data);
+        $inserted = $this->AppUser_model->insert_user($data);
         if ($inserted) {
             $this->session->set_flashdata('msg', array('message' => 'User Added Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
 
-        // Redirect to the listing page or another appropriate page
-        redirect('backend/Users');
+        redirect('app/User');   
     }
 
     public function edit($id)
     {
         $data = [
             'title' => 'Edit User',
-            'Userr' => $this->User_model->editview($id)
+            'data' => $this->AppUser_model->editview($id)
         ];
-        template('user/edit', $data);
-    }
+        apptemplate('appview/account_user/edit', $data);    }
 
     public function update()
     {
         $data = array(
-            'first_name' => $this->input->post('first_name'),
-            'last_name' => $this->input->post('last_name'),
+            'user_name' => $this->input->post('user_name'),
             'mobile' => $this->input->post('mobile'),
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
-            'status' => $this->input->post('status'),
-            'expiry_date' => $this->input->post('expiry_date'),
-            'product_count' => $this->input->post('product_count'),
+            'user_type' => $this->input->post('user_type'),
+            // 'files' => $this->input->post('files'),
             'updated_date' => date('Y-m-d H:i:s')
         );
 
-        $updated = $this->User_model->user_update($data, $this->input->post('id'));
+        $updated = $this->AppUser_model->user_update($data, $this->input->post('id'));
         if ($updated) {
             $this->session->set_flashdata('msg', array('message' => 'User Updated Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/Users');
+        redirect('app/User');
     }
     public function delete($id)
     {
-        if ($this->User_model->Delete($id)) {
+        if ($this->AppUser_model->Delete($id)) {
             $this->session->set_flashdata('msg', array('message' => 'User Removed Successfully', 'class' => 'success', 'position' => 'top-right'));
         } else {
             $this->session->set_flashdata('msg', array('message' => 'Somthing Went Wrong', 'class' => 'error', 'position' => 'top-right'));
         }
-        redirect('backend/Users');
+        redirect('app/User');
     }
 }

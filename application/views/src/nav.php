@@ -5,7 +5,7 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <a href="#" class="logo"><span style="color: white"><?= PROJECT_NAME ?></span>
-            <i><img src="<?= base_url(LOGO.$logo->logo) ?>" alt="" height="30"></i>
+                <i><img src="<?= base_url(LOGO . $logo->logo) ?>" alt="" height="30"></i>
             </a>
         </div>
         <nav class="navbar-custom">
@@ -21,13 +21,13 @@
                 <li class="dropdown notification-list list-inline-item">
                     <div class="dropdown notification-list nav-pro-img">
                         <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?= base_url(LOGO.$logo->logo) ?>" alt="User" height="30"  class="rounded-circle">
+                            <img src="<?= base_url(LOGO . $logo->logo) ?>" alt="User" height="30" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown">
                             <a class="dropdown-item" href="<?= base_url('backend/Profile/add'); ?>">
-                            <i class="mdi mdi-account-circle m-r-5"></i>Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" href="<?= base_url('backend/auth/logout')?>">
+                                <i class="mdi mdi-account-circle m-r-5"></i>Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="<?= base_url('backend/auth/logout') ?>">
                                 <i class="mdi mdi-power text-danger"></i> Logout</a>
                         </div>
                     </div>

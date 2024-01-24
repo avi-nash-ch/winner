@@ -27,27 +27,27 @@ class MasterCategory extends MY_Controller
         apptemplate('appview/master_category/add', $data);
     }
     public function insert()
-{
-    $data = [
-        'name' => $this->input->post('name'),
-        'added_date' => date('Y-m-d H:i:s')
-    ];
-    $check = $this->AppMasterCategory_model->CheckDuplicate($this->input->post('name'));
+    {
+        $data = [
+            'name' => $this->input->post('name'),
+            'added_date' => date('Y-m-d H:i:s')
+        ];
+        $check = $this->AppMasterCategory_model->CheckDuplicate($this->input->post('name'));
 
-    if (empty($check)) {
-        $category = $this->AppMasterCategory_model->AddTableMaster($data);
+        if (empty($check)) {
+            $category = $this->AppMasterCategory_model->AddTableMaster($data);
 
-        if ($category) {
-            $this->session->set_flashdata('msg', array('message' => 'Category Added Successfully', 'class' => 'success', 'position' => 'top-right'));
+            if ($category) {
+                $this->session->set_flashdata('msg', array('message' => 'Category Added Successfully', 'class' => 'success', 'position' => 'top-right'));
+            } else {
+                $this->session->set_flashdata('msg', array('message' => 'Something Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+            }
         } else {
-            $this->session->set_flashdata('msg', array('message' => 'Something Went Wrong', 'class' => 'error', 'position' => 'top-right'));
+            $this->session->set_flashdata('msg', array('message' => 'Category Already Exists', 'class' => 'error', 'position' => 'top-right'));
         }
-    } else {
-        $this->session->set_flashdata('msg', array('message' => 'Category Already Exists', 'class' => 'error', 'position' => 'top-right'));
-    }
 
-    redirect('app/MasterCategory');
-}
+        redirect('app/MasterCategory');
+    }
     public function edit($id)
     {
         $data = [
@@ -72,7 +72,7 @@ class MasterCategory extends MY_Controller
         }
         redirect('app/MasterCategory');
     }
-   
+
     public function delete($id)
     {
         if ($this->AppMasterCategory_model->Delete($id)) {
@@ -82,9 +82,4 @@ class MasterCategory extends MY_Controller
         }
         redirect('app/MasterCategory');
     }
-   
-
-   
-
-
 }

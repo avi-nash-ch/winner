@@ -14,6 +14,4 @@ $config = array(
             'rules' => 'required',
         ),
     ),
-     
-
 );
