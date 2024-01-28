@@ -173,8 +173,8 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                                 <span>Files</span>
                             </a>
                         </li>
-                        <li class="<?= (array_filter([strpos($final_url, "#")], 'is_numeric')) ? 'mm-active' : '' ?>">
-                            <a href="<?= base_url('#') ?>" class="waves-effect">
+                        <li class="<?= (array_filter([strpos($final_url, "backend/auth/login")], 'is_numeric')) ? 'mm-active' : '' ?>">
+                            <a href="<?= base_url('backend/auth/login') ?>" class="waves-effect">
                                 <span>Logout</span>
                             </a>
                         </li>

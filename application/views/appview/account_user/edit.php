@@ -1,4 +1,3 @@
-
 <style>
     /* .holder {
         height: 120px;
@@ -109,7 +108,7 @@
                                     <td>Can view information only assigned to this user in assigned files.</td>
                                 </tr>
                                 <tr>
-                                    <td>Can only add or update information. Deletion is not allowed to this type of user.</td>
+                                    <td>Can only add or update info. Deletion is not allowed to this type of user.</td>
                                 </tr>
                                 <tr>
                                     <td>Can't add users, but can add assistants.</td>
@@ -122,38 +121,52 @@
                     </div>
                 </div>
                 <br><br>
-                <!-- <div class="form-group">
-                    <div class="col-md-6">
+
+                <div class="form-group">
+                    <div class="col-md-6 col-12">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-8">
                                 <label for="Select Files to Share">Select Files to Share</label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-4">
                                 <label for="Full">Full</label>
                             </div>
                         </div>
+
                         <div class="custom-checkbox">
-                            <?php foreach ($AllFiles as $file) : ?>
+                            <?php foreach ($AllFiles as $file) :
+                                $checked = "";
+                                $permission_checked = "";
+                                foreach ($UserFiles as $key => $value) {
+
+                                    if ($value->file_id == $file->id) {
+                                        $checked = "checked";
+                                        if ($value->permission == 1) {
+                                            $permission_checked = "checked";
+                                        }
+                                    }
+                                }
+                            ?>
                                 <div class="row">
-                                    <div class="col-md-8 custom-checkbox">
-                                        <input type="checkbox" id="file_<?= $file->id ?>" name="files[]" value="<?= $file->id ?>">
+                                    <div class="col-md-8 col-8 custom-checkbox">
+                                        <input type="checkbox" id="file_<?= $file->id ?>" <?= in_array($file->id, array_column($UserFiles, 'file_id')) ? 'checked' : '' ?> name="files[]" value="<?= $file->id ?>">
                                         <label for="file_<?= $file->id ?>"></label>
                                         <span><?= $file->file_name ?></span>
                                     </div>
-                                    <div class="col-md-4 custom-checkbox">
-                                        <input type="checkbox" id="file_<?= $file->id ?>" name="files[]" value="<?= $file->id ?>">
+                                    <div class="col-md-4 col-4 custom-checkbox">
+                                        <input type="checkbox" id="file_permission<?= $file->id ?>" <?= in_array($file->id, array_column($UserFiles, 'file_id')) ? 'checked' : '' ?> name="file_permission[<?= $file->id ?>]" value="1">
                                         <label for="file_<?= $file->id ?>"></label>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="form-group mb-2">
                     <div class="col-md-6">
                         <?php
-                        echo form_submit('submit', 'Save', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
+                        echo form_submit('submit', 'Update', ['class' => 'btn btn-primary waves-effect waves-light mr-1']);
 
                         ?>
                         <a href="<?= base_url('app/User') ?>" class="btn btn-secondary waves-effect">Back</a>

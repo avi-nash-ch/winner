@@ -33,7 +33,7 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             </a>
                         </a>
                     </li>
-                    
+
                 <?php } else { ?>
                     <li class="">
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -88,8 +88,8 @@ $final_url = str_replace(strtolower(base_url()), '', strtolower($actual_link));
                             <?php
                             if (isset($SideBarbutton) && isset($SideBarbutton[1])) {
                             ?>
-                            <a href="<?= base_url($SideBarbutton[0]) ?>" class="btn btn-primary btn-lg btn-dashboard custom-btn">
-                            <?= $SideBarbutton[1] ?></a>
+                                <a href="<?= base_url($SideBarbutton[0]) ?>" class="btn btn-primary btn-lg btn-dashboard custom-btn">
+                                    <?= $SideBarbutton[1] ?></a>
                             <?php
                             } ?>
 

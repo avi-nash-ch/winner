@@ -1,7 +1,9 @@
-<?php 
+<?php
 
-class AppUser_Model extends MY_Model {
-    public function All(){
+class AppUser_Model extends MY_Model
+{
+    public function All()
+    {
         $this->db->select('*');
         $this->db->from('app_tbl_user');
         $this->db->where('isDeleted', false);
@@ -9,7 +11,16 @@ class AppUser_Model extends MY_Model {
         $Query = $this->db->get();
         return $Query->result();
     }
-
+    public function UserFile($user_id)
+    {
+        $this->db->select('*');
+        $this->db->from('app_tbl_user_file_mapping');
+        $this->db->where('isDeleted', false);
+        $this->db->where('user_id', $user_id);
+        $this->db->order_by('id', 'desc');
+        $Query = $this->db->get();
+        return $Query->result();
+    }
     public function insert_user($data)
     {
         $this->db->insert('app_tbl_user', $data);
@@ -42,16 +53,24 @@ class AppUser_Model extends MY_Model {
         return $this->db->last_query();
     }
 
-    public function associateFilesWithUser($userId, $fileId, $permission)
+    public function insert_user_file_mapping($data)
     {
-        // Assuming you have a table named 'app_tbl_user_file_mapping' with columns 'user_id', 'file_id', and 'permission'
-        $data = array(
-            'user_id' => $userId,
-            'file_id' => $fileId,
-            'permission' => $permission
-        );
-
-        $this->db->insert('app_tbl_user_file_mapping', $data);
+        return $this->db->insert('app_tbl_user_file_mapping', $data);
     }
-    
+
+    public function getUpdatedFiles($user_id)
+    {
+        $this->db->select('file_id');
+        $this->db->where('user_id', $user_id);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('app_tbl_user_file_mapping');
+        return $query->result_array();
+    }
+
+    public function update_user_file_mapping($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('app_tbl_user_file_mapping', $data);
+        return $this->db->last_query();
+    }
 }

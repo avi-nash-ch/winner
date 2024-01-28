@@ -22,7 +22,6 @@
         color: green;
     } */
 
-
     .user-type-table {
         width: 100%;
         border-collapse: collapse;
@@ -32,6 +31,7 @@
     .user-type-table td {
         border: 1px solid #ccc;
         padding: 12px;
+
     }
 </style>
 <div class="row">
@@ -105,7 +105,7 @@
                                     <td>Can view information only assigned to this user in assigned files.</td>
                                 </tr>
                                 <tr>
-                                    <td>Can only add or update information. Deletion is not allowed to this type of user.</td>
+                                    <td>Can only add or update info. Deletion is not allowed to this type of user.</td>
                                 </tr>
                                 <tr>
                                     <td>Can't add users, but can add assistants.</td>
@@ -119,30 +119,27 @@
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-12">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-8">
                                 <label for="Select Files to Share">Select Files to Share</label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-4">
                                 <label for="Full">Full</label>
                             </div>
                         </div>
                         <div class="custom-checkbox">
                             <?php foreach ($AllFiles as $file) : ?>
                                 <div class="row">
-                                    <div class="col-md-8 custom-checkbox">
+                                    <div class="col-md-8 col-8 custom-checkbox">
                                         <input type="checkbox" id="file_<?= $file->id ?>" name="files[]" value="<?= $file->id ?>">
                                         <label for="file_<?= $file->id ?>"></label>
                                         <span><?= $file->file_name ?></span>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="custom-checkbox">
-                                            <input type="checkbox" id="file_permission_<?= $file->id ?>" name="file_permission[<?= $file->id ?>]" value="full">
-                                            <label for="file_permission_<?= $file->id ?>"></label>
-                                        </div>
+                                    <div class="col-md-4 col-4 custom-checkbox">
+                                        <input type="checkbox" id="file_permission_<?= $file->id ?>" name="file_permission[<?= $file->id ?>]" value="1">
+                                        <label for="file_permission_<?= $file->id ?>"></label>
                                     </div>
-
                                 </div>
                             <?php endforeach; ?>
                         </div>
